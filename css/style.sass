@@ -95,6 +95,7 @@ html, body
 				position: relative
 				margin: auto
 				border: 5px solid $accent-color
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 
 			.text
 				color: $secondary-color
@@ -140,8 +141,27 @@ html, body
 				margin-left: 100px
 				margin-right: 100px
 
+			a
+				&:hover
+					text-decoration: underline
+					cursor: pointer
+
 		.contact
 			display: none
+			
+			p
+				text-align: center
+
+			i
+				width: 50px
+				height: 50px
+				font-size: 20px
+				&:hover
+					color: $primary-color
+
+			a
+				text-decoration: none
+				color: $header-color
 
 		.work
 			display: none
@@ -165,6 +185,9 @@ html, body
 		.blog
 			display: none
 
+			.hide-show
+
+
 			h2
 				padding-top: 10px
 
@@ -175,6 +198,10 @@ html, body
 				margin-right: 100px
 				margin-top: 40px
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+				padding-bottom: 20px
+
+				p
+					display: none
 
 				a
 					color: #fff

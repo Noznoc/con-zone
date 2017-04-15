@@ -1,5 +1,6 @@
 function pageToggle(){
 	$('#home').addClass("active-page"); // assign active page
+	
 	// activate active page
 	$(".navigation li").on("click", function(){
 		var selected = "." + $(this).attr('value'); // get value of li to know what page to open
@@ -7,5 +8,8 @@ function pageToggle(){
 		$(this).addClass("active-page"); // assign active page
 		$(".body").find("div").hide(); // hide all pages
 		$(selected).show().children().show(); // show active page
+		if ($(this).attr("value") == "home") {
+			slideshow()
+		}
 	});
 }

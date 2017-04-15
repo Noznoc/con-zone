@@ -82,7 +82,8 @@ html, body {
       max-width: 1000px;
       position: relative;
       margin: auto;
-      border: 5px solid #aae0da; }
+      border: 5px solid #aae0da;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
     html .body .home .text, body .body .home .text {
       color: #FFFBFF;
       font-size: 15px;
@@ -120,8 +121,22 @@ html, body {
       html .body .about h2, html .body .about li, body .body .about h2, body .body .about li {
         margin-left: 100px;
         margin-right: 100px; }
+      html .body .about a:hover, body .body .about a:hover {
+        text-decoration: underline;
+        cursor: pointer; }
     html .body .contact, body .body .contact {
       display: none; }
+      html .body .contact p, body .body .contact p {
+        text-align: center; }
+      html .body .contact i, body .body .contact i {
+        width: 50px;
+        height: 50px;
+        font-size: 20px; }
+        html .body .contact i:hover, body .body .contact i:hover {
+          color: #EBDDE2; }
+      html .body .contact a, body .body .contact a {
+        text-decoration: none;
+        color: #201317; }
     html .body .work, body .body .work {
       display: none;
       max-width: 1200px;
@@ -153,7 +168,10 @@ html, body {
         margin-left: 100px;
         margin-right: 100px;
         margin-top: 40px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 20px; }
+        html .body .blog div p, body .body .blog div p {
+          display: none; }
         html .body .blog div a, body .body .blog div a {
           color: #fff;
           text-decoration: none; }
