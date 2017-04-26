@@ -17,12 +17,18 @@ html, body {
     text-align: center;
     font-size: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    @media screen and (max-width: 600px) {
+      html .banner, body .banner {
+        font-size: 16px; } }
     html .banner .imagery, body .banner .imagery {
       position: relative;
       width: 100%; }
       html .banner .imagery img, body .banner .imagery img {
         width: 100%;
         height: 30%; }
+        @media screen and (max-width: 600px) {
+          html .banner .imagery img, body .banner .imagery img {
+            height: 10%; } }
       html .banner .imagery h1, body .banner .imagery h1 {
         position: absolute;
         top: 3%;
@@ -30,6 +36,9 @@ html, body {
         width: 100%;
         height: 30%;
         font-family: "Khand", sans-serif; }
+        @media screen and (max-width: 600px) {
+          html .banner .imagery h1, body .banner .imagery h1 {
+            top: -20%; } }
       html .banner .imagery p, body .banner .imagery p {
         position: absolute;
         top: 90%;
@@ -37,6 +46,10 @@ html, body {
         width: 100%;
         font-family: "Khand", sans-serif;
         font-size: 10px; }
+        @media screen and (max-width: 600px) {
+          html .banner .imagery p, body .banner .imagery p {
+            top: 85%;
+            font-size: 3px; } }
     html .banner .navigation, body .banner .navigation {
       background-color: #EBDDE2;
       list-style-type: none;
@@ -51,6 +64,9 @@ html, body {
         background-color: #EBDDE2;
         font-family: "Khand", sans-serif;
         color: #FFFBFF; }
+        @media screen and (max-width: 600px) {
+          html .banner .navigation li, body .banner .navigation li {
+            padding: 10px 12px; } }
         html .banner .navigation li:hover, body .banner .navigation li:hover {
           background-color: #f0e6e9;
           cursor: pointer; }
@@ -75,6 +91,11 @@ html, body {
       text-align: justify;
       margin-left: 100px;
       margin-right: 100px; }
+      @media screen and (max-width: 600px) {
+        html .body p, body .body p {
+          font-size: 12px;
+          margin-left: 10px;
+          margin-right: 10px; } }
       html .body p a, body .body p a {
         color: #201317;
         text-decoration: none; }
@@ -121,6 +142,10 @@ html, body {
       html .body .about h2, html .body .about li, body .body .about h2, body .body .about li {
         margin-left: 100px;
         margin-right: 100px; }
+        @media screen and (max-width: 600px) {
+          html .body .about h2, html .body .about li, body .body .about h2, body .body .about li {
+            margin-left: 10px;
+            margin-right: 10px; } }
       html .body .about a:hover, body .body .about a:hover {
         text-decoration: underline;
         cursor: pointer; }
@@ -146,6 +171,9 @@ html, body {
         clear: both;
         content: "";
         display: table; }
+      @media screen and (max-width: 600px) {
+        html .body .work, body .body .work {
+          font-size: 12px; } }
       html .body .work a, body .body .work a {
         text-decoration: none;
         color: #aae0da; }
@@ -154,24 +182,43 @@ html, body {
       html .body .work p, body .body .work p {
         text-align: justify;
         margin: 20px 60px; }
-      html .body .work iframe, body .body .work iframe {
-        width: 90%;
-        height: 100%;
-        border: 10px solid #aae0da; }
+        @media screen and (max-width: 600px) {
+          html .body .work p, body .body .work p {
+            margin: 10px 10px; } }
+      html .body .work img, body .body .work img {
+        border: 10px solid #aae0da;
+        max-width: 1000px; }
+        @media screen and (max-width: 600px) {
+          html .body .work img, body .body .work img {
+            max-width: 300px;
+            text-align: center;
+            border: 5px solid #aae0da; } }
     html .body .blog, body .body .blog {
       display: none; }
       html .body .blog h2, body .body .blog h2 {
         padding-top: 10px; }
+        @media screen and (max-width: 600px) {
+          html .body .blog h2, body .body .blog h2 {
+            font-size: 12x; } }
       html .body .blog div, body .body .blog div {
         background-color: #aae0da;
         color: #fff;
         margin-left: 100px;
         margin-right: 100px;
         margin-top: 40px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         padding-bottom: 20px; }
+        @media screen and (max-width: 600px) {
+          html .body .blog div, body .body .blog div {
+            margin-left: 10px;
+            margin-right: 10px; } }
         html .body .blog div p, body .body .blog div p {
-          display: none; }
+          display: none;
+          margin-left: 50px;
+          margin-right: 50px; }
+          @media screen and (max-width: 600px) {
+            html .body .blog div p, body .body .blog div p {
+              margin-left: 25px;
+              margin-right: 25px; } }
         html .body .blog div a, body .body .blog div a {
           color: #fff;
           text-decoration: none; }
@@ -190,6 +237,9 @@ html, body {
     clear: both;
     padding: 7px;
     position: relative; }
+    @media screen and (max-width: 600px) {
+      html .footer, body .footer {
+        font-size: 15px; } }
     html .footer a, body .footer a {
       text-decoration: none;
       color: #FFFBFF; }
