@@ -20,7 +20,7 @@ function pageToggle(){
 		}
 	});
 
-	var url = window.location.href; // stores the url the client has entered
+	/*var url = window.location.href; // stores the url the client has entered
 	var id = url.substr(url.indexOf("#") + 1);
 	console.log(id)
 	if (id !== "contact" || id !=="about" || id !=="work" || id !=="blog") {
@@ -37,5 +37,5 @@ function pageToggle(){
 	$(selected).show().children().show(); // show active page
 	if ($(".navigation li").attr("value") == "home") {
 		slideshow()
-	}
+	}*/
 }
