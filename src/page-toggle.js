@@ -4,12 +4,6 @@ function pageToggle(){
 	// activate active page
 	$(".navigation li").on("click", function(){
 		var section = $(this).attr('value');
-		console.log(section)
-		if (window.location.href.includes("file:///C:/Users/Julia/Documents/Coding/coding_projects/con-zone")) {
-				window.location.href = "file:///C:/Users/Julia/Documents/Coding/coding_projects/con-zone/index.html#" + section;
-		} else {
-			window.location.href = "https://noznoc.github.io/con-zone/index.html#" + section;
-		}
 		var selected = "." + $(this).attr('value'); // get value of li to know what page to open
 		$(".navigation li").removeClass("active-page"); // clear active page
 		$(this).addClass("active-page"); // assign active page
