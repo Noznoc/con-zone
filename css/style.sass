@@ -6,7 +6,8 @@ $header-color: #201317
 $primary-color: #EBDDE2
 $secondary-color: #FFFBFF
 $hover-color: #f0e6e9
-$accent-color: #aae0da
+$accent-color: darken(#aae0da, 10%)
+$container-color: darken($accent-color, 10%)
 $primary-font: 'Khand', sans-serif
 $secondary-font: 'Hind Vadodara', sans-serif
 
@@ -23,7 +24,7 @@ html, body
 		color: $secondary-color
 		text-align: center
 		font-size: 40px
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(235, 221, 226)
 
 		@media screen and (max-width: 600px)
 			font-size: 16px
@@ -167,6 +168,7 @@ html, body
 
 		.contact
 			display: none
+			font-size: 20px
 			
 			p
 				text-align: center
@@ -174,9 +176,9 @@ html, body
 			i
 				width: 50px
 				height: 50px
-				font-size: 20px
+				font-size: 30px
 				&:hover
-					color: $primary-color
+					color: $accent-color
 
 			a
 				text-decoration: none
@@ -217,7 +219,6 @@ html, body
 					font-size: 12x
 
 			div
-				background-color: $accent-color
 				color: #fff
 				margin-left: 100px
 				margin-right: 100px
@@ -235,21 +236,56 @@ html, body
 						margin-left: 25px
 						margin-right: 25px
 
+			div#blog1
+				background-color: darken($accent-color, 10%)
+				i
+					padding: 5px
+					&:hover
+						cursor: pointer
+						color: $header-color
 				a
 					color: #fff
 					text-decoration: none
 					&:hover
-						text-decoration: underline
 						cursor: pointer
+						color: $header-color
+
+			div#blog2
+				background-color: darken($accent-color, 10%)
+				i
+					padding: 5px
+					&:hover
+						cursor: pointer
+						color: $header-color
+				a
+					color: #fff
+					text-decoration: none
+					&:hover
+						cursor: pointer
+						color: $header-color
+
+			div#blog3
+				background-color: darken($accent-color, 10%)
+				i
+					padding: 5px
+					&:hover
+						cursor: pointer
+						color: $header-color
+				a
+					color: #fff
+					text-decoration: none
+					&:hover
+						cursor: pointer
+						color: $header-color
 
 	.footer
-		background-color: $primary-color
+		background-color: $container-color
 		font-family: $primary-font
 		color: $secondary-color
 		bottom: 0
 		width: 100%
 		text-align: center
-		font-size: 20px
+		font-size: 25px
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 		clear: both
 		padding: 7px

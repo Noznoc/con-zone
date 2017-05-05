@@ -16,7 +16,7 @@ html, body {
     color: #FFFBFF;
     text-align: center;
     font-size: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #ebdde2; }
     @media screen and (max-width: 600px) {
       html .banner, body .banner {
         font-size: 16px; } }
@@ -103,7 +103,7 @@ html, body {
       max-width: 1000px;
       position: relative;
       margin: auto;
-      border: 5px solid #aae0da;
+      border: 5px solid #85d2ca;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
     html .body .home .text, body .body .home .text {
       color: #FFFBFF;
@@ -130,7 +130,7 @@ html, body {
       display: inline-block;
       transition: background-color 0.6s ease; }
     html .body .home .active, body .body .home .active {
-      background-color: #aae0da; }
+      background-color: #85d2ca; }
     html .body .home .fade, body .body .home .fade {
       -webkit-animation-name: fade;
       -webkit-animation-duration: 1.5s;
@@ -150,15 +150,16 @@ html, body {
         text-decoration: underline;
         cursor: pointer; }
     html .body .contact, body .body .contact {
-      display: none; }
+      display: none;
+      font-size: 20px; }
       html .body .contact p, body .body .contact p {
         text-align: center; }
       html .body .contact i, body .body .contact i {
         width: 50px;
         height: 50px;
-        font-size: 20px; }
+        font-size: 30px; }
         html .body .contact i:hover, body .body .contact i:hover {
-          color: #EBDDE2; }
+          color: #85d2ca; }
       html .body .contact a, body .body .contact a {
         text-decoration: none;
         color: #201317; }
@@ -176,7 +177,7 @@ html, body {
           font-size: 12px; } }
       html .body .work a, body .body .work a {
         text-decoration: none;
-        color: #aae0da; }
+        color: #85d2ca; }
         html .body .work a:hover, body .body .work a:hover {
           text-decoration: underline; }
       html .body .work p, body .body .work p {
@@ -186,13 +187,13 @@ html, body {
           html .body .work p, body .body .work p {
             margin: 10px 10px; } }
       html .body .work img, body .body .work img {
-        border: 10px solid #aae0da;
+        border: 10px solid #85d2ca;
         max-width: 1000px; }
         @media screen and (max-width: 600px) {
           html .body .work img, body .body .work img {
             max-width: 300px;
             text-align: center;
-            border: 5px solid #aae0da; } }
+            border: 5px solid #85d2ca; } }
     html .body .blog, body .body .blog {
       display: none; }
       html .body .blog h2, body .body .blog h2 {
@@ -201,7 +202,6 @@ html, body {
           html .body .blog h2, body .body .blog h2 {
             font-size: 12x; } }
       html .body .blog div, body .body .blog div {
-        background-color: #aae0da;
         color: #fff;
         margin-left: 100px;
         margin-right: 100px;
@@ -219,20 +219,53 @@ html, body {
             html .body .blog div p, body .body .blog div p {
               margin-left: 25px;
               margin-right: 25px; } }
-        html .body .blog div a, body .body .blog div a {
+      html .body .blog div#blog1, body .body .blog div#blog1 {
+        background-color: #5fc5b9; }
+        html .body .blog div#blog1 i, body .body .blog div#blog1 i {
+          padding: 5px; }
+          html .body .blog div#blog1 i:hover, body .body .blog div#blog1 i:hover {
+            cursor: pointer;
+            color: #201317; }
+        html .body .blog div#blog1 a, body .body .blog div#blog1 a {
           color: #fff;
           text-decoration: none; }
-          html .body .blog div a:hover, body .body .blog div a:hover {
-            text-decoration: underline;
-            cursor: pointer; }
+          html .body .blog div#blog1 a:hover, body .body .blog div#blog1 a:hover {
+            cursor: pointer;
+            color: #201317; }
+      html .body .blog div#blog2, body .body .blog div#blog2 {
+        background-color: #5fc5b9; }
+        html .body .blog div#blog2 i, body .body .blog div#blog2 i {
+          padding: 5px; }
+          html .body .blog div#blog2 i:hover, body .body .blog div#blog2 i:hover {
+            cursor: pointer;
+            color: #201317; }
+        html .body .blog div#blog2 a, body .body .blog div#blog2 a {
+          color: #fff;
+          text-decoration: none; }
+          html .body .blog div#blog2 a:hover, body .body .blog div#blog2 a:hover {
+            cursor: pointer;
+            color: #201317; }
+      html .body .blog div#blog3, body .body .blog div#blog3 {
+        background-color: #5fc5b9; }
+        html .body .blog div#blog3 i, body .body .blog div#blog3 i {
+          padding: 5px; }
+          html .body .blog div#blog3 i:hover, body .body .blog div#blog3 i:hover {
+            cursor: pointer;
+            color: #201317; }
+        html .body .blog div#blog3 a, body .body .blog div#blog3 a {
+          color: #fff;
+          text-decoration: none; }
+          html .body .blog div#blog3 a:hover, body .body .blog div#blog3 a:hover {
+            cursor: pointer;
+            color: #201317; }
   html .footer, body .footer {
-    background-color: #EBDDE2;
+    background-color: #5fc5b9;
     font-family: "Khand", sans-serif;
     color: #FFFBFF;
     bottom: 0;
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     clear: both;
     padding: 7px;
