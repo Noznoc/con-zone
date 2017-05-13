@@ -1,13 +1,16 @@
 function pageToggle(){
 	$('#home').addClass("active-page"); // assign active page
-	var url = 'https://noznoc.github.io/con-zone/index.html'
-	// activate active page
+	var url = window.location.href;
+	var section = url.split("#")[1];
+	url = url.split("/index.html")[0];
+	console.log(section)
+
 	$(".navigation li").on("click", function(){
 		var section = $(this).attr('value');
 		var selected = "." + $(this).attr('value'); // get value of li to know what page to open
 		$(".navigation li").removeClass("active-page"); // clear active page
-		window.location.href = url + "#" + section;
 		$(this).addClass("active-page"); // assign active page
+		window.location.href = url + "/index.html#" + section
 		$(".body").find("div").hide(); // hide all pages
 		$(selected).show().children().show(); // show active page
 		if (section == "home"){
@@ -20,8 +23,6 @@ function pageToggle(){
 
 	$(document).ready(function() {
 		var url = window.location.href;
-		var section = url.split("#")[1];
-		console.log(section);
 		if (section == "home" || section == "about" || section == "work" || section == "blog" || section == "contact") {
 			$(".navigation li").removeClass("active-page");
 			$('.text').hide();
