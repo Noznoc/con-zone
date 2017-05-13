@@ -6,12 +6,27 @@
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<!-- JS -->
 		<script src="./src/page-toggle.js"></script>
-		<script src="./src/slideshow.js"></script>
 		<script src="./src/read-blog.js"></script>
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="./src/maptest.js"></script>
 		<!-- Font Awesome -->
 		<script src='https://use.fontawesome.com/5f92b1f541.js'></script>
+		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+		<!-- Leaflet -->
+		<script src="./resources/leaflet/leaflet.js"></script>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+		
+		<!-- jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<!-- Import mapbox API -->
+		<script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+
+		<!-- Import Tabletop -->
+		<script type="text/javascript" src="./resources/tabletop.js"></script>
+
+		<!-- Leaflet Easy Button -->
+		<script type="text/javascript" src="./resources/easy-button.js"></script>
+		<link rel="stylesheet" type="text/css" href="./resources/easy-button.css"/>
 	</head>
 	<body>
 		<div class="banner">
@@ -22,49 +37,33 @@
 			</div>
 
 			<ul class="navigation">
-				<li id="home" value="home">home</li>
-				<li value="about">about me</li>
-				<li value="work">work</li>
-				<li value="blog">blog</li>
-				<li value="contact">contact</li>
+				<li id="home" value="home" href="#home">home</li>
+				<li id="about" value="about" href="#about">about me</li>
+				<li id="work" value="work" href="#work">work</li>
+				<li id="blog" value="blog" href="#blog">blog</li>
+				<li id="contact" value="contact" href="#contact">contact</li>
 			</ul>
 		</div>
 
 		<div class="body">
-			<div id="home-section" class="home">
+			<div id="home-section" class="home text">
 				<h2>Hello, my name is Julia Conzon</h2>
 				<p>In May 2016, I graduated from McGill University, Canada, with a B.A. in Geography and minors in Geographic Information Systems (GIS) and Anthropology. Through my hard work, discpline, and self-motivation I have harnessed a variety of skills in both quantitative/technical and qualitiative/social backgrounds. My work experiences as a freelance web developer and open data consultant has allowed me to develop websites, data visualizations, and web maps. On my spare time, I am active in the open web mapping community, teaching individuals, for example, about OpenStreetMap and Mapbox. My ultimate goal is to reduce the digital divide through opening up data and opening source code for all to use/repurpose.</p>
-				<div class="slideshow-container">
-					<div id="slide1" class="slide fade">
-					  <div class="numbertext">1 / 4</div>
-					  <img src="./images/shitiping.jpg" style="width:100%">
-					  <div class="text">Tidal flats, Shihtiping, Taiwan (Winter 2017)</div>
-					</div>
-					<div id="slide2" class="slide fade">
-					  <div class="numbertext">2 / 4</div>
-					  <img src="./images/hualien.jpg" style="width:100%">
-					  <div class="text">View of the Pacific, Hualien, Taiwan (Winter 2017)</div>
-					</div>
-					<div id="slide3" class="slide fade">
-					  <div class="numbertext">3 / 4</div>
-					  <img src="./images/conchtrails.jpg" style="width:100%">
-					  <div class="text">Conchtrails, Brussels (Fall 2016)</div>
-					</div>
-					<div id="slide4" class="slide fade">
-					  <div class="numbertext">3 / 4</div>
-					  <img src="./images/greenland.jpg" style="width:100%">
-					  <div class="text">Glaciers, Greenland (Fall 2016)</div>
+				<div class='map-container'>
+					<div class='map-header'><h2>Taiwan Trip</h2></div>
+					<div class='map-dashboard'>
+						<div class='map' id='map'></div>
+						<div class='map-menu'>
+							<p class='map-menu-text'>Story map of my trip to Taiwan</p>
+							<div class='map-button' id='back'><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+							<div class='map-button' id='next'><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+						</div>
 					</div>
 				</div>
-				<br>
-				<div style="text-align:center">
-				  <span id="dot1" class="dot"></span> 
-				  <span id="dot2" class="dot"></span> 
-				  <span id="dot3" class="dot"></span>
-				  <span id="dot4" class="dot"></span> 
-				</div>
+
+				<br>	
 			</div>
-			<div id="about" class='about'>
+			<div class='about text'>
 				<h2>Introduction</h2>
 				<p>In May 2016, I graduated from McGill University, Canada, with a B.A. in Geography and minors in Geographic Information Systems (GIS) and Anthropology. Through my hard work, discpline, and self-motivation I have harnessed a variety of skills in both quantitative/technical and qualitiative/social backgrounds. My work experiences as a freelance web developer and open data consultant has allowed me to develop websites, data visualizations, and web maps. On my spare time, I am active in the open web mapping community, teaching individuals, for example, about OpenStreetMap and Mapbox. My ultimate goal is to reduce the digital divide through opening up data and opening source code for all to use/repurpose.</p>
 				<h2>Work Experience</h2>
@@ -77,23 +76,24 @@
 					<p>Initiated my career focus in open data with Geothink's Open Data Standard Project</p>
 				</ul>
 				<h2>Coding Experience</h2>
-				<p>Front-end: Strong experience with JavaScript, jQuery</p>
+				<p>Front-end: JavaScript, jQuery</p>
 				<p>Back-end: SQL, PostgreSQL, RESTful API, Node.js, Express</p>
 				<p>For web design, I have strong experience with CSS and its precursor's SASS and Burboun</p>
-				<p>I also have experience coding in Python, particularly within Esri products, D3.js, and R</p>
+				<p>I also have experience coding in D3.js, R, and Python, especially for using Esri products</p>
 				<h2>GIS Experience</h2>
 				<p>I have extensive experience collecting, handling, analyzing, and visualizing spatial data with both Esri and open web mapping products. I am familiar with the following software, spatial data, and coding languages: Esri, Mapbox JavaScript library, QGIS, Leaflet API, Google Maps API, KMLs, GeoJSON, shapefiles, imagery, OpenStreetMap, Postgres/PostGIS, ENVI, GDAL, GeoDa, SaTScan, D3.js, and R. I have experience with both raster and vector data</p>
-				<p><strong>For a detailed resume, check out <a href="https://t.co/jMpBYPZXG0" target="_blank">my LinkedIn account</a></strong></p>
+				<p><strong>For a detailed resume, check out <a class="link" href="https://t.co/jMpBYPZXG0" target="_blank">my LinkedIn account</a></strong></p>
 			</div>
-			<div id="work" class="work">
-				<h2>Check out work deliverables I designed and developed. All code is accessible at my GitHub account <a href="https://github.com/Noznoc" target="_blank">Noznoc</a></h2>
-				<img id="standards" src="images/standards.png"></img>
-				<p><strong>Open Data Standards Directory: </strong>I am currrently working with Johns Hopkins University's Center for Government Excellence (GovEx) and McGill's Geothink on a project for open data standards. My part of the project involves designing and developing a site that visualizes data regarding open data standards. I developed both the back and front end of the site. As I am new to site development, working on this project has taught me a lot. So far I have learned how to develop a postgres database and host it in the cloud and how to query the data so that it appears on the front end through Node.js and Express. To fully experience the site, go <strong><a href="https://odstandards-directory.herokuapp.com">here</a></strong></p>
-				<img id="ivop" src="images/ivop.png"></img>
-				<p><strong>Interactive Visualization of Payments:</strong> I worked on contract with Publish What You Pay Canada and Open North as a open data consultant. International ining/oil extraction companies, such as Royal Dutch Shell, publish annual reports on their payments to government organizations and projects. For this project, I compiled data on 2015 payments from international extraction companies to government organization and projects within Canada into a Google Sheet. I then standardized the data (e.g., converted currencies and units of energy) and then, using SQL, visualized the data into an interactive map and dashboard. In general, the visualizations (coded in JavaScript and D3.js and embedded in HTML) shows where mining projects and government organizations (e.g., municipalities and Indigenous groups) are located within Canada and how much these projects and organizations are paid by extraction companies within 2015. The final deliverables included a database of the payments for 2015, with the ability to add future payments; and, as I synced the visualizations to the database, the visualizations can update automatically when new data is added to the database. Through this work, I became familiar with how these companies document/publish their payments to government organizations, what Canadian organizations receive payments from these companies, and where mining projects occur in Canada. To fully experience the interactive visualization, go <strong><a href="http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html">here</a></strong></p>
+			<div class="work text">
+				<div class="container small">Government</div><div class="container small">Open Data</div>
+				<h2>Check out work deliverables I designed and developed. All code is accessible at my <a class="link" href="https://github.com/Noznoc" target="_blank">GitHub account Noznoc</a></h2>
+				<p><strong>Open Data Standards Directory: </strong>I am currrently working with Johns Hopkins University's Center for Government Excellence (GovEx) and McGill's Geothink on a project for <strong><a class="link" href='http://geothink.ca/tag/open-data-standards/'>open data standards</a></strong>. Various stackholders share the concern that there is no comprehensive database of open data standards. A directory to host and visualize the database provides an opprotunity to share knowledge and communication regarding open data standards. With this in mind, we decided to develop a minimum viable site for open data publishers and open data standard providors could share and disseminate information. My part of the project involves designing and developing (full stack) a site that visualizes data regarding open data standards. As I am new to site development, working on this project has taught me a lot. Through this experience, I have learned how to develop a Postgres database, a Jade and JQuery based front-end, and a Node.js and Express back-end, which was then all hosted on the cloud server Heroku. To fully experience the site, go <strong><a  class="link" href="https://odstandards-directory.herokuapp.com">here</a></strong></p>
+				<img  class="image" id="standards" src="images/standards.png"></img>
+				<p><strong>Interactive Visualization of Payments:</strong> I worked on contract with Publish What You Pay Canada and Open North as a open data consultant and freelance web developer. International mining/oil extraction companies, such as Royal Dutch Shell, publish annual reports on their payments to government organizations and projects. For this project, I compiled data on 2015 payments from international extraction companies to government organizations and projects within Canada into a Google Sheet. I then standardized the data (e.g., converted currencies and units of energy) and then, using SQL, visualized the data into an interactive map and dashboard. In general, the visualizations (coded in javaScript and D3.js and embedded in HTML) shows where mining projects and government organizations (e.g., municipalities and Indigenous groups) are located within Canada and how much these projects and organizations are paid by extraction companies within 2015. The final deliverables included a database of the payments for 2015, with the ability to add future payments; and, as I synced the visualizations to the database, the visualizations can update automatically when new data is added to the database. Through this work, I became familiar with how these companies document/publish their payments to government organizations, what Canadian organizations receive payments from these companies, and where mining projects occur in Canada. To fully experience the interactive visualization, go <strong><a class="link"href="http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html">here</a></strong></p>
+				<img class="image" id="ivop" src="images/ivop.png"></img>
 			</div>
-			<div id="blog" class="blog">
-				<div id="blog1">
+			<div class="blog text">
+				<div id="blog1" class="container large">
 					<h2>Mixed Automated and Non-Automated Approaches to VGI</h2><a class='hide-show'><i class='fa fa-plus-circle'></i>Read</a>
 					<p>January 10, 2017</p>
 					<p>With mobile technology accessibility expanding worldwide, new strategies to collect data have emerged. Humans can now act as sensors through internalizing external physical or social phenomena via their mobile technology. For example, as a smartphone owner, I can remotely take a photo of an experience, say a sunset, and then I can publicize this experience through uploading the photo to a social media platform or website. Apart from the photo, I can also add additional information, such as a text description or geotag. In this case, the product, the publicly shared geotagged photo with a description, is volunteered geographic information (VGI), which is any user-generated content that is spatially referenced. My contribution is both explicitly georeferenced through the geotag, but it is also implicitly georeferenced through the description. VGI has been used in several projects as a mechanism to collect and analyze geographic information. This approach has created a new model for collecting geographic information that diverges from the traditional model, which relies on expert cartographers travelling to the field, surveying the land, and recording spatially-referenced attributes.</p>				 
@@ -102,17 +102,19 @@
 					<p>As an alternative, automated methods via algorithms have become a new solution to offset low levels of active contributions. Automated processes will certainly benefit Smart Cities; for example, Google crowdsources Android GPS data to provide traffic reports, which over time could be integrated in self-driving cars to determine which routes to take to avoid traffic. In another case, machine learning can be used to detect buildings in satellite imagery. Automated methods will become extremely useful for real-time sensitive realities, such as a natural disasters.</p>
 					<p>Although there are benefits to automated approaches, there are critiques, particularly on validity because it is difficult to know whether the data is correct when contributors are not actively engaged. This can cause systematic errors in the long run. For example, a team can create an algorithm to mine and analyze Tweets that are spatially referenced. This team considered spatially referenced Tweets to be ones that are either geotagged or ones in which the user has a registered location, in other words, the user’s profile location. However, since you can geotag a tweet to a location that is not your current one, it is difficult to confirm whether a geotagged post is in the same location as where the user sent the post; moreover, just because a user’s account has an assigned location, does not mean they are actively there. I myself, have mined Tweets and spent several hours staring at my datasets overwhelmed with spatial uncertainty.</p>
 					<p>The debate between the advantages and disadvantages of machine and collaborative methodologies to harnessing VGI is emerging and growing, with recent literature even questioning whether volunteer is misleading. Whether or not one approach is the ultimate solution is not up for debate, rather I believe we need to recognize the importance of incorporating both in VGI projects because, as stressed above, VGI projects incorporate humans, technology, and geographic space. Consider Google Maps, although they focused most of their time using automated methods and their employees to create Maps, they are now expanding their platform to make it more suitable for crowdsourcing (similar to OSM). Although Google still is not opening up their geospatial data, they are attempting to account for local knowledge. They recently have started a project that encourages Google Map users to report accessibility for handicap individuals, this way Google Maps will consider accessibility for handicap individuals when routing directions.</p>
+					<p>- Julia Conzon</p>
 				</div>
-				<div id="blog2">
+				<div id="blog2" class="container large">
 					<h2>Opening Our Coordinates</h2><a class='hide-show'><i class='fa fa-plus-circle'></i>Read</a>
 					<p>December 30, 2016</p>
-					<p>In season three's finale, "Hated in the Nation,"" Black Mirror presented a dystopian reality of Smart Cities, particularly the aggregation of sensors within an urban geographic space (<a href="https://www.sfu.ca/gis/schuurman/PDF/Implications of Smartphone Usage on Privacy and Spatial Cognition.pdf">Ricker et al., 2014</a>; Jara et al. 2014). Although dramatized, the episode highlighted the perils of unconsciously releasing personal geographic information for the public to freely access and repurpose. In summary, the fictional private corporation ‘Granular Project’ developed artificial swarm intelligence, or mini drone bees, in response to bee extinction. With the United Kingdom government funding a significant portion of the project, the government linked citizen’s ID photos and names with face recognition software so that the artificial bees, with their embedded cameras, served as a government tool for city surveillance. An employee who worked on the project took advantage of this security breach by programming the bees to track and kill human targets in an act of terrorism. Initially unbeknownst to the general public, these targets were chosen through the hashtag #DeathTo that would trend on a Twitter-like platform. With knowledge of the target's whereabouts from a target's cellphone's International Mobile Station Equipment Identity (IMEI), the swarm of intelligence would automatically locate, swarm, and kill the target.</p>
+					<p>In season three's finale, "Hated in the Nation,"" Black Mirror presented a dystopian reality of Smart Cities, particularly the aggregation of sensors within an urban geographic space (<a class="link" href="https://www.sfu.ca/gis/schuurman/PDF/Implications of Smartphone Usage on Privacy and Spatial Cognition.pdf">Ricker et al., 2014</a>; Jara et al. 2014). Although dramatized, the episode highlighted the perils of unconsciously releasing personal geographic information for the public to freely access and repurpose. In summary, the fictional private corporation 'Granular Project' developed artificial swarm intelligence, or mini drone bees, in response to bee extinction. With the United Kingdom government funding a significant portion of the project, the government linked citizen’s ID photos and names with face recognition software so that the artificial bees, with their embedded cameras, served as a government tool for city surveillance. An employee who worked on the project took advantage of this security breach by programming the bees to track and kill human targets in an act of terrorism. Initially unbeknownst to the general public, these targets were chosen through the hashtag #DeathTo that would trend on a Twitter-like platform. With knowledge of the target's whereabouts from a target's cellphone's International Mobile Station Equipment Identity (IMEI), the swarm of intelligence would automatically locate, swarm, and kill the target.</p>
 					<p>Yes, it is both dramatic and terrifying, but it is also plausible as our society continues to become more integrated with mobile technology, particularly smart phone applications that require access to cell phones’ location to provide services, such as Uber or PokemonGo. Mobile applications today leverage the complex relationship between a human, their mobile technology, and their surrounding physical and social infrastructures in order to provide location based services (LBS). In this relationship, a human acts as a sensor; they internalize external physical and/or institutional phenomena and then actively or passively publish these observations through their mobile GPS, camera, recorder, and internet access (Goodchild 2008). In other words, the human provides volunteered geographic information (VGI). For example, the Google Maps and Uber apps both require their users to access the internet with their mobile devices and provide their explicit location via their mobile’s GPS; in exchange, Google Maps provides route directions, including public transportation and bike routing, while Uber provides a transportation service. These apps are even expanding their market. For example, Google Maps is starting to include indoor routing and Uber is expanding as a delivery service.</p>
-					<p>We receive services from opening our coordinates, but we also risk losing our privacy. Consider the proliferation of check-ins on November 1, 2016, at Standing Rock Reservation, in which the police were accused of monitoring Facebook users' check-ins (<a href="https://www.theguardian.com/us-news/2016/oct/31/north-dakota-access-pipeline-protest-mass-facebook-check-in">Levin and Woolf 2016</a>). Facebook users' geotagged posts were reportedly repurposed by the police to monitor protesters at Standing Rock Reservation. Although it is still unclear whether the police were correctly accused, as an act of global solidarity and technological outreach, Facebook users checked into Standing Rock to act as decoys.</p>
-					<p>When we blindly grant mobile applications access to our location, we are allowing an unknown public audience to repurpose our VGI. Whether or not the police monitored the Standing Rock check-ins, protestors who checked into Standing Rock did not expect that their check-ins would be monitored by the police. That being said, "slacktivism" occurred, where modern technology allowed people from all across the globe who share similar values on a geographic place to virtually amass (<a href="http://www.cbc.ca/news/technology/standing-rock-check-in-1.3830156">CBC 2016</a>). So, rather than continue the dooms-day narrative introduced in Black Mirror, one which highlights the privacy perils of blindly releasing social media posts and your VGI to the public, we can create a new narrative that redefines privacy based on the complex relationship between humans, technologies, and geographic space.</p>
+					<p>We receive services from opening our coordinates, but we also risk losing our privacy. Consider the proliferation of check-ins on November 1, 2016, at Standing Rock Reservation, in which the police were accused of monitoring Facebook users' check-ins (<a class="link" href="https://www.theguardian.com/us-news/2016/oct/31/north-dakota-access-pipeline-protest-mass-facebook-check-in">Levin and Woolf 2016</a>). Facebook users' geotagged posts were reportedly repurposed by the police to monitor protesters at Standing Rock Reservation. Although it is still unclear whether the police were correctly accused, as an act of global solidarity and technological outreach, Facebook users checked into Standing Rock to act as decoys.</p>
+					<p>When we blindly grant mobile applications access to our location, we are allowing an unknown public audience to repurpose our VGI. Whether or not the police monitored the Standing Rock check-ins, protestors who checked into Standing Rock did not expect that their check-ins would be monitored by the police. That being said, "slacktivism" occurred, where modern technology allowed people from all across the globe who share similar values on a geographic place to virtually amass (<a class="link" href="http://www.cbc.ca/news/technology/standing-rock-check-in-1.3830156">CBC 2016</a>). So, rather than continue the dooms-day narrative introduced in Black Mirror, one which highlights the privacy perils of blindly releasing social media posts and your VGI to the public, we can create a new narrative that redefines privacy based on the complex relationship between humans, technologies, and geographic space.</p>
+					<p>- Julia Conzon</p>
 				</div>
-				<div id="blog3">
-					<h2><a href='http://geothink.ca/the-state-of-the-map-2016/' target="_blank">Blog on State of the Map Brussels 2016</a></h2><a class='hide-show'><i class='fa fa-plus-circle'></i>Read</a>
+				<div id="blog3" class="container large">
+					<h2><a class="link" href='http://geothink.ca/the-state-of-the-map-2016/' target="_blank">Blog on State of the Map Brussels 2016</a></h2><a class='hide-show'><i class='fa fa-plus-circle'></i>Read</a>
 					<p>October 17, 2016</p>
 					<p>I recently attended the State of the Map (SOTM) in Brussels, Belgium. SOTM is a conference that discusses various social, political, and technical components of OpenStreetMap (OSM), a mapping website that aims to map all of Earth’s landscapes, such as social and physical infrastructures. You may wonder, doesn’t Google already do this? In short, yes, Google has done an efficient job producing Google Maps and its associated routing/navigation software; but it still has its limitations. First, Google Maps has several unmapped locations. As addressed by SOTM’s keynote speaker Allan Mustard, US Ambassador to Turkmenistan, if you compare the map of Ashgabat, Turkmenistan, between Google Maps and OSM, you will certainly see a difference (Figure 1). Secondly, Google’s spatial data is not open, which hampers equality and empowerment. Thanks to Ambassador Mustard’s initiative to use OSM, he and several Ashgabat locals have mapped out the remote city and now the citizens can use this open spatial data for various socio-economic purposes. For example, prior to the OSM maps, Ashgabat taxi drivers did not know where all the gas stations were located. Now, with a local map openly accessible to all citizens, Ambassador Mustard says taxi drivers are more efficient at navigation. In short, OSM provides an open-source platform that allows worldwide internet users to contribute geographic features of anywhere from anywhere, which then can be freely downloaded by anyone to use.</p>
 					<p>Government Support</p>
@@ -124,11 +126,12 @@
 					<p>Conclusion</p>
 					<p>Overall, the State of the Map presented two trends: collaborative learning and machine learning. The latter trend reflects discussions on automation of mapping processes, while the former trend reflects discussions on on-the-ground mapping with locals. Although these trends seem diverging, OSM’s platform is capable of incorporating both. As OSM Foundation’s Mikel Maron mentioned, it is about being “a part of the database.” Whether it be building technical tools to ease mapping complex areas or educating locals to contribute geospatial data, both trends aim to provide open geospatial data for all to use.</p>
 					<p>This collaborative environment has ultimately encouraged me to sustain the initiative for open spatial data. With the knowledge I have gained from the conference, I will introduce several new activities to Maptime MTL. Feel free to contact me at juliaconzon@gmail.com or maptimemtl@gmail.com if you are interested in participating or collaborating. You can also connect with me on Twitter @julconz and LinkedIn.</p>
+					<p>- Julia Conzon</p>
 				</div>
 			</div>
-			<div id="contact" class="contact">
+			<div class="contact text">
 				<h2>Julia Conzon</h2>
-				<a href="https://github.com/Noznoc" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>  |  <a href="https://t.co/jMpBYPZXG0" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>  |  <a href="https://twitter.com/julconz?lang=en" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+				<a class="link icon" href="https://github.com/Noznoc" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>  |  <a class="link icon" href="https://t.co/jMpBYPZXG0" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>  |  <a class="link icon" href="https://twitter.com/julconz?lang=en" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
 				<p>or e-mail me at juliaconzon@gmail.com</p>
 			</div>
 		</div>
@@ -138,8 +141,27 @@
 		</div>
 		<script>
 			pageToggle();
-			slideshow();
+			//slideshow();
+			//map();
 			readBlog();
+
+			/*$(window).on('hashchange', function () {
+				var url = window.location.href; // stores the url the client has entered
+				var id = url.substr(url.indexOf("#") + 1);
+				console.log(id)
+				if (id !== "contact" || id !=="about" || id !=="work" || id !=="blog") {
+					id = "home";
+				}
+			    $(".navigation li").removeClass("active-page"); // clear active page
+			    $(".navigation li").each(function(){
+					if ($(this).attr("value") == id) {
+						$(this).addClass("active-page"); // assign active page
+					}
+				});
+				$(".body").find("div").hide(); // hide all pages
+				var selected = "." + id;
+				$(selected).show().children().show(); // show active page
+			});*/
 		</script>
 	</body>
 </html>

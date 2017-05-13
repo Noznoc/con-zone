@@ -1,4 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
 html {
   box-sizing: border-box; }
 
@@ -12,71 +19,7 @@ html, body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden; }
-  html .banner, body .banner {
-    color: #FFFBFF;
-    text-align: center;
-    font-size: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #ebdde2; }
-    @media screen and (max-width: 600px) {
-      html .banner, body .banner {
-        font-size: 16px; } }
-    html .banner .imagery, body .banner .imagery {
-      position: relative;
-      width: 100%; }
-      html .banner .imagery img, body .banner .imagery img {
-        width: 100%;
-        height: 30%; }
-        @media screen and (max-width: 600px) {
-          html .banner .imagery img, body .banner .imagery img {
-            height: 10%; } }
-      html .banner .imagery h1, body .banner .imagery h1 {
-        position: absolute;
-        top: 3%;
-        left: 0px;
-        width: 100%;
-        height: 30%;
-        font-family: "Khand", sans-serif; }
-        @media screen and (max-width: 600px) {
-          html .banner .imagery h1, body .banner .imagery h1 {
-            top: -20%; } }
-      html .banner .imagery p, body .banner .imagery p {
-        position: absolute;
-        top: 90%;
-        left: 42%;
-        width: 100%;
-        font-family: "Khand", sans-serif;
-        font-size: 10px; }
-        @media screen and (max-width: 600px) {
-          html .banner .imagery p, body .banner .imagery p {
-            top: 85%;
-            font-size: 3px; } }
-    html .banner .navigation, body .banner .navigation {
-      background-color: #EBDDE2;
-      list-style-type: none;
-      margin: 0;
-      padding: 0; }
-      html .banner .navigation li, body .banner .navigation li {
-        top: 0;
-        display: inline-block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        background-color: #EBDDE2;
-        font-family: "Khand", sans-serif;
-        color: #FFFBFF; }
-        @media screen and (max-width: 600px) {
-          html .banner .navigation li, body .banner .navigation li {
-            padding: 10px 12px; } }
-        html .banner .navigation li:hover, body .banner .navigation li:hover {
-          background-color: #f0e6e9;
-          cursor: pointer; }
-      html .banner .navigation li.active-page, body .banner .navigation li.active-page {
-        background-color: #fff;
-        color: #201317; }
   html .body, body .body {
-    font-family: "Hind Vadodara", sans-serif;
-    color: #201317;
-    text-align: center;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -87,196 +30,301 @@ html, body {
       clear: both;
       content: "";
       display: table; }
-    html .body p, body .body p {
-      text-align: justify;
-      margin-left: 100px;
-      margin-right: 100px; }
-      @media screen and (max-width: 600px) {
-        html .body p, body .body p {
-          font-size: 12px;
-          margin-left: 10px;
-          margin-right: 10px; } }
-      html .body p a, body .body p a {
-        color: #201317;
-        text-decoration: none; }
-    html .body .home .slideshow-container, body .body .home .slideshow-container {
-      max-width: 1000px;
-      position: relative;
-      margin: auto;
-      border: 5px solid #85d2ca;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
-    html .body .home .text, body .body .home .text {
-      color: #FFFBFF;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.banner {
+  color: #FFFBFF;
+  text-align: center;
+  font-size: 40px; }
+  @media screen and (max-width: 600px) {
+    .banner {
+      font-size: 16px; } }
+  .banner .imagery {
+    position: relative;
+    width: 100%; }
+    .banner .imagery img {
       width: 100%;
-      text-align: center;
-      font-family: "Khand", sans-serif; }
-    html .body .home .numbertext, body .body .home .numbertext {
-      color: #FFFBFF;
-      font-family: "Khand", sans-serif;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0; }
-    html .body .home .dot, body .body .home .dot {
-      height: 13px;
-      width: 13px;
-      margin: 0 2px;
-      background-color: #EBDDE2;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease; }
-    html .body .home .active, body .body .home .active {
-      background-color: #85d2ca; }
-    html .body .home .fade, body .body .home .fade {
-      -webkit-animation-name: fade;
-      -webkit-animation-duration: 1.5s;
-      animation-name: fade;
-      animation-duration: 1.5s; }
-    html .body .about, body .body .about {
-      text-align: justify;
-      display: none; }
-      html .body .about h2, html .body .about li, body .body .about h2, body .body .about li {
-        margin-left: 100px;
-        margin-right: 100px; }
-        @media screen and (max-width: 600px) {
-          html .body .about h2, html .body .about li, body .body .about h2, body .body .about li {
-            margin-left: 10px;
-            margin-right: 10px; } }
-      html .body .about a:hover, body .body .about a:hover {
-        text-decoration: underline;
-        cursor: pointer; }
-    html .body .contact, body .body .contact {
-      display: none;
-      font-size: 20px; }
-      html .body .contact p, body .body .contact p {
-        text-align: center; }
-      html .body .contact i, body .body .contact i {
-        width: 50px;
-        height: 50px;
-        font-size: 30px; }
-        html .body .contact i:hover, body .body .contact i:hover {
-          color: #85d2ca; }
-      html .body .contact a, body .body .contact a {
-        text-decoration: none;
-        color: #201317; }
-    html .body .work, body .body .work {
-      display: none;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto; }
-      html .body .work::after, body .body .work::after {
-        clear: both;
-        content: "";
-        display: table; }
+      height: 30%; }
       @media screen and (max-width: 600px) {
-        html .body .work, body .body .work {
-          font-size: 12px; } }
-      html .body .work a, body .body .work a {
-        text-decoration: none;
-        color: #85d2ca; }
-        html .body .work a:hover, body .body .work a:hover {
-          text-decoration: underline; }
-      html .body .work p, body .body .work p {
-        text-align: justify;
-        margin: 20px 60px; }
-        @media screen and (max-width: 600px) {
-          html .body .work p, body .body .work p {
-            margin: 10px 10px; } }
-      html .body .work img, body .body .work img {
-        border: 10px solid #85d2ca;
-        max-width: 1000px; }
-        @media screen and (max-width: 600px) {
-          html .body .work img, body .body .work img {
-            max-width: 300px;
-            text-align: center;
-            border: 5px solid #85d2ca; } }
-    html .body .blog, body .body .blog {
-      display: none; }
-      html .body .blog h2, body .body .blog h2 {
-        padding-top: 10px; }
-        @media screen and (max-width: 600px) {
-          html .body .blog h2, body .body .blog h2 {
-            font-size: 12x; } }
-      html .body .blog div, body .body .blog div {
-        color: #fff;
-        margin-left: 100px;
-        margin-right: 100px;
-        margin-top: 40px;
-        padding-bottom: 20px; }
-        @media screen and (max-width: 600px) {
-          html .body .blog div, body .body .blog div {
-            margin-left: 10px;
-            margin-right: 10px; } }
-        html .body .blog div p, body .body .blog div p {
-          display: none;
-          margin-left: 50px;
-          margin-right: 50px; }
-          @media screen and (max-width: 600px) {
-            html .body .blog div p, body .body .blog div p {
-              margin-left: 25px;
-              margin-right: 25px; } }
-      html .body .blog div#blog1, body .body .blog div#blog1 {
-        background-color: #5fc5b9; }
-        html .body .blog div#blog1 i, body .body .blog div#blog1 i {
-          padding: 5px; }
-          html .body .blog div#blog1 i:hover, body .body .blog div#blog1 i:hover {
-            cursor: pointer;
-            color: #201317; }
-        html .body .blog div#blog1 a, body .body .blog div#blog1 a {
-          color: #fff;
-          text-decoration: none; }
-          html .body .blog div#blog1 a:hover, body .body .blog div#blog1 a:hover {
-            cursor: pointer;
-            color: #201317; }
-      html .body .blog div#blog2, body .body .blog div#blog2 {
-        background-color: #5fc5b9; }
-        html .body .blog div#blog2 i, body .body .blog div#blog2 i {
-          padding: 5px; }
-          html .body .blog div#blog2 i:hover, body .body .blog div#blog2 i:hover {
-            cursor: pointer;
-            color: #201317; }
-        html .body .blog div#blog2 a, body .body .blog div#blog2 a {
-          color: #fff;
-          text-decoration: none; }
-          html .body .blog div#blog2 a:hover, body .body .blog div#blog2 a:hover {
-            cursor: pointer;
-            color: #201317; }
-      html .body .blog div#blog3, body .body .blog div#blog3 {
-        background-color: #5fc5b9; }
-        html .body .blog div#blog3 i, body .body .blog div#blog3 i {
-          padding: 5px; }
-          html .body .blog div#blog3 i:hover, body .body .blog div#blog3 i:hover {
-            cursor: pointer;
-            color: #201317; }
-        html .body .blog div#blog3 a, body .body .blog div#blog3 a {
-          color: #fff;
-          text-decoration: none; }
-          html .body .blog div#blog3 a:hover, body .body .blog div#blog3 a:hover {
-            cursor: pointer;
-            color: #201317; }
-  html .footer, body .footer {
-    background-color: #5fc5b9;
-    font-family: "Khand", sans-serif;
-    color: #FFFBFF;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    clear: both;
-    padding: 7px;
-    position: relative; }
-    @media screen and (max-width: 600px) {
-      html .footer, body .footer {
-        font-size: 15px; } }
-    html .footer a, body .footer a {
+        .banner .imagery img {
+          height: 10%; } }
+    .banner .imagery h1 {
+      position: absolute;
+      top: 3%;
+      left: 0px;
+      width: 100%;
+      height: 30%;
+      font-family: "Khand", sans-serif; }
+      @media screen and (max-width: 600px) {
+        .banner .imagery h1 {
+          top: -20%; } }
+    .banner .imagery p {
+      position: absolute;
+      top: 90%;
+      left: 42%;
+      width: 100%;
+      font-family: "Khand", sans-serif;
+      font-size: 10px; }
+      @media screen and (max-width: 600px) {
+        .banner .imagery p {
+          top: 85%;
+          font-size: 3px; } }
+  .banner .navigation {
+    background-color: #688BC0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px; }
+    .banner .navigation li {
+      top: 0;
+      display: inline-block;
+      text-align: center;
+      padding: 14px 16px;
       text-decoration: none;
+      background-color: #688BC0;
+      font-family: "Khand", sans-serif;
       color: #FFFBFF; }
-      html .footer a:hover, body .footer a:hover {
-        text-decoration: underline; }
+      @media screen and (max-width: 600px) {
+        .banner .navigation li {
+          padding: 10px 12px; } }
+      .banner .navigation li:hover {
+        background-color: #b0c2de;
+        cursor: pointer; }
+    .banner .navigation li.active-page {
+      background-color: #fff;
+      color: #201317; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.footer {
+  background-color: #688BC0;
+  font-family: "Khand", sans-serif;
+  color: #FFFBFF;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  clear: both;
+  padding: 7px;
+  position: relative; }
+  @media screen and (max-width: 600px) {
+    .footer {
+      font-size: 15px; } }
+  .footer a {
+    text-decoration: none;
+    color: #FFFBFF; }
+    .footer a:hover {
+      text-decoration: underline; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.container {
+  background-color: #fff;
+  font-family: "Hind Vadodara", sans-serif;
+  border: 3px solid #5fc5b9;
+  margin: 40px 0px;
+  padding-bottom: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 600px) {
+    .container {
+      margin-left: 10px;
+      margin-right: 10px;
+      font-size: 12x; } }
+  .container p {
+    display: none;
+    margin-left: 50px;
+    margin-right: 50px; }
+    @media screen and (max-width: 600px) {
+      .container p {
+        margin-left: 25px;
+        margin-right: 25px; } }
+  .container i, .container a {
+    padding: 5px;
+    color: #201317;
+    text-decoration: none; }
+    .container i:hover, .container a:hover {
+      cursor: pointer;
+      color: #201317; }
+
+.large {
+  width: 1000px; }
+  @media screen and (max-width: 600px) {
+    .large {
+      width: 300px; } }
+
+.medium {
+  width: 700px; }
+
+.small {
+  width: 300px; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.map-container {
+  text-align: center;
+  font: "Khand", sans-serif;
+  font-size: 20px;
+  border-bottom: 5px solid #5fc5b9;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
+  .map-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .map-container .map-header {
+    border: 5px solid #5fc5b9;
+    width: 1000px;
+    height: 100px;
+    display: inline-block;
+    color: #fff;
+    background-color: #5fc5b9; }
+  .map-container .map-dashboard {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto; }
+    .map-container .map-dashboard::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .map-container .map-dashboard #map {
+      height: 500px;
+      margin: 0px auto;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .map-container .map-dashboard #map:last-child {
+        margin-right: 0; }
+    .map-container .map-dashboard .map-menu {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      height: 500px;
+      color: "Khand", sans-serif; }
+      .map-container .map-dashboard .map-menu:last-child {
+        margin-right: 0; }
+      .map-container .map-dashboard .map-menu .map-menu-text {
+        width: 500px;
+        height: 100px;
+        margin: 0px auto;
+        text-align: center;
+        padding-top: 20px; }
+      .map-container .map-dashboard .map-menu .map-button {
+        width: 170px;
+        display: inline-block;
+        padding-top: 300px;
+        color: #5fc5b9;
+        font-size: 30px; }
+        .map-container .map-dashboard .map-menu .map-button:hover {
+          color: #aae0da;
+          cursor: pointer; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.image {
+  border: 5px solid #85d2ca;
+  max-width: 1000px; }
+  @media screen and (max-width: 600px) {
+    .image {
+      max-width: 300px;
+      text-align: center;
+      border: 5px solid #85d2ca; } }
+
+.text h2, .text li, .text p {
+  font-family: "Hind Vadodara", sans-serif;
+  text-align: justify;
+  color: primary-font;
+  max-width: 1000px;
+  margin-left: 100px;
+  margin-right: 100px; }
+  @media screen and (max-width: 600px) {
+    .text h2, .text li, .text p {
+      font-size: 12px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+
+.blog.text h2 {
+  text-align: center; }
+
+.contact.text h2, .contact.text p {
+  text-align: center; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.link {
+  color: #688BC0; }
+  .link:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+  @media screen and (max-width: 600px) {
+    .link {
+      font-size: 12px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+
+.icon {
+  font-size: 40px;
+  margin: 20px;
+  color: #201317; }
+  .icon:hover {
+    cursor: pointer;
+    color: #85d2ca; }
+  @media screen and (max-width: 600px) {
+    .icon {
+      font-size: 12px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+
+.about {
+  display: none; }
+
+.contact {
+  display: none; }
+
+.work {
+  display: none; }
+
+.blog {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
