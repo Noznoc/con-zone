@@ -5,26 +5,27 @@ var options = {
   promiseLib: promise // initialization options
 };
 
-var connectionString = process.env.DATABASE_URL || 'postgres://postgres:january2017*@127.0.0.1/osm_canada'; // Heroku postgres OR local host postgres inventory database @localhost:5432
+var connectionString = process.env.DATABASE_URL || 'postgres://postgres:january2017*@127.0.0.1/projects'; // Heroku postgres OR local host postgres inventory database @localhost:5432
 var db = pgp(connectionString); // using pg-promise, create database with connection details
 
-// this calculates the area of all polygons. Units are in squared meters
-function area(req, res, next){
-  var area = 0;
+function about(req, res, next){
+  res.render('index', {page: 'about', title: '', body: ''})
+}
 
-  // for each polygon convert the geometry from degrees and then calculate the area
-  db.each('select ST_Area(wkb_geometry::geography) as area from ottawa', [], row => {
-    area += row.area; // add the area to the polygon
-  })
-    .then(function () {
-      res.status(200)
-        .json({
-          area: area
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
+function work(req, res, next){
+  res.render('index', {page: 'work', title: '', body: ''})
+}
+
+function blog(req, res, next){
+  res.render('index', {page: 'blog', title: '', body: ''})
+}
+
+function contact(req, res, next){
+  res.render('index', {page: 'contact', title: '', body: ''})
+}
+
+function home(req, res, next){
+
 }
 
 // this Express middleware function gets the data based on the url request
@@ -32,9 +33,8 @@ function getData(req, res, next) {
   var geom = [], // to store the geometry 
       geojson = [], // to store the complete geojsons
       city = req.params.id; // to store the city requested from user
-
   // for each row in the database select the geometry and building type and centroid from the city's table
-  db.each('select ST_AsGeoJSON(wkb_geometry)::json as geometry, building as type, ST_Area(wkb_geometry::geography) as area, ST_AsGeoJSON(ST_Centroid(wkb_geometry))::json as centroid from ' + city, [], row => {
+  db.each('select ST_AsGeoJSON(wkb_geometry)::json as geometry, type as type, ST_Area(wkb_geometry::geography) as area from ' + city, [], row => {
     var featureType = row.geometry.type, // store the feature type (e.g., polygon, point)
         buildingType = row.type; // store the building type
 
@@ -46,8 +46,7 @@ function getData(req, res, next) {
         'geometry': row.geometry,
         'properties': {
           'building': row.type,
-          'area': row.area,
-          'centroid': row.centroid
+          'area': row.area
         }
       }
       geom.push(data); // push the geojson geometry and properties data in the geom array 
@@ -73,6 +72,10 @@ function getData(req, res, next) {
 
 // add query functions to app 
 module.exports = {
-  getData: getData,
-  area: area
+  about: about,
+  work: work,
+  contact: contact,
+  blog: blog,
+  home: home,
+  getData: getData
 };

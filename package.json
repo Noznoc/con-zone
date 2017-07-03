@@ -1,7 +1,7 @@
 {
   "name": "geojson-api",
   "version": "1.0.0",
-  "description": "OSM GeoJSON API",
+  "description": "Julia Conzon's web site",
   "scripts": {
     "start": "supervisor ./bin/www"
   },
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Noznoc/geojson-api"
+    "url": ""
   },
   "author": "Julia Conzon"
 }

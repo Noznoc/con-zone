@@ -1,0 +1,38 @@
+.site-header
+	.map-container
+		#map
+	ul.navigation.navigation-content
+		li
+			a.link.icon(href='https://t.co/jMpBYPZXG0', target='_blank')
+				i.fa.fa-linkedin-square(aria-hidden='true')
+		li 
+			a.link.icon(href='https://github.com/Noznoc', target='_blank')
+				i.fa.fa-github(aria-hidden='true')
+		li
+			a.link.icon(href='https://twitter.com/julconz?lang=en', target='_blank')
+				i.fa.fa-twitter-square(aria-hidden='true')
+	ul.navigation.navigation-site
+		li home
+		li#about about
+		li#work work
+		li#blog blog
+		li#contact contact
+	script.
+		if ('#{page}' == 'about') {
+			$('#about').addClass('active');
+		} else if ('#{page}' == 'work') {
+			$('#work').addClass('active');
+		} else if ('#{page}' == 'blog') {
+			$('#blog').addClass('active');
+		} else if ('#{page}' == 'contact') {
+			$('#contact').addClass('active');
+		}
+
+		$('ul.navigation li').on('click', function() {
+			console.log(this)
+			if ($(this).html() == 'home') {
+				window.location.href = './';
+			} else {
+				window.location.href = './' + $(this).html();
+			}
+		});

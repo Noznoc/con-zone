@@ -1,7 +1,14 @@
 html, body
 	margin: 0 auto
 	padding: 0px 0px
+	height: 100%
 	width: 100%
-	min-height: 100%
 	overflow-x: hidden
-	font-family: $primary-font
+
+	.site-content
+		min-height: 100%
+		position: relative
+		width: 100%
+		text-align: center
+		@include outer-container(1000px)
+		padding-bottom: 70px

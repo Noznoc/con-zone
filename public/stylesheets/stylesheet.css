@@ -1,55 +1,156 @@
-@import url(https://fonts.googleapis.com/css?family=Yantramanav);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara|Khand);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 html, body {
   margin: 0 auto;
   padding: 0px 0px;
+  height: 100%;
   width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-  font-family: "Yantramanav", sans-serif; }
+  overflow-x: hidden; }
+  html .site-content, body .site-content {
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 70px; }
+    html .site-content::after, body .site-content::after {
+      clear: both;
+      content: "";
+      display: block; }
 
-.menu {
-  background-color: #490808;
-  color: #fff;
+.site-header {
+  color: #FFFBFF;
+  width: 100%;
+  font-size: 40px;
+  position: relative; }
+  @media screen and (max-width: 600px) {
+    .site-header {
+      font-size: 16px; } }
+  .site-header .map-container {
+    width: 100%;
+    font-size: 10px;
+    height: 200px; }
+    .site-header .map-container #map {
+      height: 100%;
+      width: 100%; }
+  .site-header .navigation {
+    text-align: center;
+    background-color: #688BC0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px; }
+    .site-header .navigation li {
+      top: 0;
+      display: inline-block;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: #688BC0;
+      font-family: "Khand", sans-serif;
+      color: #FFFBFF; }
+      @media screen and (max-width: 600px) {
+        .site-header .navigation li {
+          padding: 10px 12px; } }
+      .site-header .navigation li:hover {
+        background-color: #b0c2de;
+        cursor: pointer; }
+    .site-header .navigation li.active {
+      background-color: #fff;
+      color: #201317; }
+  .site-header .navigation-content {
+    margin-bottom: 0px;
+    border-bottom: 2px solid white; }
+    .site-header .navigation-content a i {
+      color: #fff;
+      font-size: 20px; }
+
+.site-footer {
+  background-color: #688BC0;
+  font-family: "Khand", sans-serif;
+  color: #FFFBFF;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  clear: both;
+  padding: 7px;
+  height: 70px; }
+  @media screen and (max-width: 600px) {
+    .site-footer {
+      font-size: 15px; } }
+  .site-footer a {
+    text-decoration: none;
+    color: #FFFBFF;
+    padding: 0px 20px; }
+    .site-footer a:hover {
+      text-decoration: underline; }
+
+.text h2, .text h3, .text li, .text p {
+  font-family: "Hind Vadodara", sans-serif;
+  color: primary-font;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: justify; }
+  @media screen and (max-width: 600px) {
+    .text h2, .text h3, .text li, .text p {
+      font-size: 12px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+.text .blog h2, .text .blog h3 {
   text-align: center; }
-  .menu select {
-    font-family: "Yantramanav", sans-serif;
-    color: #fff;
-    border-bottom: 0px;
-    border-top: 0px;
-    background-color: #490808;
-    padding: 10px;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white; }
-    .menu select:hover {
-      cursor: pointer20px; }
-    .menu select:hover {
-      cursor: pointer; }
-    .menu select option:hover {
-      cursor: pointer; }
-
-#map {
-  width: 100%;
-  height: 100%; }
-
-#legend {
-  background-color: #fff;
-  border-radius: 3px;
-  top: 50px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  position: absolute;
-  right: 10px;
-  z-index: 1;
+.text .blog p {
   display: none; }
-  #legend h4 {
-    margin: 0 0 10px; }
-  #legend div span {
-    border-radius: 50%;
-    display: inline-block;
-    height: 10px;
-    margin-right: 5px;
-    width: 10px; }
+.text .contact h2, .text .contact p {
+  text-align: center; }
+
+.line {
+  width: 800px;
+  border: 2px solid #7c1f44;
+  border-radius: 100px;
+  margin-top: 30px; }
+
+.link {
+  color: #5fc5b9;
+  text-decoration: none; }
+  .link:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+  @media screen and (max-width: 600px) {
+    .link {
+      font-size: 12px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+  .link i {
+    padding-right: 10px; }
+
+.icon {
+  font-size: 40px;
+  margin: 25px;
+  color: #201317; }
+  .icon:hover {
+    cursor: pointer;
+    color: #85d2ca; }
+  @media screen and (max-width: 600px) {
+    .icon {
+      font-size: 12px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+
+.image {
+  border: 5px solid #85d2ca;
+  max-width: 800px; }
+  @media screen and (max-width: 600px) {
+    .image {
+      max-width: 300px;
+      text-align: center;
+      border: 5px solid #85d2ca; } }
 
 /*# sourceMappingURL=stylesheet.css.map */

@@ -1,19 +1,25 @@
 html
 	head
-		title Map
+		title Noznoc
+
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		
+		// Font Awesome
+		script(src='https://use.fontawesome.com/5f92b1f541.js')
+
 		// jQuery
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 		script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
 		link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
 
 		// Mapbox
-		script(rel='stylesheet', src='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css')
+		link(rel='stylesheet', src='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css')
 		script(src='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js')
 
 		// javaScripts
 		script(src='../javascripts/map.js')
-		script(src='../javascripts/round.js')
+		script(src='../javascripts/read-blog.js')
 
 		// CSS
 		link(rel='stylesheet', href='../stylesheets/stylesheet.css')
@@ -21,21 +27,11 @@ html
 
 	body
 
-		.menu
-			select#cities
-				option SELECT CITY
-				option(value='ottawa') Ottawa
-				option(value='gatineau') Gatineau
+		include header.jade
 
-		#map
+		include content.jade
 
-		#legend
-			h4 Building Type
-			div
-				span(style='background-color: #00b3b3')
-				| yes
-				br
-				span(style='background-color: #003333')
-				| other
+		include footer.jade
 
-		#dashboard
+		script.
+			readBlog();
