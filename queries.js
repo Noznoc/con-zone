@@ -25,7 +25,7 @@ function contact(req, res, next){
 }
 
 function home(req, res, next){
-
+  res.render('index', {page: 'home', title: '', body: ''})
 }
 
 // this Express middleware function gets the data based on the url request

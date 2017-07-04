@@ -4,9 +4,18 @@
 	.text
 		p #{body}
 
+		- if (page == 'home')
+			h2.header Hello, my name is Julia Conzon
+			p In May 2016, I graduated from McGill University, Canada, with a B.A. in Geography and minors in Geographic Information Systems (GIS) and Anthropology. Through my hard work, self-discpline and -motivation I have experience in both quantitative/technical and qualitiative/social fields. As a freelance open data consultant and full-stack web developer, I have extensive knowledge on (civic) open (spatial) data, licenses, standards, and platform; moreover, I developed web apps, maps, and information portals. 
+			p On my spare time, I am active in the open web mapping community, teaching individuals, for example, about OpenStreetMap and Mapbox.
+			p View the 
+				a.link(href='./work', target='_blank') work
+				|  section to see the projects I worked on or the 
+				a.link(href='./about', target='_blank') about
+				|  section to see a detail list of my work experience.
 		- if (page == 'contact')
 			.contact
-				h2.header Julia Conzon
+				h2.title Julia Conzon
 				a.link.icon(href='https://github.com/Noznoc', target='_blank')
 					i.fa.fa-github(aria-hidden='true') 
 				a.link.icon(href='https://t.co/jMpBYPZXG0', target='_blank')
@@ -16,22 +25,35 @@
 				p.header or e-mail me at juliaconzon@gmail.com
 
 		- if (page == 'about')
-			h2 Introduction
-			p In May 2016, I graduated from McGill University, Canada, with a B.A. in Geography and minors in Geographic Information Systems (GIS) and Anthropology. Through my hard work, discpline, and self-motivation I have harnessed a variety of skills in both quantitative/technical and qualitiative/social backgrounds. My work experiences as a freelance web developer and open data consultant has allowed me to develop websites, data visualizations, and web maps. On my spare time, I am active in the open web mapping community, teaching individuals, for example, about OpenStreetMap and Mapbox. My ultimate goal is to reduce the digital divide through opening up data and opening source code for all to use/repurpose.
+			h2.header Introduction
+			p In May 2016, I graduated from McGill University, Canada, with a B.A. in Geography and minors in Geographic Information Systems (GIS) and Anthropology. Through my hard work, self-discpline and -motivation I have experience in both quantitative/technical and qualitiative/social fields. As a freelance open data consultant and full-stack web developer, I have extensive knowledge on (civic) open (spatial) data, licenses, standards, and platform; moreover, I developed web apps, maps, and information portals. 
+			p On my spare time, I am active in the open web mapping community, teaching individuals, for example, about OpenStreetMap and Mapbox.
 			p For a detailed resume, check out 
 				a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn account
 				| .
 			p Also, the 
-				a.link(href='./work', target='_blank') work 
-				| section details projects I worked on
-			h2 Work Experience.
+				a.link(href='./work', target='_blank') work
+				|  section details projects I worked on.
+			h2 Work Experience
 			ul
+				li Mapbox Peru (July 2017 - Present)
+				p 
+					i Intern
 				li Statistics Canada (February 2017 - June 2017)
-				p Data Producton and Dissemination Officer
-				li Freelance Web Developer (November 2016 - Present)
-				p I am currently an open data consultant and web developer for various organizations, including OpenNorth and Johns Hopkins University's Center for Government Excellence (GovEx). My work includes visualizing open data through web mapping and D3.js as well as designing and building a directory for open data standards
-				li McGill University Research Assistant (May - August 2016)
-				p Initiated my career focus in open data with Geothink's Open Data Standard Project
+				p 
+					i Data Producton and Dissemination Officer
+				p 
+				li Freelance (November 2016 - Present)
+				p
+					i Open Data Consultant & Full-Stack Web Developer
+				p Front-end web development for Open North and Publish What You Pay Canada. Collected and managed a database of payments to government organizations from resource extraction companies; and, with the data, designed and developed an interactive Mapbox.js map and D3.js dashboard web app
+				p Back-end and front-end development for Johns Hopkins University’s Center for Government Excellence. Designed with SASS, managed data with Postgres, and developed a Node.js web app hosted on Heroku that served an open data standards directory
+				p Experienced handling various administrative data from various sources
+				p Designed and developed UI/UX templates for maps, websites, data portals
+				li McGill University (May - August 2016)
+				p
+					i Research Assistant 
+				p Research assistant for Geothink’s Civic Open Data Standards project. I (i) assessed Canadian municipal datasets and open data portals; (ii) designed with Bootstrap and developed a JavaScript web app to host a catalog of open data standards; and, (iii) designed, conducted, and transcribed semi-structured telephone surveys
 			h2 Coding Experience
 			ul
 				li Database: SQL, PostgreSQL, PostGIS, ArcGIS gdb – Back-end: RESTful API, Node.js, Express, ~PHP, ~Python – Front-end: JavaScript, jQuery, HTML – Design: CSS, SASS
@@ -41,16 +63,27 @@
 				li Online communities: GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
 
 		- if (page == 'work')
-			h2.header All code is accessible at my
+			h2.title All code is accessible at my 
 				a.link(href='https://github.com/Noznoc', target='_blank') 
 					|Github account Noznoc
 			hr.line
+			p 
+				strong Statistics Canada (StatCan) Crowdsourcing Project: 
+				|  I had the exciting opprotunity to work with Statistics Canada on a pilot project that assesses whether crowdsourcing is a valuable and viable method to collect data for statistical purposes. The project collected building data in Ottawa and Gatineau through the open source platform OpenStreetMap (OSM). While working, I had the opprotunity to develop a geospatial server to support the crowdsourced data we gathered through OpenStreetMap. In general, the following steps were completed to develop the spatial server: 
+				p (i) I collected the OpenStreetMap data from Geofabrik
+				p (ii) I stored the data into a PostGIS database
+				p (iii) I developed a Node.js RESTful API to query the database and send the spatial data as a GeoJSON to the front-end
+				p (iii) I used Mapbox GL JS to visualize the GeoJSON data as a map
+				p (iv) I used the data-driven styling tools in the Mapbox GL JS library to visually assess density of OSM building tags
+				p To see the code, go 
+					strong
+						a.link(href='https://github.com/Noznoc/geojson-api', target='_blank') here
 			img.image(src='/images/vancouver2.png')
 			img.image(src='/images/gatineau.png')
 			hr.line
 			p 
 				strong Open Data Standards Directory:
-				| I am currrently working with Johns Hopkins University's Center for Government Excellence (GovEx) and McGill's Geothink on a project for 
+				|  I have been working with Johns Hopkins University's Center for Government Excellence (GovEx) and McGill's Geothink on a project for 
 				strong
 					a.link(href='http://geothink.ca/tag/open-data-standards/' target='_blank')
 				| . Various stackholders share the concern that there is no comprehensive database of open data standards. A directory to host and visualize the database provides an opprotunity to share knowledge and communication regarding open data standards. With this in mind, we decided to develop a minimum viable site for open data publishers and open data standard providors could share and disseminate information. My part of the project involves designing and developing (full stack) a site that visualizes data regarding open data standards. As I am new to site development, working on this project has taught me a lot. Through this experience, I have learned how to develop a Postgres database, a Jade and JQuery based front-end, and a Node.js and Express back-end, which was then all hosted on the cloud server Heroku. To fully experience the site, go 
@@ -61,7 +94,7 @@
 			hr.line
 			p
 				strong Interactive Visualization of Payments:
-				| I worked on contract with Publish What You Pay Canada and Open North as a open data consultant and freelance web developer. International mining/oil extraction companies, such as Royal Dutch Shell, publish annual reports on their payments to government organizations and projects. For this project, I compiled data on 2015 payments from international extraction companies to government organizations and projects within Canada into a Google Sheet. I then standardized the data (e.g., converted currencies and units of energy) and then, using SQL, visualized the data into an interactive map and dashboard. In general, the visualizations (coded in JavaScript and D3.js and embedded in HTML) shows where mining projects and government organizations (e.g., municipalities and Indigenous groups) are located within Canada and how much these projects and organizations are paid by extraction companies within 2015. The final deliverables included a database of the payments for 2015, with the ability to add future payments; and, as I synced the visualizations to the database, the visualizations can update automatically when new data is added to the database. Through this work, I became familiar with how these companies document/publish their payments to government organizations, what Canadian organizations receive payments from these companies, and where mining projects occur in Canada. To fully experience the interactive visualization, go 
+				|  I worked on contract with Publish What You Pay Canada and Open North as a open data consultant and freelance web developer. International mining/oil extraction companies, such as Royal Dutch Shell, publish annual reports on their payments to government organizations and projects. For this project, I compiled data on 2015 payments from international extraction companies to government organizations and projects within Canada into a Google Sheet. I then standardized the data (e.g., converted currencies and units of energy) and then, using SQL, visualized the data into an interactive map and dashboard. In general, the visualizations (coded in JavaScript and D3.js and embedded in HTML) shows where mining projects and government organizations (e.g., municipalities and Indigenous groups) are located within Canada and how much these projects and organizations are paid by extraction companies within 2015. The final deliverables included a database of the payments for 2015, with the ability to add future payments; and, as I synced the visualizations to the database, the visualizations can update automatically when new data is added to the database. Through this work, I became familiar with how these companies document/publish their payments to government organizations, what Canadian organizations receive payments from these companies, and where mining projects occur in Canada. To fully experience the interactive visualization, go 
 				strong
 					a.link(href='http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html', target='_blank') here
 				br
@@ -69,17 +102,6 @@
 
 		- if (page == 'blog')
 			.blog
-				hr.line
-				.blog-post
-					h2.header geoJSON RESTful API
-					h3 May 22, 2017
-					h3.link.hide-show
-						a
-							i.fa.fa-plus-circle    
-						| Read
-					p This blog discusses the development of my geoJSON RESTful API. Documentation regarding the deployment of the API, can be seen at 
-						strong
-							a.link(href='https://github.com/Noznoc/geojson-api') geojson-api repo
 				hr.line
 				.blog-post
 					h2.header Mixed Automated and Non-Automated Approaches to VGI
