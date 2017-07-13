@@ -37,6 +37,9 @@ html, body {
     width: 100%;
     font-size: 10px;
     height: 200px; }
+    @media screen and (max-width: 600px) {
+      .site-header .map-container {
+        height: 100px; } }
     .site-header .map-container #map {
       height: 100%;
       width: 100%; }

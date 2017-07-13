@@ -1,6 +1,9 @@
 {
   "name": "geojson-api",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "Julia Conzon's web site",
   "scripts": {
     "start": "node ./bin/www"
