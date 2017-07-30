@@ -43,6 +43,24 @@ html, body {
     .site-header .map-container #map {
       height: 100%;
       width: 100%; }
+    .site-header .map-container .legend {
+      background-color: #fff;
+      border-radius: 3px;
+      bottom: 150px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      font: 15px "Khand", sans-serif;
+      padding: 20px;
+      position: absolute;
+      left: 10px;
+      z-index: 1; }
+      .site-header .map-container .legend h4 {
+        margin: 0 5px;
+        color: #688BC0; }
+      @media screen and (max-width: 600px) {
+        .site-header .map-container .legend {
+          bottom: 100px;
+          font: 10px "Khand", sans-serif;
+          padding: 5px; } }
   .site-header .navigation {
     text-align: center;
     background-color: #688BC0;
@@ -71,9 +89,12 @@ html, body {
   .site-header .navigation-content {
     margin-bottom: 0px;
     border-bottom: 2px solid white; }
-    .site-header .navigation-content a i {
-      color: #fff;
-      font-size: 20px; }
+    .site-header .navigation-content li {
+      padding: 0px 5px; }
+      .site-header .navigation-content li a i {
+        color: #fff;
+        font-size: 20px;
+        padding: 10px; }
 
 .site-footer {
   background-color: #688BC0;
@@ -98,15 +119,14 @@ html, body {
 
 .text h2, .text h3, .text li, .text p {
   font-family: "Hind Vadodara", sans-serif;
-  color: primary-font;
   margin-left: 100px;
   margin-right: 100px;
   text-align: justify; }
   @media screen and (max-width: 600px) {
     .text h2, .text h3, .text li, .text p {
       font-size: 12px;
-      margin-left: 10px;
-      margin-right: 10px; } }
+      margin-left: 15px;
+      margin-right: 15px; } }
 .text .blog h2, .text .blog h3 {
   text-align: center; }
 .text .blog p {
