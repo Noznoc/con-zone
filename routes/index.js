@@ -8,6 +8,5 @@ router.get('/contact', db.contact);
 router.get('/blog', db.blog);
 router.get('/work', db.work);
 router.get('/about', db.about);
-router.get('/:id', db.getData);
 
 module.exports = router;

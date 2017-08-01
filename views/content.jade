@@ -16,9 +16,9 @@
 				|  section to see a detail list of my work experience.
 			img.image(src='/images/vancouver.png')
 			script.
-				var coordinates = [[-76.3606981, 45.2487861], [-74.2720028, 45.5566718], [-76.6227117, 39.3299013], [-74.2198126, -13.1556384]];
-				addMap([-99.3822538, 51.197122], 0, coordinates);
-				$('#legend').find('h4').html('Places I have worked');
+				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+				addMap([-99.3822538, 51.197122], 0, 3, coordinates);
+				$('#legend').find('h4').html('Places I have worked (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 
 		- if (page == 'about')
 			h2.header Introduction
@@ -35,11 +35,7 @@
 			ul
 				li Mapbox (July 2017 - Present)
 				p 
-					i Data Team Intern
-				li Statistics Canada (February 2017 - June 2017)
-				p 
-					i Data Production and Dissemination Officer
-				p 
+					i Data Team Intern 
 				li Freelance (November 2016 - Present)
 				p
 					i Open Data Consultant & Full-Stack Web Developer
@@ -47,6 +43,21 @@
 				p Back-end and front-end development for Johns Hopkins University’s Center for Government Excellence. Designed with SASS, managed data with Postgres, and developed a Node.js web app hosted on Heroku that served an open data standards directory
 				p Experienced handling various administrative data from various sources
 				p Designed and developed UI/UX templates for maps, websites, data portals
+				li Statistics Canada (February 2017 - June 2017)
+				p 
+					i Data Production and Dissemination Officer
+					ul
+						li Reached out to local communities to engage in contributing OpenStreetMap (OSM) data (i.e., spatial data)
+						li Spatially managed and analyzed government business data
+						li Researched and designed a mobile crowdsourcing web app 
+						li Collected, managed, analyzed, and visualized large spatial (osm/pbf, geoJSON, shp) datasets
+						li Developed a spatial server: PostGIS -> Node.js back-end -> geoJSON RESTful API -> web app & map 
+						li Advised on open data licensing
+						li Developed R code for monitoring, analyzing, and visualizing the OSM data
+						li Supported open source code and data, and contributed back via GitHub
+						li Researched and developed a methodology to assess the quality of OSM data
+						li Collected and managed a Postgres/PostGIS database to assess quality assurance
+				p
 				li McGill University (May - August 2016)
 				p
 					i Research Assistant 
@@ -59,16 +70,23 @@
 				li GIS: Esri products (e.g., ArcMap), QGIS, OpenStreetMap, GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis 
 				li Online communities: GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
 			script.
-				var coordinates = [[-76.3606981, 45.2487861], [-74.2720028, 45.5566718], [-76.6227117, 39.3299013], [-74.2198126, -13.1556384]];
-				addMap([-99.3822538, 51.197122], 0, coordinates);
-				$('#legend').find('h4').html('Places I have worked');
+				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+				addMap([-99.3822538, 51.197122], 0, 2, coordinates);
+				$('#legend').find('h4').html('Places I have worked (pan to see more)<i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 
 		- if (page == 'work')
 			h2.title All code is accessible at my 
 				a.link(href='https://github.com/Noznoc', target='_blank') 
 					|GitHub account Noznoc
+				p#buttons
+					a(href='#work-3')
+						button.button StatCan
+					a(href='#work-1')
+						button.button PWYP / Open North
+					a(href='#work-2')
+						button.button GovEx
 			hr.line
-			p 
+			p#work-3 
 				strong Statistics Canada (StatCan) Crowdsourcing Project: 
 				|  I had the exciting opprotunity to work with Statistics Canada on a 
 				strong
@@ -85,7 +103,7 @@
 			img.image(src='/images/ottawa.PNG')
 			img.image(src='/images/gatineau.PNG')
 			hr.line
-			p 
+			p#work-2
 				strong Open Data Standards Directory: 
 				| I have been working with 
 				strong
@@ -102,7 +120,7 @@
 			br
 			img.image(id='standards', src='images/standards.PNG')
 			hr.line
-			p
+			p#work-1
 				strong Interactive Visualization of Payments:
 				|  I worked on contract with 
 				strong
@@ -116,14 +134,17 @@
 			br
 			img.image(id='ivop' src='images/ivop.png')
 			script.
-				var coordinates = [[-76.3606981, 45.2487861], [-74.2720028, 45.5566718], [-76.6227117, 39.3299013], [-74.2198126, -13.1556384]];
-				addMap([-99.3822538, 51.197122], 0, coordinates);
-				$('#legend').find('h4').html('Places I have worked');
+				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+				addMap([-99.3822538, 51.197122], 0, 2, coordinates);
+				$('#legend').find('h4').html('Places I have worked (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 
 		- if (page == 'blog')
 			h2.title All writing is my own opinion
 			hr.line 
 			.blog
+				.blog-post
+					include blog-4.jade
+				hr.line
 				.blog-post
 					include blog-3.jade
 				hr.line
@@ -133,9 +154,9 @@
 				.blog-post
 					include blog-1.jade
 			script.
-				var coordinates = [[144.4912991, -37.9712304], [150.6510825, -33.8479715], [145.7646157, -16.9231207], [0.8178314, 49.7880348], [7.1827226, 43.7030413], [121.5672685, 23.9943207], [7.4069056, 43.7383216], [6.5875477, 51.4469887], [6.6739233, 51.2383707], [-122.7948499, 45.5423504], [-118.692613, 34.0201796], [-81.2851419, 23.1677172], [-82.4731427, 23.0506004], [-78.598954, 45.55397], [-113.7748159, 53.5555485], [-114.3550248, 51.0127803], [-117.5525775, 47.6727548], [-122.507812, 37.7576792], [4.222978, 50.8386157], [-89.5468487, 43.0849076], [-88.0130312, 41.8333908], [-73.2968602, 44.4925689], [-71.1975855, 42.3132878], [-82.8528881, 27.7667146], [-115.3154293, 36.124918], [-112.5240827, 34.5961458], [-111.8302439, 34.8543734], [-113.4049751, 36.0910981], [-122.4763335, 47.6147624], [-1.3177993, 51.7503954], [-0.3824871, 51.5283063], [2.2773453, 48.8588376], [12.4906275, 55.6712473], [11.6128184, 57.701646], [-114.3550248, 51.0127803], [-122.9559938, 49.3122752], [-123.1941156, 49.2577142], [-79.5184862, 43.7181552], [-76.3606981, 45.2487861], [-74.2720028, 45.5566718], [-74.2474096, -13.1583628], [121.2254931, 25.0169626], [-156.0204331, 19.6643178], [-159.6805723, 22.0517783]];
-				addMap([-99.3822538, 51.197122], 0, coordinates);
-				$('#legend').find('h4').html('Places I have traveled');
+				var coordinates = [[[-74.1246123, -13.7419442], "Huancaraylla"], [[144.974227, -37.785981], "Melbourne"], [[151.163816, -33.861873], "Sydney"], [[145.7646157, -16.9231207], "Cairns"], [[1.073704, 49.922974], "Dieppe"], [[7.261859, 43.705772], "Nice"], [[121.608135, 23.986542], "Hualien"]];
+				addMap([-75.0500836, 23.9230575], 0, 1, coordinates);
+				$('#legend').find('h4').html('Places I have traveled (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 
 		- if (page == 'contact')
 			.contact
@@ -149,8 +170,8 @@
 						i.fa.fa-twitter-square(aria-hidden='true')
 				p.header or e-mail me at juliaconzon@gmail.com
 			script.
-				var coordinates = [[-74.2198126, -13.1556384]];
-				addMap([-74.2198126, -13.1556384], 13, coordinates);
+				var coordinates = [];
+				addMap([-74.2198126, -13.1556384], 13, 2, coordinates);
 				$('#legend').find('h4').html('Where I currently live');
 
 

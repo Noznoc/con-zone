@@ -1,5 +1,5 @@
 .site-header
-	color: $secondary-color
+	color: #FFFFFF
 	width: 100%
 	font-size: 40px
 	position: relative
@@ -17,29 +17,60 @@
 			height: 100%
 			width: 100%
 
+			.mapboxgl-popup
+				font: 15px $primary-font
+				background-color: #FFFFFF
+				color: $line-color
+				max-width: 100px
+				border: 1px solid $line-color
+				border-radius: 10px
+				padding: 0px
+				text-align: center
+				margin: 0px
+
+				button
+					margin-left: 0px
+					border: 0px
+					color: $line-color
+					background-color: #FFFFFF
+					font-size: 15px
+					&:hover
+						cursor: pointer
+						color: $accent-color
+
 		.legend
 			background-color: #fff
-			border-radius: 3px
+			border-top: 1px solid $line-color
+			border-bottom: 1px solid $line-color
 			bottom: 150px
-			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
 			font: 15px $primary-font
-			padding: 20px
+			padding: 10px
+			width: 150px
 			position: absolute
+			text-align: center
 			left: 10px
 			z-index: 1
 
+			.icon
+				margin: 0px
+				font-size: 35px
+				color: $line-color
+				&:hover
+					color: $accent-color
+
 			h4
 				margin: 0 5px
-				color: $primary-color
+				color: $line-color
 
 			@media screen and (max-width: 600px)
 				bottom: 100px
 				font: 10px $primary-font
 				padding: 5px
+				width: 100px
 			
 	.navigation
 		text-align: center
-		background-color: $primary-color
+		background-color: $header-color
 		list-style-type: none
 		margin: 0
 		padding: 0
@@ -53,16 +84,16 @@
 			@media screen and (max-width: 600px)
 				padding: 10px 12px
 			text-decoration: none
-			background-color: $primary-color
+			background-color: $header-color
 			font-family: $primary-font
-			color: $secondary-color
+			color: #FFFFFF
 			&:hover
 				background-color: $hover-color
 				cursor: pointer
 
 		li.active
 			background-color: #fff
-			color: $header-color
+			color: $font-color
 
 	.navigation-content
 		margin-bottom: 0px

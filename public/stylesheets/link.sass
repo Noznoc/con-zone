@@ -1,5 +1,5 @@
 .link
-	color: $container-color
+	color: darken($accent-color, 10%)
 	text-decoration: none
 	&:hover
 		text-decoration: underline
@@ -15,14 +15,38 @@
 .icon
 	font-size: 40px
 	margin: 25px
-	color: $header-color
+	color: $font-color
 	&:hover
 		cursor: pointer
 		color: $accent-color
 	@media screen and (max-width: 600px)
-		font-size: 12px
+		font-size: 20px
 		margin-left: 10px
 		margin-right: 10px
+
+#play-back, #play-forward
+	padding: 0px 10px
+
+.button
+	padding: 10px
+	background-color: #FFFFFF
+	border: solid 2px $accent-color
+	border-radius: 15px
+	color: $accent-color
+	margin: 0px 20px
+	&:hover
+		background-color: $accent-color
+		color: #FFFFFF
+		cursor: pointer
+	@media screen and (max-width: 600px)
+		margin: 0px 8px
+		font-size: 8px
+		padding: 6px
+
+p#buttons
+	text-align: center
+
+
 
 
 

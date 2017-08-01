@@ -26,7 +26,7 @@ html, body {
       display: block; }
 
 .site-header {
-  color: #FFFBFF;
+  color: #FFFFFF;
   width: 100%;
   font-size: 40px;
   position: relative; }
@@ -43,24 +43,52 @@ html, body {
     .site-header .map-container #map {
       height: 100%;
       width: 100%; }
+      .site-header .map-container #map .mapboxgl-popup {
+        font: 15px "Khand", sans-serif;
+        background-color: #FFFFFF;
+        color: #7c1f44;
+        max-width: 100px;
+        border: 1px solid #7c1f44;
+        border-radius: 10px;
+        padding: 0px;
+        text-align: center;
+        margin: 0px; }
+        .site-header .map-container #map .mapboxgl-popup button {
+          margin-left: 0px;
+          border: 0px;
+          color: #7c1f44;
+          background-color: #FFFFFF;
+          font-size: 15px; }
+          .site-header .map-container #map .mapboxgl-popup button:hover {
+            cursor: pointer;
+            color: #85d2ca; }
     .site-header .map-container .legend {
       background-color: #fff;
-      border-radius: 3px;
+      border-top: 1px solid #7c1f44;
+      border-bottom: 1px solid #7c1f44;
       bottom: 150px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       font: 15px "Khand", sans-serif;
-      padding: 20px;
+      padding: 10px;
+      width: 150px;
       position: absolute;
+      text-align: center;
       left: 10px;
       z-index: 1; }
+      .site-header .map-container .legend .icon {
+        margin: 0px;
+        font-size: 35px;
+        color: #7c1f44; }
+        .site-header .map-container .legend .icon:hover {
+          color: #85d2ca; }
       .site-header .map-container .legend h4 {
         margin: 0 5px;
-        color: #688BC0; }
+        color: #7c1f44; }
       @media screen and (max-width: 600px) {
         .site-header .map-container .legend {
           bottom: 100px;
           font: 10px "Khand", sans-serif;
-          padding: 5px; } }
+          padding: 5px;
+          width: 100px; } }
   .site-header .navigation {
     text-align: center;
     background-color: #688BC0;
@@ -76,7 +104,7 @@ html, body {
       text-decoration: none;
       background-color: #688BC0;
       font-family: "Khand", sans-serif;
-      color: #FFFBFF; }
+      color: #FFFFFF; }
       @media screen and (max-width: 600px) {
         .site-header .navigation li {
           padding: 10px 12px; } }
@@ -99,7 +127,7 @@ html, body {
 .site-footer {
   background-color: #688BC0;
   font-family: "Khand", sans-serif;
-  color: #FFFBFF;
+  color: #FFFFFF;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -112,7 +140,7 @@ html, body {
       font-size: 15px; } }
   .site-footer a {
     text-decoration: none;
-    color: #FFFBFF;
+    color: #FFFFFF;
     padding: 0px 20px; }
     .site-footer a:hover {
       text-decoration: underline; }
@@ -129,8 +157,10 @@ html, body {
       margin-right: 15px; } }
 .text .blog h2, .text .blog h3 {
   text-align: center; }
-.text .blog p {
+.text .blog p, .text .blog ul {
   display: none; }
+.text .blog p i {
+  text-align: center; }
 .text .contact h2, .text .contact p {
   text-align: center; }
 
@@ -166,9 +196,32 @@ h2.title {
     color: #85d2ca; }
   @media screen and (max-width: 600px) {
     .icon {
-      font-size: 12px;
+      font-size: 20px;
       margin-left: 10px;
       margin-right: 10px; } }
+
+#play-back, #play-forward {
+  padding: 0px 10px; }
+
+.button {
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: solid 2px #85d2ca;
+  border-radius: 15px;
+  color: #85d2ca;
+  margin: 0px 20px; }
+  .button:hover {
+    background-color: #85d2ca;
+    color: #FFFFFF;
+    cursor: pointer; }
+  @media screen and (max-width: 600px) {
+    .button {
+      margin: 0px 8px;
+      font-size: 8px;
+      padding: 6px; } }
+
+p#buttons {
+  text-align: center; }
 
 .image {
   border: 5px solid #85d2ca;

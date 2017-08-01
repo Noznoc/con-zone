@@ -1,5 +1,5 @@
 {
-  "name": "geojson-api",
+  "name": "con-zone",
   "version": "1.0.0",
   "engines": {
     "node": "6.11.1"
@@ -9,22 +9,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "bluebird": "^3.4.7",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "jade": "~1.11.0",
-    "mapbox-gl": "^0.37.0",
     "morgan": "~1.7.0",
-    "pg": "4.x",
-    "pg-promise": "^5.5.8",
-    "postgeo": "*",
     "serve-favicon": "~2.3.2"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Noznoc/con-zone"
   },
   "author": "Julia Conzon"
 }
