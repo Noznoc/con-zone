@@ -1,21 +1,21 @@
 function about(req, res, next){
-  res.render('index', {page: 'about', title: '', body: ''})
+  res.render('index', {page: 'about'})
 }
 
 function work(req, res, next){
-  res.render('index', {page: 'work', title: '', body: ''})
+  res.render('index', {page: 'work'})
 }
 
 function blog(req, res, next){
-  res.render('index', {page: 'blog', title: '', body: ''})
+  res.render('index', {page: 'blog'})
 }
 
 function contact(req, res, next){
-  res.render('index', {page: 'contact', title: '', body: ''})
+  res.render('index', {page: 'contact'})
 }
 
 function home(req, res, next){
-  res.render('index', {page: 'home', title: '', body: ''})
+  res.render('index', {page: 'home'})
 }
 
 // add query functions to app 
