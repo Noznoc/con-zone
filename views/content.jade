@@ -21,6 +21,12 @@
 				$('#legend').find('h4').html('Places I have worked (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 
 		- if (page == 'about')
+			p#buttons
+				a(href='#about-work')
+					button.button Work Experience
+				a(href='#about-code')
+					button.button Coding Experience
+			hr.line
 			h2.header Introduction
 			include summary.jade
 			p For a detailed resume, check out 
@@ -31,11 +37,11 @@
 				strong 
 					a.link(href='./work', target='_blank') work
 				|  section details projects I worked on.
-			h2 Work Experience
+			h2#about-work Work Experience
 			ul
 				li Mapbox (July 2017 - Present)
 				p 
-					i Data Team Intern 
+					i Data Team 
 				li Freelance (November 2016 - Present)
 				p
 					i Open Data Consultant & Full-Stack Web Developer
@@ -62,7 +68,7 @@
 				p
 					i Research Assistant 
 				p Research assistant for Geothink’s Civic Open Data Standards project. I (i) assessed Canadian municipal datasets and open data portals; (ii) designed with Bootstrap and developed a JavaScript web app to host a catalog of open data standards; and, (iii) designed, conducted, and transcribed semi-structured telephone surveys
-			h2 Coding Experience
+			h2#about-code Coding Experience
 			ul
 				li Database: SQL, PostgreSQL, PostGIS, ArcGIS gdb – Back-end: RESTful API, Node.js, Express, ~PHP, ~Python – Front-end: JavaScript, jQuery, HTML – Design: CSS, SASS
 				li Data analytics: R, D3.js, ~Python, ~Stata, GeoDa, Twitter Streaming API
@@ -142,6 +148,9 @@
 			h2.title All writing is my own opinion
 			hr.line 
 			.blog
+				.blog-post
+					include blog-5.jade
+				hr.line
 				.blog-post
 					include blog-4.jade
 				hr.line

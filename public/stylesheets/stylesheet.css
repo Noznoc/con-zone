@@ -206,12 +206,12 @@ h2.title {
 .button {
   padding: 10px;
   background-color: #FFFFFF;
-  border: solid 2px #85d2ca;
+  border: solid 2px #7c1f44;
   border-radius: 15px;
-  color: #85d2ca;
+  color: #7c1f44;
   margin: 0px 20px; }
   .button:hover {
-    background-color: #85d2ca;
+    background-color: #7c1f44;
     color: #FFFFFF;
     cursor: pointer; }
   @media screen and (max-width: 600px) {
