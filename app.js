@@ -2,8 +2,8 @@ var express = require('express'); // imports framework into app
 var path = require('path'); // path is a Node module for working with and handling paths
 var logger = require('morgan'); // Express middleware for logging requests and responses
 var bodyParser = require('body-parser'); // adds a body object to your request so that you can access POST parameters
-//var favicon = require('serve-favicon');
-//var cookieParser = require('cookie-parser'); 
+var favicon = require('serve-favicon');
+// var cookieParser = require('cookie-parser'); 
 
 // paths to routers
 var index = require('./routes/index');
@@ -19,12 +19,12 @@ app.set('view engine', 'jade'); // set the view engine to html
 app.use(logger('dev')); // logs the requests to the console
 app.use(bodyParser.json()); // gives app the ability to parse JSON
 app.use(bodyParser.urlencoded({ extended: false })); // allows app to read data from URLs
-//app.use(favicon(path.join(__dirname, 'public', '')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // app.use(cookieParser()); // adds cookie object to all requests you get
 
 app.use('/', index);
 
-//error handler
+// error handler
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

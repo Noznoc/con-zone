@@ -23,8 +23,6 @@ html
 
 		// CSS
 		link(rel='stylesheet', href='../stylesheets/stylesheet.css')
-		
-
 	body
 
 		include header.jade
@@ -35,3 +33,9 @@ html
 
 		script.
 			readBlog();
+			$('.button').on('click', function () {
+				var name = $(this).attr('name');
+			    $('html, body').animate({
+			        scrollTop: $('#' + name).offset().top
+			    }, 1000);
+			})

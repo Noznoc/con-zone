@@ -18,10 +18,8 @@
 
 		- if (page == 'about')
 			p#buttons
-				a(href='#about-work')
-					button.button Work Experience
-				a(href='#about-code')
-					button.button Coding Experience
+				button.button(name='about-work') Work Experience
+				button.button(name='about-code') Coding Experience
 			hr.line
 			h2.header Introduction
 			include summary.jade
@@ -66,11 +64,29 @@
 				p Research assistant for Geothink’s Civic Open Data Standards project. I (i) assessed Canadian municipal datasets and open data portals; (ii) designed with Bootstrap and developed a JavaScript web app to host a catalog of open data standards; and, (iii) designed, conducted, and transcribed semi-structured telephone surveys
 			h2#about-code Coding Experience
 			ul
-				li Database: SQL, PostgreSQL, PostGIS, ArcGIS gdb – Back-end: RESTful API, Node.js, Express, ~PHP, ~Python – Front-end: JavaScript, jQuery, HTML – Design: CSS, SASS
-				li Data analytics: R, D3.js, ~Python, ~Stata, GeoDa, Twitter Streaming API
-				li Data: JSON, GeoJSON, shp, (satellite) imagery, raster, csv, vector, KMLs, osm xml, pbf
-				li GIS: Esri products (e.g., ArcMap), QGIS, OpenStreetMap, GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis 
-				li Online communities: GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
+				li 
+					strong Database: 
+					| SQL, PostgreSQL, PostGIS, ArcGIS gdb
+				li strong Back-end: 
+					| RESTful API, Node.js, Express, ~PHP, ~Python
+				li 
+					strong Front-end: 
+					| JavaScript, jQuery, HTML
+				li 
+					strong Design: 
+					| CSS, SASS
+				li 
+					strong Data analytics: 
+					| R, D3.js, ~Python, ~Stata, GeoDa, Twitter Streaming API
+				li 
+					strong Data: 
+					| JSON, GeoJSON, shp, (satellite) imagery, raster, csv, vector, KMLs, osm xml, pbf
+				li 
+					strong GIS: 
+					| Esri products (e.g., ArcMap), QGIS, OpenStreetMap, GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis 
+				li 
+					strong Online communities: 
+					| GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
 			script.
 				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
 				addMap([-99.3822538, 51.197122], 0, 2, coordinates);
@@ -81,12 +97,9 @@
 				a.link(href='https://github.com/Noznoc', target='_blank') 
 					|GitHub account Noznoc
 				p#buttons
-					a(href='#work-3')
-						button.button StatCan
-					a(href='#work-1')
-						button.button PWYP / Open North
-					a(href='#work-2')
-						button.button GovEx
+					button.button(name='work-3') StatCan
+					button.button(name='work-1') PWYP / Open North
+					button.button(name='work-2') GovEx
 			hr.line
 			p#work-3 
 				strong Statistics Canada (StatCan) Crowdsourcing Project: 
