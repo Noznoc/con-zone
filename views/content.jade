@@ -12,9 +12,10 @@
 				|  section to see a detail list of my work experience.
 			img.image(src='/images/vancouver.png')
 			script.
-				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-				addMap([-99.3822538, 51.197122], 0, 3, coordinates);
-				$('#legend').find('h4').html('Places I have worked (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+				var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+				addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
+				$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+
 
 		- if (page == 'about')
 			p#buttons
@@ -88,9 +89,9 @@
 					strong Online communities: 
 					| GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
 			script.
-				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-				addMap([-99.3822538, 51.197122], 0, 2, coordinates);
-				$('#legend').find('h4').html('Places I have worked (pan to see more)<i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+				var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+				addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
+				$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 
 		- if (page == 'work')
 			h2.title All code is accessible at my 
@@ -149,9 +150,10 @@
 			br
 			img.image(id='ivop' src='images/ivop.png')
 			script.
-				var coordinates = [[[-123.1941157, 49.2577142], "Vancouver"], [[-76.3606981, 45.2487861], "Montreal"], [[-74.2720028, 45.5566718], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-				addMap([-99.3822538, 51.197122], 0, 2, coordinates);
-				$('#legend').find('h4').html('Places I have worked (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+				var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+				addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
+				$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+
 
 		- if (page == 'blog')
 			h2.title All writing is my own opinion
@@ -173,8 +175,9 @@
 					include blog-1.jade
 			script.
 				var coordinates = [[[-74.1246123, -13.7419442], "Huancaraylla"], [[144.974227, -37.785981], "Melbourne"], [[151.163816, -33.861873], "Sydney"], [[145.7646157, -16.9231207], "Cairns"], [[1.073704, 49.922974], "Dieppe"], [[7.261859, 43.705772], "Nice"], [[121.608135, 23.986542], "Hualien"]];
-				addMap([-75.0500836, 23.9230575], 0, 1, coordinates);
-				$('#legend').find('h4').html('Places I have traveled (pan to see more) <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+				addMap([-75.0500836, 23.9230575], 0, 1, 8, coordinates);
+				$('#legend').find('h4').html('PLACES I HAVE TRAVELED <br> Pan to view or click play <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+
 
 		- if (page == 'contact')
 			.contact
@@ -189,7 +192,7 @@
 				p.header or e-mail me at juliaconzon@gmail.com
 			script.
 				var coordinates = [];
-				addMap([-74.2198126, -13.1556384], 13, 2, coordinates);
-				$('#legend').find('h4').html('Where I currently live');
+				addMap([-74.2198126, -13.1556384], 13, 2, 13, coordinates);
+				$('#legend').find('h4').html('WHERE I CURRENTLY LIVE');
 
 

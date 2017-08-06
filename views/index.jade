@@ -1,9 +1,10 @@
 html
 	head
+		meta(charset='utf-8')
+
 		title Julia Conzon
 
-		meta(charset='utf-8')
-		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='viewport', content='initial-scale=1,maximum-scale=1,user-scalable=no')
 		
 		// Font Awesome
 		script(src='https://use.fontawesome.com/5f92b1f541.js')
@@ -11,11 +12,12 @@ html
 		// jQuery
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 		script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
-		link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+		link(rel='stylesheet', href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
 
 		// Mapbox
-		link(rel='stylesheet', src='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css')
-		script(src='https://api.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js')
+		script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js')
+		link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css', rel='stylesheet')
+
 
 		// javaScripts
 		script(src='../javascripts/map.js')

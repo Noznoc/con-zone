@@ -25,69 +25,75 @@ html, body {
       display: block; }
 
 .site-header {
-  color: #FFFFFF;
+  color: white;
   width: 100%;
   font-size: 40px;
   position: relative; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     .site-header {
       font-size: 16px; } }
   .site-header .map-container {
     width: 100%;
     font-size: 10px;
     height: 200px; }
-    @media screen and (max-width: 600px) {
-      .site-header .map-container {
-        height: 100px; } }
     .site-header .map-container #map {
-      height: 100%;
-      width: 100%; }
-      .site-header .map-container #map .mapboxgl-popup {
+      width: 100%;
+      height: 200px; }
+      .site-header .map-container #map .mapboxgl-marker {
+        background-image: url("../images/circle-icon.svg");
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background-size: cover; }
+      .site-header .map-container #map .mapboxgl-ctrl {
+        font: 10px "Hind Vadodara", sans-serif; }
+      .site-header .map-container #map .mapboxgl-popup-content {
         font: 15px "Khand", sans-serif;
-        background-color: #FFFFFF;
+        background-color: white;
         color: #7c1f44;
         max-width: 100px;
         border: 1px solid #7c1f44;
-        border-radius: 10px;
-        padding: 0px;
-        text-align: center;
-        margin: 0px; }
-        .site-header .map-container #map .mapboxgl-popup button {
-          margin-left: 0px;
-          border: 0px;
-          color: #7c1f44;
-          background-color: #FFFFFF;
-          font-size: 15px; }
-          .site-header .map-container #map .mapboxgl-popup button:hover {
+        padding: 10px;
+        text-align: center; }
+        .site-header .map-container #map .mapboxgl-popup-content button {
+          color: #7c1f44; }
+          .site-header .map-container #map .mapboxgl-popup-content button:hover {
             cursor: pointer;
             color: #85d2ca; }
+      .site-header .map-container #map .mapboxgl-popup-tip {
+        border-top-color: white 1px solid; }
     .site-header .map-container .legend {
       background-color: #fff;
       border-top: 1px solid #7c1f44;
       border-bottom: 1px solid #7c1f44;
-      bottom: 150px;
-      font: 15px "Khand", sans-serif;
+      bottom: 160px;
+      font: 14px "Khand", sans-serif;
       padding: 10px;
-      width: 150px;
+      width: 160px;
       position: absolute;
       text-align: center;
       left: 10px;
       z-index: 1; }
       .site-header .map-container .legend .icon {
         margin: 0px;
-        font-size: 35px;
         color: #7c1f44; }
         .site-header .map-container .legend .icon:hover {
           color: #85d2ca; }
+        @media screen and (max-width: 750px) {
+          .site-header .map-container .legend .icon {
+            font-size: 15px; } }
       .site-header .map-container .legend h4 {
         margin: 0 5px;
         color: #7c1f44; }
-      @media screen and (max-width: 600px) {
+        .site-header .map-container .legend h4 p i.window-restore {
+          font-size: 10px;
+          text-align: right; }
+      @media screen and (max-width: 750px) {
         .site-header .map-container .legend {
           bottom: 100px;
           font: 10px "Khand", sans-serif;
           padding: 5px;
-          width: 100px; } }
+          width: 110px; } }
   .site-header .navigation {
     text-align: center;
     background-color: #688BC0;
@@ -95,33 +101,44 @@ html, body {
     margin: 0;
     padding: 0;
     margin-bottom: 40px; }
+    @media screen and (max-width: 750px) {
+      .site-header .navigation {
+        margin-bottom: 20px; } }
     .site-header .navigation li {
       top: 0;
       display: inline-block;
+      font-size: 30px;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
       background-color: #688BC0;
       font-family: "Khand", sans-serif;
-      color: #FFFFFF; }
-      @media screen and (max-width: 600px) {
+      color: white; }
+      @media screen and (max-width: 750px) {
         .site-header .navigation li {
           padding: 10px 12px; } }
       .site-header .navigation li:hover {
         background-color: #b0c2de;
+        border-top: 10px solid #fff389;
         cursor: pointer; }
     .site-header .navigation li.active {
       background-color: #fff;
-      color: #201317; }
+      color: #201317;
+      border-top: 10px solid #fff389; }
   .site-header .navigation-content {
     margin-bottom: 0px;
-    border-bottom: 2px solid white; }
+    border-bottom: 2px solid white;
+    text-align: right; }
     .site-header .navigation-content li {
       padding: 0px 5px; }
+      .site-header .navigation-content li:hover {
+        background-color: #b0c2de;
+        border-top: 0px;
+        cursor: pointer; }
       .site-header .navigation-content li a i {
         color: #fff;
         font-size: 20px;
-        padding: 10px; }
+        padding: 10px 0px; }
 
 .site-footer {
   background-color: #688BC0;
@@ -149,14 +166,14 @@ html, body {
   margin-left: 100px;
   margin-right: 100px;
   text-align: justify; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     .text h2, .text h3, .text li, .text p {
       font-size: 12px;
       margin-left: 15px;
       margin-right: 15px; } }
 .text .blog h2, .text .blog h3 {
   text-align: center; }
-.text .blog p, .text .blog ul {
+.text .blog .blog-text {
   display: none; }
 .text .blog p i {
   text-align: center; }
@@ -178,7 +195,7 @@ h2.title {
   .link:hover {
     text-decoration: underline;
     cursor: pointer; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     .link {
       font-size: 12px;
       margin-left: 10px;
@@ -193,7 +210,7 @@ h2.title {
   .icon:hover {
     cursor: pointer;
     color: #85d2ca; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     .icon {
       font-size: 20px;
       margin-left: 10px;
@@ -213,7 +230,7 @@ h2.title {
     background-color: #7c1f44;
     color: #FFFFFF;
     cursor: pointer; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 775px) {
     .button {
       margin: 0px 8px;
       font-size: 8px;
@@ -226,10 +243,22 @@ p#buttons {
   border: 5px solid #85d2ca;
   margin: 10px 0px;
   max-width: 800px; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 775px) {
     .image {
       max-width: 300px;
       text-align: center;
       border: 5px solid #85d2ca; } }
+
+.small {
+  font-size: 10px; }
+
+.medium {
+  font-size: 20px; }
+
+.large {
+  font-size: 30px; }
+
+.x-large {
+  font-size: 40px; }
 
 /*# sourceMappingURL=stylesheet.css.map */

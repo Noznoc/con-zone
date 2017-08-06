@@ -1,51 +1,55 @@
 .site-header
-	color: #FFFFFF
+	color: white
 	width: 100%
 	font-size: 40px
 	position: relative
-	@media screen and (max-width: 600px)
+	@media screen and (max-width: 750px)
 		font-size: 16px
 
 	.map-container
 		width: 100%
 		font-size: 10px
 		height: 200px
-		@media screen and (max-width: 600px)
-			height: 100px
 		
 		#map
-			height: 100%
 			width: 100%
+			height: 200px
 
-			.mapboxgl-popup
+			.mapboxgl-marker
+				background-image: url('../images/circle-icon.svg')
+				width: 30px
+				height: 30px
+				cursor: pointer
+				background-size: cover
+
+			.mapboxgl-ctrl
+				font: 10px $secondary-font
+
+			.mapboxgl-popup-content
 				font: 15px $primary-font
-				background-color: #FFFFFF
+				background-color: white
 				color: $line-color
 				max-width: 100px
 				border: 1px solid $line-color
-				border-radius: 10px
-				padding: 0px
+				padding: 10px
 				text-align: center
-				margin: 0px
-
 				button
-					margin-left: 0px
-					border: 0px
 					color: $line-color
-					background-color: #FFFFFF
-					font-size: 15px
 					&:hover
 						cursor: pointer
 						color: $accent-color
+
+			.mapboxgl-popup-tip
+				border-top-color: white 1px solid
 
 		.legend
 			background-color: #fff
 			border-top: 1px solid $line-color
 			border-bottom: 1px solid $line-color
-			bottom: 150px
-			font: 15px $primary-font
+			bottom: 160px
+			font: 14px $primary-font
 			padding: 10px
-			width: 150px
+			width: 160px
 			position: absolute
 			text-align: center
 			left: 10px
@@ -53,20 +57,26 @@
 
 			.icon
 				margin: 0px
-				font-size: 35px
 				color: $line-color
 				&:hover
 					color: $accent-color
+				@media screen and (max-width: 750px)
+					font-size: 15px
 
 			h4
 				margin: 0 5px
 				color: $line-color
 
-			@media screen and (max-width: 600px)
+				p
+					i.window-restore
+						font-size: 10px
+						text-align: right
+
+			@media screen and (max-width: 750px)
 				bottom: 100px
 				font: 10px $primary-font
 				padding: 5px
-				width: 100px
+				width: 110px
 			
 	.navigation
 		text-align: center
@@ -75,36 +85,46 @@
 		margin: 0
 		padding: 0
 		margin-bottom: 40px
+		@media screen and (max-width: 750px)
+			margin-bottom: 20px
 
 		li 
 			top: 0
 			display: inline-block
+			font-size: 30px
 			text-align: center
 			padding: 14px 16px
-			@media screen and (max-width: 600px)
+			@media screen and (max-width: 750px)
 				padding: 10px 12px
 			text-decoration: none
 			background-color: $header-color
 			font-family: $primary-font
-			color: #FFFFFF
+			color: white
 			&:hover
 				background-color: $hover-color
+				border-top: 10px solid $header-accent-color
 				cursor: pointer
 
 		li.active
 			background-color: #fff
 			color: $font-color
+			border-top: 10px solid $header-accent-color
 
 	.navigation-content
 		margin-bottom: 0px
 		border-bottom: 2px solid white
+		text-align: right
 
 		li
 			padding: 0px 5px
+			&:hover
+				background-color: $hover-color
+				border-top: 0px
+				cursor: pointer
 
 			a
 				i
 					color: #fff
 					font-size: 20px
-					padding: 10px
+					padding: 10px 0px
 

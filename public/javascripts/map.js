@@ -1,5 +1,5 @@
 // function for the map
-function addMap(center, zoom, minZoom, coordinates){
+function addMap(center, zoom, minZoom, maxZoom, coordinates){
 
 	mapboxgl.accessToken = "pk.eyJ1IjoianVsY29ueiIsImEiOiJjaWo1eHJqd2YwMDFkMXdtM3piZndjNzlxIn0.3fMbo8z3SxitKnkoNkZ2jw"; // access token for Mapbox API
 
@@ -9,76 +9,65 @@ function addMap(center, zoom, minZoom, coordinates){
 		style: "mapbox://styles/julconz/cj5qwq4al26aw2so9t7m40srp",
 		center: center,
 		zoom: zoom,
-		maxZoom: 14,
-		minZoom: minZoom
+		maxZoom: maxZoom,
+		minZoom: minZoom,
+		dragRotate: false,
+		logoPosition: 'bottom-right'
 	});
 
-	for (var i in coordinates){
-		coordinates[i] = JSON.parse('{"type":"Feature","properties":{"description":"' + coordinates[i][1] + '"},"geometry":{"type":"Point","coordinates":[' + coordinates[i][0] + ']}}');
-	}
+	// Add zoom and rotation controls to the map.
+	map.addControl(new mapboxgl.NavigationControl());
 
 	map.on('load', function() {
-		var markers = map.addSource("points", {
-			"type": "geojson",
-			"data": {
-				"type": "FeatureCollection",
-				"features": coordinates
-			}
-		});
 
-		map.addLayer({
-			"id": "layer",
-			"type": "circle",
-			"source": "points",
-			"paint": {
-				"circle-radius": 8,
-				"circle-color": "#7c1f44"
-			}
-		});
+		var markers = [];
+		
+		// create markers from all the coordinates
+		coordinates.forEach(function(coordinates) {
+			var el = document.createElement('div');
+			el.className = 'marker';
+			
+			// make a marker for each feature and add to the map
+			var marker = new mapboxgl.Marker(el)
+				.setLngLat([coordinates[0][0],coordinates[0][1]])
+				.setPopup(new mapboxgl.Popup({offset: 0.25}) // add popups
+  				.setHTML('<h3>' + coordinates[1] + '</h3>'))
+				.addTo(map);
 
-		map.on("click", "layer", function (e) {
-	        new mapboxgl.Popup()
-	            .setLngLat(e.features[0].geometry.coordinates)
-	            .setHTML(e.features[0].properties.description)
-	            .addTo(map);
-	    });
+			markers.push(marker);
+		})
 
-		map.on("mouseenter", "layer", function () {
-	        map.getCanvas().style.cursor = "pointer";
-	    });
-
-	    map.on("mouseleave", "layer", function () {
-	        map.getCanvas().style.cursor = "";
-	    });
-
-	    var i = 0,
-	    	points = map.getSource("points");
+	    var legend = $("#legend").html();
 
 	    $("#play-circle").on("click", function () {
+	    	var i = 0;
 	    	if (i == 0){
+	    		var toggleContainer = $(".map-container").outerHeight() == 500 ? "200px" : "500px";
+    			$(".map-container").animate({height: toggleContainer});
+    			$("#map").animate({height: toggleContainer}, function(){
+				    map.resize();
+				});
 	    		$(this).hide();
-	    		map.panTo(points._data.features[i].geometry.coordinates);
+	    		map.panTo([markers[i]._lngLat.lng,markers[i]._lngLat.lat]);
 	    		i += 1;
-	    		$("#legend").find('h4').html("Click forward or back to continue slide show <i id='play-back' class='fa fa-step-backward icon' aria-hidden='true'></i><i id='play-forward' class='fa fa-step-forward icon' aria-hidden='true'></i>");
+	    		$("#legend").find('h4').html("<p style='text-align: right; font-size: 10px'><i id='window-restore' class='fa fa-window-restore icon small' aria-hidden='true'></i></p><p>Click forward or back to continue slide show</p><i id='play-back' class='fa fa-step-backward icon' aria-hidden='true'></i><i id='play-forward' class='fa fa-step-forward icon' aria-hidden='true'></i>");
 	    	}
 	    	$("#play-back").on("click", function () {
 		    	i -= 1;
-		    	map.panTo(points._data.features[i].geometry.coordinates);
-		    	if (i == 0){
-		    		$(this).hide();
-		    	} else {
-		    		$(this).show();
-		    	}
+		    	map.panTo([markers[i]._lngLat.lng,markers[i]._lngLat.lat]);
 		    });
-
 		    $("#play-forward").on("click", function () {
 		    	i += 1;
-		    	map.panTo(points._data.features[i].geometry.coordinates);
-		    	if (i == points._data.features.length - 1){
-		    		$(this).hide();
-		    	} else {
-		    		$(this).show();
-		    	}
+		    	map.panTo([markers[i]._lngLat.lng,markers[i]._lngLat.lat]);
+		    });
+		    $("#window-restore").on("click", function () {
+		    	i = 0;
+		    	var toggleContainer = $(".map-container").outerHeight() == 200 ? "500px" : "200px";
+				$(".map-container").animate({height: toggleContainer});
+				$("#map").animate({height: toggleContainer}, function(){
+				    map.resize();
+				});
+				$("#legend").find('h4').html(legend);
 		    });
 	    });
 	});
