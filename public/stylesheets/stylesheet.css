@@ -40,7 +40,7 @@ html, body {
       width: 100%;
       height: 200px; }
       .site-header .map-container #map .mapboxgl-marker {
-        background-image: url("../images/circle-icon.svg");
+        background-image: url("../images/point-icon.svg");
         width: 30px;
         height: 30px;
         cursor: pointer;
