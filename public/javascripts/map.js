@@ -30,7 +30,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates){
 			// make a marker for each feature and add to the map
 			var marker = new mapboxgl.Marker(el, { offset: [0, -25 / 2] })
 				.setLngLat([coordinates[0][0],coordinates[0][1]])
-				.setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+				.setPopup(new mapboxgl.Popup() // add popups
   				.setHTML('<h3>' + coordinates[1] + '</h3>'))
 				.addTo(map);
 
