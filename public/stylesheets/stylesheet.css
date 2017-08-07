@@ -66,7 +66,7 @@ html, body {
       .site-header .map-container #map .mapboxgl-popup-tip {
         border-top-color: #7c1f44; }
     .site-header .map-container .legend {
-      background-color: #fff;
+      background-color: #7c1f44;
       border-top: 1px solid #7c1f44;
       border-bottom: 1px solid #7c1f44;
       bottom: 160px;
@@ -79,7 +79,7 @@ html, body {
       z-index: 1; }
       .site-header .map-container .legend .icon {
         margin: 0px;
-        color: #7c1f44; }
+        color: white; }
         .site-header .map-container .legend .icon:hover {
           color: #85d2ca; }
         @media screen and (max-width: 750px) {
@@ -87,7 +87,7 @@ html, body {
             font-size: 15px; } }
       .site-header .map-container .legend h4 {
         margin: 0 5px;
-        color: #7c1f44; }
+        color: white; }
         .site-header .map-container .legend h4 p i.window-restore {
           font-size: 10px;
           text-align: right; }
@@ -96,7 +96,7 @@ html, body {
           bottom: 120px;
           font: 10px "Khand", sans-serif;
           padding: 5px;
-          width: 110px; } }
+          width: 120px; } }
   .site-header .navigation {
     text-align: center;
     background-color: #688BC0;
@@ -143,6 +143,9 @@ html, body {
         color: #fff;
         font-size: 20px;
         padding: 10px 0px; }
+        @media screen and (max-width: 750px) {
+          .site-header .navigation-content li a i {
+            font-size: 12px; } }
 
 .site-footer {
   background-color: #688BC0;
