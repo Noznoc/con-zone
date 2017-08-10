@@ -195,6 +195,9 @@ h2.title {
   border: 2px solid #7c1f44;
   border-radius: 100px;
   margin-top: 30px 0px; }
+  @media screen and (max-width: 750px) {
+    .line {
+      width: 300px; } }
 
 .link {
   color: #5fc5b9;
