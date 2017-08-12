@@ -18,20 +18,14 @@
 
 
 		- if (page == 'about')
+			h2.title For a detailed resume, check out 
+				strong
+					a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn account
 			p#buttons
 				button.button(name='about-work') Work Experience
 				button.button(name='about-code') Coding Experience
+				button.button(name='about-education') Education
 			hr.line
-			h2.header Introduction
-			include summary.jade
-			p For a detailed resume, check out 
-				strong
-					a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn account
-				| .
-			p Also, the
-				strong 
-					a.link(href='./work', target='_blank') work
-				|  section details projects I worked on.
 			h2#about-work Work Experience
 			ul
 				li Mapbox (Present)
@@ -66,28 +60,47 @@
 			h2#about-code Coding Experience
 			ul
 				li 
-					strong Database: 
-					| SQL, PostgreSQL, PostGIS, ArcGIS gdb
+					strong Database
+					| : SQL, PostgreSQL, PostGIS, ArcGIS gdb
 				li strong Back-end: 
-					| RESTful API, Node.js, Express, ~PHP, ~Python
+					| : RESTful API, Node.js, Express, ~PHP, ~Python
 				li 
-					strong Front-end: 
-					| JavaScript, jQuery, HTML
+					strong Front-end
+					| : JavaScript, jQuery, HTML
 				li 
-					strong Design: 
-					| CSS, SASS
+					strong Design
+					| : CSS, SASS
 				li 
-					strong Data analytics: 
-					| R, D3.js, ~Python, ~Stata, GeoDa, Twitter Streaming API
+					strong Data analytics
+					| : R, D3.js, ~Python, ~Stata, GeoDa, Twitter Streaming API
 				li 
-					strong Data: 
-					| JSON, GeoJSON, shp, (satellite) imagery, raster, csv, vector, KMLs, osm xml, pbf
+					strong Data
+					| : JSON, GeoJSON, shp, (satellite) imagery, raster, csv, vector, KMLs, osm xml, pbf
 				li 
-					strong GIS: 
-					| Esri products (e.g., ArcMap), QGIS, OpenStreetMap, GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis 
+					strong GIS
+					| : Esri products (e.g., ArcMap), QGIS, OpenStreetMap, GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis 
 				li 
-					strong Online communities: 
-					| GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
+					strong Online communities
+					| : GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
+			h2#about-education Education
+			p
+				i Bachelor of Arts at McGill University (Graduated with Distinction)
+			ul 
+				li 
+					strong Major
+					| : Geography; 
+					strong Minors
+					| : Geographic Information Systems, Remote Sensing, Anthropology
+				li Activities and Societies: Big Buddies Tutoring (2015); Drive Safe (2013);
+					a.link(href='https://publications.mcgill.ca/reporter/2012/09/conzon-to-the-rescue-as-no-5-ranked-soccer-martlets-knocks-no-1-carabins-off-lofty-perch/', target='_blank')  McGill Varsity Soccer Team (2012-2013)
+					| ; Maptime MTL (2015-2016)
+				li Projects: 
+				ul 
+					li With Python, mined thousands of georeferenced tweets and then managed, analyzed, and visualized the spatial and temporal 
+					li Developed a front-end JavaScript web app that automatically crowdsourced, geocoded, and visualized spatially-referenced data
+					li Developed a web app that automatically scraped, standardized, and mapped Kijiji real-estate postings
+					li Designed an online survey, coded the data, and then spatially predicted where new dumpsters should be located in Montreal
+					li Ran a cost distance analysis that identified a new hiking path in North Vancouver
 			script.
 				var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
 				addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
@@ -99,8 +112,8 @@
 					|GitHub account Noznoc
 				p#buttons
 					button.button(name='work-3') StatCan
-					button.button(name='work-1') PWYP / Open North
 					button.button(name='work-2') GovEx
+					button.button(name='work-1') PWYP / Open North
 			hr.line
 			p#work-3 
 				strong Statistics Canada (StatCan) Crowdsourcing Project: 
@@ -132,7 +145,7 @@
 					a.link(href='http://geothink.ca/tag/open-data-standards/' target='_blank') open data standards
 				|. Various stackholders share the concern that there is no comprehensive database of open data standards. A directory to host and visualize the database provides an opprotunity to share knowledge and communication regarding open data standards. With this in mind, we decided to develop a minimum viable site for open data publishers and open data standard providers to share and disseminate information regarding open data standards. My part of the project involves designing and developing (full stack) the site that hosts this information. As I am new to site development, working on this project has taught me a lot. I learned how to develop a Postgres database, a Node.js and Express back-end, and a Jade and JQuery based front-end, which was then all hosted on the cloud server Heroku. To fully experience the site, go 
 				strong
-					a.link(href='https://odstandards-directory.herokuapp.com', target='_blank') here
+					a.link(href='http://datastandards.directory/', target='_blank') here
 			br
 			img.image(id='standards', src='images/standards.PNG')
 			hr.line

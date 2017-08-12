@@ -178,6 +178,9 @@ html, body {
       font-size: 12px;
       margin-left: 20px;
       margin-right: 20px; } }
+.text ul strong {
+  font-weight: bolder;
+  text-decoration: underline; }
 .text .blog h2, .text .blog h3 {
   text-align: center; }
 .text .blog .blog-text {
@@ -194,7 +197,8 @@ h2.title {
   width: 800px;
   border: 2px solid #7c1f44;
   border-radius: 100px;
-  margin-top: 30px 0px; }
+  margin-top: 30px;
+  margin-bottom: 30px; }
   @media screen and (max-width: 750px) {
     .line {
       width: 300px; } }
@@ -235,7 +239,8 @@ h2.title {
   border: solid 2px #7c1f44;
   border-radius: 15px;
   color: #7c1f44;
-  margin: 0px 20px; }
+  margin: 0px 20px;
+  width: 130px; }
   .button:hover {
     background-color: #7c1f44;
     color: #FFFFFF;
@@ -243,8 +248,9 @@ h2.title {
   @media screen and (max-width: 750px) {
     .button {
       margin: 0px 8px;
-      font-size: 8px;
-      padding: 6px; } }
+      font-size: 7px;
+      padding: 6px;
+      width: 90px; } }
 
 p#buttons {
   text-align: center; }
