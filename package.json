@@ -17,10 +17,12 @@
     "jade": "~1.11.0",
     "mapbox-gl": "^0.37.0",
     "morgan": "~1.7.0",
+    "nodemailer": "^4.0.1",
     "pg": "4.x",
     "pg-promise": "^5.5.8",
     "postgeo": "*",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "nodemailer": "4.0.1"
   },
   "repository": {
     "type": "git",

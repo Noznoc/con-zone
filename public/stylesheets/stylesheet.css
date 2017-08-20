@@ -172,7 +172,7 @@ html, body {
   font-family: "Hind Vadodara", sans-serif;
   margin-left: 100px;
   margin-right: 100px;
-  text-align: justify; }
+  text-align: left; }
   @media screen and (max-width: 750px) {
     .text h2, .text h3, .text li, .text p {
       font-size: 12px;
@@ -188,7 +188,8 @@ html, body {
 .text .blog p i {
   text-align: center; }
 .text .contact h2, .text .contact p {
-  text-align: center; }
+  text-align: center;
+  padding: 20px; }
 
 h2.title {
   text-align: center; }
@@ -220,10 +221,10 @@ h2.title {
 .icon {
   font-size: 40px;
   margin: 25px;
-  color: #201317; }
+  color: #85d2ca; }
   .icon:hover {
     cursor: pointer;
-    color: #85d2ca; }
+    color: #7c1f44; }
   @media screen and (max-width: 750px) {
     .icon {
       font-size: 20px;
@@ -257,11 +258,13 @@ p#buttons {
 
 .image {
   border: 5px solid #85d2ca;
-  margin: 10px 0px;
-  max-width: 800px; }
+  margin: 10px 10px;
+  max-width: 800px;
+  max-height: 500px; }
   @media screen and (max-width: 775px) {
     .image {
       max-width: 300px;
+      max-height: 300px;
       text-align: center;
       border: 5px solid #85d2ca; } }
 
@@ -276,5 +279,23 @@ p#buttons {
 
 .x-large {
   font-size: 40px; }
+
+form fieldset {
+  text-align: center;
+  border: 0px; }
+  @media screen and (max-width: 750px) {
+    form fieldset {
+      width: 300px; } }
+  form fieldset input {
+    margin: 0px 15px;
+    padding: 10px 92px;
+    font-size: 13px;
+    text-align: center; }
+  form fieldset input, form fieldset textarea {
+    border: 1px solid #85d2ca; }
+  form fieldset textarea {
+    width: 695px; }
+  form fieldset input[type=text]:focus, form fieldset textarea:focus {
+    box-shadow: 0 0 5px #7c1f44; }
 
 /*# sourceMappingURL=stylesheet.css.map */

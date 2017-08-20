@@ -123,14 +123,15 @@
 				p (i) I collected the OSM data from Geofabrik
 				p (ii) I stored the data into a PostGIS database
 				p (iii) I developed a Node.js RESTful API to query the database and send the spatial data as a GeoJSON to the front-end
-				p (iii) I used Mapbox GL JS to visualize the GeoJSON data as a map
-				p (iv) I used the data-driven styling tools in the Mapbox GL JS library to visually assess distribution of OSM building tags
+				p (iv) I used Mapbox GL JS to visualize the GeoJSON data as a map
+				p (v) I used the data-driven styling tools in the Mapbox GL JS library to visually assess distribution of OSM building tags
+				p (vi) I designed and developed a web app to visualize the GeoJSONs
 				p To see the code, go 
 					strong
 						a.link(href='https://github.com/Noznoc/geojson-api', target='_blank') here
+			img.image(src='/images/geojsonapi.png')
 			img.image(src='/images/ottawa.PNG')
 			img.image(src='/images/gatineau.PNG')
-			img.image(src='/images/geojsonapi.png')
 			hr.line
 			p#work-2
 				strong Open Data Standards Directory: 
@@ -194,15 +195,13 @@
 
 		- if (page == 'contact')
 			.contact
-				h2.title Julia Conzon
-				p
-					a.link.icon(href='https://github.com/Noznoc', target='_blank')
-						i.fa.fa-github(aria-hidden='true') 
-					a.link.icon(href='https://t.co/jMpBYPZXG0', target='_blank')
-						i.fa.fa-linkedin-square(aria-hidden='true')
-					a.link.icon(href='https://twitter.com/julconz?lang=en', target='_blank')
-						i.fa.fa-twitter-square(aria-hidden='true')
-				p.header or e-mail me at juliaconzon@gmail.com
+				a.link.icon(href='https://github.com/Noznoc', target='_blank')
+					i.fa.fa-github-square(aria-hidden='true') 
+				a.link.icon(href='https://t.co/jMpBYPZXG0', target='_blank')
+					i.fa.fa-linkedin-square(aria-hidden='true')
+				a.link.icon(href='https://twitter.com/julconz?lang=en', target='_blank')
+					i.fa.fa-twitter-square(aria-hidden='true')
+				p or email juliaconzon@gmail.com
 			script.
 				var coordinates = [];
 				addMap([-74.2198126, -13.1556384], 13, 2, 13, coordinates);
