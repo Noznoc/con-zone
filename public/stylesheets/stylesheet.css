@@ -196,8 +196,6 @@ h2.title {
 
 .container {
   border-top: #d7c7cd 1px solid; }
-  .container .clipboard {
-    margin-left: 700px; }
 
 .form h2, .form p {
   text-align: center;
@@ -206,7 +204,8 @@ h2.title {
 .blog-post h2, .blog-post h3, .blog-post img {
   text-align: center; }
 .blog-post img {
-  text-align: center; }
+  text-align: center;
+  width: 350px; }
 .blog-post .blog-text {
   display: none; }
 
@@ -264,7 +263,11 @@ p#buttons {
 
 .clipboard {
   font-size: 21px;
-  margin: 0px auto; }
+  padding: 5px;
+  margin-left: 700px; }
+  @media screen and (max-width: 750px) {
+    .clipboard {
+      display: none; } }
 
 .image {
   border: 2px solid #4dbeb1;
@@ -310,16 +313,10 @@ p#buttons {
 
 .form {
   text-align: center; }
-  @media screen and (max-width: 750px) {
-    .form {
-      width: 300px; } }
   .form textarea {
     border: 1px solid #4dbeb1;
     font-size: 15px;
     width: 695px; }
-    @media screen and (max-width: 750px) {
-      .form textarea {
-        width: 300px; } }
   .form input[type=text]:focus, .form textarea:focus {
     box-shadow: 0 0 5px #4dbeb1; }
   .form .button {
