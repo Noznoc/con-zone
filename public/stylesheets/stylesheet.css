@@ -279,8 +279,8 @@ p#buttons {
   text-align: center; }
   @media screen and (max-width: 775px) {
     .image {
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 280px;
+      max-height: 280px;
       text-align: center;
       border: 5px solid #4dbeb1; } }
 
@@ -317,6 +317,10 @@ p#buttons {
     border: 1px solid #4dbeb1;
     font-size: 15px;
     width: 695px; }
+    @media screen and (max-width: 750px) {
+      .form textarea {
+        font-size: 12px;
+        width: 300px; } }
   .form input[type=text]:focus, .form textarea:focus {
     box-shadow: 0 0 5px #4dbeb1; }
   .form .button {
