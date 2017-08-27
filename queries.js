@@ -12,7 +12,7 @@ function blog(req, res, next){
 
 function blog_post(req, res, next){
   var blog = req.params.id
-  res.render(blog, {layout: 'layout'});
+  res.render('blog', {layout: 'layout', page: blog});
 }
 
 function contact(req, res, next){
