@@ -1,44 +1,43 @@
 .text
 	h2, h3, li, p
 		font-family: $secondary-font
-		margin-left: 100px
-		margin-right: 100px
 		text-align: left
-		@media screen and (max-width: 750px)
-			font-size: 12px
-			margin-left: 20px
-			margin-right: 20px
 
 	ul		
 		strong
 			font-weight: bolder
 			text-decoration: underline
-	
-	.blog
-		h2, h3
-			text-align: center
-		.blog-text
-			display: none
-		p
-			i
-				text-align: center
-
-	.contact
-		h2, p
-			text-align: center
-			padding: 20px
 
 h2.title
 	text-align: center
-	
-
-.line
-	width: 800px
-	border: 2px solid $line-color
-	border-radius: 100px
-	margin-top: 30px
-	margin-bottom: 30px
+	padding-bottom: 20px
 	@media screen and (max-width: 750px)
-		width: 300px
+		font-size: 14px
 
+.paragraph, .container
+	margin: 40px 100px
+	@media screen and (max-width: 750px)
+		font-size: 12px
+		margin-left: 20px
+		margin-right: 20px
 
+.container
+	border-top: $header-color 1px solid
+	
+	.clipboard
+		margin-left: 700px
+
+.form
+	h2, p
+		text-align: center
+		padding: 20px
+
+.blog-post
+	h2, h3, img
+		text-align: center
+
+	img
+		text-align: center
+
+	.blog-text
+		display: none

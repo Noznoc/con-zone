@@ -1,0 +1,31 @@
+extends layout.pug
+block content
+		a.link.icon(href='https://github.com/Noznoc', target='_blank', title='GitHub')
+			i.fa.fa-github-square(aria-hidden='true') 
+		a.link.icon(href='https://t.co/jMpBYPZXG0', target='_blank', title='LinkedIn')
+			i.fa.fa-linkedin-square(aria-hidden='true')
+		a.link.icon(href='https://twitter.com/julconz?lang=en', target='_blank', title='Twitter')
+			i.fa.fa-twitter-square(aria-hidden='true')
+		a.link.icon(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', title='OpenStreetMap')
+			i.fa.fa-globe(aria-hidden='true')
+		.container.form
+			h2.title Send me a message!
+			br
+			textarea#message(name='message', cols='40', rows='10')
+			p
+			button.button#submit Submit
+		script.
+			var coordinates = [];
+			addMap([-74.2198126, -13.1556384], 13, 2, 13, coordinates);
+			$('#legend').find('h4').html('WHERE I CURRENTLY LIVE');
+
+			$('#message').on('change', function () {
+				var body = $(this).val(),
+					mailToLink = "mailto:juliaconzon.com?body=" + encodeURIComponent(body);
+
+				$('#submit').on('click', function () {
+					window.location.href = mailToLink;
+				});
+			});
+
+				

@@ -1,21 +1,17 @@
-form
-	fieldset
-		text-align: center
-		border: 0px
+.form
+	text-align: center
+	@media screen and (max-width: 750px)
+		width: 300px
+
+	textarea
+		border: 1px solid $accent-color
+		font-size: 15px
+		width: 695px
 		@media screen and (max-width: 750px)
 			width: 300px
 
-		input
-			margin: 0px 15px
-			padding: 10px 92px
-			font-size: 13px
-			text-align: center
+	input[type=text]:focus, textarea:focus
+		box-shadow: 0 0 5px rgba(77, 190, 177, 1)
 
-		input, textarea
-			border: 1px solid $accent-color
-
-		textarea
-			width: 695px
-
-		input[type=text]:focus, textarea:focus
-			box-shadow: 0 0 5px rgba(124, 31, 68, 1)
+	.button
+		font-size: 13px

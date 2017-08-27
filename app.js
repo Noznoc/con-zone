@@ -13,8 +13,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // tells app to use the
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // path.join() normalises all the arguments into a path string. _dirname = global and 'views' = file/folder name
-//app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'jade'); // set the view engine to html
+app.set('view engine', 'pug'); // set the view engine to pug
 
 app.use(logger('dev')); // logs the requests to the console
 app.use(bodyParser.json()); // gives app the ability to parse JSON

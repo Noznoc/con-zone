@@ -10,7 +10,6 @@
 			
 	.navigation
 		text-align: center
-		background-color: $header-color
 		list-style-type: none
 		margin: 0
 		padding: 0
@@ -28,36 +27,42 @@
 				padding: 10px 10px
 				font-size: 20px
 			text-decoration: none
-			background-color: $header-color
 			font-family: $primary-font
-			color: white
+			color: $font-color
 			&:hover
-				background-color: $hover-color
-				border-top: 10px solid $header-accent-color
+				color: $font-color
+				border-bottom: 4px solid $header-accent-color
+				border-top: 4px solid $header-accent-color
 				cursor: pointer
 
 		li.active
-			background-color: #fff
 			color: $font-color
-			border-top: 10px solid $header-accent-color
+			border-bottom: 4px solid $header-accent-color
+			border-top: 4px solid $header-accent-color
+
+	.navigation-site
+		border-bottom: $header-color 1px solid
+		border-top: $header-color 1px solid
 
 	.navigation-content
 		margin-bottom: 0px
-		border-bottom: 2px solid white
+		border-top: 1px solid $header-color
+		background: $accent-color
 		text-align: right
 
 		li
-			padding: 0px 5px
+			padding: 0px 0px
 			&:hover
-				background-color: $hover-color
-				border-top: 0px
-				cursor: pointer
+				border: 0px
+				cursor: default
 
 			a
 				i
-					color: #fff
+					color: white
 					font-size: 20px
-					padding: 10px 0px
+					padding: 7px 2px
+					&:hover
+						cursor: pointer
 					@media screen and (max-width: 750px)
 						font-size: 12px
 

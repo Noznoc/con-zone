@@ -1,0 +1,97 @@
+extends layout.pug
+block content		
+	h2.title For a detailed resume, check out 
+		strong
+			a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn account
+	p#buttons
+		button.button(name='about-work') Work Experience
+		button.button(name='about-code') Coding Experience
+		button.button(name='about-education') Education
+	.container
+		h2#about-work Work Experience
+		ul
+			li Mapbox (Present)
+			p 
+				i Data Team 
+			li Part-Time Freelance (Present)
+			p
+				i Open Data Consultant & Full-Stack Web Developer
+			p Front-end web development for Open North and Publish What You Pay Canada. Collected and managed a database of payments to government organizations from resource extraction companies; and, with the data, designed and developed an interactive Mapbox.js map and D3.js dashboard web app
+			p Back-end and front-end development for Johns Hopkins University’s Center for Government Excellence. Designed with SASS, managed data with Postgres, and developed a Node.js web app hosted on Heroku that served an open data standards directory
+			p Experienced handling various administrative data from various sources
+			p Designed and developed UI/UX templates for maps, websites, data portals
+			li Statistics Canada (February 2017 - June 2017)
+			p 
+				i Data Production and Dissemination Officer
+				ul
+					li Reached out to local communities to engage in contributing OpenStreetMap (OSM) data (i.e., spatial data)
+					li Spatially managed and analyzed government business data
+					li Researched and designed a mobile crowdsourcing web app 
+					li Collected, managed, analyzed, and visualized large spatial (osm/pbf, geoJSON, shp) datasets
+					li Developed a spatial server: PostGIS -> Node.js back-end -> geoJSON RESTful API -> web app & map 
+					li Advised on open data licensing
+					li Developed R code for monitoring, analyzing, and visualizing the OSM data
+					li Supported open source code and data, and contributed back via GitHub
+					li Researched and developed a methodology to assess the quality of OSM data
+					li Collected and managed a Postgres/PostGIS database to assess quality assurance
+			p
+			li McGill University (May - August 2016)
+			p
+				i Research Assistant 
+			p Research assistant for Geothink’s Civic Open Data Standards project. I (i) assessed Canadian municipal datasets and open data portals; (ii) designed with Bootstrap and developed a JavaScript web app to host a catalog of open data standards; and, (iii) designed, conducted, and transcribed semi-structured telephone surveys
+	.container
+		h2#about-code Coding Experience
+		ul
+			li 
+				strong Database
+				| : SQL, PostgreSQL, PostGIS, ArcGIS gdb
+			li strong Back-end: 
+				| : RESTful API, Node.js, Express, ~PHP, ~Python
+			li 
+				strong Front-end
+				| : JavaScript, jQuery, HTML, pug
+			li 
+				strong Design
+				| : CSS, SASS
+			li 
+				strong Data analytics
+				| : R, D3.js, ~Python, ~Stata, GeoDa, Twitter Streaming API
+			li 
+				strong Data
+				| : JSON, GeoJSON, shp, (satellite) imagery, raster, csv, vector, KMLs, osm xml, pbf
+			li 
+				strong GIS
+				| : Esri products (e.g., ArcMap), QGIS, OpenStreetMap, GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis 
+			li 
+				strong Online communities
+				| : GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter
+	.container
+		h2#about-education Education
+		p
+			i Bachelor of Arts at McGill University (Graduated with Distinction)
+		ul 
+			li 
+				strong Major
+				| : Geography; 
+				strong Minors
+				| : Geographic Information Systems, Remote Sensing, Anthropology
+			li Activities and Societies: Big Buddies Tutoring (2015); Drive Safe (2013);
+				a.link(href='https://publications.mcgill.ca/reporter/2012/09/conzon-to-the-rescue-as-no-5-ranked-soccer-martlets-knocks-no-1-carabins-off-lofty-perch/', target='_blank')  McGill Varsity Soccer Team (2012-2013)
+				| ; Maptime MTL (2015-2016)
+			li Projects: 
+			ul 
+				li With Python, mined thousands of georeferenced tweets and then managed, analyzed, and visualized the spatial and temporal 
+				li Developed a front-end JavaScript web app that automatically crowdsourced, geocoded, and visualized spatially-referenced data
+				li Developed a web app that automatically scraped, standardized, and mapped Kijiji real-estate postings
+				li Designed an online survey, coded the data, and then spatially predicted where new dumpsters should be located in Montreal
+				li Ran a cost distance analysis that identified a new hiking path in North Vancouver
+	script.
+		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
+		$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+		$('.button').on('click', function () {
+			var name = $(this).attr('name');
+		    $('html, body').animate({
+		        scrollTop: $('#' + name).offset().top
+		    }, 1000);
+		})

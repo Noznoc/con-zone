@@ -6,7 +6,7 @@
   },
   "description": "Julia Conzon's web site",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "supervisor ./bin/www"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
@@ -14,7 +14,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "express": "~4.14.1",
-    "jade": "~1.11.0",
+    "pug": "2.0.0-rc.3",
     "mapbox-gl": "^0.37.0",
     "morgan": "~1.7.0",
     "nodemailer": "^4.0.1",
@@ -22,7 +22,8 @@
     "pg-promise": "^5.5.8",
     "postgeo": "*",
     "serve-favicon": "~2.3.2",
-    "nodemailer": "4.0.1"
+    "supervisor": "0.12.0",
+    "clipboard": "1.7.1"
   },
   "repository": {
     "type": "git",

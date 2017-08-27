@@ -1,0 +1,16 @@
+extends layout.pug
+block content
+	.paragraph
+		h2.header Hello, my name is Julia Conzon
+		include summary.pug
+		p View the
+			strong 
+				a.link(href='./work', target='_blank') work
+			|  section to see the projects I worked on or the
+			strong 
+				a.link(href='./about', target='_blank') about
+			|  section to see a detail list of my work experience.
+	script.
+		var coordinates = [[[-123.112920, 49.250319], "<p>Vancouver</p>"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
+		$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');

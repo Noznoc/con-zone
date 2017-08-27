@@ -1,21 +1,26 @@
 function about(req, res, next){
-  res.render('index', {page: 'about'})
+  res.render('about', {layout: 'layout', page: 'about'});
 }
 
 function work(req, res, next){
-  res.render('index', {page: 'work'})
+  res.render('work', {layout: 'layout', page: 'work'});
 }
 
 function blog(req, res, next){
-  res.render('index', {page: 'blog'})
+  res.render('blog', {layout: 'layout', page: 'blog'});
+}
+
+function blog_post(req, res, next){
+  var blog = req.params.id
+  res.render(blog, {layout: 'layout'});
 }
 
 function contact(req, res, next){
-  res.render('index', {page: 'contact'})
+  res.render('contact', {layout: 'layout', page: 'contact'});
 }
 
 function home(req, res, next){
-  res.render('index', {page: 'home'})
+  res.render('home', {layout: 'layout', page: 'home'});
 }
 
 // add query functions to app 
@@ -24,5 +29,6 @@ module.exports = {
   work: work,
   contact: contact,
   blog: blog,
+  blog_post: blog_post,
   home: home
 };

@@ -51,24 +51,24 @@ html, body {
         max-width: 200px; }
       .site-header .map-container #map .mapboxgl-popup-content {
         font: 12px "Hind Vadodara", sans-serif;
-        background-color: #7c1f44;
+        background-color: #7a2d5f;
         color: white;
         max-width: 190px;
         max-height: 60px;
-        border: 1px solid #7c1f44;
+        border: 1px solid #7a2d5f;
         padding: 10px;
         text-align: center; }
         .site-header .map-container #map .mapboxgl-popup-content button {
           color: white; }
           .site-header .map-container #map .mapboxgl-popup-content button:hover {
             cursor: pointer;
-            color: #85d2ca; }
+            color: #4dbeb1; }
       .site-header .map-container #map .mapboxgl-popup-tip {
-        border-top-color: #7c1f44; }
+        border-top-color: #7a2d5f; }
     .site-header .map-container .legend {
-      background-color: #7c1f44;
-      border-top: 1px solid #7c1f44;
-      border-bottom: 1px solid #7c1f44;
+      background-color: #7a2d5f;
+      border-top: 1px solid #7a2d5f;
+      border-bottom: 1px solid #7a2d5f;
       bottom: 160px;
       font: 14px "Khand", sans-serif;
       padding: 10px;
@@ -81,7 +81,7 @@ html, body {
         margin: 0px;
         color: white; }
         .site-header .map-container .legend .icon:hover {
-          color: #85d2ca; }
+          color: #4dbeb1; }
         @media screen and (max-width: 750px) {
           .site-header .map-container .legend .icon {
             font-size: 15px; } }
@@ -99,7 +99,6 @@ html, body {
           width: 120px; } }
   .site-header .navigation {
     text-align: center;
-    background-color: #688BC0;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -114,98 +113,105 @@ html, body {
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
-      background-color: #688BC0;
       font-family: "Khand", sans-serif;
-      color: white; }
+      color: #4c1b3a; }
       @media screen and (max-width: 750px) {
         .site-header .navigation li {
           padding: 10px 10px;
           font-size: 20px; } }
       .site-header .navigation li:hover {
-        background-color: #b0c2de;
-        border-top: 10px solid #fff389;
+        color: #4c1b3a;
+        border-bottom: 4px solid #fff389;
+        border-top: 4px solid #fff389;
         cursor: pointer; }
     .site-header .navigation li.active {
-      background-color: #fff;
-      color: #201317;
-      border-top: 10px solid #fff389; }
+      color: #4c1b3a;
+      border-bottom: 4px solid #fff389;
+      border-top: 4px solid #fff389; }
+  .site-header .navigation-site {
+    border-bottom: #d7c7cd 1px solid;
+    border-top: #d7c7cd 1px solid; }
   .site-header .navigation-content {
     margin-bottom: 0px;
-    border-bottom: 2px solid white;
+    border-top: 1px solid #d7c7cd;
+    background: #4dbeb1;
     text-align: right; }
     .site-header .navigation-content li {
-      padding: 0px 5px; }
+      padding: 0px 0px; }
       .site-header .navigation-content li:hover {
-        background-color: #b0c2de;
-        border-top: 0px;
-        cursor: pointer; }
+        border: 0px;
+        cursor: default; }
       .site-header .navigation-content li a i {
-        color: #fff;
+        color: white;
         font-size: 20px;
-        padding: 10px 0px; }
+        padding: 7px 2px; }
+        .site-header .navigation-content li a i:hover {
+          cursor: pointer; }
         @media screen and (max-width: 750px) {
           .site-header .navigation-content li a i {
             font-size: 12px; } }
 
 .site-footer {
-  background-color: #688BC0;
+  border-top: 1px solid #d7c7cd;
   font-family: "Khand", sans-serif;
-  color: #FFFFFF;
+  color: #4c1b3a;
   bottom: 0;
   width: 100%;
   text-align: center;
   font-size: 16px;
   clear: both;
-  padding: 7px;
+  padding: 15px;
   height: 70px; }
   @media screen and (max-width: 750px) {
     .site-footer {
       font-size: 15px; } }
   .site-footer a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #4c1b3a;
     padding: 0px 20px; }
     .site-footer a:hover {
       text-decoration: underline; }
 
 .text h2, .text h3, .text li, .text p {
   font-family: "Hind Vadodara", sans-serif;
-  margin-left: 100px;
-  margin-right: 100px;
   text-align: left; }
-  @media screen and (max-width: 750px) {
-    .text h2, .text h3, .text li, .text p {
-      font-size: 12px;
-      margin-left: 20px;
-      margin-right: 20px; } }
 .text ul strong {
   font-weight: bolder;
   text-decoration: underline; }
-.text .blog h2, .text .blog h3 {
-  text-align: center; }
-.text .blog .blog-text {
-  display: none; }
-.text .blog p i {
-  text-align: center; }
-.text .contact h2, .text .contact p {
+
+h2.title {
+  text-align: center;
+  padding-bottom: 20px; }
+  @media screen and (max-width: 750px) {
+    h2.title {
+      font-size: 14px; } }
+
+.paragraph, .container {
+  margin: 40px 100px; }
+  @media screen and (max-width: 750px) {
+    .paragraph, .container {
+      font-size: 12px;
+      margin-left: 20px;
+      margin-right: 20px; } }
+
+.container {
+  border-top: #d7c7cd 1px solid; }
+  .container .clipboard {
+    margin-left: 700px; }
+
+.form h2, .form p {
   text-align: center;
   padding: 20px; }
 
-h2.title {
+.blog-post h2, .blog-post h3, .blog-post img {
   text-align: center; }
-
-.line {
-  width: 800px;
-  border: 2px solid #7c1f44;
-  border-radius: 100px;
-  margin-top: 30px;
-  margin-bottom: 30px; }
-  @media screen and (max-width: 750px) {
-    .line {
-      width: 300px; } }
+.blog-post img {
+  text-align: center; }
+.blog-post .blog-text {
+  display: none; }
 
 .link {
-  color: #5fc5b9;
+  color: #3a9e93;
   text-decoration: none; }
   .link:hover {
     text-decoration: underline;
@@ -221,10 +227,10 @@ h2.title {
 .icon {
   font-size: 40px;
   margin: 25px;
-  color: #85d2ca; }
+  color: #4dbeb1; }
   .icon:hover {
     cursor: pointer;
-    color: #7c1f44; }
+    color: #7a2d5f; }
   @media screen and (max-width: 750px) {
     .icon {
       font-size: 20px;
@@ -237,13 +243,13 @@ h2.title {
 .button {
   padding: 10px;
   background-color: #FFFFFF;
-  border: solid 2px #7c1f44;
+  border: solid 2px #7a2d5f;
   border-radius: 15px;
-  color: #7c1f44;
+  color: #7a2d5f;
   margin: 0px 20px;
   width: 130px; }
   .button:hover {
-    background-color: #7c1f44;
+    background-color: #7a2d5f;
     color: #FFFFFF;
     cursor: pointer; }
   @media screen and (max-width: 750px) {
@@ -256,46 +262,76 @@ h2.title {
 p#buttons {
   text-align: center; }
 
+.clipboard {
+  font-size: 21px;
+  margin: 0px auto; }
+
 .image {
-  border: 5px solid #85d2ca;
-  margin: 10px 10px;
-  max-width: 800px;
-  max-height: 500px; }
+  border: 2px solid #4dbeb1;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 750px;
+  max-height: 500px;
+  text-align: center; }
   @media screen and (max-width: 775px) {
     .image {
       max-width: 300px;
       max-height: 300px;
       text-align: center;
-      border: 5px solid #85d2ca; } }
+      border: 5px solid #4dbeb1; } }
 
-.small {
+.text-small {
   font-size: 10px; }
 
-.medium {
+.text-medium {
   font-size: 20px; }
 
-.large {
+.text-large {
   font-size: 30px; }
 
-.x-large {
+.text-xlarge {
   font-size: 40px; }
 
-form fieldset {
-  text-align: center;
-  border: 0px; }
+.button-xsmall {
+  width: 100px; }
+
+.button-small {
+  width: 200px; }
+
+.button-medium {
+  width: 400px; }
+
+.button-large {
+  width: 600px; }
+
+.button-xlarge {
+  width: 800px; }
+
+.form {
+  text-align: center; }
   @media screen and (max-width: 750px) {
-    form fieldset {
+    .form {
       width: 300px; } }
-  form fieldset input {
-    margin: 0px 15px;
-    padding: 10px 92px;
-    font-size: 13px;
-    text-align: center; }
-  form fieldset input, form fieldset textarea {
-    border: 1px solid #85d2ca; }
-  form fieldset textarea {
+  .form textarea {
+    border: 1px solid #4dbeb1;
+    font-size: 15px;
     width: 695px; }
-  form fieldset input[type=text]:focus, form fieldset textarea:focus {
-    box-shadow: 0 0 5px #7c1f44; }
+    @media screen and (max-width: 750px) {
+      .form textarea {
+        width: 300px; } }
+  .form input[type=text]:focus, .form textarea:focus {
+    box-shadow: 0 0 5px #4dbeb1; }
+  .form .button {
+    font-size: 13px; }
+
+.header-side {
+  position: relative;
+  width: 100px;
+  text-align: center;
+  margin: 0px -200px;
+  padding: 0; }
+  .header-side .button {
+    position: fixed; }
 
 /*# sourceMappingURL=stylesheet.css.map */
