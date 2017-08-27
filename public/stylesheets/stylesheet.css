@@ -279,10 +279,10 @@ p#buttons {
   text-align: center; }
   @media screen and (max-width: 775px) {
     .image {
-      max-width: 280px;
+      max-width: 260px;
       max-height: 280px;
       text-align: center;
-      border: 5px solid #4dbeb1; } }
+      border: 2px solid #4dbeb1; } }
 
 .text-small {
   font-size: 10px; }
@@ -320,7 +320,7 @@ p#buttons {
     @media screen and (max-width: 750px) {
       .form textarea {
         font-size: 12px;
-        width: 300px; } }
+        width: 250px; } }
   .form input[type=text]:focus, .form textarea:focus {
     box-shadow: 0 0 5px #4dbeb1; }
   .form .button {
