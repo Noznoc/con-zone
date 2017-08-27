@@ -31,8 +31,10 @@
 			$('#blog').addClass('active');
 		} else if ('#{page}' == 'contact') {
 			$('#contact').addClass('active');
-		} else {
+		} else if ('#{page}' == 'home') {
 			$('#home').addClass('active');
+		} else {
+			$('#blog').addClass('active');
 		}
 
 		$('ul.navigation-site li').on('click', function() {
