@@ -39,12 +39,6 @@ html, body {
     .site-header .map-container #map {
       width: 100%;
       height: 200px; }
-      .site-header .map-container #map .mapboxgl-marker {
-        background-image: url("../images/point-icon.svg");
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        background-size: cover; }
       .site-header .map-container #map .mapboxgl-ctrl {
         font: 10px "Hind Vadodara", sans-serif; }
       .site-header .map-container #map .mapboxgl-popup {
@@ -66,9 +60,9 @@ html, body {
       .site-header .map-container #map .mapboxgl-popup-tip {
         border-top-color: #7a2d5f; }
     .site-header .map-container .legend {
-      background-color: #7a2d5f;
-      border-top: 1px solid #7a2d5f;
-      border-bottom: 1px solid #7a2d5f;
+      background-color: white;
+      border-top: 1px solid #fff389;
+      border-bottom: 1px solid #fff389;
       bottom: 160px;
       font: 14px "Khand", sans-serif;
       padding: 10px;
@@ -79,7 +73,8 @@ html, body {
       z-index: 1; }
       .site-header .map-container .legend .icon {
         margin: 0px;
-        color: white; }
+        font-size: 20px;
+        color: #3f2d34; }
         .site-header .map-container .legend .icon:hover {
           color: #4dbeb1; }
         @media screen and (max-width: 750px) {
@@ -87,7 +82,7 @@ html, body {
             font-size: 15px; } }
       .site-header .map-container .legend h4 {
         margin: 0 5px;
-        color: white; }
+        color: #3f2d34; }
         .site-header .map-container .legend h4 p i.window-restore {
           font-size: 10px;
           text-align: right; }
@@ -114,18 +109,18 @@ html, body {
       padding: 14px 16px;
       text-decoration: none;
       font-family: "Khand", sans-serif;
-      color: #4c1b3a; }
+      color: #3f2d34; }
       @media screen and (max-width: 750px) {
         .site-header .navigation li {
           padding: 10px 10px;
           font-size: 20px; } }
       .site-header .navigation li:hover {
-        color: #4c1b3a;
+        color: #3f2d34;
         border-bottom: 4px solid #fff389;
         border-top: 4px solid #fff389;
         cursor: pointer; }
     .site-header .navigation li.active {
-      color: #4c1b3a;
+      color: #3f2d34;
       border-bottom: 4px solid #fff389;
       border-top: 4px solid #fff389; }
   .site-header .navigation-site {
@@ -154,7 +149,7 @@ html, body {
 .site-footer {
   border-top: 1px solid #d7c7cd;
   font-family: "Khand", sans-serif;
-  color: #4c1b3a;
+  color: #3f2d34;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -167,17 +162,19 @@ html, body {
       font-size: 15px; } }
   .site-footer a {
     text-decoration: none;
-    color: #4c1b3a;
+    color: #3f2d34;
     padding: 0px 20px; }
     .site-footer a:hover {
       text-decoration: underline; }
 
-.text h2, .text h3, .text li, .text p {
-  font-family: "Hind Vadodara", sans-serif;
-  text-align: left; }
-.text ul strong {
-  font-weight: bolder;
-  text-decoration: underline; }
+.text {
+  color: #3f2d34; }
+  .text h2, .text h3, .text li, .text p {
+    font-family: "Hind Vadodara", sans-serif;
+    text-align: left; }
+  .text ul strong {
+    font-weight: bolder;
+    text-decoration: underline; }
 
 h2.title {
   text-align: center;
