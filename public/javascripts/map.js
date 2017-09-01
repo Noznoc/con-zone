@@ -110,7 +110,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 				}
 			});
 
-			map.on("click", "layer", function(e) {
+			map.on("click", "unclustered-point", function(e) {
 				if (cluster) {
 					new mapboxgl.Popup()
 						.setLngLat(e.features[0].geometry.coordinates)
