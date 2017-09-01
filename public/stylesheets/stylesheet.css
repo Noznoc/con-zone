@@ -45,11 +45,11 @@ html, body {
         max-width: 200px; }
       .site-header .map-container #map .mapboxgl-popup-content {
         font: 12px "Hind Vadodara", sans-serif;
-        background-color: #7a2d5f;
-        color: white;
+        background-color: white;
+        color: #7a2d5f;
         max-width: 190px;
         max-height: 60px;
-        border: 1px solid #7a2d5f;
+        border: 1px solid #d7c7cd;
         padding: 10px;
         text-align: center; }
         .site-header .map-container #map .mapboxgl-popup-content button {
@@ -57,8 +57,6 @@ html, body {
           .site-header .map-container #map .mapboxgl-popup-content button:hover {
             cursor: pointer;
             color: #4dbeb1; }
-      .site-header .map-container #map .mapboxgl-popup-tip {
-        border-top-color: #7a2d5f; }
     .site-header .map-container .legend {
       background-color: white;
       border-top: 1px solid #fff389;
@@ -66,7 +64,7 @@ html, body {
       bottom: 160px;
       font: 14px "Khand", sans-serif;
       padding: 10px;
-      width: 160px;
+      width: 180px;
       position: absolute;
       text-align: center;
       left: 10px;
@@ -83,9 +81,11 @@ html, body {
       .site-header .map-container .legend h4 {
         margin: 0 5px;
         color: #3f2d34; }
-        .site-header .map-container .legend h4 p i.window-restore {
-          font-size: 10px;
-          text-align: right; }
+        .site-header .map-container .legend h4 p {
+          padding: 0px; }
+          .site-header .map-container .legend h4 p i.window-restore {
+            font-size: 10px;
+            text-align: right; }
       @media screen and (max-width: 750px) {
         .site-header .map-container .legend {
           bottom: 120px;
@@ -184,15 +184,59 @@ h2.title {
       font-size: 14px; } }
 
 .paragraph, .container {
-  margin: 40px 100px; }
+  margin: 40px 100px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto; }
+  .paragraph::after, .container::after {
+    clear: both;
+    content: "";
+    display: block; }
   @media screen and (max-width: 750px) {
     .paragraph, .container {
       font-size: 12px;
       margin-left: 20px;
       margin-right: 20px; } }
+  .paragraph .column, .container .column {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 40.291369653%; }
+    .paragraph .column:last-child, .container .column:last-child {
+      margin-right: 0; }
+  .paragraph .column-small, .container .column-small {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 23.2317609825%;
+    margin: 0px 40px;
+    text-align: center; }
+    .paragraph .column-small:last-child, .container .column-small:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 750px) {
+      .paragraph .column-small, .container .column-small {
+        float: left;
+        display: block;
+        margin-right: 2.3576520234%;
+        width: 31.7615653177%; }
+        .paragraph .column-small:last-child, .container .column-small:last-child {
+          margin-right: 0; } }
+    .paragraph .column-small p.bin, .container .column-small p.bin {
+      text-align: center; }
+  .paragraph .column-large, .container .column-large {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 100%; }
+    .paragraph .column-large:last-child, .container .column-large:last-child {
+      margin-right: 0; }
 
 .container {
   border-top: #d7c7cd 1px solid; }
+
+.bin {
+  background: #fff389;
+  padding: 3px 10px; }
 
 .form h2, .form p {
   text-align: center;
@@ -200,9 +244,6 @@ h2.title {
 
 .blog-post h2, .blog-post h3, .blog-post img {
   text-align: center; }
-.blog-post img {
-  text-align: center;
-  width: 350px; }
 .blog-post .blog-text {
   display: none; }
 
@@ -271,15 +312,33 @@ p#buttons {
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  max-width: 750px;
-  max-height: 500px;
   text-align: center; }
+
+.image-long {
+  max-width: 700px;
+  max-height: 350px; }
   @media screen and (max-width: 775px) {
-    .image {
+    .image-long {
+      width: 190px;
+      max-height: 280px; } }
+
+.image-wide {
+  width: 770px;
+  max-height: 600px; }
+  @media screen and (max-width: 775px) {
+    .image-wide {
       max-width: 260px;
       max-height: 280px;
-      text-align: center;
-      border: 2px solid #4dbeb1; } }
+      width: 190px;
+      max-height: 280px; } }
+
+.subtitle {
+  text-align: center;
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: 12px; }
+  @media screen and (max-width: 775px) {
+    .subtitle {
+      width: 195px; } }
 
 .text-small {
   font-size: 10px; }
@@ -307,6 +366,21 @@ p#buttons {
 
 .button-xlarge {
   width: 800px; }
+
+.small {
+  width: 200px; }
+
+.medium {
+  width: 400px; }
+  @media screen and (max-width: 750px) {
+    .medium {
+      width: 300px; } }
+
+.large {
+  width: 700px; }
+  @media screen and (max-width: 750px) {
+    .large {
+      width: 500px; } }
 
 .form {
   text-align: center; }

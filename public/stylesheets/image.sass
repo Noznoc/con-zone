@@ -3,12 +3,31 @@
 	margin-top: 20px
 	margin-left: 10px
 	margin-right: 10px
-	max-width: 750px
-	max-height: 500px
 	text-align: center
+
+.image-long
+	max-width: 700px
+	max-height: 350px
+
+	@media screen and (max-width: 775px)
+		width: 190px
+		max-height: 280px
+
+.image-wide
+	width: 770px
+	max-height: 600px
 
 	@media screen and (max-width: 775px)
 		max-width: 260px
 		max-height: 280px
-		text-align: center
-		border: 2px solid $accent-color
+		width: 190px
+		max-height: 280px
+
+.subtitle
+	text-align: center
+	font-family: $secondary-font
+	font-size: 12px
+
+	@media screen and (max-width: 775px)
+		width: 195px
+

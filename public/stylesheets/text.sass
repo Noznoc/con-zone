@@ -18,13 +18,35 @@ h2.title
 
 .paragraph, .container
 	margin: 40px 100px
+	@include outer-container(800px)
 	@media screen and (max-width: 750px)
 		font-size: 12px
 		margin-left: 20px
 		margin-right: 20px
 
+	.column
+		@include span-columns(5)
+
+	.column-small
+		@include span-columns(3)
+		margin: 0px 40px
+		text-align: center
+
+		@media screen and (max-width: 750px)
+			@include span-columns(4)
+
+		p.bin
+			text-align: center
+
+	.column-large
+		@include span-columns(12)
+
 .container
 	border-top: $header-color 1px solid
+
+.bin
+	background: $header-accent-color
+	padding: 3px 10px
 
 .form
 	h2, p
@@ -34,10 +56,6 @@ h2.title
 .blog-post
 	h2, h3, img
 		text-align: center
-
-	img
-		text-align: center
-		width: 350px
 
 	.blog-text
 		display: none

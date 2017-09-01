@@ -60,7 +60,7 @@ block content
 			img.image(id='ivop' src='images/ivop.png')
 	script.
 		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates);
+		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates, true, true);
 		$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');
