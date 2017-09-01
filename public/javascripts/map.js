@@ -33,13 +33,13 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 				for (i in data) {
 					if(data[i].geoJSON !== undefined) {
 						data[i].geoJSON.coordinates = [data[i].geoJSON.coordinates[1], data[i].geoJSON.coordinates[0]]
-						geojson.push([data[i].magnitude, data[i].geoJSON]);
+						geojson.push([data[i].magnitude, data[i].geoJSON, data[i].origin_time]);
 					}
 				}
 
 				for (var j in geojson){
 					if (geojson[j][0] !== undefined){
-						features.push(JSON.parse('{"type":"Feature","properties":{"description":"' + geojson[j][0] + ' Magnitude"},"geometry":{"type":"Point","coordinates":[' + geojson[j][1].coordinates + ']}}'));
+						features.push(JSON.parse('{"type":"Feature","properties":{"description":"' + geojson[j][0] + ' Magnitude", "date":"' + geojson[j][2] + '"},"geometry":{"type":"Point","coordinates":[' + geojson[j][1].coordinates + ']}}'));
 					}
 				}
 				addData(features, cluster);
@@ -111,10 +111,17 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 			});
 
 			map.on("click", "layer", function(e) {
-				new mapboxgl.Popup()
-					.setLngLat(e.features[0].geometry.coordinates)
-					.setHTML(e.features[0].properties.description)
-					.addTo(map);
+				if (cluster) {
+					new mapboxgl.Popup()
+						.setLngLat(e.features[0].geometry.coordinates)
+						.setHTML(e.features[0].properties.description)
+						.addTo(map);
+				} else {
+					new mapboxgl.Popup()
+						.setLngLat(e.features[0].geometry.coordinates)
+						.setHTML(e.features[0].properties.description + "<br>" + e.features[0].properties.date.split("T")[0])
+						.addTo(map);
+				}
 			});
 
 			map.on("mouseenter", "layer", function() {
