@@ -53,7 +53,7 @@ function streamgraph(){
 	  d3.selectAll("path")
 	    .data((t = layers1, layers1 = layers0, layers0 = t))
 	    .transition()
-	      .duration(2500)
+	      .duration(5000)
 	      .attr("d", area);
 	}
 

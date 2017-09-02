@@ -74,7 +74,7 @@ html, body {
       position: absolute;
       text-align: center;
       left: 10px;
-      z-index: 2; }
+      z-index: 1; }
       .site-header .map-container .legend .icon {
         margin: 0px;
         font-size: 23px;
@@ -212,6 +212,11 @@ h2.title {
     width: 40.291369653%; }
     .paragraph .column:last-child, .container .column:last-child {
       margin-right: 0; }
+    .paragraph .column img, .container .column img {
+      margin-top: 40px;
+      margin-left: 30px; }
+    .paragraph .column .subtitle, .container .column .subtitle {
+      margin-left: 60px; }
   .paragraph .column-small, .container .column-small {
     float: left;
     display: block;
