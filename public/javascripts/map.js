@@ -142,7 +142,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 		    		$(this).hide();
 		    		map.panTo(points._data.features[i].geometry.coordinates);
 		    		i += 1;
-		    		$("#legend").find('h4').html("<p style='text-align: right; font-size: 10px'><i id='window-restore' class='fa fa-window-restore icon small' aria-hidden='true'></i></p><p>Click forward or back to continue slide show</p><i id='play-back' class='fa fa-step-backward icon' aria-hidden='true'></i><i id='play-forward' class='fa fa-step-forward icon' aria-hidden='true'></i>");
+		    		$("#legend").find('h4').html("<i id='window-restore' class='fa fa-window-restore icon small' aria-hidden='true'></i><p>Click forward or back to continue slide show</p><i id='play-back' class='fa fa-step-backward icon' aria-hidden='true'></i><i id='play-forward' class='fa fa-step-forward icon' aria-hidden='true'></i>");
 		    	}
 		    	$("#play-back").on("click", function () {
 			    	i -= 1;

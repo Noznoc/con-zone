@@ -42,7 +42,7 @@ block content
 			p Back-end and front-end development for Johns Hopkins University’s Center for Government Excellence. Designed with SASS, managed data with Postgres, and developed a Node.js web app hosted on Heroku that served an open data standards directory
 			p Experienced handling various administrative data from various sources
 			p Designed and developed UI/UX templates for maps, websites, data portals
-			li Statistics Canada (February 2017 - June 2017)
+			li Statistics Canada (February - June 2017)
 			p 
 				i Data Production and Dissemination Officer
 				ul
@@ -82,12 +82,6 @@ block content
 				li Designed an online survey, coded the data, and then spatially predicted where new dumpsters should be located in Montreal
 				li Ran a cost distance analysis that identified a new hiking path in North Vancouver
 	script.
-		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates, true, true);
-		$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
-		$('.button').on('click', function () {
-			var name = $(this).attr('name');
-		    $('html, body').animate({
-		        scrollTop: $('#' + name).offset().top
-		    }, 1000);
-		})
+		var coordinates = [[[-123.112920, 49.250319], "<p>Vancouver</p>"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
+		addMap([-99.3822538, 51.197122], 0, 3, 8, "http://www.earthquakescanada.nrcan.gc.ca/api/earthquakes/latest/30d.json", false, false);
+		$('#legend').find('h4').html('EARTHQUAKES IN THE PAST 30 DAYS <br> (NRCan API data) <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');

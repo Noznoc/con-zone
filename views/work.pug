@@ -24,8 +24,10 @@ block content
 				strong
 					a.link(href='https://github.com/Noznoc/geojson-api', target='_blank') here
 			img.image.image-wide(src='/images/geojsonapi.png')
-			img.image.image-wide(src='/images/ottawa.PNG')
-			img.image.image-wide(src='/images/gatineau.PNG')
+			p
+				img.image.image-wide(src='/images/ottawa.PNG')
+			p
+				img.image.image-wide(src='/images/gatineau.PNG')
 	.container
 		p#work-2
 			h2 Open Data Standards Directory: 
@@ -41,9 +43,9 @@ block content
 				|. Various stackholders share the concern that there is no comprehensive database of open data standards. A directory to host and visualize the database provides an opprotunity to share knowledge and communication regarding open data standards. With this in mind, we decided to develop a minimum viable site for open data publishers and open data standard providers to share and disseminate information regarding open data standards. My part of the project involves designing and developing (full stack) the site that hosts this information. As I am new to site development, working on this project has taught me a lot. I learned how to develop a Postgres database, a Node.js and Express back-end, and a Pug and JQuery based front-end, which was then all hosted on the cloud server Heroku. To fully experience the site, go 
 				strong
 					a.link(href='http://datastandards.directory/', target='_blank') here
-			br
 			img.image.image-wide(id='standards', src='images/standards-1.png')
-			img.image.image-wide(id='standards', src='images/standards-2.png')
+			p
+				img.image.image-wide(id='standards', src='images/standards-2.png')
 	.container
 		p#work-1
 			h2 Interactive Visualization of Payments:
@@ -61,7 +63,7 @@ block content
 	script.
 		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
 		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates, true, true);
-		$('#legend').find('h4').html('PLACES I HAVE WORKED <br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+		$('#legend').find('h4').html('PLACES I HAVE WORKED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');
 		    $('html, body').animate({
