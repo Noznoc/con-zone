@@ -69,6 +69,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 						stops: [
 							[2, "#7a2d5f"],
 							[5, "#7a2d5f"],
+							[7, "#7a2d5f"],
 							[10, "#7a2d5f"]
 						]
 					},
@@ -76,8 +77,9 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 						property: "point_count",
 						type: "interval",
 						stops: [
-							[2, 15],
-							[5, 20],
+							[2, 10],
+							[5, 15],
+							[7, 20],
 							[10, 25]
 						]
 					}
