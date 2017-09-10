@@ -27,6 +27,8 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-1', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
+		script.
+			readBlog();
 
 	- if (page == 'blog-6')
 		.container#blog-6
@@ -34,6 +36,8 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-6', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
+		script.
+			openBlog();
 
 	- if (page == 'blog-5')
 		.container#blog-5
@@ -41,6 +45,8 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-5', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
+		script.
+			openBlog();
 
 	- if (page == 'blog-4')
 		.container#blog-4
@@ -48,6 +54,8 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-4', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
+		script.
+			openBlog();
 
 	- if (page == 'blog-3')
 		.container#blog-3
@@ -55,6 +63,8 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-3', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
+		script.
+			openBlog();
 
 	- if (page == 'blog-2')
 		.container#blog-2
@@ -62,6 +72,8 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-2', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
+		script.
+			openBlog();
 
 	- if (page == 'blog-1')
 		.container#blog-1
@@ -69,7 +81,9 @@ block content
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-1', title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		.container
-
+		script.
+			openBlog();
+			
 	script.
 		var coordinates = [[[-125.8855, 49.1304], "Tofino"], [[-123.112920, 49.250319], "Vancouver"], [[-122.9543317, 50.1171525], "Whistler"], [[-122.3410, 47.6076], "Seattle"], [[-119.4543, 49.8995], "Kelowna"], [[-120.3442380, 50.6773160], "Kamloops"], [[-119.4523, 49.0333], "Osoyoos"], [[-117.6848, 49.0873], "Trail"], [[-117.4540, 47.6729], "Spokane"], [[-122.6541, 45.5434], "Portland"], [[-122.7283, 37.7870], "San Francisco"], [[-117.1074, 32.8259], "San Diego"], [[-118.4117, 34.0211], "Los Angeles"], [[-112.0097, 33.5546], "Phoenix"], [[-115.2383, 36.2551], "Las Vegas"], [[-114.0879, 51.0280], "Calgary"], [[-113.4926, 53.5562], "Edmonton"], [[-89.4066, 43.0851], "Madison"], [[-87.7320, 41.8338], "Chicago"], [[-86.1584, 39.7685], "Indianapolis"], [[-79.3762, 43.7180],"Toronto"], [[-75.698078, 45.417133], "Ottawa"], [[-73.585429, 45.510820], "Montreal"], [[-71.3438, 46.8572], "Quebec City"], [[-73.2267, 44.4926], "Burlington"], [[-70.9979, 42.3124], "Boston"], [[-66.6669, 45.9455], "Fredericton"], [[-63.5751, 44.6493], "Halifax"], [[-63.1353, 46.2617], "Charlottetown"], [[-0.0879, 51.4904], "London"], [[-1.2400, 51.7536], "Oxford"], [[1.073704, 49.922974], "Dieppe"], [[2.3899, 48.8585], "Paris"], [[7.261859, 43.705772], "Nice"], [[4.3516970, 50.8465573], "Brussels"], [[6.7763, 51.2257], "Dusseldorf"], [[12.5381, 55.7105], "Coppenhagen"], [[6.7593, 51.4356], "Duisburg"], [[11.9916, 57.7020], "Gothenburg"], [[121.608135, 23.986542], "Hualien"], [[121.5383, 25.0496], "Taipei"], [[144.974227, -37.785981], "Melbourne"], [[151.163816, -33.861873], "Sydney"], [[145.7646157, -16.9231207], "Cairns"], [[-155.9991, 19.6402], "Kailua-Kona"], [[-159.5407, 22.0532], "Princeville"], [[-82.4545, 27.9947], "Tampa"], [[-81.2444, 23.1568], "Varadero"], [[-82.3666, 23.1378], "Havana"], [[-74.2198126, -13.1556384], "Ayacucho"], [[-74.1246123, -13.7419442], "Huancaraylla"]];
 		addMap([-99.3822538, 51.197122], 0, 2, 10, coordinates, true, true);

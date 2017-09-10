@@ -7,3 +7,8 @@ function readBlog(){
 		text.toggle('hide show');
 	})
 }
+
+function openBlog(){
+	$('.blog-text').show();
+	$('.hide-show').hide();
+}
