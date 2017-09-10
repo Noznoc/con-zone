@@ -53,6 +53,25 @@ h2.title
 .bin
 	background: $header-accent-color
 	padding: 3px 10px
+	border-bottom: 1px solid $header-accent-color
+	position: relative
+
+	&:before
+		position: absolute
+		content: ""
+		top: 25px
+		left: 65px
+		border-style: solid
+		border-width: 15px 26px 0
+		border-color: $header-accent-color transparent
+		width: 0
+		display: block
+		z-index: 0
+
+	@media screen and (max-width: 750px)
+		&:before
+			left: 100px
+			border-width: 10px 20px 0
 
 .form
 	h2, p
