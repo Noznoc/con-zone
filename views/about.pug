@@ -4,11 +4,11 @@ block content
 		strong
 			a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn account
 	p#buttons
-		button.button(name='about-code') Skills
+		button.button(name='about-skills') Skills
 		button.button(name='about-work') Work
 		button.button(name='about-education') Education
 	.container
-		h2#about-code Skills
+		h2#about-skills Skills
 		.column-small
 			p.bin Design
 				p CSS, SASS
@@ -89,3 +89,9 @@ block content
 	script.
 		addMap([-99.3822538, 51.197122], 0, 3, 8, "http://www.earthquakescanada.nrcan.gc.ca/api/earthquakes/latest/30d.json", false, false);
 		$('#legend').find('h4').html('EARTHQUAKES IN THE PAST 30 DAYS <br><br> (NRCan API data)');
+		$('.button').on('click', function () {
+			var name = $(this).attr('name');
+		    $('html, body').animate({
+		        scrollTop: $('#' + name).offset().top
+		    }, 1000);
+		})
