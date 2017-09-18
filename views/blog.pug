@@ -2,6 +2,10 @@ extends layout.pug
 block content
 	- if (page == 'blog')
 		h2.title All writing is my own opinion
+		.container#blog-7
+			include blog-7.pug
+			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-7', title='Click to copy to clipboard')
+				i.fa.fa-link(aria-hidden='true')
 		.container#blog-6
 			include blog-6.pug
 			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-6', title='Click to copy to clipboard')
@@ -29,6 +33,15 @@ block content
 		.container
 		script.
 			readBlog();
+
+	- if (page == 'blog-7')
+		.container#blog-7
+			include blog-7.pug
+			.clipboard.icon.button-xsmall(data-clipboard-text='www.juliaconzon.com/blog/blog-7', title='Click to copy to clipboard')
+				i.fa.fa-link(aria-hidden='true')
+		.container
+		script.
+			openBlog();
 
 	- if (page == 'blog-6')
 		.container#blog-6
