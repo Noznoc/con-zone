@@ -16,6 +16,14 @@ h2.title
 	@media screen and (max-width: 750px)
 		font-size: 14px
 
+p.subtitle
+	@include outer-container(800px)
+	font-size: 15px
+	@media screen and (max-width: 750px)
+		margin-left: 20px
+		margin-right: 20px
+		font-size: 12px
+
 .paragraph, .container
 	margin: 40px 100px
 	@include outer-container(800px)

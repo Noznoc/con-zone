@@ -6,7 +6,7 @@ db = require('../queries');
 router.get('/', db.home);
 router.get('/contact', db.contact);
 router.get('/blog', db.blog);
-router.get('/work', db.work);
+router.get('/projects', db.projects);
 router.get('/about', db.about);
 router.get('/blog/:id', db.blog_post);
 

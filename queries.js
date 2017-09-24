@@ -2,8 +2,8 @@ function about(req, res, next){
   res.render('about', {layout: 'layout', page: 'about'});
 }
 
-function work(req, res, next){
-  res.render('work', {layout: 'layout', page: 'work'});
+function projects(req, res, next){
+  res.render('projects', {layout: 'layout', page: 'projects'});
 }
 
 function blog(req, res, next){
@@ -12,7 +12,17 @@ function blog(req, res, next){
 
 function blog_post(req, res, next){
   var blog = req.params.id
-  res.render('blog', {layout: 'layout', page: blog});
+  if (blog.indexOf('blog-') >= 0) {
+    res.render('blog', {layout: 'layout', page: blog});
+  }
+
+  if (blog.indexOf('travel') >= 0) {
+    res.render('blog', {layout: 'layout', page: 'travel'});
+  } 
+
+  if (blog.indexOf('geo') >= 0) {
+    res.render('blog', {layout: 'layout', page: 'geo'});
+  } 
 }
 
 function contact(req, res, next){
@@ -26,7 +36,7 @@ function home(req, res, next){
 // add query functions to app 
 module.exports = {
   about: about,
-  work: work,
+  projects: projects,
   contact: contact,
   blog: blog,
   blog_post: blog_post,

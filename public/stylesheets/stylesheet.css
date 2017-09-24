@@ -101,37 +101,76 @@ html, body {
   .site-header .navigation {
     text-align: center;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     margin-bottom: 40px; }
     @media screen and (max-width: 750px) {
       .site-header .navigation {
         margin-bottom: 20px; } }
     .site-header .navigation li {
       top: 0;
-      display: inline-block;
-      font-size: 30px;
-      text-align: center;
-      padding: 14px 40px;
-      text-decoration: none;
-      font-family: "PT Sans", sans-serif;
-      color: #3f2d34; }
-      @media screen and (max-width: 750px) {
-        .site-header .navigation li {
-          padding: 10px 8px;
-          font-size: 15px; } }
+      display: inline-block; }
       .site-header .navigation li:hover {
         color: #3f2d34;
         border-bottom: 4px solid #fff389;
         border-top: 4px solid #fff389;
         cursor: pointer; }
+        @media screen and (max-width: 750px) {
+          .site-header .navigation li:hover {
+            border-bottom: 2px solid #fff389;
+            border-top: 2px solid #fff389; } }
     .site-header .navigation li.active {
       color: #3f2d34;
       border-bottom: 4px solid #fff389;
-      border-top: 4px solid #fff389; }
+      border-top: 4px solid #fff389;
+      text-decoration: none; }
+      @media screen and (max-width: 750px) {
+        .site-header .navigation li.active {
+          border-bottom: 2px solid #fff389;
+          border-top: 2px solid #fff389; } }
   .site-header .navigation-site {
     border-bottom: #d7c7cd 1px solid;
     border-top: #d7c7cd 1px solid; }
+    .site-header .navigation-site li {
+      width: 140px; }
+      @media screen and (max-width: 750px) {
+        .site-header .navigation-site li {
+          width: 60px; } }
+      .site-header .navigation-site li:hover .page-content {
+        display: block; }
+        .site-header .navigation-site li:hover .page-content a:hover {
+          color: #3f2d34;
+          border-bottom: 1px solid #fff389;
+          text-decoration: none; }
+    .site-header .navigation-site a {
+      text-decoration: none;
+      display: inline-block;
+      color: #3f2d34;
+      padding: 10px 40px;
+      font-size: 20px;
+      text-align: center;
+      font-family: "PT Sans", sans-serif; }
+      @media screen and (max-width: 750px) {
+        .site-header .navigation-site a {
+          padding: 10px 10px;
+          font-size: 12px; } }
+    .site-header .navigation-site .page-content {
+      display: none;
+      position: absolute;
+      box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+      background-color: white;
+      z-index: 1; }
+      .site-header .navigation-site .page-content a {
+        width: 140px;
+        display: block;
+        font-size: 15px;
+        border-bottom: 1px solid #d7c7cd;
+        margin: 0px;
+        padding: 10px 0px; }
+        @media screen and (max-width: 750px) {
+          .site-header .navigation-site .page-content a {
+            width: 60px;
+            font-size: 10px; } }
   .site-header .navigation-content {
     margin-bottom: 0px;
     border-top: 1px solid #d7c7cd;
@@ -190,6 +229,21 @@ h2.title {
   @media screen and (max-width: 750px) {
     h2.title {
       font-size: 14px; } }
+
+p.subtitle {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px; }
+  p.subtitle::after {
+    clear: both;
+    content: "";
+    display: block; }
+  @media screen and (max-width: 750px) {
+    p.subtitle {
+      margin-left: 20px;
+      margin-right: 20px;
+      font-size: 12px; } }
 
 .paragraph, .container {
   margin: 40px 100px;
@@ -331,11 +385,30 @@ p#buttons {
 
 .clipboard {
   font-size: 21px;
-  padding: 5px;
-  margin-left: 700px; }
+  padding: 5px; }
   @media screen and (max-width: 750px) {
     .clipboard {
       display: none; } }
+
+.blog-links {
+  margin-left: 655px;
+  height: 0px;
+  padding: 0px; }
+  .blog-links li {
+    display: inline-block;
+    margin-top: -5px;
+    text-align: center; }
+
+.tag {
+  padding: 1px 10px;
+  border-radius: 10px;
+  width: 60px;
+  border: 1px solid #4dbeb1; }
+  .tag a {
+    text-decoration: none;
+    color: #4dbeb1; }
+    .tag a:hover {
+      color: #7a2d5f; }
 
 .image {
   border: 2px solid #4dbeb1;

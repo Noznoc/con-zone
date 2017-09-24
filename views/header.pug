@@ -17,21 +17,28 @@
 			a.link.icon(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', title='OpenStreetMap')
 				i.fa.fa-globe(aria-hidden='true')
 	ul.navigation.navigation-site
-		a(href='/')
-			li#home home
-		a(href='/about')
-			li#about about
-		a(href='/work')
-			li#work work
-		a(href='/blog')
-			li#blog blog
-		a(href='/contact')
-			li#contact contact
+		li#home 
+			a(href='/') home
+		li#about
+			a(href='/about') about
+			.page-content
+				a(href='/about/#about-skills') skills
+				a(href='/about/#about-work') work
+				a(href='/about/#about-education') education
+		li#projects 
+			a(href='/projects') projects
+		li#blog 	
+			a(href='/blog') blog
+			.page-content
+				a(href='/blog/travel') travel
+				a(href='/blog/geo') geo
+		li#contact 
+			a(href='/contact') contact
 	script.
 		if ('#{page}' == 'about') {
 			$('#about').addClass('active');
-		} else if ('#{page}' == 'work') {
-			$('#work').addClass('active');
+		} else if ('#{page}' == 'projects') {
+			$('#projects').addClass('active');
 		} else if ('#{page}' == 'blog') {
 			$('#blog').addClass('active');
 		} else if ('#{page}' == 'contact') {
