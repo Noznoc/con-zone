@@ -404,11 +404,14 @@ p#buttons {
   border-radius: 10px;
   width: 60px;
   border: 1px solid #4dbeb1; }
+  .tag:hover {
+    border-color: #7a2d5f; }
   .tag a {
     text-decoration: none;
     color: #4dbeb1; }
     .tag a:hover {
-      color: #7a2d5f; }
+      color: #7a2d5f;
+      border-color: #7a2d5f; }
 
 .image {
   border: 2px solid #4dbeb1;
