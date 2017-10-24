@@ -4,9 +4,9 @@ block content
 		strong
 			a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn account
 	p#buttons
-		button.button(name='about-skills') Skills
-		button.button(name='about-work') Work
-		button.button(name='about-education') Education
+		button.button(name='about-skills') skills
+		button.button(name='about-work') work
+		button.button(name='about-education') education
 	.container
 		h2#about-skills Skills
 		.column-small
@@ -86,8 +86,11 @@ block content
 				li Developed a web app that automatically scraped, standardized, and mapped Kijiji real-estate postings
 				li Designed an online survey, coded the data, and then spatially predicted where new dumpsters should be located in Montreal
 				li Ran a cost distance analysis that identified a new hiking path in North Vancouver
+	.logo
+		img(src='/images/logo.svg')
+
 	script.
-		addMap([-99.3822538, 51.197122], 0, 3, 8, "http://www.earthquakescanada.nrcan.gc.ca/api/earthquakes/latest/30d.json", false, false);
+		addMap([-99.3822538, 51.197122], 0, 3, 8, "http://www.earthquakescanada.nrcan.gc.ca/api/earthquakes/latest/30d.json", false, false, 'about');
 		$('#legend').find('h4').html('EARTHQUAKES IN THE PAST 30 DAYS <br><br> (NRCan API data)');
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');

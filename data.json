@@ -1,0 +1,85 @@
+{
+  "data": {
+    "blogs": [
+      {
+        "id": "blog-8",
+        "title": "Haunta See A Waterfall?",
+        "subtitle": "",
+        "date": "September 23 2017",
+        "tags": "travel"
+      },
+      {
+        "id": "blog-7",
+        "title": "Not Your Average Quinua",
+        "subtitle": "",
+        "date": "September 17 2017",
+        "tags": "travel"
+      },
+      {
+        "id": "blog-6",
+        "title": "Little Walk",
+        "subtitle": "",
+        "date": "August 26 2017",
+        "tags": "travel"
+      },
+      {
+        "id": "blog-5",
+        "title": "Ayacucho Market & Zoo",
+        "subtitle": "",
+        "date": "August 20 2017",
+        "tags": "travel"
+      },
+      {
+        "id": "blog-4",
+        "title": "First Week in Ayacucho",
+        "subtitle": "",
+        "date": "July 30 2017",
+        "tags": "travel"
+      },
+      {
+        "id": "blog-3",
+        "title": "VGI",
+        "subtitle": "",
+        "date": "January 10 2017",
+        "tags": "geo"
+      },
+      {
+        "id": "blog-2",
+        "title": "Opening Our Coordinates",
+        "subtitle": "Won 2nd Place in Geothink's Op-Ed Competition",
+        "date": "December 30 2016",
+        "tags": "geo"
+      },
+      {
+        "id": "blog-1",
+        "title": "Blog on State of the Map Brussels 2016",
+        "subtitle": "",
+        "date": "October 17 2016",
+        "tags": "geo"
+      }
+    ],
+    "docs": [
+      {
+        "id": "doc-2",
+        "title": "Crimecouver",
+        "subtitle": "Mapbox GL JS and React Tutorial",
+        "date": "October 23 2017",
+        "tags": "tutorial"
+      },
+      {
+        "id": "doc-1",
+        "title": "GIScience Beginner's Guide",
+        "subtitle": "Incomplete",
+        "date": "October 23 2017",
+        "tags": "guide"
+      },
+      {
+        "id": "doc-3",
+        "title": "OSM Data Quality Assessment Lit Review",
+        "subtitle": "Completed while working at StatCan",
+        "date": "June 26 2017",
+        "tags": "guide"
+      }
+    ]
+  }
+}

@@ -1,0 +1,360 @@
+extends docs.pug
+block content
+	include mixins.pug
+	+sidebar(['collect', 'manage',  'visualize'], 'x', 'tutorial')
+	p This short tutorial describes how I collected, managed, and visualized the City of Vancouver's crime data using React as well as Mapbox Studio and GL JS. I conducted this project as a way to learn React, so this tutorial is catered towards those who know the basics of React; but, as the code is relatively simple, it can be understood by beginners. The code is accessible 
+		a.link(href='https://github.com/Noznoc/crimecouver' target='_blank') here
+		| .
+
+	img.image#gif(src='/images/doc2-0.gif')
+
+	p In 2017, the City of Vancouver released new crime data on their 
+		a.link(href='http://vancouver.ca/your-government/open-data-catalogue.aspx', target='blank') open data catalogue
+		| . As I wanted to learn React and I saw no pre-existing interactive data visualizations on Vancouver crime, this was a perfect opprotunity to develop an interactive map to learn React with Mapbox GL JS. The following discusses how I collected, managed, and visualized the data.
+
+	h2.header-1#doc-collect Data Collection
+
+	p I wanted to incorporate an interactive map into the data visualization, so I downloaded data that was explicitly georeferenced with coordinates.
+
+	ul
+		li City of Vancouver: 
+			a.link(href='http://data.vancouver.ca/datacatalogue/crime-data.htm', target='_blank') crime data 2003-2016
+			|  (14 shapefiles: crime_shp_[year].shp), 
+			a.link(href='http://data.vancouver.ca/datacatalogue/localAreaBoundary.htm', target='_blank') local area boundaries
+			|  (local_area_boundaries.shp), and 
+			a.link(href='http://data.vancouver.ca/datacatalogue/parks.htm', target='_blank') parks
+			|  (parks_shp.shp).
+		li 
+			a.link(href='openstreetmap.org', target='_blank') OpenStreetMap
+
+	p After downloading crime-shp, I reviewed the metadata to help brainstorm how I would visualize the data on an interactive map.
+
+	p crime-shp stored geographic points with the following attributes/properties: neighbourhood of the crime, type of crime, address of the crime (without the address number to maintain privacy), year of crime, month of crime, day of crime, hour of crime, and minute of crime. 
+
+	p With these attributes, I wanted to incorporate filters by year and type of crime. I also wanted practice developing a choropleth map with Mapbox GL JS, so I decided that I would calculate the total amount of crime by neighbourhood. I needed the geograhpic locations of the Vancouver neighbourhoods, so I downloaded local_area_boundaries.
+
+	p local_area_boundaries stored polygons with the geographic coordinates and names of each neighbourhood in Vancouver. I also downloaded parks_shp because local_area_boundaries did not include Stanley Park, which was considered a neighbourhood in crime-shp. 
+
+	p After brainstorming and sketching, I had a general gist of how I wanted to develop the interactive map. I wanted users to have the ability to control the year and type of crime visible on the map. I also wanted users to see a choropleth map of the most recent, 2016, crime data count by Vancouver neighbourhood. With this in mind, I decided to develop the interactive map as the focal point and then add a side panel to store the filters users could interact with.
+
+	P I certainly have other plans to visualize the data; for example, since a lot of the metadata stored the date of the crime, I want to visualize with a time slider the relation between time and type of crime. 
+
+	h2.header-1#doc-manage Data Management
+
+	p For the crime data 2003-2016, I originally downloaded the JSON because I prefer to handle the data as a GeoJSON, but I had a difficult time converting the JSON’s projection on QGIS and ogr2ogr; so, instead I downloaded all the shapefiles. Basically when I tried to convert the JSON into a GeoJSON using the '... Save as' method on QGIS, the GeoJSON would state the CRS was EPSG 4362: WGS 84, but the coordinates were in meters, not decimal degrees.
+
+	p To avoid repeating each step for each shapefile, I merged all the shapefiles into one shapefile. I used  
+		a.link(href='http://www.northrivergeographic.com/ogr2ogr-merge-shapefiles' target='_blank') this
+		|  ogr2ogr line. In the command line I entered the following command that creates a new merge file from the first shapefile:
+
+	p.code ogr2ogr -f ‘ESRI Shapefile’ merge.shp [first-dataset].shp 
+
+	p With a new merge shapefile (crime_merge), I then ran the following script for every shapefile (crime_2004.shp, crime_2005.shp...) I wanted to merge to the merge.shp:
+
+	p.code ogr2ogr -f ‘ESRI Shapefile’ -update -append merge.shp [to-merge].shp -nln merge
+
+	p I initially wanted to use QGIS's merge data management tool, but it took 3 hours to complete only 50% of the process. When I tried the ogr2ogr method on the command line, it took ~ 2 minutes. 
+
+	p With the merged shapefile, I then had to convert the shapefile into a GeoJSON so that I could then use 
+		a.link(href='https://github.com/mapbox/tippecanoe' target='_blank') tippecanoe 
+		| to convert the GeoJSON into 
+		a.link(href='https://www.mapbox.com/help/define-mbtiles/' target='_blank') MBTiles
+		| . I used MBTiles over a GeoJSON because MBTiles converted the GeoJSON into a tileset which, in general, renders more easily.
+
+	p I converted the shapefile into a GeoJSON in QGIS. All you have to do is click '... Save as' and then select the file type (GeoJSON), the location of where to save the GeoJSON, and then the geographic coordinates sytem. The standard for MBTiles is EPSG 4362: WGS 84, so I made sure my GeoJSON was in that format.
+
+	p Once I had the GeoJSON, I then used tippecanoe on the command line:
+
+	p.code tippecanoe --layer vancouver_crime -o vancouver_crime.mbtiles --minimum-zoom=11 --maximum-zoom=20 < vancouver_crime.geojson
+
+	p My output was a MBTile file that stored all the crime vector points from 2003 to 2016.
+
+	p The next step was to create the data for the choropleth map. To accomplish this I used QGIS. First I had to merge local_area_boundaries with a polygon of Stanley Park. I first extract the Stanley Park vector polygon from parks_shp by using Filter tool ("NAME" = "STANLEY PARK") and then saving the output as a new layer. Then I used Vector > Data Management Tools > Merge Vector Layers to merge the Stanley Park extract polygon to local_area_boundaries. Then I used the Vector > Data Management Tools > Join Attribute by Location tool to calculate the count of crime within each neighbourhood boundary. My inputs for this were crime-shp and local_area_boundaries.
+
+	p Once I had the statistical crime data (count, mean, mode, median) for each neighbourhood represented in crime_merge, I followed the same steps as above to convert the shapefile into MBTiles (vancouver-crime-nhoods.mbtiles).
+
+	h2.header-1#doc-visualize Data Visualization
+
+	p To avoid slowing the browser with too much JavaScript, I decided to import the MBTiles (vancouver_crime.mbtiles and vancouver-crime-nhoods.mbtiles) into Mapbox Studio and then use Mapbox GL JS to interact with my custom style layer's data.
+
+	p In Mapbox Studio, I imported vancouver_crime.mbtiles as a new layer on my custom map style and then I created new layers from the vancouver_crime layer by filtering the data by year. Basically, I create a layer of crime data by each year between 2003 and 2016.
+
+	img.image#gif(src='/images/doc2-1.png')
+
+	p After creating all the layers, the next step was to import my custom map style into React, so I published the Mapbox style and copied the token and then I reviewed examples in the 
+		a.link(href='', target='_blank') Mapbox react-examples repo
+		|   and 
+		a.link(href='', target='_blank') POI blog post
+		| . This source was useful to develop React infrastructure necessary to use Mapbox GL JS with React. 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+			import React from 'react'
+			import ReactDOM from 'react-dom'
+			import mapboxgl from 'mapbox-gl'
+			
+			class Application extends React.Component {
+				constructor(props: Props) { ... }
+				componentDidUpdate() { ... }
+				componentDidMount() { ... }
+				render() { 
+					return ( ... );
+				}
+			}
+
+			ReactDOM.render(<Application />, document.getElementById('app'));
+
+	p I then used this code as a frame (index.js) to develop the interactive map.
+
+	p I first added the map to 
+		a.code-text componentDidMount()
+		| : 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+			this.map = new mapboxgl.Map({
+				container: this.mapContainer,
+				style: 'mapbox://styles/julconz/cj7rpgkw4e3yl2smwad8ddg7c',
+				center: [-123.1846069, 49.265],
+				zoom: 11.7,
+				maxZoom: 18,
+				minZoom: 11
+			});
+
+	p Then in 
+		a.code-text return()
+		|  I added the map container to store the map:
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		<div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
+
+	p Now that the map was embedded in the HTML, the next step was to develop the interactive components for the map. More specifically, I coded with Mapbox GL JS and React to develop drop-drown menus and a submit button that allows users to select and submit what data appears on the map.
+
+	p First, I declared two new variables 
+		a.code-text years
+		|  and 
+		a.code-text types
+		|  that each stored the information necessary to develop the filters. 
+		a.code-text years
+		|  stores the data's years of crime (2003-2016) so that users can filter data by year.  
+		a.code-text types
+		|  stores the name and value of the crime types so that a user could filter data by type of crime. The following shows an example of how I declared the variables: 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		const years = [{name: 'all'}, {name: '2016'}, {name: '2015'}, ... {name: '2003'}];
+		const types = [{name: 'all', value: 'all'}, ... {name: 'Other Theft', value: 'Other Theft'} ... ];
+
+	p To create the two drop-down menus, I added to function in 
+		a.code-text render()
+		| :
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		const renderYears = (years, i) => {
+			return (
+				<option key={i} value={years.name}>{years.name}</option>
+			);
+		}
+
+		const renderTypes = (types, i) => {
+			return (
+				<option key={i} value={types.value}>{types.name}</option>
+			);
+		}
+
+	p Then in 
+		a.code-text return()
+		|  I added the following: 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		<div className="filters">
+			<form onClick={this.handleSubmit.bind(this)}>
+				<div className="filter-container">
+					<label>Crime Type</label>
+					<select name="type" className="filter" id="types" 
+					value={this.state.selectValues["type"]} onChange={this.handleChange.bind(this)}>
+						{types.map(renderTypes)}
+					</select>
+				</div>
+				<div className="filter-container">
+					<label>Year</label>
+					<select name="year" className="filter" id="years" 
+					value={this.state.selectValues["year"]} onChange={this.handleChange.bind(this)}>
+						{years.map(renderYears)}
+					</select>
+				</div>
+				<div className="filter-container" >
+					<label>Filter Data</label>
+					<input id="submit" type="submit" value="SUBMIT" />
+				</div>
+			</form>
+			<div id="stats" className="txt-bold"></div>
+		</div>
+
+	p Basically 
+		a.code-text renderYears
+		|  runs through all objects in  
+		a.code-text years
+		|  and 
+		a.code-text renderTypes
+		|  runs through all objects in 
+		a.code-text types
+		|  to each create a drop-down menu. Now with the filters developed to render, the next step was including the  
+		a.code-text onClick
+		|  function after users click the submit button. Above, you can see I added 
+		a.code-text onClick
+		|  in the 
+		a.code-text form
+		|  tag:
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		  handleSubmit(event) {
+		    event.preventDefault();
+
+		    this.map.setLayoutProperty('2016', 'visibility', 'none');
+		    
+		    // input the selected values
+		    this.setFilter(this.state.selectValues); 
+		    this.setStats(this.state.selectValues);
+		  }
+
+	p So the onClick function runs 
+		a.code-text setFilter()
+		|  and 
+		a.code-text setStats()
+		| : 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		setFilter(values){
+			var filter = [];
+
+			// hide legend & toggle if it is not 2016 data
+			if (values.year !== '2016'){
+				document.getElementById('legend-choropleth').style.display = 'none';
+				document.getElementById('toggle').style.display = 'none';
+				this.map.setLayoutProperty('vancouver-crime-nhoods', 'visibility', 'none');
+			}
+
+			// based on selection, output the following filter
+			if (values.type !== 'all' && values.year !== 'all'){
+				filter = ['all', ['==', 'TYPE', values.type], ['==', 'YEAR', parseInt(values.year)]];
+			} else if (values.year === 'all' && values.type !== 'all') {
+				filter = ['==', 'TYPE', values.type];
+			} else if (values.year !== 'all' && values.type === 'all') {
+				filter = ['==', 'YEAR', parseInt(values.year)];
+			}
+
+			// apply the filter and then make the layer visible on the map
+			this.map.setFilter(values.year, filter)
+			this.map.setLayoutProperty(values.year, 'visibility', 'visible');
+		}
+
+		setStats(values){
+		    // need to figure out how to get all data from layer, not just what is rendered
+		    //var features = this.map.queryRenderedFeatures({layers:[values.year]});
+
+		    if (values.type === 'Vehicle Collision or Pedestrian Struck (with Injur') {
+		      values.type = 'Vehicle Collision or Pedestrian Struck (with Injury)';
+		    }
+
+		    if (values.type === 'Vehicle Collision or Pedestrian Struck (with Fatal') {
+		      values.type = 'Vehicle Collision or Pedestrian Struck (with Fatality)';
+		    }
+
+		    if (values.year === 'all'){
+		      values.year = 'all years';
+		    }
+
+		    document.getElementById('stats').innerHTML =  values.type + " in " + values.year;
+		 }
+
+	p
+		a.code-text setFilter()
+		|   adjusts the data on the map based on the year and crime type the user selects, while 
+		a.code-text setStats()
+		|   outputs in text what the user selected by filter. Overtime I will actually add statistical information to 
+		a.code-text setStats()
+		| , but I still need to figure out how to access all the data points from the layer because currently the functions available on Mapbox GL JS can only give the amount of points rendered on the map.
+
+	p With the above code, a user should be able to select the crime year and type, click submit and then see filtered data appear on the map. Next I will show how I incorporated the choropleth map.
+
+	p Since I decided to only have a choropleth for 2016 data, I added a toggle function that would only be visible when the 2016 year is selected. First, I declared the toggle options (i.e., what layers can be toggled to appear on the map):
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		const options = [{
+			name: 'Crime by Neighbourhood 2016',
+			layer: 'vancouver-crime-nhoods',
+			otherLayer: '2016',
+			stops: stops},
+			{name: 'All Crime 2016',
+			layer: '2016',
+			otherLayer: 'vancouver-crime-nhoods',
+			stops: []
+		}]
+
+	p The information includes the name of the data, the name of the data layer stored in my custom Mapbox style, and the stops (i.e., the colours and count value) will populate the choropleth legend if selected. Now, I had to create the toggle function and legend, so in 
+		a.code-text return()
+		|  I added the following: 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		// toggle
+		<div id="toggle" className="legend toggle-group border border--1 shadow-darken10 z1">
+			{options.map(renderToggle)}
+		</div>
+
+		// choropleth legend
+		<div id="legend-choropleth" className="legend absolute top left shadow-darken10 round wmax180">
+			<h2 className="txt-bold block">{name}</h2>
+			{stops.map(renderLegendKeys)}
+			<p className="txt-bold block" id="stats-choropleth"></p>
+		</div>
+
+
+	p I then created a function in 
+		a.code-text render()
+		|  to run through 
+		a.code-text options
+		|  and create the toggle function options and choropleth legend:
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		const renderToggle = (option, i) => {
+			return (
+				<label key={i} className="toggle-container">
+					<input onChange={() => this.setState({ active: options[i] })} 
+					checked={option.layer === layer} name="toggle" type="radio" />
+					<div className="toggle txt-s py3">{option.name}</div>
+				</label>
+			);
+		}
+
+		const renderLegendKeys = (stop, i) => {
+			if (stop.length){  
+				return (
+					<div key={i} className='txt-s'>
+						<span className='mr6 round-full w12 h12 inline-block align-middle' style={{ backgroundColor: stop[1] }} />
+						<span>{`${stop[0].toLocaleString()}`}</span>
+					</div>
+				);
+			}
+		}
+
+	p Lastly, none of the above code would work unless I added a function for when the toggle was changed by users:
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		handleToggle(event) {
+			let layer = this.state.active.layer;
+			let otherLayer = this.state.active.otherLayer;
+
+			this.map.setLayoutProperty(otherLayer, 'visibility', 'none');
+			this.map.setLayoutProperty(layer, 'visibility', 'visible');
+		}
+
+	p ... and in 
+		a.code-text handleToggle(event)
+		| : 
+
+	textarea(readonly = 'readonly', disabled='disabled').
+		componentDidUpdate() {
+			this.handleToggle();
+		}
+
+	p At this point, the interactive map should now have filters that allow users to select both the year and type of data to be visible on the map; in addition, the user has the option to select a choropleth map if they select the year 2016. Additional functionalities, such as popups, can be seen in the final code, which is accessible 
+		a.link(href='https://github.com/Noznoc/crimecouver' target='_blank') here
+		| .

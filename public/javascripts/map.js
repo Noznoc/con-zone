@@ -1,5 +1,5 @@
 // function for the map
-function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
+function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id){
 
 	mapboxgl.accessToken = "pk.eyJ1IjoianVsY29ueiIsImEiOiJjaWo1eHJqd2YwMDFkMXdtM3piZndjNzlxIn0.3fMbo8z3SxitKnkoNkZ2jw"; // access token for Mapbox API
 
@@ -45,6 +45,14 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 				addData(features, cluster);
 			});
 		}
+
+		if (id == "blog"){
+			map.setLayoutProperty("city", "visibility", "visible");
+		}
+
+		if (id == "docs"){
+			map.setLayoutProperty("vancouver-crime", "visibility", "visible");
+		}
 		
 		function addData(coordinates, cluster){
 			var test = map.addSource("points", {
@@ -54,9 +62,11 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 					"features": coordinates
 				},
 				cluster: cluster,
-				clusterMaxZoom: 4, // Max zoom to cluster points on
+				clusterMaxZoom: 20, // Max zoom to cluster points on
 				clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
 			});
+
+			//document.getElementById('test').innerHTML = JSON.stringify(coordinates)
 
 			map.addLayer({
 				id: "layer",
@@ -67,10 +77,11 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 						property: "point_count",
 						type: "interval",
 						stops: [
-							[2, "#7a2d5f"],
-							[5, "#7a2d5f"],
-							[7, "#7a2d5f"],
-							[10, "#7a2d5f"]
+							[2, "#3f2d34"],
+							[4, "#3f2d34"],
+							[6, "#3f2d34"],
+							[8, "#3f2d34"],
+							[10, "#3f2d34"]
 						]
 					},
 					"circle-radius": {
@@ -108,7 +119,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster){
 				filter: ["!has", "point_count"],
 				paint: {
 					"circle-radius": 6,
-					"circle-color": "#7A2D5F"
+					"circle-color": "#3f2d34"
 				}
 			});
 

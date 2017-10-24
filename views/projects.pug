@@ -6,10 +6,10 @@ block content
 	p#buttons
 		button.button(name='projects-3') StatCan
 		button.button(name='projects-2') GovEx
-		button.button(name='projects-1') PWYP / Open North
+		button.button(name='projects-1') PWYP
 	.container
 		p#projects-3
-			h2 Statistics Canada (StatCan) Crowdsourcing Project: 
+			h2 Statistics Canada (StatCan) Crowdsourcing Project
 			p  I had the exciting opprotunity to work with Statistics Canada on a 
 				strong
 					a.link(href='www.statcan.gc.ca/eng/crowdsourcing' target='_blank') pilot project 
@@ -30,7 +30,7 @@ block content
 				img.image.image-wide(src='/images/gatineau.PNG')
 	.container
 		p#projects-2
-			h2 Open Data Standards Directory: 
+			h2 Open Data Standards Directory
 			p I have been working with 
 				strong
 					a.link(href='https://govex.jhu.edu/' target='_blank') Johns Hopkins University's Center for Government Excellence (GovEx) 
@@ -48,7 +48,7 @@ block content
 				img.image.image-wide(id='standards', src='images/standards-2.png')
 	.container
 		p#projects-1
-			h2 Interactive Visualization of Payments:
+			h2 Interactive Visualization of Payments
 			p I worked on contract with 
 				strong
 					a.link(href='https://www.facebook.com/Publish-What-You-Pay-Canada-499862726848991/' target='_blank') Publish What You Pay Canada 
@@ -61,7 +61,7 @@ block content
 			img.image.image-wide(id='ivop' src='images/ivop.png')
 	script.
 		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates, true, true);
+		addMap([-98.0046126,46.4760507], 0, 3, 8, coordinates, true, false, 'projects');
 		$('#legend').find('h4').html('PLACES I HAVE WORKED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');

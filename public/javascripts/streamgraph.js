@@ -27,7 +27,7 @@ function streamgraph(){
 	    .domain([d3.min(layers, stackMin), d3.max(layers, stackMax)])
 	    .range([height, 0]);
 
-	var z = d3.interpolateInferno;
+	var z = d3.interpolateRgb("#d7c7cd", "#fff389")//.interpolateInferno;
 
 	var area = d3.area()
 	    .x(function(d, i) { return x(i); })

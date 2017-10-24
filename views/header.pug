@@ -16,6 +16,18 @@
 		li
 			a.link.icon(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', title='OpenStreetMap')
 				i.fa.fa-globe(aria-hidden='true')
+		li#contact
+			a.link-text(href='/contact') contact
+		li.navigation-mobile
+			a.link.icon
+				i.fa.fa-bars(aria-hidden='true')
+			.page-content
+				a(href='/') home
+				a(href='/about') about
+				a(href='/projects') projects
+				a(href='/blog') blog
+				a(href='/docs') docs
+				a(href='/contact') contact
 	ul.navigation.navigation-site
 		li#home 
 			a(href='/') home
@@ -30,21 +42,52 @@
 		li#blog 	
 			a(href='/blog') blog
 			.page-content
-				a(href='/blog/travel') travel
 				a(href='/blog/geo') geo
-		li#contact 
-			a(href='/contact') contact
+				a(href='/blog/travel') travel
+		li#docs 
+			a(href='/docs') docs
+			.page-content
+				a(href='/docs/guide') guides
+				a(href='/docs/tutorial') tutorials
+			
 	script.
-		if ('#{page}' == 'about') {
+		if ('#{id}' == 'about') {
 			$('#about').addClass('active');
-		} else if ('#{page}' == 'projects') {
+		} else if ('#{id}' == 'projects') {
 			$('#projects').addClass('active');
-		} else if ('#{page}' == 'blog') {
+		} else if ('#{id}' == 'blog' || '#{id}' == 'travel' || '#{id}' == 'geo' || '#{id}' == 'blog-post' ) {
 			$('#blog').addClass('active');
-		} else if ('#{page}' == 'contact') {
-			$('#contact').addClass('active');
-		} else if ('#{page}' == 'home') {
+		} else if ('#{id}' == 'docs' || '#{id}' == 'tutorial' || '#{id}' == 'guide' || '#{id}' == 'doc-post' ) {
+			$('#docs').addClass('active');
+		} else if ('#{id}' == 'home') {
 			$('#home').addClass('active');
-		} else {
-			$('#blog').addClass('active');
+		} else if ('#{id}' == 'contact') {
+			$('#contact').addClass('active-underline');
 		}
+
+		(function($) {
+		    var $window = $(window),
+		        $nav = $('.navigation-site');
+		        $nav_mobile = $('.navigation-mobile');
+
+		    function resize() {
+		        if ($window.width() < 750) {
+		        	
+		        	function all() {
+		        		$('#contact').hide();
+		        		$('.navigation-site').hide();
+		            	$('.navigation-mobile').show();
+		            }
+
+		            return all();
+
+		        }
+		        $nav.show();
+		        $nav_mobile.hide();
+		        $('#contact').show();
+		    }
+
+		    $window
+		        .resize(resize)
+		        .trigger('resize');
+		})(jQuery);

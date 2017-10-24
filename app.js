@@ -3,6 +3,7 @@ var path = require('path'); // path is a Node module for working with and handli
 var logger = require('morgan'); // Express middleware for logging requests and responses
 var bodyParser = require('body-parser'); // adds a body object to your request so that you can access POST parameters
 var favicon = require('serve-favicon');
+var http = require('http');
 // var cookieParser = require('cookie-parser'); 
 
 // paths to routers

@@ -1,0 +1,168 @@
+extends docs.pug
+block content
+	br
+	p#buttons
+		button.button.button-xsmall(name='doc-collect') collect
+		button.button.button-xsmall(name='doc-manage') manage
+		button.button.button-xsmall(name='doc-analyze') analyze
+		button.button.button-xsmall(name='doc-visualize') visualize
+		button.button.button-xsmall(name='doc-tools') tools
+	+sidebar(['collect', 'manage', 'analyze', 'visualize', 'tools'], ['crimecouver'], 'doc-2')
+	.paragraph
+		p Over the past year and a half I have been educating myself on the various open sourced tools / libraries / software that exist for collecting, managing/cleaning, analyzing, and visualizing geospatial data. I have learned through various resources: blog tutorials, YouTube videos, conferences, academic papers, and work. In this post I will share with you the main tools I use for my work. This guide is aimed for beginners in the GIS field. 
+
+		p If you don’t feel like reading all the details, feel free to go to the 
+			a.link(name='doc-tools') Tools section
+			|  where I list all the tools I use.
+
+		p If you learn through doing, I wrote a 
+			a.link(href='./guides/tutorials') tutorial
+			|  that shows how to build  an interactive Mapbox GL JS React map.
+		
+		h2.header-1#doc-collect Data Collection
+
+		p.header-2 Data
+
+		p The data I handle is either implicitly or explicitly georeferenced, or both. By implicit, I mean the geographic reference (i.e., the reference to place or space) is implied through text, such as text in a tweet or the tweeter's profile location. By explicit, I mean the geographic reference is implied through geographic coordinates, which assigns it to a specific place on Earth's surface. 
+
+		p The following are the primary data types that I have encountered: 
+			a.link(hred='' target='_blank') geojson / json
+			| , 
+			a.link(href='' target='_blank') osm xml / pbf
+			| , 
+			a.link(href='' target='_blank') shp
+			| , 
+			a.link(href='' target='_blank') mbtiles
+			| , and 
+			a.link(href='' target='_blank') csv
+			| .
+
+		p.header-2 Data Sources
+
+		p I collect the data through various sources. If I am working for a client, they usually provide me with the data; but, for my own projects, I search for data from the following sources:
+
+		ul
+			li Municipal, provincial/state, and federal open data portals 
+			li International organization's open data portals (e.g., World Bank, World Wildlife Fund)
+			li OpenStreetMap (OSM)
+			li Text mining / scraping (e.g., Twitter, Kijiji ads)
+
+		p.header-2 Data Extraction / Clean
+
+		p There are several ways to extract the data from the sources listed above. Some methods require more technical experience, such as using the command line, while others offer a user-friendly graphical interface to extract data.
+
+		p The government data I mostly work with are from Canadian government entities, like municipalities or federal departments. Most of these sources, as well as other international organizations, usually release static data (like a dump file). You can download the data through their open data portals. The data is downloaded from the browser onto your computer for use. 
+
+		p However, more government entities are releasing their data through application programming interfaces (APIs), which allows users to stream the data. For example, the map in the 	
+			a.link(href='' target='_blank') about section 
+			| visualizes live streaming data from NRCan's Earthquake API. I also follow  
+			a.link(href='https://twitter.com/cdngovrepos' target='_blank') this bot
+			|  created by James McKinney that tweets whenever any Canadian government releases a new repo. Although APIs / repos require more technical experience, they allow governments to start providing real-time data.
+
+		p 	
+			a.link(href='https://www.openstreetmap.org' target='_blank') OSM 
+			|  is a global wiki-like project that aims to map all features on Earth's surface through points/nodes, lines/ways, and polygons/enclosed ways. OSM objects' attributes are stored through tags. OSM's database is open for anyone to use as long as it is in accordance to its license. OSM has a growing number of contributors, which includes cartographers, governments, and private and public companies. I usually extract the data from 
+			a.link(href='https://www.geofabrik.de/data/download.html' target='_blank') Geofabrik
+			| . Geofrabik allows your to download OSM data based off geographic region (i.e. planet, continent, countries, and you can download at smaller geographies in specific countries). The data can be downloaded as an osm xml or pbf. I usually download it as an osm xml (or .osm) and then convert it into geojson using 
+			a.link(href='https://github.com/mapbox/minjur' target='_blank') minjur 
+			| from the command line: 
+
+		p.code minjur mexico-latest.osm.pbf > mexico.geojson
+
+		p Sometimes I have to download the planet file to get to the geographic region I need. In this case the data is too big to handle, so before I do any processing I clip the planet file within a bounding box or polygon. I use  
+			a.link(href='https://github.com/openstreetmap/osmosis' target='_blank') osmosis 
+			|  or 
+			a.link(href='http://osmcode.org/osmium-tool/' target='_blank') osmium
+			|  to clip the data. To determine the bounding box, I use this 
+			a.link(href='http://lxbarth.com/bbox' target='_blank') tool
+			| . For example, I use the following script to clip an osm file to the correct geographic region I need: 
+
+		p.code osmosis --read-xml mexico-latest.osm --bounding-box top=18.68111038213857 left=-98.55468750022783 bottom=14.550546646410794 right=-90.38444519009329 --write-xml oaxaca-and-chiapas.osm
+
+		p It is important to consider whether you should download the data as a bounding box or polygon. Bounding boxes can be easier to extract data, but it also can cause additional or missing data for a geographic region. For instance, if I need to collect data for a city, I would use a polygon of the municipality's boundary lines over a bounding box. A bounding box does not give a realisitic reprentation of a place.
+
+		p You can also download OSM data from 
+			a.link(href='https://mapzen.com/data/metro-extracts/' target='_blank') Mapzen Metro Extracts 
+			| or 
+			a.link(href='https://export.hotosm.org/en/v3/exports/new' target='_blank') Humanitarian OSM Team Export Tool 
+			| or 
+			a.link(href='https://josm.openstreetmap.de/' target='_blank') JOSM
+			|  as GeoJSONs. These options allow you to avoid the command line if you do not feel comfortable using it.
+
+		p For text mining / scraping. There are various methods for extracting text from a source, but in my case I have used tweets as a source of georeferenced data. You can mine tweets through Twitter's Streaming API. There are various ways to use the API and store the tweets. In my case I followed a similar method as 
+			a.link(href='http://adilmoujahid.com/posts/2014/07/twitter-analytics/' target='_blank') this tutorial
+			| . Tweets and other social media platforms have become sources for both implicit and explicit georeferenced user-generated content. That said, there are some holes in these mined datasets, even if you can collect millions of objects. For instance, most social media posts are not explicitly georeferenced (i.e., not geotagged). To get enough georeferenced tweets, one should then assess other ways to extract the geographic informations, but these other mechanisms can enforce assumptions. For example, I assumed a user's profile location is where the tweet was located, but that may not necessarily be the case. Even my own Twitter profile's location is not where I am currently residing!
+
+		h2.header-1#doc-manage Data Management
+
+		p.header-2 Data Storage
+
+		p How you want to interact with the data depends on the size of data.
+
+		p If I am working with a small dataset (< 1,000 objects), I usually handle the data through JavaScript on the browser. I will store the data in a Google Sheet or from a geojson file. I then use AJAX's get function to pull the data from a url: 
+
+		p.code $.getJSON(url, function(data) {
+
+		p It is important to only use this method when you have a small dataset or else your browser will run out of memory and choke. I have also used Google Sheets and Google Fusion Tables to store data and pull into a JavaScript. Code for that can be seen 
+			a.link(hred='' target='_blank') here
+			| . This method is easy for people to input new data, but it does have a limit as there is no server functionality, the data is still being pulled to the browser. 
+
+		p For datasets larger than 1,000 objects, I use PostGIS or mbtiles. PostGIS is useful because you can run various pre-existing algorithmns to manage your data, whereas mbtiles are useful for visualizing your data. You can see how I have used PostGIS for handling data 
+			a.link(hred='' target='_blank') here
+			| .
+
+		p Mbtiles are super useful if you are using Mapbox Studio. To manage the layers, I used Mapbox GL JS library in JavaScript / React to analyze and visualize the data.
+
+		p.header-2 Data Cleaning
+
+		p Since I usually get my data from various sources I have to first make sure the data is uniform before I merge them. This will reduce any data inconsistencies that can skew the data. In general, the following are the mains steps I complete:
+
+		ul
+			li 1. Reproject the data in the same projection. I usually stick with EPSG 4362: WGS 84 because it is a consistent projection most people use (e.g., Google, Mapbox). I usually just change the projection in QGIS, but other libraries exist that I have also used in the past: gdal (which QGIS uses, but instead of using thfe command line you can use a graphical interface!) 
+
+			li 2. Convert the data into the same format. I also use QGIS for this, but ogr2ogr, osmosis, minjur all work as well. 
+
+			li 3. Merge datasets by spatial join (QGIS), matching field names (GDAL), PostGIS
+
+		h2.header-1#doc-analyze Data Analysis
+		
+		p Analyzing the data can be done in QGIS with the stat tools, you can develop algorithms with PostSQL, I have even developed algorithms to assess OSM data through Node.js. R can also be a great resource, there is a growing community that uses R for analyzing spatial data.
+
+		h2.header-1#doc-visualize Data Visualization
+		
+		p There are various ways to tell a story with geospatial data that don’t require a map;  for example, x and y. I can’t possibly account for all the ways geospatial data can be visualized, so instead I use these resources to be inspired:
+		
+		ul
+			li
+				a.link(href='https://www.reddit.com/r/dataisbeautiful/' target='_blank') D3.js examples 
+			li 
+				a.link(href='https://www.reddit.com/r/dataisbeautiful/' target='_blank') Reddit 
+			li Blogs 
+		
+		p That said, I will now specify the tools I use and steps to accomplish making an interactive web map that can be embed in websites. I first started with the Leaflet library over Google Maps API because I was fearful Google might deprecate their API to some degree. Over time though I have expanded to Mapbox.js and then now Mapbox GL JS. It took me a while to adjust to Mapbox GL JS, but after working at Mapbox, I’ve learned how to use it seamlessly.
+
+		p When I want to create an interactive web map I immediately go to Mapbox GL JS first. I will either use the data as the geojson pulled from a data source into the JavaScript, which was discussed above, or I will use mbtiles in Mapbox Studio. Regardless of how I store the data, I use Mapbox GL JS library to interact with the data. Both methods require slightly different coding, so if you want to avoid coding, I would recommend using just Mapbox Studio. Mapbox has great guides here (). 
+
+		p Go to the 
+			a.link(href='./docs/doc-2') tutorial 
+			|  for an example of how I interacted with both data from a Mapbox Studio layer and data I pulled in from a geojson. 
+		
+		h2.header-1#doc-tools Tools
+
+		ul
+			li 
+				a.link(href='', target='_blank') D3.js
+			li 
+				a.link(href='', target='_blank') GDAL - ogr2ogr 
+			li 
+				a.link(href='', target='_blank') Geofabrik
+			li 
+				a.link(href='', target='_blank') JOSM
+			li 
+				a.link(href='', target='_blank') Mapbox tools 
+			li 
+				a.link(href='', target='_blank') osmosis
+			li 
+				a.link(href='', target='_blank') PostGIS
+			li 
+				a.link(href='', target='_blank') QGIS

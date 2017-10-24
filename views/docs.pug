@@ -1,0 +1,38 @@
+html
+	include head.pug
+
+	body
+
+		include header.pug
+
+		.site-content
+			.text
+				h2.title= title
+				p.subtitle= subtitle
+				- if (id == 'docs')
+					p#buttons
+						a(href='/docs/guide')
+							button.button guides
+						a(href='/docs/tutorial')
+							button.button tutorials
+				include mixins.pug
+				each doc in data
+					+post(doc.title, doc.subtitle, doc.date, doc.tags, doc.id, 'docs', id)
+				- if (id == 'doc-post')
+					.post-links-footer
+						.clipboard.icon(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, title='Click to copy to clipboard')
+							i.fa.fa-link(aria-hidden='true')
+						a.link.icon(href='mailto:julia.conzon@gmail.com', title='Contact me')
+							i.fa.fa-envelope(aria-hidden='true')
+					script.
+						openPost();
+		include footer.pug
+
+	script.
+		addMap([-123.2415, 49.2611], 10, 10, 12, '', false, false, 'docs');
+		$('#legend').find('h4').html('PLACES I HAVE TRAVELED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
+		new Clipboard('.clipboard');
+		$(function() {
+			$(document).tooltip();
+		});
+		$('#legend').find('h4').html('VANCOUVER CRIME (2016). VIEW TUTORIAL <a href="/docs/docs-2" target="_blank" class="links">HERE</a>');

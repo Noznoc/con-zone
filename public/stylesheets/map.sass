@@ -22,23 +22,23 @@
 		.mapboxgl-popup-content
 			font: 12px $secondary-font
 			background-color: white
-			color: $line-color
+			color: $font-color
 			max-width: 190px
 			max-height: 60px
-			border: 1px solid $header-color
+			border: 1px solid $line-color
 			padding: 10px
 			text-align: center
 			button
-				color: $line-color
+				color: $font-color
 				&:hover
 					cursor: pointer
 					background-color: transparent
-					color: $header-color
+					color: $line-color
 
 	.legend
 		background-color: white
-		border-top: 1px solid $header-accent-color
-		border-bottom: 1px solid $header-accent-color
+		border-top: 1px solid $accent-color
+		border-bottom: 1px solid $accent-color
 		bottom: 160px
 		font: 11px $primary-font
 		padding: 10px
@@ -48,13 +48,16 @@
 		left: 10px
 		z-index: 1
 
+		a
+			color: $font-color
+
 		.icon
 			margin: 0px
 			font-size: 23px
 			color: $font-color
 			padding: 5px
 			&:hover
-				color: $accent-color
+				color: $link-color
 			@media screen and (max-width: 750px)
 				font-size: 15px
 

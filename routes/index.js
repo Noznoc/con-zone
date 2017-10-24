@@ -8,6 +8,8 @@ router.get('/contact', db.contact);
 router.get('/blog', db.blog);
 router.get('/projects', db.projects);
 router.get('/about', db.about);
-router.get('/blog/:id', db.blog_post);
+router.get('/blog/:id', db.getData);
+router.get('/docs', db.docs);
+router.get('/docs/:id', db.getData);
 
 module.exports = router;

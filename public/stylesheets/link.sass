@@ -1,24 +1,36 @@
 .link
-	color: darken($accent-color, 10%)
+	color: $link-color
+	font-weight: bold
 	text-decoration: none
+
 	&:hover
 		text-decoration: underline
 		cursor: pointer
+
 	@media screen and (max-width: 750px)
 		font-size: 12px
-		margin-left: 10px
-		margin-right: 10px
 
 	i
 		padding-right: 10px
+		
+.link-text
+	color: white
+	font-size: 20px
+	font-family: $secondary-font
+	text-decoration: none
+
+	&:hover
+		text-decoration: underline
 
 .icon
 	font-size: 40px
 	margin: 25px
-	color: $accent-color
+	color: $link-color
+
 	&:hover
 		cursor: pointer
-		color: $line-color
+		color: $button-color
+
 	@media screen and (max-width: 750px)
 		font-size: 20px
 		margin-left: 10px
@@ -29,21 +41,25 @@
 
 .button
 	padding: 10px
-	background-color: #FFFFFF
-	border: solid 2px $line-color
+	background-color: white
+	border: solid 2px $button-color
 	border-radius: 15px
-	color: $line-color
+	color: $button-color
 	margin: 0px 20px
 	width: 130px
+	text-decoration: none
+	
 	&:hover
-		background-color: $line-color
-		color: #FFFFFF
+		background-color: $button-color
+		color: white
 		cursor: pointer
+	
 	@media screen and (max-width: 750px)
 		margin: 0px 8px
-		font-size: 7px
+		font-size: 10px
 		padding: 6px
-		width: 90px
+		width: 100px
+		margin-top: 10px
 
 p#buttons
 	text-align: center
@@ -55,36 +71,52 @@ p#buttons
 	@media screen and (max-width: 750px)
 		display: none
 
-.blog-links
-	margin-left: 655px
+.post-links
+	margin-left: 650px
 	height: 0px
 	padding: 0px
+
+	@media screen and (max-width: 750px)
+		margin-left: 450px
+		display: none
 
 	li
 		display: inline-block
 		margin-top: -5px
 		text-align: center
-	
-
-.tag
-	padding: 1px 10px
-	border-radius: 10px
-	width: 60px
-	border: 1px solid $accent-color
 
 	&:hover
-		border-color: $line-color
+		border-color: $button-color
+		color: $button-color
+
+.post-links-footer
+	text-align: center
+	margin: 0px
+	padding: 0px
+
+	.icon
+		display: inline-block
+		font-size: 30px
+
+.post-link
+	text-decoration: none
+	color: $link-color
+	
+.tag
+	padding: 1px 9px
+	border-radius: 10px
+	width: 70px
+	border: 1px solid $link-color
+
+	&:hover
+		border-color: $button-color
 	
 	a
 		text-decoration: none
-		color: $accent-color
+		color: $link-color
 
 		&:hover
-			color: $line-color
-			border-color: $line-color
-
-
-
-
+			color: $button-color
+			border-color: $button-color
 
 

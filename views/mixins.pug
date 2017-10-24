@@ -1,0 +1,44 @@
+mixin post(title, subtitle, date, tags, link, page, id)
+	.container.post#post
+		ul.post-links
+			li.tag.text
+				a(href='/' + page + '/' + tags)= tags
+			li.clipboard.icon(data-clipboard-text='www.juliaconzon.com/' + page + '/' + link, title='Click to copy to clipboard')
+				i.fa.fa-link(aria-hidden='true')
+		- if (id !== 'blog-post' && id !== 'doc-post')
+			a(href='/' + page + '/' + link).post-link
+				h2.header= title
+				h3=date
+				h3 
+					i=subtitle
+				.post-text
+					block content
+
+				script. 
+					$('.post').addClass('hover');
+		- else
+			h2.header= title
+			h3=date
+			h3 
+				i=subtitle
+			.post-text
+				block content
+
+mixin sidebar(sections, tutorials, id)
+	.sidebar
+		h2 Sections
+		each s in sections	
+			button(name='doc-' + s)= s
+		- if (id !== 'tutorial')
+			h2 Tutorials
+			each t in tutorials	
+				a(href='/docs/' + id)
+					button= t
+	script.
+		sidebar();
+		$('button').on('click', function () {
+			var name = $(this).attr('name');
+		    $('html, body').animate({
+		        scrollTop: $('#' + name).offset().top
+		    }, 1000);
+		})
