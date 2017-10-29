@@ -5,7 +5,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id
 
 	// create map, define certain options
 	var map = new mapboxgl.Map({
-		container: "map",
+		container: "header-map",
 		style: "mapbox://styles/julconz/cj5qwq4al26aw2so9t7m40srp",
 		center: center,
 		zoom: zoom,
@@ -149,7 +149,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id
 		    	if (i == 0){
 		    		var toggleContainer = $(".map-container").outerHeight() == 500 ? "200px" : "500px";
 	    			$(".map-container").animate({height: toggleContainer});
-	    			$("#map").animate({height: toggleContainer}, function(){
+	    			$("#header-map").animate({height: toggleContainer}, function(){
 					    map.resize();
 					});
 		    		$(this).hide();
@@ -169,7 +169,7 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id
 			    	i = 0;
 			    	var toggleContainer = $(".map-container").outerHeight() == 200 ? "500px" : "200px";
 					$(".map-container").animate({height: toggleContainer});
-					$("#map").animate({height: toggleContainer}, function(){
+					$("#header-map").animate({height: toggleContainer}, function(){
 					    map.resize();
 					});
 					$("#legend").find('h4').html(legend);

@@ -1,0 +1,73 @@
+extends blog.pug
+block content
+	
+	.post-map-container
+		#post-map.map
+		.post-map-legend
+			i#backward.fa.fa-step-backward.icon.map-button(aria-hidden='true')
+			i#forward.fa.fa-step-forward.icon.map-button(aria-hidden='true')
+			p On October 6th, I flew from Ayacucho to Lima, and then on October 7th I flew to Cusco to meet my childhood friend for our week trek to Machu Picchu! Neither of us had been on a long trek before, so we were very nervous initially, but we ended up both having very positive experiences. Check out the story map below to see our Salkantay adventure!
+			img.image-round.image(src='/images/day0_0.jpg')
+
+	script.
+
+		mapboxgl.accessToken = "pk.eyJ1IjoianVsY29ueiIsImEiOiJjaWo1eHJqd2YwMDFkMXdtM3piZndjNzlxIn0.3fMbo8z3SxitKnkoNkZ2jw"; // access token for Mapbox API
+
+		var map = new mapboxgl.Map({
+			container: "post-map",
+			style: "mapbox://styles/julconz/cj95rwbpt16tk2rnzmnlslw5h",
+			center: [-74.252,-13.162],
+			zoom: 12.3,
+			logoPosition: 'bottom-right'
+		});
+
+		var panTo = [[9, [-74.2544, -13.1385], 'day0'],[12, [-71.9760, -13.5209], 'day0'], [13.6, [-72.546,-13.515], 'day1'], [14.3, [-72.547,-13.485], 'day1'], [13.9, [-72.550,-13.452], 'day1'], [15.3, [-72.572,-13.388], 'day1'], [16.5, [-72.585,-13.380], 'day1'], [15.3, [-72.572,-13.388], 'day1'], [15.2, [-72.560,-13.362], 'day2'], [15.3, [-72.562,-13.344], 'day2'], [14.0, [-72.608,-13.328], 'day2']];
+
+		$(".mapboxgl-canvas").removeAttr("style")
+
+		var i = 0;
+
+		$(".map-button").on("click", function(e){
+			$(".post-map-legend").find('p').html('');
+			$(".post-map-legend").find('img').hide();
+			console.log(i)
+
+			if (e.delegateTarget.id == "forward") {
+				i++;
+				map.flyTo({
+					center: panTo[i][1], 
+					zoom: panTo[i][0],
+					speed: 0.7,
+					curve: 1,
+					easing(t) {
+						return t;
+					}
+				});
+			}
+			if (e.delegateTarget.id == "backward") {
+				i--;
+				map.flyTo({
+					center: panTo[i][1], 
+					zoom: panTo[i][0]
+				});
+			}
+
+			map.on('render', function(){
+				var features = map.queryRenderedFeatures({ layers: [panTo[i][2] + '-points'] });
+				console.log(features)
+				popup(features);	
+			});
+		});
+
+		function popup(features){
+			var popup = new mapboxgl.Popup({
+				closeButton: false,
+				closeOnClick: false
+			});
+			if (features.length){
+				/*popup.setLngLat(features[0].geometry.coordinates)
+					.setHTML(features[0].properties.description + "<br><img src='/images/" + features[0].properties.id + ".jpg'>")
+					.addTo(map);*/
+				$(".post-map-legend").find('p').html(features[0].properties.description + "<br><br><img class='image-round image' src='/images/" + features[0].properties.id + ".jpg'>")
+			}
+		}

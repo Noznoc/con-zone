@@ -27,17 +27,17 @@ block content
 		li 
 			a.link(href='openstreetmap.org', target='_blank') OpenStreetMap
 
-	p After downloading crime-shp, I reviewed the metadata to help brainstorm how I would visualize the data on an interactive map.
+	p After downloading crime_shp, I reviewed the metadata to help brainstorm how I would visualize the data on an interactive map.
 
-	p crime-shp stored geographic points with the following attributes/properties: neighbourhood of the crime, type of crime, address of the crime (without the address number to maintain privacy), year of crime, month of crime, day of crime, hour of crime, and minute of crime. 
+	p crime_shp stored geographic points with the following attributes/properties: neighbourhood of the crime, type of crime, address of the crime (without the address number to maintain privacy), year of crime, month of crime, day of crime, hour of crime, and minute of crime. 
 
 	p With these attributes, I wanted to incorporate filters by year and type of crime. I also wanted practice developing a choropleth map with Mapbox GL JS, so I decided that I would calculate the total amount of crime by neighbourhood. I needed the geograhpic locations of the Vancouver neighbourhoods, so I downloaded local_area_boundaries.
 
-	p local_area_boundaries stored polygons with the geographic coordinates and names of each neighbourhood in Vancouver. I also downloaded parks_shp because local_area_boundaries did not include Stanley Park, which was considered a neighbourhood in crime-shp. 
+	p local_area_boundaries stored polygons with the geographic coordinates and names of each neighbourhood in Vancouver. I also downloaded parks_shp because local_area_boundaries did not include Stanley Park, which was considered a neighbourhood in crime_shp. 
 
 	p After brainstorming and sketching, I had a general gist of how I wanted to develop the interactive map. I wanted users to have the ability to control the year and type of crime visible on the map. I also wanted users to see a choropleth map of the most recent, 2016, crime data count by Vancouver neighbourhood. With this in mind, I decided to develop the interactive map as the focal point and then add a side panel to store the filters users could interact with.
 
-	P I certainly have other plans to visualize the data; for example, since a lot of the metadata stored the date of the crime, I want to visualize with a time slider the relation between time and type of crime. 
+	P I certainly have other plans to visualize the data; for example, since the metadata stores the date of the crime, I would like to visualize with a time slider the relation between time and type of crime. 
 
 	h2.header-1#doc-manage Data Management
 
@@ -45,15 +45,15 @@ block content
 
 	p To avoid repeating each step for each shapefile, I merged all the shapefiles into one shapefile. I used  
 		a.link(href='http://www.northrivergeographic.com/ogr2ogr-merge-shapefiles' target='_blank') this
-		|  ogr2ogr line. In the command line I entered the following command that creates a new merge file from the first shapefile:
+		|  ogr2ogr line. In Terminal (I use a Mac) I entered the following command that creates a new merge file from the first shapefile:
 
-	p.code ogr2ogr -f ‘ESRI Shapefile’ merge.shp [first-dataset].shp 
+	p.code ogr2ogr -f ‘ESRI Shapefile’ merge.shp crime_shp_2003.shp 
 
-	p With a new merge shapefile (crime_merge), I then ran the following script for every shapefile (crime_2004.shp, crime_2005.shp...) I wanted to merge to the merge.shp:
+	p With a new merge shapefile (merge), I then ran the following script for every shapefile (crime_shp_2004.shp, crime_shp_2005.shp...) I wanted to merge to the merge shapefile:
 
-	p.code ogr2ogr -f ‘ESRI Shapefile’ -update -append merge.shp [to-merge].shp -nln merge
+	p.code ogr2ogr -f ‘ESRI Shapefile’ -update -append merge.shp [crime_shp_year.shp].shp -nln merge
 
-	p I initially wanted to use QGIS's merge data management tool, but it took 3 hours to complete only 50% of the process. When I tried the ogr2ogr method on the command line, it took ~ 2 minutes. 
+	p I initially wanted to use QGIS's merge data management tool, but it took 3 hours to complete only 50% of the process. When I tried the ogr2ogr method in Terminal, it took ~ 2 minutes. 
 
 	p With the merged shapefile, I then had to convert the shapefile into a GeoJSON so that I could then use 
 		a.link(href='https://github.com/mapbox/tippecanoe' target='_blank') tippecanoe 
@@ -61,17 +61,17 @@ block content
 		a.link(href='https://www.mapbox.com/help/define-mbtiles/' target='_blank') MBTiles
 		| . I used MBTiles over a GeoJSON because MBTiles converted the GeoJSON into a tileset which, in general, renders more easily.
 
-	p I converted the shapefile into a GeoJSON in QGIS. All you have to do is click '... Save as' and then select the file type (GeoJSON), the location of where to save the GeoJSON, and then the geographic coordinates sytem. The standard for MBTiles is EPSG 4362: WGS 84, so I made sure my GeoJSON was in that format.
+	p I converted the shapefile into a GeoJSON in QGIS. All you have to do is click '... Save as' and then select the file type (GeoJSON), the location of where to save the GeoJSON, and then the geographic coordinate sytem. The standard for MBTiles is EPSG 4362: WGS 84, so I made sure my GeoJSON was in that format.
 
-	p Once I had the GeoJSON, I then used tippecanoe on the command line:
+	p Once I had the GeoJSON (vancouver_crime), I then used tippecanoe in Terminal:
 
 	p.code tippecanoe --layer vancouver_crime -o vancouver_crime.mbtiles --minimum-zoom=11 --maximum-zoom=20 < vancouver_crime.geojson
 
-	p My output was a MBTile file that stored all the crime vector points from 2003 to 2016.
+	p My output was a MBTile file (vancouver_crime.mbtiles) that stored all the crime vector points from 2003 to 2016.
 
-	p The next step was to create the data for the choropleth map. To accomplish this I used QGIS. First I had to merge local_area_boundaries with a polygon of Stanley Park. I first extract the Stanley Park vector polygon from parks_shp by using Filter tool ("NAME" = "STANLEY PARK") and then saving the output as a new layer. Then I used Vector > Data Management Tools > Merge Vector Layers to merge the Stanley Park extract polygon to local_area_boundaries. Then I used the Vector > Data Management Tools > Join Attribute by Location tool to calculate the count of crime within each neighbourhood boundary. My inputs for this were crime-shp and local_area_boundaries.
+	p The next step was to create the data for the choropleth map. To accomplish this I used QGIS. First I had to merge local_area_boundaries with a polygon of Stanley Park. I extracted the Stanley Park vector polygon from parks_shp by using the Filter tool ("NAME" = "STANLEY PARK") and then saving the output as a new layer. Then I used Vector > Data Management Tools > Merge Vector Layers to merge the Stanley Park extracted polygon to local_area_boundaries. Lastly, I used the Vector > Data Management Tools > Join Attribute by Location tool to calculate basic statistics, including the crime count, within each neighbourhood boundary. My inputs for the 'Join Attribute by Location' were the vancouver_crime GeoJSON and local_area_boundaries.
 
-	p Once I had the statistical crime data (count, mean, mode, median) for each neighbourhood represented in crime_merge, I followed the same steps as above to convert the shapefile into MBTiles (vancouver-crime-nhoods.mbtiles).
+	p Once I had the statistical crime data (count, mean, mode, median) for each neighbourhood represented in vancouver_crime, I followed the same steps as above to convert the shapefile into MBTiles (vancouver-crime-nhoods.mbtiles).
 
 	h2.header-1#doc-visualize Data Visualization
 
@@ -81,7 +81,7 @@ block content
 
 	img.image#gif(src='/images/doc2-1.png')
 
-	p After creating all the layers, the next step was to import my custom map style into React, so I published the Mapbox style and copied the token and then I reviewed examples in the 
+	p After creating and designing all the layers, the next step was to import my custom map style into React, so I published the Mapbox style and copied the token and then I reviewed examples in the 
 		a.link(href='', target='_blank') Mapbox react-examples repo
 		|   and 
 		a.link(href='', target='_blank') POI blog post
@@ -126,7 +126,7 @@ block content
 	textarea(readonly = 'readonly', disabled='disabled').
 		<div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
 
-	p Now that the map was embedded in the HTML, the next step was to develop the interactive components for the map. More specifically, I coded with Mapbox GL JS and React to develop drop-drown menus and a submit button that allows users to select and submit what data appears on the map.
+	p With a rendered map, the next step was to develop the interactive components for the map. More specifically, I coded with Mapbox GL JS and React to develop drop-drown menus and a submit button that allows users to select and submit what data appears on the map.
 
 	p First, I declared two new variables 
 		a.code-text years
@@ -215,7 +215,9 @@ block content
 		    this.setStats(this.state.selectValues);
 		  }
 
-	p So the onClick function runs 
+	p So 
+		a.code-text onClick
+		|  runs 
 		a.code-text setFilter()
 		|  and 
 		a.code-text setStats()
@@ -289,7 +291,7 @@ block content
 			stops: []
 		}]
 
-	p The information includes the name of the data, the name of the data layer stored in my custom Mapbox style, and the stops (i.e., the colours and count value) will populate the choropleth legend if selected. Now, I had to create the toggle function and legend, so in 
+	p The information includes the name of the data, the name of the data layer stored in my custom Mapbox style, and the stops (i.e., the colours and count value) that will populate the choropleth legend if selected. Now, I had to create the toggle function and legend, so in 
 		a.code-text return()
 		|  I added the following: 
 
@@ -305,7 +307,6 @@ block content
 			{stops.map(renderLegendKeys)}
 			<p className="txt-bold block" id="stats-choropleth"></p>
 		</div>
-
 
 	p I then created a function in 
 		a.code-text render()

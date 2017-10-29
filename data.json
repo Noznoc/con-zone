@@ -2,6 +2,13 @@
   "data": {
     "blogs": [
       {
+        "id": "blog-9",
+        "title": "Salkantay Trek",
+        "subtitle": "",
+        "date": "October 9-13 2017",
+        "tags": "travel"
+      },
+      {
         "id": "blog-8",
         "title": "Haunta See A Waterfall?",
         "subtitle": "",

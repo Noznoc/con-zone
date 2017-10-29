@@ -1,7 +1,9 @@
 extends layout.pug
 block content
 	.paragraph
-		h2.header Hello, my name is Julia Conzon
+		h2.header 
+			img.logo(src='/favicon.ico')
+			| Hello, my name is Julia Conzon 
 		p I collect, managage, analyze, and visualize [big] [open] [georeferenced] data.
 		p I have worked on 
 			strong 
@@ -23,8 +25,8 @@ block content
 					a.link(href='/contact' target='_blank') contact me
 				|   to share knowledge!
 		.column
-			img.image(src='/images/noznoc-0.png')
-			.subtitle Hiking in Yangmingshan National Park, Taiwan
+			img.image.image-round(src='/images/noznoc-3.png')
+			.subtitle Humantay Lake, Peru (4200 m)
 
 	script.
 		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
@@ -43,6 +45,7 @@ block content
 
 		    function resize() {
 		        if ($window.width() < 750) {
+		        	console.log("test")
 		            return $html.children().removeClass('column');
 		        }
 		        $html.addClass('column');

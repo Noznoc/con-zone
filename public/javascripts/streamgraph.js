@@ -1,6 +1,6 @@
 // code adadpted from https://bl.ocks.org/mbostock/4060954
 function streamgraph(){
-	$('#map').html('<svg id="streamgraph" width="2000" height="500" margin="0px" padding="0px"></svg>');
+	$('#header-map').html('<svg id="streamgraph" width="2000" height="500" margin="0px" padding="0px"></svg>');
 
 	window.setInterval(function(){
 	  transition();

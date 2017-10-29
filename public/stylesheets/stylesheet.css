@@ -36,44 +36,17 @@ html, body {
     width: 100%;
     font-size: 10px;
     height: 200px; }
-    .site-header .map-container #map {
-      width: 100%;
-      height: 200px; }
-      .site-header .map-container #map .coverphoto {
-        width: 100%;
-        height: 100%;
-        margin: 0px auto;
-        overflow-x: hidden; }
-      .site-header .map-container #map .mapboxgl-ctrl {
-        font: 10px "Hind Vadodara", sans-serif; }
-      .site-header .map-container #map .mapboxgl-popup {
-        max-width: 200px; }
-      .site-header .map-container #map .mapboxgl-popup-content {
-        font: 12px "Hind Vadodara", sans-serif;
-        background-color: white;
-        color: #3f2d34;
-        max-width: 190px;
-        max-height: 60px;
-        border: 1px solid #d7c7cd;
-        padding: 10px;
-        text-align: center; }
-        .site-header .map-container #map .mapboxgl-popup-content button {
-          color: #3f2d34; }
-          .site-header .map-container #map .mapboxgl-popup-content button:hover {
-            cursor: pointer;
-            background-color: transparent;
-            color: #d7c7cd; }
     .site-header .map-container .legend {
       background-color: white;
       border-top: 1px solid #fff389;
       border-bottom: 1px solid #fff389;
-      bottom: 160px;
+      bottom: 50%;
       font: 11px "PT Sans", sans-serif;
       padding: 10px;
       width: 180px;
       position: absolute;
       text-align: center;
-      left: 10px;
+      left: 1%;
       z-index: 1; }
       .site-header .map-container .legend a {
         color: #3f2d34; }
@@ -83,7 +56,7 @@ html, body {
         color: #3f2d34;
         padding: 5px; }
         .site-header .map-container .legend .icon:hover {
-          color: #4dbeb1; }
+          color: #00C3B4; }
         @media screen and (max-width: 750px) {
           .site-header .map-container .legend .icon {
             font-size: 15px; } }
@@ -100,6 +73,50 @@ html, body {
           font: 10px "PT Sans", sans-serif;
           padding: 5px;
           width: 120px; } }
+  .site-header #header-map {
+    width: 100%;
+    height: 200px; }
+  .site-header .post-map-container {
+    width: 100%;
+    position: relative; }
+    .site-header .post-map-container #post-map {
+      width: 100%;
+      height: 650px;
+      border-top: 1px solid #fff389;
+      border-bottom: 1px solid #fff389;
+      position: absolute; }
+    .site-header .post-map-container .post-map-legend {
+      width: 35%;
+      height: 650px;
+      position: relative;
+      background-color: white;
+      border-top: 1px solid #fff389;
+      border-bottom: 1px solid #fff389;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      position: relative;
+      font-size: 15px; }
+      .site-header .post-map-container .post-map-legend img {
+        border: 0px; }
+  .site-header .map .mapboxgl-ctrl {
+    font: 10px "Hind Vadodara", sans-serif; }
+  .site-header .map .mapboxgl-popup {
+    max-width: 200px; }
+  .site-header .map .mapboxgl-popup-content {
+    font: 12px "Hind Vadodara", sans-serif;
+    background-color: white;
+    color: #3f2d34;
+    max-width: 190px;
+    max-height: 100%;
+    border: 1px solid #d7c7cd;
+    padding: 10px;
+    text-align: center; }
+    .site-header .map .mapboxgl-popup-content button {
+      color: #3f2d34; }
+      .site-header .map .mapboxgl-popup-content button:hover {
+        cursor: pointer;
+        background-color: transparent;
+        color: #d7c7cd; }
   .site-header .navigation {
     text-align: center;
     list-style-type: none;
@@ -176,7 +193,7 @@ html, body {
   .site-header .navigation-content {
     margin-bottom: 0px;
     border-top: 1px solid #d7c7cd;
-    background: #4dbeb1;
+    background: #00C3B4;
     text-align: right;
     padding-right: 10px; }
     .site-header .navigation-content .navigation-mobile {
@@ -190,7 +207,7 @@ html, body {
           text-decoration: none;
           background-color: white; }
       .site-header .navigation-content .navigation-mobile .page-content {
-        background-color: #4dbeb1; }
+        background-color: #00C3B4; }
         .site-header .navigation-content .navigation-mobile .page-content a {
           border-bottom: 1px solid white;
           font-size: 15px;
@@ -231,6 +248,12 @@ html, body {
       font-size: 13px; } }
   .site-footer p {
     margin-bottom: 10px; }
+  .site-footer p.site-logo {
+    margin: 0px;
+    margin-bottom: 10px; }
+    .site-footer p.site-logo .logo {
+      width: 35px;
+      height: 35px; }
   .site-footer a {
     text-decoration: none;
     color: #3f2d34;
@@ -269,73 +292,73 @@ p.subtitle {
       margin-right: 20px;
       font-size: 12px; } }
 
-.paragraph, .container, .logo {
+.paragraph, .container {
   margin: 40px 100px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto; }
-  .paragraph::after, .container::after, .logo::after {
+  .paragraph::after, .container::after {
     clear: both;
     content: "";
     display: block; }
   @media screen and (max-width: 750px) {
-    .paragraph, .container, .logo {
+    .paragraph, .container {
       font-size: 12px;
       margin-left: 20px;
       margin-right: 20px; } }
-  .paragraph .column, .container .column, .logo .column {
+  .paragraph .column, .container .column {
     float: left;
     display: block;
     margin-right: 2.3576520234%;
     width: 48.8211739883%; }
-    .paragraph .column:last-child, .container .column:last-child, .logo .column:last-child {
+    .paragraph .column:last-child, .container .column:last-child {
       margin-right: 0; }
-  .paragraph .column-small, .container .column-small, .logo .column-small {
+  .paragraph .column-small, .container .column-small {
     float: left;
     display: block;
     margin-right: 2.3576520234%;
     width: 23.2317609825%;
     margin: 0px 40px;
     text-align: center; }
-    .paragraph .column-small:last-child, .container .column-small:last-child, .logo .column-small:last-child {
+    .paragraph .column-small:last-child, .container .column-small:last-child {
       margin-right: 0; }
     @media screen and (max-width: 750px) {
-      .paragraph .column-small, .container .column-small, .logo .column-small {
+      .paragraph .column-small, .container .column-small {
         float: left;
         display: block;
         margin-right: 2.3576520234%;
         width: 74.4105869942%; }
-        .paragraph .column-small:last-child, .container .column-small:last-child, .logo .column-small:last-child {
+        .paragraph .column-small:last-child, .container .column-small:last-child {
           margin-right: 0; } }
-    .paragraph .column-small p.bin, .container .column-small p.bin, .logo .column-small p.bin {
+    .paragraph .column-small p.bin, .container .column-small p.bin {
       text-align: center; }
-  .paragraph .column-large, .container .column-large, .logo .column-large {
+  .paragraph .column-large, .container .column-large {
     float: left;
     display: block;
     margin-right: 2.3576520234%;
     width: 100%; }
-    .paragraph .column-large:last-child, .container .column-large:last-child, .logo .column-large:last-child {
+    .paragraph .column-large:last-child, .container .column-large:last-child {
       margin-right: 0; }
-  .paragraph .code, .container .code, .logo .code {
+  .paragraph .code, .container .code {
     padding: 15px; }
-  .paragraph .code-text, .paragraph textarea, .container .code-text, .container textarea, .logo .code-text, .logo textarea {
+  .paragraph .code-text, .paragraph textarea, .container .code-text, .container textarea {
     width: 100%;
     padding: 2px; }
-  .paragraph textarea, .container textarea, .logo textarea {
+  .paragraph textarea, .container textarea {
     height: 100px;
     padding: 15px; }
-  .paragraph .code-text, .paragraph .code, .paragraph textarea, .container .code-text, .container .code, .container textarea, .logo .code-text, .logo .code, .logo textarea {
+  .paragraph .code-text, .paragraph .code, .paragraph textarea, .container .code-text, .container .code, .container textarea {
     font-family: "Source Code Pro", monospace;
     border-radius: 5px;
     border: 1px solid #fff389;
     background-color: #fffdef;
     text-align: left;
     font-size: 12px; }
-  .paragraph code, .container code, .logo code {
+  .paragraph code, .container code {
     font-family: "Source Code Pro", monospace; }
-  .paragraph .header-2, .container .header-2, .logo .header-2 {
+  .paragraph .header-2, .container .header-2 {
     text-decoration: underline; }
-  .paragraph .header-1, .paragraph .header-2, .container .header-1, .container .header-2, .logo .header-1, .logo .header-2 {
+  .paragraph .header-1, .paragraph .header-2, .container .header-1, .container .header-2 {
     text-align: left; }
 
 .container {
@@ -378,7 +401,7 @@ p.subtitle {
   color: #3f2d34; }
 
 .link {
-  color: #4dbeb1;
+  color: #00C3B4;
   font-weight: bold;
   text-decoration: none; }
   .link:hover {
@@ -401,7 +424,7 @@ p.subtitle {
 .icon {
   font-size: 40px;
   margin: 25px;
-  color: #4dbeb1; }
+  color: #00C3B4; }
   .icon:hover {
     cursor: pointer;
     color: #7f7d7c; }
@@ -471,18 +494,18 @@ p#buttons {
 
 .post-link {
   text-decoration: none;
-  color: #4dbeb1; }
+  color: #00C3B4; }
 
 .tag {
   padding: 1px 9px;
   border-radius: 10px;
   width: 70px;
-  border: 1px solid #4dbeb1; }
+  border: 1px solid #00C3B4; }
   .tag:hover {
     border-color: #7f7d7c; }
   .tag a {
     text-decoration: none;
-    color: #4dbeb1; }
+    color: #00C3B4; }
     .tag a:hover {
       color: #7f7d7c;
       border-color: #7f7d7c; }
@@ -504,7 +527,36 @@ p#buttons {
   max-width: 100%; }
 
 .logo {
-  border: 0px; }
+  border: 0px;
+  width: 50px;
+  height: 50px; }
+
+.image-round {
+  border-radius: 365px;
+  max-width: 80%;
+  max-height: 80%; }
+
+.image-row {
+  padding: 0px; }
+  .image-row li {
+    display: inline-block;
+    padding: 5px; }
+
+.image-column {
+  float: left;
+  display: block;
+  margin-right: 2.3576520234%;
+  width: 23.2317609825%; }
+  .image-column:last-child {
+    margin-right: 0; }
+  .image-column img {
+    margin: 10px 0px; }
+
+.iconography {
+  border: 1px solid #fff389;
+  border-radius: 365px;
+  max-width: 70%;
+  max-height: 70%; }
 
 .text-small {
   font-size: 10px; }
@@ -533,6 +585,9 @@ p#buttons {
 .button-xlarge {
   width: 800px; }
 
+.xsmall {
+  width: 150px; }
+
 .small {
   width: 200px; }
 
@@ -551,7 +606,7 @@ p#buttons {
 .form {
   text-align: center; }
   .form textarea {
-    border: 1px solid #4dbeb1;
+    border: 1px solid #00C3B4;
     font-size: 15px;
     width: 800px;
     height: 200px;
@@ -584,11 +639,100 @@ p#buttons {
     background: none;
     font-size: 15px;
     font-family: "Hind Vadodara", sans-serif;
-    color: #4dbeb1;
+    color: #00C3B4;
     margin-top: 2px;
     font-weight: bold; }
     .sidebar button:hover {
       cursor: pointer;
       text-decoration: underline; }
+
+.map-container {
+  width: 100%;
+  font-size: 10px;
+  height: 200px; }
+  .map-container .legend {
+    background-color: white;
+    border-top: 1px solid #fff389;
+    border-bottom: 1px solid #fff389;
+    bottom: 50%;
+    font: 11px "PT Sans", sans-serif;
+    padding: 10px;
+    width: 180px;
+    position: absolute;
+    text-align: center;
+    left: 1%;
+    z-index: 1; }
+    .map-container .legend a {
+      color: #3f2d34; }
+    .map-container .legend .icon {
+      margin: 0px;
+      font-size: 23px;
+      color: #3f2d34;
+      padding: 5px; }
+      .map-container .legend .icon:hover {
+        color: #00C3B4; }
+      @media screen and (max-width: 750px) {
+        .map-container .legend .icon {
+          font-size: 15px; } }
+    .map-container .legend h4 {
+      margin: 0 5px;
+      color: #3f2d34;
+      padding: 1px; }
+      .map-container .legend h4 i.fa-window-restore {
+        padding-left: 90px;
+        font-size: 12px; }
+    @media screen and (max-width: 750px) {
+      .map-container .legend {
+        bottom: 120px;
+        font: 10px "PT Sans", sans-serif;
+        padding: 5px;
+        width: 120px; } }
+
+#header-map {
+  width: 100%;
+  height: 200px; }
+
+.post-map-container {
+  width: 100%;
+  position: relative; }
+  .post-map-container #post-map {
+    width: 100%;
+    height: 650px;
+    border-top: 1px solid #fff389;
+    border-bottom: 1px solid #fff389;
+    position: absolute; }
+  .post-map-container .post-map-legend {
+    width: 35%;
+    height: 650px;
+    position: relative;
+    background-color: white;
+    border-top: 1px solid #fff389;
+    border-bottom: 1px solid #fff389;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    font-size: 15px; }
+    .post-map-container .post-map-legend img {
+      border: 0px; }
+
+.map .mapboxgl-ctrl {
+  font: 10px "Hind Vadodara", sans-serif; }
+.map .mapboxgl-popup {
+  max-width: 200px; }
+.map .mapboxgl-popup-content {
+  font: 12px "Hind Vadodara", sans-serif;
+  background-color: white;
+  color: #3f2d34;
+  max-width: 190px;
+  max-height: 100%;
+  border: 1px solid #d7c7cd;
+  padding: 10px;
+  text-align: center; }
+  .map .mapboxgl-popup-content button {
+    color: #3f2d34; }
+    .map .mapboxgl-popup-content button:hover {
+      cursor: pointer;
+      background-color: transparent;
+      color: #d7c7cd; }
 
 /*# sourceMappingURL=stylesheet.css.map */
