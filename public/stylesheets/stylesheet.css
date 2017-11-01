@@ -96,7 +96,9 @@ html, body {
       background-color: rgba(255, 255, 255, 0.8);
       position: relative;
       font-size: 15px; }
-      .site-header .post-map-container .post-map-legend img {
+      .site-header .post-map-container .post-map-legend p img {
+        text-align: center; }
+      .site-header .post-map-container .post-map-legend .image {
         border: 0px; }
   .site-header .map .mapboxgl-ctrl {
     font: 10px "Hind Vadodara", sans-serif; }
@@ -401,12 +403,12 @@ p.subtitle {
   color: #3f2d34; }
 
 .link {
-  color: #00C3B4;
-  font-weight: bold;
-  text-decoration: none; }
+  border-bottom: 3px solid #00c3b4;
+  text-decoration: none;
+  color: #3f2d34; }
   .link:hover {
-    text-decoration: underline;
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: rgba(0, 195, 180, 0.3); }
   @media screen and (max-width: 750px) {
     .link {
       font-size: 12px; } }
@@ -712,7 +714,9 @@ p#buttons {
     background-color: rgba(255, 255, 255, 0.8);
     position: relative;
     font-size: 15px; }
-    .post-map-container .post-map-legend img {
+    .post-map-container .post-map-legend p img {
+      text-align: center; }
+    .post-map-container .post-map-legend .image {
       border: 0px; }
 
 .map .mapboxgl-ctrl {

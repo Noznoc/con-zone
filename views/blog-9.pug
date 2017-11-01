@@ -4,8 +4,8 @@ block content
 	.post-map-container
 		#post-map.map
 		.post-map-legend
-			i#backward.fa.fa-step-backward.icon.map-button(aria-hidden='true')
-			i#forward.fa.fa-step-forward.icon.map-button(aria-hidden='true')
+			i#backward.fa.fa-arrow-circle-o-left.icon.map-button(aria-hidden='true')
+			i#forward.fa.fa-arrow-circle-o-right.icon.map-button(aria-hidden='true')
 			p On October 6th, I flew from Ayacucho to Lima, and then on October 7th I flew to Cusco to meet my childhood friend for our week trek to Machu Picchu! Neither of us had been on a long trek before, so we were very nervous initially, but we ended up both having very positive experiences. Check out the story map below to see our Salkantay adventure!
 			img.image-round.image(src='/images/day0_0.jpg')
 
@@ -68,6 +68,9 @@ block content
 				/*popup.setLngLat(features[0].geometry.coordinates)
 					.setHTML(features[0].properties.description + "<br><img src='/images/" + features[0].properties.id + ".jpg'>")
 					.addTo(map);*/
-				$(".post-map-legend").find('p').html(features[0].properties.description + "<br><br><img class='image-round image' src='/images/" + features[0].properties.id + ".jpg'>")
+				$(".post-map-legend").find('p').html(features[0].properties.description);
+				/*$('.image').replaceWith(function() {
+				return $("img class='image-round image' src='/images/" + features[0].properties.id + ".jpg'>")
+			    })*/
 			}
 		}
