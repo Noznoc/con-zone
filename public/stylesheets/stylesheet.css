@@ -499,18 +499,18 @@ p#buttons {
   color: #00C3B4; }
 
 .tag {
-  padding: 1px 9px;
+  padding: 2px 9px;
   border-radius: 10px;
   width: 70px;
-  border: 1px solid #00C3B4; }
+  border: 1px solid #00C3B4;
+  background-color: white;
+  font-family: "Hind Vadodara", sans-serif;
+  color: #00C3B4;
+  font-size: 15px; }
   .tag:hover {
-    border-color: #7f7d7c; }
-  .tag a {
-    text-decoration: none;
-    color: #00C3B4; }
-    .tag a:hover {
-      color: #7f7d7c;
-      border-color: #7f7d7c; }
+    color: #7f7d7c;
+    border-color: #7f7d7c;
+    cursor: pointer; }
 
 .image {
   border: 1px solid #fff389;

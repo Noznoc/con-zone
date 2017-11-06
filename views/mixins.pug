@@ -1,8 +1,9 @@
 mixin post(title, subtitle, date, tags, link, page, id)
 	.container.post#post
 		ul.post-links
-			li.tag.text
-				a(href='/' + page + '/' + tags)= tags
+			li
+				a(href='/' + page + '/' + tags)
+					button.tag= tags
 			li.clipboard.icon(data-clipboard-text='www.juliaconzon.com/' + page + '/' + link, title='Click to copy to clipboard')
 				i.fa.fa-link(aria-hidden='true')
 		- if (id !== 'blog-post' && id !== 'doc-post')
