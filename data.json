@@ -67,6 +67,20 @@
     ],
     "docs": [
       {
+        "id": "doc-4",
+        "title": "H2-NO",
+        "subtitle": "Scraping + Visualizing Government Data with XPath + Mapbox GL JS",
+        "date": "November 19 2017",
+        "tags": "tutorial"
+      },
+      {
+        "id": "doc-3",
+        "title": "OSM Data Quality Assessment Lit Review",
+        "subtitle": "Completed while working at StatCan",
+        "date": "June 26 2017",
+        "tags": "guide"
+      },
+      {
         "id": "doc-2",
         "title": "Crimecouver",
         "subtitle": "Mapbox GL JS and React Tutorial",
@@ -78,13 +92,6 @@
         "title": "GIScience Beginner's Guide",
         "subtitle": "Incomplete",
         "date": "October 23 2017",
-        "tags": "guide"
-      },
-      {
-        "id": "doc-3",
-        "title": "OSM Data Quality Assessment Lit Review",
-        "subtitle": "Completed while working at StatCan",
-        "date": "June 26 2017",
         "tags": "guide"
       }
     ]

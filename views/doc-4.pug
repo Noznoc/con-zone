@@ -1,0 +1,174 @@
+extends docs.pug
+block content
+	.paragraph
+		p Sometimes data that you need is not easily accessible. I experienced this when I wanted to visualize water advisories for First Nation communities across Canada as an interactive map. I found the data from two sources: (1) 
+			a.link(href='https://www.canada.ca/en/health-canada/topics/health-environment/water-quality-health/drinking-water/advisories-first-nations-south-60.html', target='_blank') Government of Canada
+			|  and (2) 
+			a.link(href='http://www.fnha.ca/what-we-do/environmental-health/drinking-water-advisories', target='_blank') First Nations Health Authority (FNHA)
+			|. The former had the desired data for all provinces south of 60, except for in British Columbia (BC), so the latter source was used to obtain BC data. 
+			p Unfortunately, the data was not able to be downloaded. To overcome this barrier, I decided scrapping the sites' XML was the best solution to obtain the data. Since I had some experience using XPath in Google Sheets to scrape sites' DOMS, I decided to approach the visualization with the following work flow:
+		ul.image-row
+			li.iconography
+				h4 SCRAPE DATA IN GOOGLE SHEETS W/ XPATH
+			i.fa.fa-arrow-right.icon(aria-hidden='true')
+			li.iconography
+				h4 USE TABLETOP TO IMPORT DATA AS JSON INTO JS
+			i.fa.fa-arrow-right.icon(aria-hidden='true')
+			li.iconography
+				h4 MAPBOX GL JS TO VISUALIZE DATA
+		p This approach allows the visualiztion to be dynamic, which I will detail more below. If you want to check out the complete code, view the 
+			a.link(href='https://github.com/Noznoc/h2-no', target='_blank') repo
+			| .
+		h2.header-1 Google Sheets + XPath
+		p XPath (XML Path Language) is a query language for obtaining nodes from a XML document (e.g., a website). You can read more about XPath and the query syntax 
+			a.link(href='https://en.wikipedia.org/wiki/XPath', target='_blank') here
+			| . In Google Sheets you can use the 
+			a.code-text =IMPORTXML("[url]", "[XPath query]")
+			|  function to use XPath to scrape a site's XML. As can be seen in the two images below, the two data sources had different ways of presenting the data, so I had to account for this when scraping the sites.
+		img.image(src='/images/doc4-0.png')
+		.subtitle In the Government of Canada site, the data was separated by region in tables. There were 8 columns to represent the data.
+		p
+		img.image(src='/images/doc4-1.png')
+		.subtitle In the FNHA site, the data was separated by advisory type ("Boil Water Advisory (BWA)" and "Do Not Consume (DNC)") in tables. Because of this, there were only 7 columns to represent the data.
+		p I used the following queries to scrape the data from the two different sources: 
+		textarea(readonly = 'readonly', disabled='disabled').
+			=IMPORTXML("https://www.canada.ca/en/health-canada/topics/health-environment/water-quality-health/drinking-water/advisories-first-nations-south-60.html", "//tbody/tr")
+
+			=IMPORTXML("http://www.fnha.ca/what-we-do/environmental-health/drinking-water-advisories", "//tbody/tr[@class='ms-rteTableOddRow-3']")
+		p Basically the two queries pulled each site's tables' rows into the Google Sheet, so each tables' row was added as its own row into Google Sheets. I decided to create two separate sheets, one to scrape the Government of Canada data and the second one to scrape the FNHA data. That said, I needed only one sheet to import the data into JS with TableTop. Since FNHA data was smaller, I decided to clean the data its separate sheet to match the Government of Canada's data, and then import the cleaned FNHA data into the same sheet as the Government of Canada data using the 
+			a.code-text =query()
+			|  function. (It would have been nice if the two different sources released their data in the same format, because then these steps would not have been necessary. This is why data standards are valuable!). Also, I wanted to make the data cleaning as automated as possible with Google Sheet functions because data is automatically scraped from the sites into the Google Sheets with the XPath queries.
+		p With the necessary data all in one sheet, the next step was geocoding the data so that I could plot the x,y coordinates onto an interactive map. Google Sheets has an Add-on called "Geocode Cells," which uses the Google Maps API to geocode a sheet's column into two additional columns (lat and lng). 
+		p Although I have not added this feature yet, you can also set up a Google Sheet trigger that runs the Add-on once a new row is added to the Google Sheet. Thus, automatically geocoding the new data. Having an automatic geocoder is convenient, but a human eye is still necessary to ensure the geocoding is accurate. The geocoder Add-on used the "Community" column names; but, if a First Nation's community name also exists in a different location, then the geocoder may pick up that location instead. For example, the geocoder geocoded the "Big Island" community to Big Island, Hawaii.
+		img.image(src='/images/doc4-2.png')
+		h2.header-1 TableTop
+		p With all the data cleaned in Google Sheets, the next step was pulling the data into JavaScript with the  
+			a.link(href='https://github.com/jsoma/tabletop', target='_blank') TableTop
+			|. Firstly, I had to make my Google Sheet public so that TableTop could access the data. Secondly, I created  
+			a.code-text index.html
+			|  to be able to use the TableTop and Mapbox GL JS libraries in JavaScript. Thirdly, I created 
+			a.code-text index.js
+			|  to write my JS code. In 
+			a.code-text index.js
+			|  I had to used the following code to use TableTop to import the Google Sheet data:
+		textarea(readonly = 'readonly', disabled='disabled').
+			var public_spreadsheet_url = '[Google Sheet url]';
+			function init() { // function that initializes TableTop
+			Tabletop.init( { 
+					key: public_spreadsheet_url,
+					callback: showInfo,
+					simpleSheet: true 
+				} )
+			}
+			function showInfo(data, tabletop) { ... } // the data parameter is the Google Sheet data as a JSON
+		p Basically this code initializes TableTop and then 
+			a.code-text showInfo(data, tabletop)
+			|  imports the data as a JSON. Now the Google Sheet data was imported and ready to be manipulated and visualized.
+		h2.header-1 Mapbox GL JS
+		p Firstly, you must add the following code to 
+			a.code-text index.js
+			|  to have a map exist in 
+			a.code-text index.html
+			| :
+		textarea(readonly = 'readonly', disabled='disabled').
+			mapboxgl.accessToken = '[Mapbox access token]';
+			var map = new mapboxgl.Map({
+			  container: 'map',
+			  style: '[Mapbox style]'
+			});
+		p At this point 
+			a.code-text index.js
+			|  should look like this:
+		textarea(readonly = 'readonly', disabled='disabled').
+			window.onload = function() {init()}; // initialize TableTop on window load
+			
+			var public_spreadsheet_url = '[Google Sheet url]';
+
+			mapboxgl.accessToken = '[Mapbox access token]';
+
+			var map = new mapboxgl.Map({
+			  container: 'map',
+			  style: '[Mapbox style]'
+			});
+
+			function init() { // function that initializes TableTop
+				Tabletop.init( { 
+					key: public_spreadsheet_url,
+					callback: showInfo,
+					simpleSheet: true 
+				} )
+			}
+
+			function showInfo(data, tabletop) { ... }
+		p And 
+			a.code-text index.html
+			|  should look this this:
+		textarea(readonly = 'readonly', disabled='disabled').
+			<html>	
+				<head>
+					<meta charset='utf-8' />
+				    <title>Canadian Water Advisories</title>
+				    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />		
+				    <!-- Mapbox GL JS -->
+				    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+				    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+					<!-- Tabletop -->
+					<script type='text/javascript' src='src/tabletop-master/tabletop.js'></script>
+					<!-- Stylesheet -->
+					<link href='index.css' rel='stylesheet' />
+				</head>
+				<body>
+					<div id='map'></div>
+					<script type='text/javascript' src='index.js'></script>	
+				</body>
+			</html>
+		p Within 
+			a.code-text showInfo()
+			|  I had to create the lat and lng columns into a GeoJSON feature class of points. I also added properties in the GeoJSON so that I could add popups with information regarding each point, such as the name of the First Nations community and when the advisory was set. The follow code shows how I created the feature class:
+		textarea(readonly = 'readonly', disabled='disabled').
+			var features = [];
+
+			data.forEach(function(data) {
+			if (data.lng) {
+					// store all lat, lng as geojson features
+					var coordinates = [parseFloat(data.lng), parseFloat(data.lat)];
+					var year = parseInt(data.date_set.substr(0, 4));
+					features.push(JSON.parse('{"type":"Feature","properties":{"description":"' + data.community + '"},"geometry":{"type":"Point","coordinates":[' +  coordinates + ']}}'));
+				}
+			});
+		p Then with Mapbox GL JS, I had to create a new GeoJSON data source as well as a new map layer so that the data could actually appear on the Mapbox map:
+		textarea(readonly = 'readonly', disabled='disabled').
+			map.addSource('markers', {
+				type: 'geojson',
+				data: {
+					'type': 'FeatureCollection',
+					'features': features
+				}
+			});
+
+			map.addLayer({
+				id: 'water-advisories',
+				type: 'circle',
+				source: 'markers',
+				paint: {
+					'circle-color': {
+						property: 'advisory_type',
+						type: 'categorical',
+						default: '#e04763',
+						stops: [
+							['BWA', '#EFD217'],
+							['DNC', '#AE9911'],
+							['BWO', '#EFD217']
+						]
+					}
+				}
+			});
+		p Now Mapbox map should be populated with points/markers that are coloured based on advisory type. I added filter features and point/marker popups to the interactive map, but I won't detail them in this tutorial. Check out the complete 
+			a.link(href='https://github.com/Noznoc/h2-no', target='_blank') code
+			|  to see how these additional features were added. Also, check out the Mapbox docs on how to 
+			a.link(href='https://www.mapbox.com/mapbox-gl-js/example/popup/', target='_blank') "Display a popup"
+			|  and 
+			a.link(href='https://www.mapbox.com/help/show-changes-over-time/', target='_blank') "Show changes over time"
+			| .
+
+

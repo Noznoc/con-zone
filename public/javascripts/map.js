@@ -66,8 +66,6 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id
 				clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
 			});
 
-			//document.getElementById('test').innerHTML = JSON.stringify(coordinates)
-
 			map.addLayer({
 				id: "layer",
 				type: "circle",
@@ -95,35 +93,9 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id
 						]
 					}
 				}
-			});
+			});			
 
-			map.addLayer({
-				id: "cluster-count",
-				type: "symbol",
-				source: "points",
-				filter: ["has", "point_count"],
-				layout: {
-					"text-field": "{point_count_abbreviated}",
-					"text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-					"text-size": 15,
-				},
-				paint: {
-					"text-color": "#FFF"
-				}
-			});
-
-			map.addLayer({
-				id: "unclustered-point",
-				type: "circle",
-				source: "points",
-				filter: ["!has", "point_count"],
-				paint: {
-					"circle-radius": 6,
-					"circle-color": "#3f2d34"
-				}
-			});
-
-			map.on("click", "unclustered-point", function(e) {
+			map.on("click", "layer", function(e) {
 				if (cluster) {
 					new mapboxgl.Popup()
 						.setLngLat(e.features[0].geometry.coordinates)
