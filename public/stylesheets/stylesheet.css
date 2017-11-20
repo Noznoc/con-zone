@@ -393,10 +393,11 @@ p.subtitle {
   padding: 20px; }
 
 .hover:hover {
-  background: #f7f4f5;
-  background: -webkit-linear-gradient(#f7f4f5, white);
-  background: -moz-linear-gradient(#f7f4f5, white);
-  background: linear-gradient(#f7f4f5, white); }
+  border-top: #fff389 1px solid;
+  background: #fffbd6;
+  background: -webkit-linear-gradient(#fffbd6, white);
+  background: -moz-linear-gradient(#fffbd6, white);
+  background: linear-gradient(#fffbd6, white); }
 
 .post h2, .post h3, .post img {
   text-align: center;

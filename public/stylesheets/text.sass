@@ -114,10 +114,11 @@ p.subtitle
 
 .hover
 	&:hover
-		background: lighten($line-color, 15%)
-		background: -webkit-linear-gradient(lighten($line-color, 15%), white)
-		background: -moz-linear-gradient(lighten($line-color, 15%), white)
-		background: linear-gradient(lighten($line-color, 15%), white)
+		border-top: $accent-color 1px solid
+		background: lighten($accent-color, 15%)
+		background: -webkit-linear-gradient(lighten($accent-color, 15%), white)
+		background: -moz-linear-gradient(lighten($accent-color, 15%), white)
+		background: linear-gradient(lighten($accent-color, 15%), white)
 
 .post
 	h2, h3, img
