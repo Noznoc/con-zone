@@ -78,28 +78,28 @@ html, body {
     height: 200px; }
   .site-header .post-map-container {
     width: 100%;
-    position: relative; }
+    position: relative;
+    color: white; }
     .site-header .post-map-container #post-map {
       width: 100%;
-      height: 650px;
-      border-top: 1px solid #fff389;
-      border-bottom: 1px solid #fff389;
+      height: 700px;
+      border-top: 1px solid #3f2d34;
+      border-bottom: 1px solid #3f2d34;
       position: absolute; }
     .site-header .post-map-container .post-map-legend {
-      width: 35%;
-      height: 650px;
+      width: 40%;
+      height: 700px;
       position: relative;
-      background-color: white;
-      border-top: 1px solid #fff389;
-      border-bottom: 1px solid #fff389;
       padding: 10px;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(63, 45, 52, 0.7);
       position: relative;
       font-size: 15px; }
       .site-header .post-map-container .post-map-legend p img {
-        text-align: center; }
+        text-align: center;
+        border: white; }
       .site-header .post-map-container .post-map-legend .image {
-        border: 0px; }
+        border: 1px solid #00C3B4;
+        border-radius: 5px; }
   .site-header .map .mapboxgl-ctrl {
     font: 10px "Hind Vadodara", sans-serif; }
   .site-header .map .mapboxgl-popup {
@@ -535,9 +535,10 @@ p#buttons {
   height: 50px; }
 
 .image-round {
-  border-radius: 365px;
+  border-radius: 300px;
   max-width: 80%;
-  max-height: 80%; }
+  max-height: 80%;
+  border: 1px solid #fff389; }
 
 .image-row {
   padding: 0px; }
@@ -596,6 +597,10 @@ p#buttons {
 
 .button-xlarge {
   width: 800px; }
+
+.image-medium {
+  max-width: 90%;
+  max-height: 90%; }
 
 .xsmall {
   width: 150px; }
@@ -706,28 +711,28 @@ p#buttons {
 
 .post-map-container {
   width: 100%;
-  position: relative; }
+  position: relative;
+  color: white; }
   .post-map-container #post-map {
     width: 100%;
-    height: 650px;
-    border-top: 1px solid #fff389;
-    border-bottom: 1px solid #fff389;
+    height: 700px;
+    border-top: 1px solid #3f2d34;
+    border-bottom: 1px solid #3f2d34;
     position: absolute; }
   .post-map-container .post-map-legend {
-    width: 35%;
-    height: 650px;
+    width: 40%;
+    height: 700px;
     position: relative;
-    background-color: white;
-    border-top: 1px solid #fff389;
-    border-bottom: 1px solid #fff389;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(63, 45, 52, 0.7);
     position: relative;
     font-size: 15px; }
     .post-map-container .post-map-legend p img {
-      text-align: center; }
+      text-align: center;
+      border: white; }
     .post-map-container .post-map-legend .image {
-      border: 0px; }
+      border: 1px solid #00C3B4;
+      border-radius: 5px; }
 
 .map .mapboxgl-ctrl {
   font: 10px "Hind Vadodara", sans-serif; }
