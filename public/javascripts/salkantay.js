@@ -7,7 +7,6 @@ function salkantay() {
 		center: [-72.5679, -13.3038],
 		zoom: 8.66,
 		logoPosition: 'bottom-right',
-		hash: true,
 		maxBounds: [-73.688221,-13.917572,-71.716175,-12.712186]
 	});
 
@@ -87,6 +86,7 @@ function salkantay() {
 			if (features[0].properties.id.charAt(3) !== '0') {
 				$(".post-map-legend").find('p').html('DAY ' + features[0].properties.id.charAt(3) + ': ' + features[0].properties.description);
 			} else {
+				console.log("test")
 				$(".post-map-legend").find('p').html('OCTOBER 7-8: ' + features[0].properties.description);
 			}
 			if (i !== 0){
