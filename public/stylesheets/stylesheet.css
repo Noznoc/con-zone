@@ -545,7 +545,7 @@ p#buttons {
   .image-row li {
     display: inline-block;
     padding: 5px;
-    width: 200px;
+    width: 170px;
     text-align: center; }
     @media screen and (max-width: 750px) {
       .image-row li {

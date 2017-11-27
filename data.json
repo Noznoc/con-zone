@@ -59,7 +59,7 @@
       },
       {
         "id": "blog-1",
-        "title": "Blog on State of the Map Brussels 2016",
+        "title": "State of the Map Brussels 2016",
         "subtitle": "",
         "date": "October 17 2016",
         "tags": "geo"
@@ -69,28 +69,28 @@
       {
         "id": "doc-4",
         "title": "H2-NO",
-        "subtitle": "Scraping + Visualizing Government Data with XPath + Mapbox GL JS",
+        "subtitle": "Scraping + visualizing government data with XPath + Mapbox GL JS",
         "date": "November 19 2017",
         "tags": "tutorial"
       },
       {
         "id": "doc-3",
         "title": "OSM Data Quality Assessment Lit Review",
-        "subtitle": "Completed while working at StatCan",
+        "subtitle": "Analyzing the quality of OSM building data",
         "date": "June 26 2017",
         "tags": "guide"
       },
       {
         "id": "doc-2",
         "title": "Crimecouver",
-        "subtitle": "Mapbox GL JS and React Tutorial",
+        "subtitle": "Visualizing crime data with Mapbox GL JS and React",
         "date": "October 23 2017",
         "tags": "tutorial"
       },
       {
         "id": "doc-1",
         "title": "GIScience Beginner's Guide",
-        "subtitle": "Incomplete",
+        "subtitle": "Documenting tools for GIScience",
         "date": "October 23 2017",
         "tags": "guide"
       }
