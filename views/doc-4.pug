@@ -38,9 +38,29 @@ block content
 		p Basically the two queries pulled each site's tables' rows into the Google Sheet, so each tables' row was added as its own row into Google Sheets. I decided to create two separate sheets, one to scrape the Government of Canada data and the second one to scrape the FNHA data. That said, I needed only one sheet to import the data into JS with TableTop. Since FNHA data was smaller, I decided to clean the data its separate sheet to match the Government of Canada's data, and then import the cleaned FNHA data into the same sheet as the Government of Canada data using the 
 			a.code-text =query()
 			|  function. (It would have been nice if the two different sources released their data in the same format, because then these steps would not have been necessary. This is why data standards are valuable!). Also, I wanted to make the data cleaning as automated as possible with Google Sheet functions because data is automatically scraped from the sites into the Google Sheets with the XPath queries.
-		p With the necessary data all in one sheet, the next step was geocoding the data so that I could plot the x,y coordinates onto an interactive map. Google Sheets has an Add-on called "Geocode Cells," which uses the Google Maps API to geocode a sheet's column into two additional columns (lat and lng). 
-		p Although I have not added this feature yet, you can also set up a Google Sheet trigger that runs the Add-on once a new row is added to the Google Sheet. Thus, automatically geocoding the new data. Having an automatic geocoder is convenient, but a human eye is still necessary to ensure the geocoding is accurate. The geocoder Add-on used the "Community" column names; but, if a First Nation's community name also exists in a different location, then the geocoder may pick up that location instead. For example, the geocoder geocoded the "Big Island" community to Big Island, Hawaii.
-		img.image(src='/images/doc4-2.png')
+		p With the necessary data all in one sheet, the next step was geocoding the data so that I could plot the x,y coordinates onto an interactive map. Initially I used an already existing Google Sheets Add-on called "Geocode Cells," which uses the Google Maps API to geocode a sheet's column into two additional columns (lat and lng). The results can be seen in the image below.
+		img.image(src='/images/doc4-2.png') 
+		p However, this methods prevents the geocoding being automatic when new rows are scraped from the data sources; thus, I created my own function 
+			a.code-text =geocode()
+			|  that geocodes the "community" column's cells. I created the function in the Google Script Editor (in Google Sheets go to Tools > Script editor...). The code can be seen below:
+		textarea(readonly = 'readonly', disabled='disabled').
+			function geocode(input){
+			  var geocoder = Maps.newGeocoder(); // Google geocoder variable
+			  if (input=="") // if the cell has an empty address because the user inputted coordinates
+			  {
+			    Logger.log("We don't need geocoding"); // log that there is no address
+			  }
+			  else{ // else, as in if the cell has an address
+			    var response = geocoder.geocode(input + ", Canada"); // geocode the address
+			    var lat = response.results[0].geometry.location.lat; // input latitude into lat variable
+			    var lng = response.results[0].geometry.location.lng; // input longitude into lng variable
+			    var coordinates = lng + "," + lat;
+			  }
+			  return coordinates;
+			}
+		p The script uses the Google Maps Geocoding API to match the cell's name with x,y coordinates.
+		p Having an automatic geocoder is useful for a dynamic dataset, but a human eye is still necessary to ensure the geocoding is accurate. The geocoder Add-on used the "Community" column names; but, if a First Nation's community name also exists in a different location, then the geocoder may pick up that location instead. For example, the geocoder geocoded the "Big Island" community to Big Island, Hawaii.
+		img.image(src='/images/doc4-3.png') 
 		h2.header-1 TableTop
 		p With all the data cleaned in Google Sheets, the next step was pulling the data into JavaScript with the  
 			a.link(href='https://github.com/jsoma/tabletop', target='_blank') TableTop
