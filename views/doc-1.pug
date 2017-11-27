@@ -28,8 +28,6 @@ block content
 				img.image.image-round.xsmall(src='/images/doc1-1.png')
 			li
 				img.image.image-round.xsmall(src='/images/doc1-6.png')
-			li
-				img.image.image-round.xsmall(src='/images/doc1-2.png')
 		
 		h2.header-1#doc-collect Data Collection
 
@@ -38,17 +36,19 @@ block content
 		p The data I handle is either implicitly or explicitly georeferenced, or both. By implicit, I mean the geographic reference (i.e., the reference to place or space) is implied through text, such as text in a tweet or the tweeter's profile location. By explicit, I mean the geographic reference is implied through geographic coordinates, which assigns it to a specific place on Earth's surface. 
 
 		p The following are the primary data types that I have encountered: 
-			a.link(hred='' target='_blank') geojson / json
+			a.link(hred='http://geojson.org/' target='_blank') geojson / json
 			| , 
-			a.link(href='' target='_blank') osm xml / pbf
+			a.link(href='https://wiki.openstreetmap.org/wiki/OSM_XML' target='_blank') osm xml 
+			| /
+			a.link(href='https://wiki.openstreetmap.org/wiki/PBF_Format' target='_blank') pbf
 			| , 
-			a.link(href='' target='_blank') shp
+			a.link(href='https://en.wikipedia.org/wiki/Shapefile' target='_blank') shp
 			| , 
-			a.link(href='' target='_blank') kml / kmz
+			a.link(href='https://en.wikipedia.org/wiki/Keyhole_Markup_Language' target='_blank') kml / kmz
 			| , 
-			a.link(href='' target='_blank') mbtiles
+			a.link(href='https://github.com/mapbox/mbtiles-spec' target='_blank') mbtiles
 			| , and 
-			a.link(href='' target='_blank') csv
+			a.link(href='https://en.wikipedia.org/wiki/Comma-separated_values' target='_blank') csv
 			| .
 
 		p.header-2 Data Sources
@@ -124,12 +124,12 @@ block content
 				...
 			});
 
-		p I have also used Google Sheets and Google Fusion Tables to store data and pull into a JavaScript. Code for that can be seen 
-			a.link(href='' target='_blank') here
-			| . This method is easy for people to input new data, but it does have a limit as there is no server functionality, the data is still being pulled to the browser. I avoid using this method with larger datasets because the browser will run out of memory and choke.
+		p I have also used Google Sheets and Google Fusion Tables to store data and pull into a JavaScript. I wrote a 
+			a.link(href='http://www.juliaconzon.com/docs/doc-4' target='_blank') tutorial
+			| for this methodology. This method is easy for people to input new data, but it does have a limit as there is no server functionality, the data is still being pulled to the browser. I avoid using this method with larger datasets because the browser will run out of memory and choke.
 
 		p For datasets larger than 1,000 objects, I use PostGIS or MBTiles. PostGIS is useful because you can run various pre-existing algorithmns to manage your data, and if you do not feel comfortable handling the data from Terminal, you can use pgAdmin, which is a graphical interface to manage your PostGIS database. You can see how I have used PostGIS for handling data 
-			a.link(href='' target='_blank') here
+			a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') here
 			| .
 
 		p If visualizing the data is more important than the storage and analaysis of the data, I use MBTiles. I usually modify my MBTiles using Mapbox Studio or GL JS. I use Mapbox Studio to style my map layer and add my MBTiles, but I use Mapbox GL JS library in JavaScript / React to interact with the data from the browser. This is detailed more in the 
@@ -171,17 +171,17 @@ block content
 			li Esri software 
 
 		p QGIS is an open sourced graphical interface for managing, analyzing, and visualizing geospatial data. It uses the GDAL library and has various extensions that can be added. More information about QGIS can be found 
-			a.link(href='' target='_blank') here
+			a.link(href='https://en.wikipedia.org/wiki/QGIS' target='_blank') here
 			| .
 
 		p PostSQL / PostGIS is an open sourced library for storing, managing, and analyzing geospatial data. PostGIS has various alogrithms for analyzing the data, I use the 
-			a.link(href='' target='_blank') documentation
+			a.link(href='http://postgis.net/documentation/' target='_blank') documentation
 			|  to know what tools exist. 
 
-		p In RStudio, an open sourced graphical interface to use R, can be used to store, manage, analyze, and visualize your geospatial data. There are various libraries that can be used, including: 
-			a.link(href='' target='_blank') ggplot
+		p In RStudio, an open sourced graphical interface to use R, can be used to store, manage, analyze, and visualize your geospatial data. There are various packages that can be used, including: 
+			a.link(href='https://cran.rstudio.com/web/packages/ggplot2/index.html' target='_blank') ggplot2
 			| , 
-			a.link(href='' target='_blank') leaflet
+			a.link(href='https://rstudio.github.io/leaflet/' target='_blank') leaflet
 			| .
 
 		p Esri offers propreitary software to store, manage, analyze, and visualize geospatial data. Since it is not open sourced, I do not have the opprotunity to use this tool very often.
@@ -205,7 +205,7 @@ block content
 		p Initially I visualized spatial data as static maps using Esri's ArcMap software, but through my education I learned how to develop interactive web maps that can enhance a user's experience viewing and interpreting geographic data represented as a map.
 		
 		p I started developing interactive web maps using the 
-			a.link(href='' target='_blank') Leaflet 
+			a.link(href='http://leafletjs.com/' target='_blank') Leaflet 
 			| library. I avoided familiarizing myself with Google Maps API because Google deprecates their APIs frequently. Now I use 
 			a.link(href='https://www.mapbox.com/mapbox-gl-js/api/' target='_blank') Mapbox GL JS
 			| .
@@ -238,40 +238,55 @@ block content
 
 		ul
 			li 
-				a.link(href='', target='_blank') D3.js
-				|  is an open sourced library for visualizing data
+				a.link(href='https://d3js.org/', target='_blank') D3.js
+				|  is an open-source library for visualizing data
 			li 
-				a.link(href='', target='_blank') Esri
+				a.link(href='https://www.esri.com/en-us/home', target='_blank') Esri
 				|  proprietary software can be used to manage, analyze, and visualize geospatial data
 			li 
-				a.link(href='', target='_blank') GDAL - ogr2ogr 
-				|  is an open sourced library for managing geospatial data
+				a.link(href='http://www.gdal.org/', target='_blank') Geospatial Data Abstraction Library (GDAL)
+				|  is an open-source library for managing geospatial data
 			li 
-				a.link(href='', target='_blank') Geofabrik
-				|  is a web site that provides OSM data in different formats and geographic regions
+				a.link(href='https://www.geofabrik.de/', target='_blank') Geofabrik
+				|  is a web site that allows you to download OSM data in different formats by different geographic scales
 			li 
-				a.link(href='', target='_blank') JOSM
-				|  is an open sourced graphic interface to contribute, edit, validate OSM data, but can also be used to extract and visualize geospatial data as well
+				a.link(href='http://geojson.io/', target='_blank') geojson.io
+				|  allows you to edit GeoJSONs easily
 			li 
-				a.link(href='', target='_blank') Mapbox Studio
-				|  is an open sourced graphical interface for designing map layers as well as developing data-driven styling
+				a.link(href='https://export.hotosm.org/en/v3/', target='_blank') HOT Export Tool
+				|  is an "open service that creates customize extracts of up-to-date OSM data in various file formats"
 			li 
-				a.link(href='', target='_blank') Mapbox GL JS
-				|  is an open sourced library for developing interactive web maps
+				a.link(href='https://josm.openstreetmap.de/', target='_blank') JOSM
+				|  is an open-source graphic interface to contribute, edit, validate OSM data, but can also be used to extract and visualize geospatial data as well
 			li 
-				a.link(href='', target='_blank') Mapbox Cartograms
-				|  is an open sourced tool to help design a map layer based on a reference image
+				a.link(href='http://leafletjs.com/', target='_blank') Leaflet
+				|  is an open-source JS library to develop interactive maps
 			li 
-				a.link(href='', target='_blank') minjur
-				|  is an open sourced library for managing OSM data
+				a.link(href='https://www.mapbox.com/studio/', target='_blank') Mapbox Studio
+				|  is an open-source graphical interface for designing map layers as well as developing data-driven styling
 			li 
-				a.link(href='', target='_blank') osmosis
-				|  is an open sourced library for managing OSM data
+				a.link(href='https://www.mapbox.com/mapbox-gl-js/api/', target='_blank') Mapbox GL JS
+				|  is an open-source library for developing interactive web maps
 			li 
-				a.link(href='', target='_blank') PostSQL
+				a.link(href='https://www.mapbox.com/cartogram/', target='_blank') Mapbox Cartogram
+				|  is an open-source tool to help design a map layer based on a reference image
+			li 
+				a.link(href='https://mapzen.com/data/metro-extracts/', target='_blank') Mapzen Metro Extracts
+				|  allows your to download OSM data in various file formats from various cities
+			li 
+				a.link(href='https://github.com/mapbox/minjur', target='_blank') minjur
+				|  is an open-source library for managing OSM data
+			li 
+				a.link(href='https://wiki.openstreetmap.org/wiki/Osmosis', target='_blank') osmosis
+				|  is an open-source library for managing OSM data
+			li 
+				a.link(href='https://tyrasd.github.io/osmtogeojson/', target='_blank') osm2geojson
+				|  is an open-source library for converting OSM data to GeoJSON(s)
+			li 
+				a.link(href='https://www.postgresql.org/', target='_blank') PostgreSQL
 				|  / 
-				a.link(href='', target='_blank') PostGIS
-				|  is an open sourced library to store, manage, and visualize geospatial data. PostGIS has spatial index which can decrease computational time for analysis.
+				a.link(href='http://postgis.net/', target='_blank') PostGIS
+				|  is an open-source library to store, manage, and visualize geospatial data. PostGIS has spatial index which can decrease computational time for analysis.
 			li 
-				a.link(href='', target='_blank') QGIS
-				|  is an open sourced graphical software that is similar to ArcMap. It is used to manage, analyze, and visualize spatial data. QGIS uses GDAL and you can use various extensions to conduct specific analyses or visualizations
+				a.link(href='http://qgis.org/en/site/', target='_blank') QGIS
+				|  is an open-source graphical software that is similar to ArcMap. It is used to manage, analyze, and visualize spatial data. QGIS uses GDAL and you can use various extensions to conduct specific analyses or visualizations
