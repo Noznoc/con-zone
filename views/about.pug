@@ -23,12 +23,13 @@ block content
 				p RESTful API, Node.js, Express, ~PHP, ~Python
 		.column-small
 			p.bin GIS
-				p Esri products (e.g., ArcMap), QGIS, OpenStreetMap (iD, JOSM), GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, osmosis, minjur, 
+				p Vector and raster data
+				p Esri products (e.g., ArcMap), QGIS, OpenStreetMap (iD, JOSM), GDAL, Mapbox GL JS, Mapbox JS, Mapbox Studio, Leaflet, PostGIS, Google Maps API, other open-source geospatial tech
 		.column-small
 			p.bin Data Science
 				p
 					strong  Data: 
-					| JSON, GeoJSON, shp, (satellite) imagery, raster, csv, vector, KMLs, osm xml, pbf
+					| json, geojson, shp, (satellite) imagery, csv, kml, osm xml/pbf
 				p 
 						strong Data Mgmt: 
 						| SQL, PostgreSQL, PostGIS, ArcGIS gdb
@@ -37,7 +38,7 @@ block content
 					| R, D3.js, ~Python, ~Stata, GeoDa
 		.column-small
 			p.bin Digital Comms
-				p GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap, Twitter Streaming API
+				p GitHub, Stack Overflow, GIS Stack Exchange, OpenStreetMap (OSM), Twitter Streaming API
 	.container
 		h2#about-work Work
 		ul
@@ -51,7 +52,7 @@ block content
 			p 
 				i Data Team Intern
 				ul
-					li Data validation and tooling with Node.js
+					li OSM data validation and tooling with Node.js
 					li JOSM armchair mapping
 					li OSM community organization (e.g., planning workshops, presentations). Check out my 
 						a.link(href='https://blog.mapbox.com/osmgeoweek-mapathons-support-building-canada-2020-eb0ca4edf8fe' target='_blank') post
@@ -68,18 +69,18 @@ block content
 			p 
 				i Data Production and Dissemination Officer
 				ul
-					li Reached out to local communities to engage in contributing OpenStreetMap (OSM) data (i.e., spatial data)
+					li Reached out to local communities to engage in contributing OSM data
 					li Spatially managed and analyzed government business data
 					li Researched and designed a mobile crowdsourcing web app 
-					li Collected, managed, analyzed, and visualized large spatial (osm/pbf, geoJSON, shp) datasets
-					li Developed a spatial server: PostGIS -> Node.js back-end -> geoJSON RESTful API -> web app & map. Code can be seen 
+					li Collected, managed, analyzed, and visualized large spatial (osm/pbf, geojson, shp) datasets
+					li Developed a spatial server: PostGIS -> Node.js back-end -> GeoJSON RESTful API -> web app & map. Code can be seen 
 						a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') here
 					li Advised on open data licensing
-					li Developed R code for monitoring, analyzing, and visualizing the OSM data
-					li Supported open source code and data, and contributed back via GitHub
+					li Developed R code for monitoring, analyzing, and visualizing OSM data
+					li Supported open-source code and data, and contributed back via GitHub
 					li Researched and developed a methodology to assess the quality of OSM data. Research can be seen 
 						a.link(href='http://juliaconzon.com/docs/doc-3' target='_blank') here
-					li Collected and managed a Postgres/PostGIS database to assess quality assurance
+					li Collected and managed a Postgres/PostGIS database for quality assurance
 			p
 			li Open Data Consultant & Full-Stack Web Developer (August 2016 - June 2017)
 			p Front-end web development for Open North and Publish What You Pay Canada. Collected and managed a database of payments to government organizations from resource extraction companies; and, with the data, designed and developed an interactive Mapbox.js map and D3.js dashboard web app. Check out the visualization 
@@ -109,10 +110,14 @@ block content
 				| : Geography; 
 				strong Minors
 				| : Geographic Information Systems, Remote Sensing, Anthropology
-			li Activities and Societies: Big Buddies Tutoring (2015); Drive Safe (2013); 
+			li 
+				strong Activities
+				| : Big Buddies Tutoring (2015); Drive Safe (2013); 
 				a.link(href='https://publications.mcgill.ca/reporter/2012/09/conzon-to-the-rescue-as-no-5-ranked-soccer-martlets-knocks-no-1-carabins-off-lofty-perch/', target='_blank') McGill Varsity Soccer Team (2012-2013)
 				| ; Maptime MTL (2015-2016)
-			li Projects: 
+			li 
+				strong Projects
+				| :
 			ul 
 				li With Python, mined thousands of georeferenced tweets and then managed, analyzed, and visualized the spatial and temporal 
 				li Developed a front-end JavaScript web app that automatically crowdsourced, geocoded, and visualized spatially-referenced data

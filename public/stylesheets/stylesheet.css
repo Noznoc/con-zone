@@ -268,9 +268,6 @@ html, body {
   .text h2, .text h3, .text li, .text p {
     font-family: "Hind Vadodara", sans-serif;
     text-align: left; }
-  .text ul strong {
-    font-weight: bolder;
-    text-decoration: underline; }
 
 h2.title {
   text-align: center;
@@ -311,15 +308,15 @@ p.subtitle {
   .paragraph .column, .container .column {
     float: left;
     display: block;
-    margin-right: 2.3576520234%;
-    width: 48.8211739883%; }
+    margin-right: 2.35765%;
+    width: 48.82117%; }
     .paragraph .column:last-child, .container .column:last-child {
       margin-right: 0; }
   .paragraph .column-small, .container .column-small {
     float: left;
     display: block;
-    margin-right: 2.3576520234%;
-    width: 23.2317609825%;
+    margin-right: 2.35765%;
+    width: 23.23176%;
     margin: 0px 40px;
     text-align: center; }
     .paragraph .column-small:last-child, .container .column-small:last-child {
@@ -328,8 +325,8 @@ p.subtitle {
       .paragraph .column-small, .container .column-small {
         float: left;
         display: block;
-        margin-right: 2.3576520234%;
-        width: 74.4105869942%; }
+        margin-right: 2.35765%;
+        width: 74.41059%; }
         .paragraph .column-small:last-child, .container .column-small:last-child {
           margin-right: 0; } }
     .paragraph .column-small p.bin, .container .column-small p.bin {
@@ -337,7 +334,7 @@ p.subtitle {
   .paragraph .column-large, .container .column-large {
     float: left;
     display: block;
-    margin-right: 2.3576520234%;
+    margin-right: 2.35765%;
     width: 100%; }
     .paragraph .column-large:last-child, .container .column-large:last-child {
       margin-right: 0; }
@@ -558,8 +555,8 @@ p#buttons {
 .image-column {
   float: left;
   display: block;
-  margin-right: 2.3576520234%;
-  width: 23.2317609825%; }
+  margin-right: 2.35765%;
+  width: 23.23176%; }
   .image-column:last-child {
     margin-right: 0; }
   .image-column img {
