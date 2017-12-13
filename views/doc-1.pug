@@ -68,25 +68,25 @@ block content
 		p The government data I mostly work with are from Canadian government entities, like municipalities or federal departments. Most of these sources, as well as other international organizations, usually release static data (like a dump file). You can download the data through their open data portals. The data is downloaded from the browser onto your computer for use. 
 
 		p However, more government entities are releasing their data through application programming interfaces (APIs), which allows users to stream the data. For example, the map in the 	
-			a.link(href='/about' target='_blank') about 
+			a.link(href='/about' target='_blank') about
 			|  section visualizes live streaming data from NRCan's Earthquake API. I also follow  
 			a.link(href='https://twitter.com/cdngovrepos' target='_blank') this bot
 			|  created by James McKinney that tweets whenever any Canadian government releases a new repo. Although APIs / repos require more technical experience, they allow governments to start providing real-time data.
 
 		p 	
-			a.link(href='https://www.openstreetmap.org' target='_blank') OSM 
+			a.link(href='https://www.openstreetmap.org' target='_blank') OSM
 			|  is a global wiki-like project that aims to map all features on Earth's surface through points/nodes, lines/ways, and polygons/enclosed ways. OSM objects' attributes are stored through tags. OSM's database is open for anyone to use as long as it is in accordance to its license. OSM has a growing number of contributors, which includes cartographers, governments, and private and public companies. 
 
 		p I usually extract the data from 
 			a.link(href='https://www.geofabrik.de/data/download.html' target='_blank') Geofabrik
 			| . Geofrabik allows your to download OSM data based off geographic region (i.e. planet, continent, countries, and you can download at smaller geographies in specific countries). The data can be downloaded as an osm xml or pbf. I usually download it as an osm xml (or .osm) and then convert it into GeoJSON using 
-			a.link(href='https://github.com/mapbox/minjur' target='_blank') minjur 
-			| from the command line: 
+			a.link(href='https://github.com/mapbox/minjur' target='_blank') minjur
+			|  from the command line: 
 
 		p.code minjur mexico-latest.osm.pbf > mexico.geojson
 
 		p Sometimes I have to download the planet file to get to the geographic region I need. In this case the data is too big to handle, so before I do any processing I clip the planet file within a bounding box or polygon. I use  
-			a.link(href='https://github.com/openstreetmap/osmosis' target='_blank') osmosis 
+			a.link(href='https://github.com/openstreetmap/osmosis' target='_blank') osmosis
 			|  or 
 			a.link(href='http://osmcode.org/osmium-tool/' target='_blank') osmium
 			|  to clip the data. To determine the bounding box, I use this 
@@ -98,10 +98,10 @@ block content
 		p It is important to consider whether you should download the data as a bounding box or polygon. Bounding boxes can be easier to extract data, but it also can cause additional or missing data for a geographic region. For instance, if I need to collect data for a city, I would use a polygon of the municipality's boundary lines over a bounding box. A bounding box does not give a realisitic reprentation of a place.
 
 		p You can also download OSM data from 
-			a.link(href='https://mapzen.com/data/metro-extracts/' target='_blank') Mapzen Metro Extracts 
-			| or 
-			a.link(href='https://export.hotosm.org/en/v3/exports/new' target='_blank') Humanitarian OSM Team Export Tool 
-			| or 
+			a.link(href='https://mapzen.com/data/metro-extracts/' target='_blank') Mapzen Metro Extracts
+			|  or 
+			a.link(href='https://export.hotosm.org/en/v3/exports/new' target='_blank') Humanitarian OSM Team Export Tool
+			|  or 
 			a.link(href='https://josm.openstreetmap.de/' target='_blank') JOSM
 			|  as GeoJSONs. These options allow you to avoid the command line if you do not feel comfortable using it.
 
@@ -126,7 +126,7 @@ block content
 
 		p I have also used Google Sheets and Google Fusion Tables to store data and pull into a JavaScript. I wrote a 
 			a.link(href='http://www.juliaconzon.com/docs/doc-4' target='_blank') tutorial
-			| for this methodology. This method is easy for people to input new data, but it does have a limit as there is no server functionality, the data is still being pulled to the browser. I avoid using this method with larger datasets because the browser will run out of memory and choke.
+			|  for this methodology. This method is easy for people to input new data, but it does have a limit as there is no server functionality, the data is still being pulled to the browser. I avoid using this method with larger datasets because the browser will run out of memory and choke.
 
 		p For datasets larger than 1,000 objects, I use PostGIS or MBTiles. PostGIS is useful because you can run various pre-existing algorithmns to manage your data, and if you do not feel comfortable handling the data from Terminal, you can use pgAdmin, which is a graphical interface to manage your PostGIS database. You can see how I have used PostGIS for handling data 
 			a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') here
@@ -205,8 +205,8 @@ block content
 		p Initially I visualized spatial data as static maps using Esri's ArcMap software, but through my education I learned how to develop interactive web maps that can enhance a user's experience viewing and interpreting geographic data represented as a map.
 		
 		p I started developing interactive web maps using the 
-			a.link(href='http://leafletjs.com/' target='_blank') Leaflet 
-			| library. I avoided familiarizing myself with Google Maps API because Google deprecates their APIs frequently. Now I use 
+			a.link(href='http://leafletjs.com/' target='_blank') Leaflet
+			|  library. I avoided familiarizing myself with Google Maps API because Google deprecates their APIs frequently. Now I use 
 			a.link(href='https://www.mapbox.com/mapbox-gl-js/api/' target='_blank') Mapbox GL JS
 			| .
 
@@ -227,7 +227,7 @@ block content
 			| .
 
 		p I will also use 
-			a.link(href='http://earth.google.es/' target='_blank') Google Earth 
+			a.link(href='http://earth.google.es/' target='_blank') Google Earth
 			|  to visualize low/medium volume, zero velocity, and low/medium variety KML / KMZ data that I want to be visualized in 3D. I tend to avoid Google products, but Mapbox GL JS does not support a 3D Earth surface yet. Mapbox GL JS supports extrusions, which is great for visualizing 3D buildings but poor for visualizing elevation. For example, if I wanted to show elevation I could develop an elevation profile as an extruded line with Mapbox GL JS; but, visualizing a trek on a 3D surface really tells a story about the distance and height one walked and it can be easily done on Google Earth's graphical interface. 
 		
 		h2.header-1#doc-tools Tools
