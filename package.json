@@ -6,7 +6,7 @@
   },
   "description": "Julia Conzon's web site",
   "scripts": {
-    "start": "supervisor ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
