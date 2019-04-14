@@ -1,3 +1,3 @@
-## My personal website: con-zone
+# My personal website: con-zone
 
 This site is still in development.

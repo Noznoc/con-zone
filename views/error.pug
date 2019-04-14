@@ -38,9 +38,15 @@ html
 		include header.pug
 
 		.site-content
-			.text
-				h1= message
-				h2= error.status1
+			.text.error
+				// h1= message
+				h1 
+					i.fa.fa-map-signs
+					|  Looks like you're lost  
+					i.fa.fa-map-signs
+				h1 Select one of the ^ menu buttons ^ to renavigate 
+					i.fa.fa-compass
+				// h2= error.status
 
 		include footer.pug
 

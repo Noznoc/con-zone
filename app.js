@@ -1,15 +1,15 @@
-var express = require('express'); // imports framework into app
-var path = require('path'); // path is a Node module for working with and handling paths
-var logger = require('morgan'); // Express middleware for logging requests and responses
-var bodyParser = require('body-parser'); // adds a body object to your request so that you can access POST parameters
-var favicon = require('serve-favicon');
-var http = require('http');
+const express = require('express'); // imports framework into app
+const path = require('path'); // path is a Node module for working with and handling paths
+const logger = require('morgan'); // Express middleware for logging requests and responses
+const bodyParser = require('body-parser'); // adds a body object to your request so that you can access POST parameters
+const favicon = require('serve-favicon');
+const http = require('http');
 // var cookieParser = require('cookie-parser'); 
 
 // paths to routers
-var index = require('./routes/index');
+const index = require('./routes/index');
 
-var app = express(); // initate app
+const app = express(); // initate app
 app.use(express.static(path.join(__dirname, 'public'))); // tells app to use the /public directory
 
 // view engine setup

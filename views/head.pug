@@ -7,26 +7,26 @@ head
 	meta(name='viewport', content='initial-scale=1,maximum-scale=1,user-scalable=no')
 
 	// CSS
-	link(rel='stylesheet', href='../stylesheets/stylesheet.css')
+	link(rel='stylesheet', href='../stylesheets/stylesheet.min.css')
 
 	// Font Awesome
-	script(src='https://use.fontawesome.com/5f92b1f541.js')
+	script(src='javascripts/external/fontawesome-v4.js')
 
 	// jQuery
-	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-	script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
-	link(rel='stylesheet', href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+	script(type='text/javascript' src='javascripts/external/jquery-v1.11.1/jquery.min.js')
+	script(type='text/javascript' src='javascripts/external/jquery-ui-v1.12.1/jquery-ui.js')
+	link(rel='stylesheet', href='javascripts/external/jquery-ui-v1.12.1/jquery-ui.css')
 
 	// Mapbox
 	script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js')
 	link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css', rel='stylesheet')
 
 	// D3.js
-	script(src='https://d3js.org/d3.v4.min.js')
+	script(type='text/javascript' src='javascripts/external/d3-v4/d3.v4.min.js')
 
 	// Materialize
-	//link(href='javascripts/materialize/css/materialize.min.css', rel='stylesheet')
-	script(type='text/javascript' src='../javascripts/materialize/js/materialize.min.js')
+	//link(href='javascripts/external/materialize/css/materialize.min.css', rel='stylesheet')
+	script(type='text/javascript' src='javascripts/external/materialize/js/materialize.min.js')
 
 	// javaScripts
 	script(src='../javascripts/map.js')
@@ -36,7 +36,4 @@ head
 	script(src='../javascripts/salkantay.js')
 
 	// Clipboard
-	script(src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js')
-
-	// Global site tag (gtag.js) - Google Analytics
-	script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-108614606-1')
+	script(src='clipboard-v1.7.1/clipboard.min.js')

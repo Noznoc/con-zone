@@ -270,6 +270,9 @@ html, body {
     font-family: "Hind Vadodara", sans-serif;
     text-align: left; }
 
+.error {
+  padding: 10px; }
+
 h2 {
   font-family: "Raleway", sans-serif;
   text-align: left; }
