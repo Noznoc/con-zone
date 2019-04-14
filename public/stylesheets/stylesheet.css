@@ -336,6 +336,8 @@ p.subtitle {
           margin-right: 0; } }
     .paragraph .column-small p.bin, .container .column-small p.bin {
       text-align: center; }
+    .paragraph .column-small p, .container .column-small p {
+      font-size: 15px; }
   .paragraph .column-large, .container .column-large {
     float: left;
     display: block;
@@ -365,9 +367,36 @@ p.subtitle {
   .paragraph .header-1, .paragraph .header-2, .container .header-1, .container .header-2 {
     text-align: left; }
 
+.list-simple > li {
+  margin: 20px 0px;
+  padding-left: 7px;
+  list-style: none;
+  border-left: 2px solid #448aff;
+  border-width: 0px 0px 0px 2px;
+  border-style: dotted; }
+
+.list-simple > li > ul {
+  padding-top: 7px; }
+
+.list-simple > li > ul > li::before {
+  color: #448aff; }
+
+.list-simple li p:first-child {
+  color: #448aff;
+  font-weight: 700; }
+
 .container {
   border-top: #d7c7cd 1px solid;
   padding-bottom: 10px; }
+  .container .highlight {
+    background-color: #fff389;
+    padding: 3px 10px; }
+  .container li, .container p {
+    font-size: 20px; }
+  .container h2 {
+    padding: 20px 0px;
+    font-size: 30px;
+    text-align: center; }
 
 .bin {
   background: #fff389;
@@ -401,6 +430,13 @@ p.subtitle {
   background: -moz-linear-gradient(#fffbd6, white);
   background: linear-gradient(#fffbd6, white); }
 
+.gradient {
+  border-top: #fff389 1px solid;
+  background: #fffbd6;
+  background: -webkit-linear-gradient(#fffbd6 10%, white 90%);
+  background: -moz-linear-gradient(#fffbd6 10%, white 90%);
+  background: linear-gradient(#fffbd6 10%, white 90%); }
+
 .post h2, .post h3, .post img {
   text-align: center;
   color: #3f2d34; }
@@ -412,9 +448,6 @@ p.subtitle {
   .link:hover, .sidebar:hover {
     cursor: pointer;
     background-color: rgba(0, 195, 180, 0.3); }
-  @media screen and (max-width: 750px) {
-    .link, .sidebar {
-      font-size: 12px; } }
   .link i, .sidebar i {
     padding-right: 10px; }
 
@@ -428,7 +461,8 @@ p.subtitle {
 
 .icon {
   font-size: 40px;
-  margin: 25px;
+  margin-left: 10px;
+  /*margin: 25px */
   color: #00C3B4; }
   .icon:hover {
     cursor: pointer;
@@ -474,12 +508,11 @@ p#buttons {
       display: none; } }
 
 .post-links {
-  margin-left: 650px;
+  margin-left: 85%;
   height: 0px;
   padding: 0px; }
   @media screen and (max-width: 750px) {
     .post-links {
-      margin-left: 450px;
       display: none; } }
   .post-links li {
     display: inline-block;
@@ -511,7 +544,8 @@ p#buttons {
   color: #00C3B4;
   font-size: 15px; }
   .tag:hover {
-    color: #7f7d7c;
+    color: white;
+    background-color: #7f7d7c;
     border-color: #7f7d7c;
     cursor: pointer; }
 
