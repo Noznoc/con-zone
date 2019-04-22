@@ -4,15 +4,15 @@ block content
 		h2 
 			img.logo(src='/favicon.ico')
 			|  Hello, my name is Julia Conzon 
-		p I collect, manage, analyze and visualize [big] [open] [spatially referenced] data.
+		p I'm interested in leveraging geographic information for data-driven decision making.
 		p I have worked on 
 			a.link(href='./projects', target='_blank') several projects
 			|  with various clients on a diverse range of topics as a 
 			a.link(href='./about', target='_blank') freelance open data consultant and full-stack web developer
-			| . Through my experiences, I have extensive knowledge on (civic) open (spatial) data, licenses, standards and platforms; moreover, I have developed web apps, maps, and information portals.
-		p Currently I am working at Employment and Social Development Canada (ESDC) as a geographic data scientist. Here I support data-driven decision-making through developing software and web apps that host machine learning models as well as educating on how to use open source tools.
+			| . Through my experiences, I have extensive knowledge on open [spatial] data standards and platforms; moreover, I have developed web apps, maps, and information portals.
+		p Currently I am working at Employment and Social Development Canada (ESDC) as a data scientist. Here I support evidence-based decision making through the following: (1) designing and developing software and web apps that host machine learning (mostly natural language processing) models; (2) researching and applying advanced geospatial techniques; and (3) educating internally and externally on how to leverage data with open source tools.
 		.column
-			p As my education and work are multi-disciplinary, my goal is to help bridge the gap between social and technical perspectives, such as ensuring those who are marginalized have the power to collect, interpret, and make their own decisions regarding the data that affects them. In addition, as my work is data-driven, I reflect on biases to avoid misrepresentations. I am active in local, national, and global open data communities to accomplish my goals and reflections. I also participate in conferences, educate individuals about open data and tech, and develop tools and visualizations. This includes writing 
+			p As my education and work are multi-disciplinary, one of my goals is to help bridge the gap between social and technical perspectives, such as ensuring those who are marginalized have the power to collect, interpret, and make their own decisions regarding the data that affects them. In addition, as my work is data-driven, I reflect on biases to avoid misrepresentations. I am active in local, national, and global open data communities to accomplish my goals and reflections. I also participate in conferences, educate individuals about open data and tech, and develop tools and visualizations. This includes writing 
 				a.link(href='./blog', target='_blank') blogs
 				|   and 
 				a.link(href='./docs', target='_blank') docs
@@ -24,16 +24,11 @@ block content
 			img.image.image-round(src='/images/noznoc-3.png')
 			.subtitle Humantay Lake, Peru (4200 m)
 
+	script(type='text/javascript' src='../javascripts/external/d3-v4/d3-v4.min.js')
 	script(type='text/javascript' src='../javascripts/external/d3-v4/streamgraph.js')
 	script.
 		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
 		addMap([-99.3822538, 51.197122], 0, 3, 8, coordinates, true, true, 'home');
-		$('.button').on('click', function () {
-			var name = $(this).attr('name');
-		    $('html, body').animate({
-		        scrollTop: $('#' + name).offset().top
-		    }, 1000);
-		})
 		$('#legend').hide();
 		streamgraph();
 		(function($) {
