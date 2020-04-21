@@ -16,7 +16,7 @@
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "mapbox-gl": "^0.37.0",
-    "morgan": "~1.7.0",
+    "morgan": "~1.10.0",
     "nodemailer": "^4.0.1",
     "pug": "2.0.0-rc.3",
     "serve-favicon": "~2.3.2",
