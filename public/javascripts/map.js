@@ -28,10 +28,10 @@ function addMap(center, zoom, minZoom, maxZoom, coordinates, source, cluster, id
 		var features = [];
 		var	i = 1;
 
-		if (source == false) {
+		if (!source) {
 			$.get(coordinates, function(data) {
 				for (i in data) {
-					if(data[i].geoJSON !== undefined) {
+					if (data[i].geoJSON !== undefined) {
 						data[i].geoJSON.coordinates = [data[i].geoJSON.coordinates[1], data[i].geoJSON.coordinates[0]]
 						geojson.push([data[i].magnitude, data[i].geoJSON, data[i].origin_time]);
 					}
