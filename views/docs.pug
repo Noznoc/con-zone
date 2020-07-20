@@ -12,18 +12,18 @@ html
 				- if (id == 'docs')
 					p#buttons
 						a(href='/docs/guide')
-							button.button guides
+							button.button.m-2 guides
 						a(href='/docs/tutorial')
-							button.button tutorials
+							button.button.m-2 tutorials
 				include mixins.pug
 				each doc in data
 					+post(doc.title, doc.subtitle, doc.date, doc.tags, doc.id, 'docs', id)
 				- if (id == 'doc-post')
-					.post-links-footer
-						.clipboard.icon(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, title='Click to copy to clipboard')
-							i.fa.fa-link(aria-hidden='true')
-						a.icon(href='mailto:julia.conzon@gmail.com', title='Contact me')
-							i.fa.fa-envelope(aria-hidden='true')
+					.post-links-footer.row.d-flex.justify-content-around.pt-4
+						.col-lg-5.button.clipboard(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, title='Click to copy to clipboard')
+							i.fa.fa-link.txt-lrg(aria-hidden='true')
+						a.col-lg-5.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
+							i.fa.fa-envelope.txt-lrg(aria-hidden='true')
 					script.
 						openPost();
 		include footer.pug

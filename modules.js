@@ -11,11 +11,11 @@ function projects(req, res, next){
 }
 
 function blog(req, res, next){
-    res.render('blog', {layout: 'blog', data: blogData, id: 'blog', title: 'Check out my blog pages'});
+    res.render('blog', {layout: 'blog', data: blogData, id: 'blog', title: 'Blog on my thoughts and experiences. Check out my blogs!'});
 }
 
 function docs(req, res, next){
-    res.render('docs', {layout: 'docs', data: docData, id: 'docs', title: 'Check out my documentation'});
+    res.render('docs', {layout: 'docs', data: docData, id: 'docs', title: 'Documentation on my projects. Check out below!'});
 }
 
 function getData(req, res, next){

@@ -1,27 +1,26 @@
 mixin post(title, subtitle, date, tags, link, page, id)
 	.container.post#post
-		ul.post-links
-			li
+		.post-links.row.col-lg-4.pt-1
+			.col-3.p-0
 				a(href='/' + page + '/' + tags)
-					button.tag= tags
-			li.clipboard.icon(data-clipboard-text='www.juliaconzon.com/' + page + '/' + link, title='Click to copy to clipboard')
-				i.fa.fa-link(aria-hidden='true')
+					button.button.tag.txt-sm.p-1.m-1= tags
+			.col-2.clipboard.icon(data-clipboard-text='www.juliaconzon.com/' + page + '/' + link, title='Click to copy to clipboard').p-1
+				i.fa.fa-share-square.button.tag.txt-sm(aria-hidden='true')
 		- if (id !== 'blog-post' && id !== 'doc-post')
 			a(href='/' + page + '/' + link).post-link
-				h2.header= title
-				h3=date
-				h3 
-					i=subtitle
+				h2.pt-2= title
+				h3.txt-mdm=date
+				- if (subtitle)
+					h3.txt-mdm.subtitle= subtitle
 				.post-text
 					block content
 
 				script. 
 					$('.post').addClass('hover');
 		- else
-			h2.header= title
-			h3=date
-			h3 
-				i=subtitle
+			h2.pt-2= title
+			h3.txt-mdm=date
+			h3.txt-mdm.subtitle= subtitle
 			.post-text
 				block content
 

@@ -1,5 +1,5 @@
 extends layout.pug
-block content		
+block content	
 	h2.title For a detailed resume, check out 
 		strong
 			a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn
@@ -7,59 +7,63 @@ block content
 			a.link(href='/contact', target='_blank') contact
 			|  me!
 	p#buttons
-		button.button(name='about-skills') technical skills
-		button.button(name='about-work') work
-		button.button(name='about-education') education
+		button.button.m-2(name='about-skills') technical skills
+		button.button.m-2(name='about-work') work
+		button.button.m-2(name='about-education') education
 	.container
-		h2#about-skills Technical Skills
-		.column-small
-			p.bin Design
-				p CSS, SASS, frameworks (Bootstrap, Materialize)
-		.column-small
-			p.bin Front-end Dev
-				p JavaScript, jQuery, HTML, pug, ~React
-		.column-small
-			p.bin Back-end Dev
-				p Node.js + Express, Python + Flask
-		.column-small
-			p.bin GIS
-				p Vector and raster data
-				p 
-					strong Tools for Engineering + Analyses/Analytics:
-					|  QGIS, OpenStreetMap (iD, JOSM), GDAL, PostGIS, Esri products (e.g., ArcMap, ArcPro, ArcOnline), other open-source geospatial libraries/software (e.g., R and Python packages like rgdal and geopandas)
-				p 
-					strong Tools for Mapping Services: 
-					|  Mapbox GL JS, Leaflet (R or JS), Google Maps API
-		.column-small
-			p.bin Data Science
-				p
-					strong  Data: 
-					| json, geojson, shp, (satellite) imagery, tiff, csv, kml, osm xml/pbf, R/Python data frames, sas7bdat, unstructured text (tweets, free text)
-				p 
-					strong Data Mgmt: 
-					| SQLite, PostgreSQL(+PostGIS), Oracle, Microsoft SQL Server, MongoDB
-				p
-					strong Data Analytics: 
-					| R, Python, Stata, GeoDa, SAS
-				p
-					strong Data Visualizations: 
-					|  D3.js, R Shiny Apps + Plotly + Leaflet, Tableau, PowerBI
-		.column-small
-			p.bin Development
-				p 	
-					strong Architecture: 
-					| Client-server (RESTful API), Pipline, Database-centric, Event-driven
-				p 	
-					strong Environment: 
-					| package/library mgmt (pip, conda, R), version control (git, GitHub, Bitbucket, GitLab) 
+		h2.title#about-skills Technical Skills
+		.row
+			.col-4
+				p.bin Design
+					p CSS, SASS, frameworks (Bootstrap, Materialize)
+			.col-4
+				p.bin Front-end Dev
+					p JavaScript, jQuery, HTML, pug, ~React
+			.col-4
+				p.bin Back-end Dev
+					p Node.js + Express, Python + Flask
+		.row
+			.col-4
+				p.bin GIS
+					p Vector and raster data
+					p 
+						strong Tools for Engineering + Analyses/Analytics:
+						|  QGIS, OpenStreetMap (iD, JOSM), GDAL, PostGIS, Esri products (e.g., ArcMap, ArcPro, ArcOnline), other open-source geospatial libraries/software (e.g., R and Python packages like rgdal and geopandas)
+					p 
+						strong Tools for Mapping Services: 
+						|  Mapbox GL JS, Leaflet (R or JS), Google Maps API
+			.col-4
+				p.bin Data Science
+					p
+						strong  Data: 
+						| json, geojson, shp, (satellite) imagery, tiff, csv, kml, osm xml/pbf, R/Python data frames, sas7bdat, unstructured text (tweets, free text)
+					p 
+						strong Data Mgmt: 
+						| SQLite, PostgreSQL(+PostGIS), Oracle, Microsoft SQL Server, MongoDB
+					p
+						strong Data Analytics: 
+						| R, Python, Stata, GeoDa, SAS
+					p
+						strong Data Visualizations: 
+						|  D3.js, R Shiny Apps + Plotly + Leaflet, Tableau, PowerBI
+			.col-4
+				p.bin Development
+					p 	
+						strong Architecture: 
+						| Client-server (RESTful API), Pipline, Database-centric, Event-driven
+					p 	
+						strong Environment: 
+						| package/library mgmt (pip, conda, R), version control (git, GitHub, Bitbucket, GitLab) 
 	.container
-		h2#about-work Work
+		h2.title#about-work Work
 		ul.list-simple
 			li 
 				p January 2018 - Present
-				i.highlight Senior Geographic Data Scientist
-				|  at 
-				a.link(href='https://www.canada.ca/en/employment-social-development.html' target='_blank') Employment and Social Development Canada
+				p
+					i.highlight Senior Geographic Data Scientist
+					|  at 
+					a.link(href='https://www.canada.ca/en/employment-social-development.html' target='_blank') Employment and Social Development Canada
+				p Support evidence-based decision making through the following: researching and devising advanced geospatial techniques (e.g., calculating spatial accessibility for identifying underserved areas); designing and developing software and web apps to host statistical, analytical, and machine learning models; and, educating internally and externally on how to leverage geographic data with open source tools (FOSS4G).
 				ul
 					li Clean, analyze, and visualize spatially-referenced survey, crowdsourced and administrative big data in R and Python (e.g., spatial accessibility index calculations for services/programs)
 					li Design and develop web apps (full stack) with Node.js or Python for pushing machine learning models into production
@@ -70,9 +74,10 @@ block content
 					li Prepare, write and present presentation decks, briefing notes, and reports to upper management, with a twist (e.g., generate GIFs to demo apps, simple HTML web page as PowerPoint alternative)
 			li 
 				p July - December 2017
-				i.highlight Data Intern
-				|  at 
-				a.link(href='https://www.mapbox.com/' target='_blank') Mapbox
+				p
+					i.highlight Data Intern
+					|  at 
+					a.link(href='https://www.mapbox.com/' target='_blank') Mapbox
 				ul
 					li Remote mapped on OpenStreetMap (OSM) with JOSM and iD Editor.
 					li Developed Node.js based validators to assess the quality of OSM data.
@@ -81,15 +86,16 @@ block content
 						|  and 
 						a.link(href='https://noznoc.github.io/bc2020-osmgeoweek2017/#4/54.32/-99.93' target='_blank') BC2020 Mapathons
 						| ).
-					li Organized nation-wide multi-stakeholder workshops (e.g., Building Canad 2020) as well as local community events. Check out my 
+					li Organized nation-wide multi-stakeholder workshops (e.g., Building Canada 2020) as well as local community events. Check out my 
 						a.link(href='https://blog.mapbox.com/osmgeoweek-mapathons-support-building-canada-2020-eb0ca4edf8fe' target='_blank') post
 						|  on Mapbox's "Points of Interest" blog.
 					li Taught English through running daily lessons to learn reading and writing, as well as immersive activities to improve listening and speaking.
 			li 
 				p February - June 2017
-				i.highlight Geographic Data Scientist
-				|  at 
-				a.link(href='http://www.statcan.gc.ca/' target='_blank') Statistics Canada
+				p
+					i.highlight Geographic Data Scientist
+					|  at 
+					a.link(href='http://www.statcan.gc.ca/' target='_blank') Statistics Canada
 				ul
 					li Communicated and maintained engagement with stakeholders for 
 						a.link(href='https://www.statcan.gc.ca/eng/open-building-data/crowdsourcing-osm' target='_blank') Statistics Canada first crowdsourcing project.
@@ -100,7 +106,8 @@ block content
 					li Advised internal stakeholders on open data licensing and open source software. 
 			li 
 				p August 2016 - June 2017
-				i.highlight Open Data Consultant & Full-Stack Web Developer
+				p
+					i.highlight Open Data Consultant & Full-Stack Web Developer
 				p To increase transparency on where and what different resource extraction companies are paying organizations across Canada, I was tasked to develop a real-time interactive map dashboard for Open North and Publish What You Pay Canada. To accomplish this, I collected and managed a database of payments to government organizations from extraction companies; and, with the data, designed and developed an interactive Mapbox.js map and D3.js dashboard web app. Check out the visualization 
 					a.link(href='http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html' target='_blank') here
 					| .
@@ -116,7 +123,7 @@ block content
 					a.link(href='https://github.com/Noznoc/open-data-standards' target='_blank') here
 					| .
 	.container
-		h2#about-education Education
+		h2.title#about-education Education
 		ul.list-simple
 			li
 				p 2020 - 2022

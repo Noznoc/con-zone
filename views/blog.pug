@@ -12,18 +12,18 @@ html
 				- if (id == 'blog')
 					p#buttons
 						a(href='/blog/travel')
-							button.button travel
+							button.button.m-2 travel
 						a(href='/blog/geo')
-							button.button geo
+							button.button.m-2 geo
 				include mixins.pug
 				each blog in data
 					+post(blog.title, blog.subtitle, blog.date, blog.tags, blog.id, 'blog', id)
 				- if (id == 'blog-post')
-					.post-links-footer
-						.clipboard.icon(data-clipboard-text='www.juliaconzon.com/blog/' + data[0].id, title='Click to copy to clipboard')
-							i.fa.fa-link(aria-hidden='true')
-						a.icon(href='mailto:julia.conzon@gmail.com', title='Contact me')
-							i.fa.fa-envelope(aria-hidden='true')
+					.post-links-footer.row.d-flex.justify-content-around.pt-4
+						.col-lg-5.button.clipboard(data-clipboard-text='www.juliaconzon.com/blog/' + data[0].id, title='Share')
+							i.fa.fa-share-square.txt-lrg(aria-hidden='true')
+						a.col-lg-5.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
+							i.fa.fa-envelope.txt-lrg(aria-hidden='true')
 					script.
 						openPost();
 		include footer.pug

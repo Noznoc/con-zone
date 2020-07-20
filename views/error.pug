@@ -1,59 +1,12 @@
-html
-	head
-
-		meta(charset='utf-8')
-
-		title Julia Conzon
-
-		meta(name='viewport', content='initial-scale=1,maximum-scale=1,user-scalable=no')
-
-		// Font Awesome
-		script(src='https://use.fontawesome.com/5f92b1f541.js')
-
-		// jQuery
-		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-		script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
-		link(rel='stylesheet', href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
-
-		// Mapbox
-		script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js')
-		link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css', rel='stylesheet')
-
-		// D3.js
-		script(src='https://d3js.org/d3.v4.min.js')
-
-		// javaScripts
-		script(src='../javascripts/map.js')
-		script(src='../javascripts/read-blog.js')
-		script(src='../javascripts/streamgraph.js')
-
-		// CSS
-		link(rel='stylesheet', href='../stylesheets/stylesheet.css')
-
-		// Clipboard
-		script(src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js')
-
-	body
-
-		include header.pug
-
-		.site-content
-			.text.error
-				// h1= message
-				h1 
-					i.fa.fa-map-signs
-					|  Looks like you're lost  
-					i.fa.fa-map-signs
-				h1 Select one of the ^ menu buttons ^ to renavigate 
-					i.fa.fa-compass
-				// h2= error.status
-
-		include footer.pug
-
-		script.
-			new Clipboard('.clipboard');
-			$(function() {
-				$(document).tooltip();
-			});
+extends layout.pug
+block content		
+		.text.error
+			// h1= message
+			h1 
+				i.fa.fa-map-signs
+				|  Looks like you're lost  
+				i.fa.fa-map-signs
+			h1 Select one of the menu buttons to be redirected 
+				i.fa.fa-compass
 
   
