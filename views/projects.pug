@@ -1,6 +1,6 @@
 extends layout.pug
 block content
-	h2.title All code is accessible in my 
+	h1.title All code is accessible in my 
 		a.link(href='https://github.com/Noznoc', target='_blank') GitHub repos
 		| . Also, check out my 
 		a.link(href='/docs/tutorial', target='_blank') tutorials
@@ -19,20 +19,20 @@ block content
 				| , I led the design and development of an open source tool, PASS, to offer business analyst an opportunity to better measure how spatially accessible their in-person services are for an user-defined population. To learn more about PASS, check out the 
 				a.link(href='https://github.com/DSD-ESDC-EDSC/pass', target='_blank') GitHub repo
 				| .
-			p
-				img.image.image-wide(src='/images/pass_v0.1.gif')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(src='/images/pass_v0.1.gif')
 	.container
 		p#projects-4
 			h2.mt-4.mb-4 Building Canada 2020 Project (#BC2020)
-			p
-				img.image#gif(src='/images/bc2020.gif')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(src='/images/bc2020.gif')
 			p Building Canada 2020 project (BC2020) is a community-led initiative driven by a simple and clear vision: map all buildings in Canada on OpenStreetMap (OSM) by the year 2020. While interning at Mapbox, the Community Team supported my participation in the BC2020, but but my involvement actually initiated from my work at Statistics Canada on the 
 				a.link(href='https://www.statcan.gc.ca/eng/crowdsourcing' target='_blank') Crowdsourcing project
 				| , as well as my personal interests in volunteered geographic information. For more details about the project, check out the Mapbox "Points of Interest"   
 				a.link(href='https://blog.mapbox.com/osmgeoweek-mapathons-support-building-canada-2020-eb0ca4edf8fe' target='_blank') blog post
 				|  I wrote. 
 			p Though conceptually simple, mapping all buildings in all of Canada on OSM is no simple task. Without a large and diverse group of individuals that are willing to maintain participation, we may find that contirbutions decline with time, as has been seen in many past crowdsourcing projects. Interest usually starts strong, which has been the case so far in BC2020, but other priorities can affect a volunteer's ability to remain committed to a proect, and thus participation can weaken or even stop. Therefore, in my opinion, the success of BC2020 comes from continuous engagement and education to various private and public organizations across all of Canada, which includes NGOs, government entities at various geographic levels, local citizens and experienced OSM contributors, and academic institutions.
-			p.header-2 Mapathon Organization
+			h3 Mapathon Organization
 			p There has been a growing interest to incorporate OSM into academia, which I have witnessed online and which my former and current colleagues have informed me they witnessed at the HOT Summit in Ottawa (Sept. 14-15, 2017). With this in mind, Mapbox's Community Team and I believed engaging with Canadian post-secondary institutions would be a great opprotunity to educate academics and students, as well as other interested individuals, about OSM and how to contribute data onto OSM for BC2020 during OSMGeoWeek (Nov. 12-18, 2017) in a meaningful way!
 			p When beginning, I wanted to ensure that the leaders for each mapathon had a GIS background, so I decided to reach out to individuals at various universities and colleges across Canada that were affiliated with either 
 				a.link(href='http://geothink.ca/project-description/' target='_blank') Geothink
@@ -42,9 +42,9 @@ block content
 			p Once the AOIs were picked, I wanted to develop tasks in the 
 				a.link(href='http://tasks.osmcanada.ca/' target='_blank') Canadian Tasking Manager
 				|  for the mapathons so that the participants had clear instructions on how to map buildings on OSM with the iD editor. (Note: JOSM would have been preferred because the building_tools plug-in makes adding buildings seamless, but there is a learning curve because JOSM's graphical interface is not user-friendly.) After communicating with a Canadian OSM community member about my intentions, I was granted admin rights to create projects in the Tasking Manager. The image below shows a task I created for North Battleford, SASK.
-			p
-				img.image(src='/images/bc2020_task.png')
-			p.header-2 Data Visualization
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(src='/images/bc2020_task.png')
+			h3 Data Visualization
 			p After the mapathons took place between Nov. 10 - 17, I wanted to analyze and visualize the contributed data. First, I used 
 				a.link(href='https://overpass-turbo' target='_blank') Overpass Turbo
 				|  to see what buildings were contributed in the 8 AOIs that were mapped; so, on Nov. 20, I zoomed into each AOI and used the following query to select the OSM buildings contributed from the mapathons: 
@@ -61,13 +61,13 @@ block content
 				|  visualization as a guide, but instead of running the repo's scripts, I just altered the timestamps in Sublime Text (e.g., 2017-11-17T21:26:38+00:00 to 20171117). After adjusting the timestamps, I used 
 				a.link(href='https://www.mapbox.com/mapbox-gl-js/api/' target='_blank') Mapbox GL JS
 				|  to create the time slider functionality. I also wanted every mapathon participant to see their contributions, so I added a button for each participating organization. This way a mapathon leader or participant can be directed to their AOI and review their contributions and stats. From my interactions with the visualization, it was neat to see how some AOIs had mapping done over multiple days.
-			p.header-2 Validation
+			h3 Validation
 			p I believe validation is very important for BC2020, and more generally to OSM. It is not just about adding data, but about having data that is reliable. Also, validation is especially important because most mapathon participants were beginner armchair mappers and new to OSM. I wanted to make sure the visualization supports validation efforts, thus I added popups so users could select a building footprint and then be directed to that specific building in the iD editor. Also, whenever a user zooms into a selected AOI, they can click on a button to be directed to the task in the Canadian Tasking Manager, or directed to review the 
 				a.link(href='https://wiki.openstreetmap.org/wiki/WikiProject_Canada/Building_Canada_2020/OSMGeoWeek2017#Validation' target='_blank') validation documentation
 				|  I wrote up in the wiki. You can see the visualization on 
 				a.link(href='https://noznoc.github.io/bc2020-osmgeoweek2017' target='_blank') GitHub
 				| !
-			p.header-2 Conclusion
+			h3 Conclusion
 			p My work isn't done yet; it is just beginning. I am working with the universities to conduct validation and I intend on adapting the visualization to handle dynamic data that visualizations all changesets with #bc2020 in the comments. Please let me know if you are intersted in contributing or helping in any capacity! As mentioned above, the success of BC2020 requires a group of active participants!
 	.container
 		p#projects-3
@@ -85,15 +85,15 @@ block content
 				p To see the code, check out the 
 					a.link(href='https://github.com/Noznoc/geojson-api', target='_blank') GitHub repo
 					|.
-			p
-				img.image.image-wide(src='/images/geojsonapi.png')
-			p
-				img.image.image-wide(src='/images/ottawa.PNG')
-			p
-				img.image.image-wide(src='/images/gatineau.PNG')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(src='/images/geojsonapi.png')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(src='/images/ottawa.PNG')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(src='/images/gatineau.PNG')
 	.container
 		p#projects-2
-			h2 Open Data Standards Directory
+			h2.mt-4.mb-4 Open Data Standards Directory
 			p I was a research assistant and developer for the 
 				a.link(href='https://govex.jhu.edu/' target='_blank') Johns Hopkins University's Center for Government Excellence (GovEx)
 				|  and 
@@ -114,10 +114,10 @@ block content
 			p My part of the project involves designing and developing (full stack) the site that hosts this information. As I am new to site development, working on this project has taught me a lot. I learned how to develop a Postgres database, a Node.js and Express back-end, and a Pug and JQuery based front-end, which was then all hosted on the cloud server Heroku. To fully experience the site, check out the 
 				a.link(href='http://datastandards.directory/', target='_blank') GitHub repo
 				| .
-			p
-				img.image.image-wide(id='standards', src='images/standards-1.png')
-			p
-				img.image.image-wide(id='standards', src='images/standards-2.png')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(id='standards', src='images/standards-1.png')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(id='standards', src='images/standards-2.png')
 	.container
 		p#projects-1
 			h2.mt-4.mb-4 Interactive Visualization of Payments
@@ -128,8 +128,8 @@ block content
 				|  as a open data consultant and freelance web developer. International mining/oil extraction companies, such as Royal Dutch Shell, publish annual reports on their payments to government organizations and projects. For this project, I compiled data on 2015 payments from international extraction companies to government organizations and projects within Canada into a Google Sheet. I then standardized the data (e.g., converted currencies and units of energy) and then, using SQL, visualized the data into an interactive map and dashboard. In general, the visualizations (coded in JavaScript and D3.js and embedded in HTML) shows where mining projects and government organizations (e.g., municipalities and Indigenous groups) are located within Canada and how much these projects and organizations are paid by extraction companies within 2015. The final deliverables included a database of the payments for 2015, with the ability to add future payments; and, as I synced the visualizations to the database, the visualizations can update automatically when new data is added to the database. Through this work, I became familiar with how these companies document/publish their payments to government organizations, what Canadian organizations receive payments from these companies, and where mining projects occur in Canada. To see the source code, check out the 
 				a.link(href='http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html', target='_blank') GitHub repo
 				| .
-			p
-				img.image.image-wide(id='ivop' src='images/ivop.png')
+			.pt-2.d-flex.justify-content-around
+				img.img-thumbnail.mt-2.mb-4(id='ivop' src='images/ivop.png')
 	script.
 		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
 		addMap([-98.0046126,46.4760507], 0, 3, 8, coordinates, true, false, 'projects');

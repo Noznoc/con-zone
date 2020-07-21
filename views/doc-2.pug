@@ -1,18 +1,18 @@
 extends docs.pug
 block content
 	include mixins.pug
-	+sidebar(['collect', 'manage',  'visualize'], 'x', 'tutorial')
 	p This short tutorial describes how I collected, managed, and visualized the City of Vancouver's crime data using React as well as Mapbox Studio and GL JS. I conducted this project as a way to learn React, so this tutorial is catered towards those who know the basics of React; but, as the code is relatively simple, it can be understood by beginners. The code is accessible 
 		a.link(href='https://github.com/Noznoc/crimecouver' target='_blank') here
 		| .
-
-	img.image#gif(src='/images/doc2-0.gif')
+	
+	.justify-content-center.mb-2
+		img.img-thumbnail#gif(src='/images/doc2-0.gif')
 
 	p In 2017, the City of Vancouver released new crime data on their 
 		a.link(href='http://vancouver.ca/your-government/open-data-catalogue.aspx', target='blank') open data catalogue
 		| . As I wanted to learn React and I saw no pre-existing interactive data visualizations on Vancouver crime, this was a perfect opprotunity to develop an interactive map to learn React with Mapbox GL JS. The following discusses how I collected, managed, and visualized the data.
 
-	h2.header-1#doc-collect Data Collection
+	h2#doc-collect Data Collection
 
 	p I wanted to incorporate an interactive map into the data visualization, so I downloaded data that was explicitly georeferenced with coordinates.
 
@@ -39,7 +39,7 @@ block content
 
 	P I certainly have other plans to visualize the data; for example, since the metadata stores the date of the crime, I would like to visualize with a time slider the relation between time and type of crime. 
 
-	h2.header-1#doc-manage Data Management
+	h2#doc-manage Data Management
 
 	p For the crime data 2003-2016, I originally downloaded the JSON because I prefer to handle the data as a GeoJSON, but I had a difficult time converting the JSON’s projection on QGIS and ogr2ogr; so, instead I downloaded all the shapefiles. Basically when I tried to convert the JSON into a GeoJSON using the '... Save as' method on QGIS, the GeoJSON would state the CRS was EPSG 4362: WGS 84, but the coordinates were in meters, not decimal degrees.
 
@@ -73,13 +73,14 @@ block content
 
 	p Once I had the statistical crime data (count, mean, mode, median) for each neighbourhood represented in vancouver_crime, I followed the same steps as above to convert the shapefile into MBTiles (vancouver-crime-nhoods.mbtiles).
 
-	h2.header-1#doc-visualize Data Visualization
+	h2#doc-visualize Data Visualization
 
 	p To avoid slowing the browser with too much JavaScript, I decided to import the MBTiles (vancouver_crime.mbtiles and vancouver-crime-nhoods.mbtiles) into Mapbox Studio and then use Mapbox GL JS to interact with my custom style layer's data.
 
 	p In Mapbox Studio, I imported vancouver_crime.mbtiles as a new layer on my custom map style and then I created new layers from the vancouver_crime layer by filtering the data by year. Basically, I create a layer of crime data by each year between 2003 and 2016.
-
-	img.image#gif(src='/images/doc2-1.png')
+	
+	.justify-content-center.mb-2
+		img.img-thumbnail#gif(src='/images/doc2-1.png')
 
 	p After creating and designing all the layers, the next step was to import my custom map style into React, so I published the Mapbox style and copied the token and then I reviewed examples in the 
 		a.link(href='', target='_blank') Mapbox react-examples repo
@@ -87,7 +88,7 @@ block content
 		a.link(href='', target='_blank') POI blog post
 		| . This source was useful to develop React infrastructure necessary to use Mapbox GL JS with React. 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 			import React from 'react'
 			import ReactDOM from 'react-dom'
 			import mapboxgl from 'mapbox-gl'
@@ -109,7 +110,7 @@ block content
 		a.code-text componentDidMount()
 		| : 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 			this.map = new mapboxgl.Map({
 				container: this.mapContainer,
 				style: 'mapbox://styles/julconz/cj7rpgkw4e3yl2smwad8ddg7c',
@@ -123,7 +124,7 @@ block content
 		a.code-text return()
 		|  I added the map container to store the map:
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		<div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
 
 	p With a rendered map, the next step was to develop the interactive components for the map. More specifically, I coded with Mapbox GL JS and React to develop drop-drown menus and a submit button that allows users to select and submit what data appears on the map.
@@ -138,7 +139,7 @@ block content
 		a.code-text types
 		|  stores the name and value of the crime types so that a user could filter data by type of crime. The following shows an example of how I declared the variables: 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		const years = [{name: 'all'}, {name: '2016'}, {name: '2015'}, ... {name: '2003'}];
 		const types = [{name: 'all', value: 'all'}, ... {name: 'Other Theft', value: 'Other Theft'} ... ];
 
@@ -146,7 +147,7 @@ block content
 		a.code-text render()
 		| :
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		const renderYears = (years, i) => {
 			return (
 				<option key={i} value={years.name}>{years.name}</option>
@@ -163,7 +164,7 @@ block content
 		a.code-text return()
 		|  I added the following: 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		<div className="filters">
 			<form onClick={this.handleSubmit.bind(this)}>
 				<div className="filter-container">
@@ -204,7 +205,7 @@ block content
 		a.code-text form
 		|  tag:
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		  handleSubmit(event) {
 		    event.preventDefault();
 
@@ -223,7 +224,7 @@ block content
 		a.code-text setStats()
 		| : 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		setFilter(values){
 			var filter = [];
 
@@ -279,7 +280,7 @@ block content
 
 	p Since I decided to only have a choropleth for 2016 data, I added a toggle function that would only be visible when the 2016 year is selected. First, I declared the toggle options (i.e., what layers can be toggled to appear on the map):
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		const options = [{
 			name: 'Crime by Neighbourhood 2016',
 			layer: 'vancouver-crime-nhoods',
@@ -295,7 +296,7 @@ block content
 		a.code-text return()
 		|  I added the following: 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		// toggle
 		<div id="toggle" className="legend toggle-group border border--1 shadow-darken10 z1">
 			{options.map(renderToggle)}
@@ -314,7 +315,7 @@ block content
 		a.code-text options
 		|  and create the toggle function options and choropleth legend:
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		const renderToggle = (option, i) => {
 			return (
 				<label key={i} className="toggle-container">
@@ -338,7 +339,7 @@ block content
 
 	p Lastly, none of the above code would work unless I added a function for when the toggle was changed by users:
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		handleToggle(event) {
 			let layer = this.state.active.layer;
 			let otherLayer = this.state.active.otherLayer;
@@ -351,7 +352,7 @@ block content
 		a.code-text handleToggle(event)
 		| : 
 
-	textarea(readonly = 'readonly', disabled='disabled').
+	textarea(readonly = 'readonly').
 		componentDidUpdate() {
 			this.handleToggle();
 		}

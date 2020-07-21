@@ -7,7 +7,7 @@ html
 
 		.site-content
 			.text
-				h2.title= title
+				h1.title= title
 				p.subtitle= subtitle
 				- if (id == 'blog')
 					p#buttons
@@ -20,9 +20,9 @@ html
 					+post(blog.title, blog.subtitle, blog.date, blog.tags, blog.id, 'blog', id)
 				- if (id == 'blog-post')
 					.post-links-footer.row.d-flex.justify-content-around.pt-4
-						.col-lg-5.button.clipboard(data-clipboard-text='www.juliaconzon.com/blog/' + data[0].id, title='Share')
+						.col-5.col-xs-3.button.clipboard(data-clipboard-text='www.juliaconzon.com/blog/' + data[0].id, title='Share')
 							i.fa.fa-share-square.txt-lrg(aria-hidden='true')
-						a.col-lg-5.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
+						a.col-5.col-xs-3.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
 							i.fa.fa-envelope.txt-lrg(aria-hidden='true')
 					script.
 						openPost();

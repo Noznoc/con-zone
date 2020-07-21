@@ -7,15 +7,15 @@ block content
 			a.link(href='http://www.fnha.ca/what-we-do/environmental-health/drinking-water-advisories', target='_blank') First Nations Health Authority (FNHA)
 			|. The former had the desired data for all provinces south of 60, except for in British Columbia (BC), so the latter source was used to obtain BC data. 
 			p Unfortunately, the data was not able to be downloaded. To overcome this barrier, I decided scrapping the sites' XML was the best solution to obtain the data. Since I had some experience using XPath in Google Sheets to scrape sites' DOMS, I decided to approach the visualization with the following work flow:
-		ul.image-row
-			li.iconography
-				h4 SCRAPE DATA IN GOOGLE SHEETS W/ XPATH
-			i.fa.fa-arrow-right.icon(aria-hidden='true')
-			li.iconography
-				h4 USE TABLETOP TO IMPORT DATA AS JSON INTO JS
-			i.fa.fa-arrow-right.icon(aria-hidden='true')
-			li.iconography
-				h4 MAPBOX GL JS TO VISUALIZE DATA
+		.row.d-flex.justify-content-center.pt-2.pb-2.text-center
+			.col-3.col-xs-1.iconography
+				CRAPE DATA IN GOOGLE SHEETS W/ XPATH
+			i.fa.fa-arrow-right.txt-xlrg.p-2(aria-hidden='true')
+			.col-3.col-xs-1.iconography
+				USE TABLETOP TO IMPORT DATA AS JSON INTO JS
+			i.fa.fa-arrow-right.txt-xlrg.p-2(aria-hidden='true')
+			.col-3.col-xs-1.iconography
+				MAPBOX GL JS TO VISUALIZE DATA
 		p This approach allows the visualiztion to be dynamic, which I will detail more below. If you want to check out the complete code, view the 
 			a.link(href='https://github.com/Noznoc/h2-no', target='_blank') repo
 			| .
@@ -25,13 +25,14 @@ block content
 			| . In Google Sheets you can use the 
 			a.code-text =IMPORTXML("[url]", "[XPath query]")
 			|  function to use XPath to scrape a site's XML. As can be seen in the two images below, the two data sources had different ways of presenting the data, so I had to account for this when scraping the sites.
-		img.image(src='/images/doc4-0.png')
-		.subtitle In the Government of Canada site, the data was separated by region in tables. There were 8 columns to represent the data.
-		p
-		img.image(src='/images/doc4-1.png')
-		.subtitle In the FNHA site, the data was separated by advisory type ("Boil Water Advisory (BWA)" and "Do Not Consume (DNC)") in tables. Because of this, there were only 7 columns to represent the data.
+		.justify-content-center.mb-2
+			img.img-thumbnail(src='/images/doc4-0.png')
+			.img-subtitle In the Government of Canada site, the data was separated by region in tables. There were 8 columns to represent the data.
+		.justify-content-center.mb-2
+			img.img-thumbnail(src='/images/doc4-1.png')
+			.img-subtitle In the FNHA site, the data was separated by advisory type ("Boil Water Advisory (BWA)" and "Do Not Consume (DNC)") in tables. Because of this, there were only 7 columns to represent the data.
 		p I used the following queries to scrape the data from the two different sources: 
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			=IMPORTXML("https://www.canada.ca/en/health-canada/topics/health-environment/water-quality-health/drinking-water/advisories-first-nations-south-60.html", "//tbody/tr")
 
 			=IMPORTXML("http://www.fnha.ca/what-we-do/environmental-health/drinking-water-advisories", "//tbody/tr[@class='ms-rteTableOddRow-3']")
@@ -39,11 +40,12 @@ block content
 			a.code-text =query()
 			|  function. (It would have been nice if the two different sources released their data in the same format, because then these steps would not have been necessary. This is why data standards are valuable!). Also, I wanted to make the data cleaning as automated as possible with Google Sheet functions because data is automatically scraped from the sites into the Google Sheets with the XPath queries.
 		p With the necessary data all in one sheet, the next step was geocoding the data so that I could plot the x,y coordinates onto an interactive map. Initially I used an already existing Google Sheets Add-on called "Geocode Cells," which uses the Google Maps API to geocode a sheet's column into two additional columns (lat and lng). The results can be seen in the image below.
-		img.image(src='/images/doc4-2.png') 
+		.justify-content-center.mb-2
+			img.img-thumbnail(src='/images/doc4-2.png') 
 		p However, this methods prevents the geocoding being automatic when new rows are scraped from the data sources; thus, I created my own function 
 			a.code-text =geocode()
 			|  that geocodes the "community" column's cells. I created the function in the Google Script Editor (in Google Sheets go to Tools > Script editor...). The code can be seen below:
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			function geocode(input){
 			  var geocoder = Maps.newGeocoder(); // Google geocoder variable
 			  if (input=="") // if the cell has an empty address because the user inputted coordinates
@@ -60,7 +62,8 @@ block content
 			}
 		p The script uses the Google Maps Geocoding API to match the cell's name with x,y coordinates.
 		p Having an automatic geocoder is useful for a dynamic dataset, but a human eye is still necessary to ensure the geocoding is accurate. The geocoder Add-on used the "Community" column names; but, if a First Nation's community name also exists in a different location, then the geocoder may pick up that location instead. For example, the geocoder geocoded the "Big Island" community to Big Island, Hawaii.
-		img.image(src='/images/doc4-3.png') 
+		.justify-content-center.mb-2
+			img.img-thumbnail(src='/images/doc4-3.png') 
 		h2.header-1 TableTop
 		p With all the data cleaned in Google Sheets, the next step was pulling the data into JavaScript with the  
 			a.link(href='https://github.com/jsoma/tabletop', target='_blank') TableTop
@@ -71,7 +74,7 @@ block content
 			|  to write my JS code. In 
 			a.code-text index.js
 			|  I had to used the following code to use TableTop to import the Google Sheet data:
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			var public_spreadsheet_url = '[Google Sheet url]';
 			function init() { // function that initializes TableTop
 			Tabletop.init( { 
@@ -90,7 +93,7 @@ block content
 			|  to have a map exist in 
 			a.code-text index.html
 			| :
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			mapboxgl.accessToken = '[Mapbox access token]';
 			var map = new mapboxgl.Map({
 			  container: 'map',
@@ -99,7 +102,7 @@ block content
 		p At this point 
 			a.code-text index.js
 			|  should look like this:
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			window.onload = function() {init()}; // initialize TableTop on window load
 			
 			var public_spreadsheet_url = '[Google Sheet url]';
@@ -123,7 +126,7 @@ block content
 		p And 
 			a.code-text index.html
 			|  should look this this:
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			<html>	
 				<head>
 					<meta charset='utf-8' />
@@ -145,7 +148,7 @@ block content
 		p Within 
 			a.code-text showInfo()
 			|  I had to create the lat and lng columns into a GeoJSON feature class of points. I also added properties in the GeoJSON so that I could add popups with information regarding each point, such as the name of the First Nations community and when the advisory was set. The follow code shows how I created the feature class:
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			var features = [];
 
 			data.forEach(function(data) {
@@ -157,7 +160,7 @@ block content
 				}
 			});
 		p Then with Mapbox GL JS, I had to create a new GeoJSON data source as well as a new map layer so that the data could actually appear on the Mapbox map:
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			map.addSource('markers', {
 				type: 'geojson',
 				data: {
@@ -190,5 +193,3 @@ block content
 			|  and 
 			a.link(href='https://www.mapbox.com/help/show-changes-over-time/', target='_blank') "Show changes over time"
 			| .
-
-

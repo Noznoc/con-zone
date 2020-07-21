@@ -1,6 +1,6 @@
 mixin post(title, subtitle, date, tags, link, page, id)
 	.container.post#post
-		.post-links.row.col-lg-4.pt-1
+		.post-links.row.col-lg-4.pt-1.pl-2
 			.col-3.p-0
 				a(href='/' + page + '/' + tags)
 					button.button.tag.txt-sm.p-1.m-1= tags
@@ -8,19 +8,19 @@ mixin post(title, subtitle, date, tags, link, page, id)
 				i.fa.fa-share-square.button.tag.txt-sm(aria-hidden='true')
 		- if (id !== 'blog-post' && id !== 'doc-post')
 			a(href='/' + page + '/' + link).post-link
-				h2.pt-2= title
-				h3.txt-mdm=date
+				h1.pt-2= title
+				h2.txt-mdm.subtitle=date
 				- if (subtitle)
-					h3.txt-mdm.subtitle= subtitle
+					h2.txt-mdm.subtitle= subtitle
 				.post-text
 					block content
 
 				script. 
 					$('.post').addClass('hover');
 		- else
-			h2.pt-2= title
-			h3.txt-mdm=date
-			h3.txt-mdm.subtitle= subtitle
+			h1.pt-2= title
+			h2.txt-mdm.subtitle=date
+			h2.txt-mdm.subtitle= subtitle
 			.post-text
 				block content
 

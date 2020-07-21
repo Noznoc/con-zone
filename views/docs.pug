@@ -7,11 +7,11 @@ html
 
 		.site-content
 			.text
-				h2.title= title
+				h1.title= title
 				p.subtitle= subtitle
 				- if (id == 'docs')
 					p#buttons
-						a(href='/docs/guide')
+						a(href='/docs/guide', title='test', data-toggle='test')
 							button.button.m-2 guides
 						a(href='/docs/tutorial')
 							button.button.m-2 tutorials
@@ -20,9 +20,9 @@ html
 					+post(doc.title, doc.subtitle, doc.date, doc.tags, doc.id, 'docs', id)
 				- if (id == 'doc-post')
 					.post-links-footer.row.d-flex.justify-content-around.pt-4
-						.col-lg-5.button.clipboard(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, title='Click to copy to clipboard')
-							i.fa.fa-link.txt-lrg(aria-hidden='true')
-						a.col-lg-5.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
+						.col-5.col-xs-3.button.clipboard(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, title='Click to copy to clipboard', data-toggle='tooltip')
+							i.fa.fa-share-square.txt-lrg(aria-hidden='true')
+						a.col-5.col-xs-3.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
 							i.fa.fa-envelope.txt-lrg(aria-hidden='true')
 					script.
 						openPost();
@@ -32,7 +32,7 @@ html
 		addMap([-123.2415, 49.2611], 10, 10, 12, '', false, false, 'docs');
 		$('#legend').find('h4').html('PLACES I HAVE TRAVELED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 		new Clipboard('.clipboard');
-		$(function() {
-			$(document).tooltip();
-		});
 		$('#legend').find('h4').html('VANCOUVER CRIME (2016). VIEW TUTORIAL <a href="/docs/docs-2" target="_blank" class="links">HERE</a>');
+		$(window).load(function() {	
+			$('.button').tooltip({container: '.site-content'});
+		});
