@@ -1,13 +1,15 @@
 // code adadpted from https://bl.ocks.org/mbostock/4060954
-function streamgraph(){
-	$('#header-map').html('<svg id="streamgraph" width="2000" height="500" margin="0px" padding="0px"></svg>');
-
+function streamgraph(w){
+	console.log("TEST")
+	const h = window.innerHeight + 30;
+	$('#stream').html('<svg id="streamgraph" width="'+w*1.3+'" height="'+h/1.3+'" margin="0px" padding="0px"></svg>');
+	
 	window.setInterval(function(){
 	  transition();
-	}, 4000);
+	}, 5000);
 
 	var n = 45, // number of layers
-	    m = 300, // number of samples per layer
+	    m = 100, // number of samples per layer
 	    k = 10; // number of bumps per layer
 
 	var stack = d3.stack().keys(d3.range(n)).offset(d3.stackOffsetWiggle),
@@ -27,7 +29,7 @@ function streamgraph(){
 	    .domain([d3.min(layers, stackMin), d3.max(layers, stackMax)])
 	    .range([height, 0]);
 
-	var z = d3.interpolateRgb("#00C3B4","#d7c7cd")
+	var z = d3.interpolateRgb("#FFF","#d7c7cd")
 
 	var area = d3.area()
 	    .x(function(d, i) { return x(i); })

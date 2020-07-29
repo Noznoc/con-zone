@@ -20,19 +20,20 @@ html
 					+post(doc.title, doc.subtitle, doc.date, doc.tags, doc.id, 'docs', id)
 				- if (id == 'doc-post')
 					.post-links-footer.row.d-flex.justify-content-around.pt-4
-						.col-5.col-xs-3.button.clipboard(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, title='Click to copy to clipboard', data-toggle='tooltip')
+						#clipboard.col-5.col-xs-3.button(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, data-toggle='tooltip', title='Click to copy and share the post!')
 							i.fa.fa-share-square.txt-lrg(aria-hidden='true')
-						a.col-5.col-xs-3.button(href='mailto:julia.conzon@gmail.com', title='Contact me')
+						a.col-5.col-xs-3.button(href='mailto:julia.conzon@gmail.com', data-toggle='tooltip', title='Click to send email to Julia Conzon')
 							i.fa.fa-envelope.txt-lrg(aria-hidden='true')
 					script.
 						openPost();
 		include footer.pug
 
 	script.
-		addMap([-123.2415, 49.2611], 10, 10, 12, '', false, false, 'docs');
-		$('#legend').find('h4').html('PLACES I HAVE TRAVELED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
-		new Clipboard('.clipboard');
-		$('#legend').find('h4').html('VANCOUVER CRIME (2016). VIEW TUTORIAL <a href="/docs/docs-2" target="_blank" class="links">HERE</a>');
-		$(window).load(function() {	
-			$('.button').tooltip({container: '.site-content'});
+		$('[data-toggle="tooltip"]').tooltip({container: '.post-links-footer'});
+		new ClipboardJS('.post-links-footer .button');
+		$('#clipboard').on('click', function(){
+			$(this).attr('data-original-title', "Copied!").tooltip('show')
+		});
+		$('#clipboard').on('mouseover', function(){
+			$(this).attr('data-original-title', "Click to copy and share the post!").tooltip('show')
 		});

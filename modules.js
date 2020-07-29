@@ -77,10 +77,6 @@ function getData(req, res, next){
   }
 }
 
-function contact(req, res, next){
-  res.render('contact', {layout: 'layout', id: 'contact'});
-}
-
 function home(req, res, next){
   res.render('home', {layout: 'layout', id: 'home'});
 }
@@ -89,7 +85,6 @@ function home(req, res, next){
 module.exports = {
   about: about,
   projects: projects,
-  contact: contact,
   blog: blog,
   getData: getData,
   home: home,

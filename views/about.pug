@@ -1,5 +1,5 @@
 extends layout.pug
-block content	
+block content
 	h1.title For a detailed resume, check out 
 		strong
 			a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn
@@ -156,9 +156,6 @@ block content
 					li Ran a cost distance analysis that identified a new hiking path in North Vancouver
 
 	script.
-		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-		addMap([-98.0046126,46.4760507], 0, 3, 8, coordinates, true, false, 'projects');
-		$('#legend').find('h4').html('PLACES I HAVE WORKED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');
 		    $('html, body').animate({

@@ -7,14 +7,14 @@ block content
 			a.link(href='http://www.fnha.ca/what-we-do/environmental-health/drinking-water-advisories', target='_blank') First Nations Health Authority (FNHA)
 			|. The former had the desired data for all provinces south of 60, except for in British Columbia (BC), so the latter source was used to obtain BC data. 
 			p Unfortunately, the data was not able to be downloaded. To overcome this barrier, I decided scrapping the sites' XML was the best solution to obtain the data. Since I had some experience using XPath in Google Sheets to scrape sites' DOMS, I decided to approach the visualization with the following work flow:
-		.row.d-flex.justify-content-center.pt-2.pb-2.text-center
-			.col-3.col-xs-1.iconography
+		.row.d-flex.justify-content-center.pt-2.pb-2.text-center.m-2
+			.col-12.iconography.p-2.m-2
 				CRAPE DATA IN GOOGLE SHEETS W/ XPATH
-			i.fa.fa-arrow-right.txt-xlrg.p-2(aria-hidden='true')
-			.col-3.col-xs-1.iconography
+			i.fa.fa-arrow-down.txt-xlrg.p-2(aria-hidden='true')
+			.col-12.iconography.p-2.m-2
 				USE TABLETOP TO IMPORT DATA AS JSON INTO JS
-			i.fa.fa-arrow-right.txt-xlrg.p-2(aria-hidden='true')
-			.col-3.col-xs-1.iconography
+			i.fa.fa-arrow-down.txt-xlrg.p-2(aria-hidden='true')
+			.col-12.iconography.p-2.m-2
 				MAPBOX GL JS TO VISUALIZE DATA
 		p This approach allows the visualiztion to be dynamic, which I will detail more below. If you want to check out the complete code, view the 
 			a.link(href='https://github.com/Noznoc/h2-no', target='_blank') repo

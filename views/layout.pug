@@ -6,14 +6,6 @@ html
 		include header.pug
 
 		.site-content
-			.text
 				block content
 
 		include footer.pug
-
-		script.
-			new Clipboard('.clipboard');
-			$(function() {
-				$(document).tooltip();
-			});
-
