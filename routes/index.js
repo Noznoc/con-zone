@@ -3,7 +3,6 @@ const router = express.Router(); // defining the router, which define an app beh
 const mods = require('../modules');
 
 router.get('/', mods.home);
-router.get('/contact', mods.contact);
 router.get('/blog', mods.blog);
 router.get('/projects', mods.projects);
 router.get('/about', mods.about);

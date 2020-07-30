@@ -6,9 +6,9 @@ html
 		include header.pug
 
 		.site-content
-			.text
+			.container(style="border:none;")
 				h1.title= title
-				p.subtitle= subtitle
+				p= subtitle
 				- if (id == 'docs')
 					p#buttons
 						a(href='/docs/guide', title='test', data-toggle='test')
@@ -19,11 +19,6 @@ html
 				each doc in data
 					+post(doc.title, doc.subtitle, doc.date, doc.tags, doc.id, 'docs', id)
 				- if (id == 'doc-post')
-					.post-links-footer.row.d-flex.justify-content-around.pt-4
-						#clipboard.col-5.col-xs-3.button(data-clipboard-text='www.juliaconzon.com/docs/' + data[0].id, data-toggle='tooltip', title='Click to copy and share the post!')
-							i.fa.fa-share-square.txt-lrg(aria-hidden='true')
-						a.col-5.col-xs-3.button(href='mailto:julia.conzon@gmail.com', data-toggle='tooltip', title='Click to send email to Julia Conzon')
-							i.fa.fa-envelope.txt-lrg(aria-hidden='true')
 					script.
 						openPost();
 		include footer.pug
@@ -31,9 +26,9 @@ html
 	script.
 		$('[data-toggle="tooltip"]').tooltip({container: '.post-links-footer'});
 		new ClipboardJS('.post-links-footer .button');
-		$('#clipboard').on('click', function(){
-			$(this).attr('data-original-title', "Copied!").tooltip('show')
+		$('.clipboard').on('click', function(){
+			$(this).attr('data-original-title', 'Copied!').tooltip('show')
 		});
-		$('#clipboard').on('mouseover', function(){
-			$(this).attr('data-original-title', "Click to copy and share the post!").tooltip('show')
+		$('.clipboard').on('mouseover', function(){
+			$(this).attr('data-original-title', 'Click to copy and share the post!').tooltip('show')
 		});

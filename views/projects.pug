@@ -1,16 +1,17 @@
 extends layout.pug
 block content
-	h1.title All code is accessible in my 
-		a.link(href='https://github.com/Noznoc', target='_blank') GitHub repos
-		| . Also, check out my 
-		a.link(href='/docs/tutorial', target='_blank') tutorials
-		| !
-	p#buttons
-		button.button.m-2(name='projects-5') ESDC
-		button.button.m-2(name='projects-4') Mapbox
-		button.button.m-2(name='projects-3') StatCan
-		button.button.m-2(name='projects-2') GovEx
-		button.button.m-2(name='projects-1') PWYP
+	.container(style='border:none;')
+		h1.title All code is accessible in my 
+			a.link(href='https://github.com/Noznoc', target='_blank') GitHub repos
+			| . Also, check out my 
+			a.link(href='/docs/tutorial', target='_blank') tutorials
+			| !
+		p#buttons
+			button.button.m-2(name='projects-5') ESDC
+			button.button.m-2(name='projects-4') Mapbox
+			button.button.m-2(name='projects-3') StatCan
+			button.button.m-2(name='projects-2') GovEx
+			button.button.m-2(name='projects-1') PWYP
 	.container
 		p#projects-5
 			h2.mt-4.mb-4 Potential Accessibility Software Service (PASS)
@@ -20,12 +21,12 @@ block content
 				a.link(href='https://github.com/DSD-ESDC-EDSC/pass', target='_blank') GitHub repo
 				| .
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(src='/images/pass_v0.1.gif')
+				img.img-thumbnail.mt-2.mb-4(src='/images/pass_v0.1.gif' alt='GIF demo for the Potential Accessibility Software Service web app')
 	.container
 		p#projects-4
 			h2.mt-4.mb-4 Building Canada 2020 Project (#BC2020)
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(src='/images/bc2020.gif')
+				img.img-thumbnail.mt-2.mb-4(src='/images/bc2020.gif' alt='GIF demo for the Building Canada 2020 mapathon results')
 			p Building Canada 2020 project (BC2020) is a community-led initiative driven by a simple and clear vision: map all buildings in Canada on OpenStreetMap (OSM) by the year 2020. While interning at Mapbox, the Community Team supported my participation in the BC2020, but but my involvement actually initiated from my work at Statistics Canada on the 
 				a.link(href='https://www.statcan.gc.ca/eng/crowdsourcing' target='_blank') Crowdsourcing project
 				| , as well as my personal interests in volunteered geographic information. For more details about the project, check out the Mapbox "Points of Interest"   
@@ -43,7 +44,7 @@ block content
 				a.link(href='http://tasks.osmcanada.ca/' target='_blank') Canadian Tasking Manager
 				|  for the mapathons so that the participants had clear instructions on how to map buildings on OSM with the iD editor. (Note: JOSM would have been preferred because the building_tools plug-in makes adding buildings seamless, but there is a learning curve because JOSM's graphical interface is not user-friendly.) After communicating with a Canadian OSM community member about my intentions, I was granted admin rights to create projects in the Tasking Manager. The image below shows a task I created for North Battleford, SASK.
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(src='/images/bc2020_task.png')
+				img.img-thumbnail.mt-2.mb-4(src='/images/bc2020_task.png' alt='Image of the BC2020 mapathon tasks')
 			h3 Data Visualization
 			p After the mapathons took place between Nov. 10 - 17, I wanted to analyze and visualize the contributed data. First, I used 
 				a.link(href='https://overpass-turbo' target='_blank') Overpass Turbo
@@ -86,11 +87,11 @@ block content
 					a.link(href='https://github.com/Noznoc/geojson-api', target='_blank') GitHub repo
 					|.
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(src='/images/geojsonapi.png')
+				img.img-thumbnail.mt-2.mb-4(src='/images/geojsonapi.png' alt='Image of the tool created to visualize building footprints from OpenStreetMap')
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(src='/images/ottawa.PNG')
+				img.img-thumbnail.mt-2.mb-4(src='/images/ottawa.PNG' alt='Image of the building footprints in Ottawa, Canada, collected from OpenStreetMap')
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(src='/images/gatineau.PNG')
+				img.img-thumbnail.mt-2.mb-4(src='/images/gatineau.PNG' alt='Image of the building footprints in Gatineau, Canada, collected from OpenStreetMap')
 	.container
 		p#projects-2
 			h2.mt-4.mb-4 Open Data Standards Directory
@@ -115,9 +116,9 @@ block content
 				a.link(href='http://datastandards.directory/', target='_blank') GitHub repo
 				| .
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(id='standards', src='images/standards-1.png')
+				img.img-thumbnail.mt-2.mb-4(id='standards', src='images/standards-1.png' alt='Image demo of the Open Data Standards Directory Home web page')
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(id='standards', src='images/standards-2.png')
+				img.img-thumbnail.mt-2.mb-4(id='standards', src='images/standards-2.png' alt='Image demo of the Open Data Standards Directory Search web page')
 	.container
 		p#projects-1
 			h2.mt-4.mb-4 Interactive Visualization of Payments
@@ -129,7 +130,7 @@ block content
 				a.link(href='http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html', target='_blank') GitHub repo
 				| .
 			.pt-2.d-flex.justify-content-around
-				img.img-thumbnail.mt-2.mb-4(id='ivop' src='images/ivop.png')
+				img.img-thumbnail.mt-2.mb-4(id='ivop' src='images/ivop.png' alt='Image demo of the interactive dashboard for Publish What You Pay Canada')
 	script.
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');

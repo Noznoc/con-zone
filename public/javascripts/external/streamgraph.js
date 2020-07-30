@@ -1,6 +1,5 @@
 // code adadpted from https://bl.ocks.org/mbostock/4060954
 function streamgraph(w){
-	console.log("TEST")
 	const h = window.innerHeight + 30;
 	$('#stream').html('<svg id="streamgraph" width="'+w*1.3+'" height="'+h/1.3+'" margin="0px" padding="0px"></svg>');
 	
@@ -29,7 +28,7 @@ function streamgraph(w){
 	    .domain([d3.min(layers, stackMin), d3.max(layers, stackMax)])
 	    .range([height, 0]);
 
-	var z = d3.interpolateRgb("#FFF","#d7c7cd")
+	var z = d3.interpolateRgb("#FFF","#D7DDEA")
 
 	var area = d3.area()
 	    .x(function(d, i) { return x(i); })
