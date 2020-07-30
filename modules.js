@@ -11,11 +11,11 @@ function projects(req, res, next){
 }
 
 function blog(req, res, next){
-    res.render('blog', {layout: 'blog', data: blogData, id: 'blog', title: 'Check out my blog pages'});
+    res.render('blog', {layout: 'blog', data: blogData, id: 'blog', title: 'Blog on my thoughts and experiences. Check out my blogs!'});
 }
 
 function docs(req, res, next){
-    res.render('docs', {layout: 'docs', data: docData, id: 'docs', title: 'Check out my documentation'});
+    res.render('docs', {layout: 'docs', data: docData, id: 'docs', title: 'Documentation on my projects. Check out below!'});
 }
 
 function getData(req, res, next){
@@ -77,10 +77,6 @@ function getData(req, res, next){
   }
 }
 
-function contact(req, res, next){
-  res.render('contact', {layout: 'layout', id: 'contact'});
-}
-
 function home(req, res, next){
   res.render('home', {layout: 'layout', id: 'home'});
 }
@@ -89,7 +85,6 @@ function home(req, res, next){
 module.exports = {
   about: about,
   projects: projects,
-  contact: contact,
   blog: blog,
   getData: getData,
   home: home,

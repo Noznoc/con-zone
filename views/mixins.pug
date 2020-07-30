@@ -1,29 +1,37 @@
 mixin post(title, subtitle, date, tags, link, page, id)
 	.container.post#post
-		ul.post-links
-			li
+		.post-links.row.col-lg-4.pt-1.pl-2
+			.col-3.p-0
 				a(href='/' + page + '/' + tags)
-					button.tag= tags
-			li.clipboard.icon(data-clipboard-text='www.juliaconzon.com/' + page + '/' + link, title='Click to copy to clipboard')
-				i.fa.fa-link(aria-hidden='true')
+					button.button.tag.txt-sm.p-1.m-1.w-100= tags
+			.col-2.clipboard.icon.button.text-center.m-1.ml-2(data-clipboard-text='www.juliaconzon.com/' + page + '/' + link, title='Click to copy and share the post')
+				i.fa.fa-share-square.txt-sm(aria-hidden='true')
 		- if (id !== 'blog-post' && id !== 'doc-post')
 			a(href='/' + page + '/' + link).post-link
-				h2.header= title
-				h3=date
-				h3 
-					i=subtitle
+				h1.pt-2= title
+				h2.txt-mdm.subtitle=date
+				- if (subtitle)
+					h2.txt-mdm.subtitle= subtitle
 				.post-text
 					block content
 
 				script. 
 					$('.post').addClass('hover');
 		- else
-			h2.header= title
-			h3=date
-			h3 
-				i=subtitle
+			h1.pt-2= title
+			h2.txt-mdm.subtitle=date
+			h2.txt-mdm.subtitle= subtitle
 			.post-text
 				block content
+				
+		script.
+			new ClipboardJS('.clipboard');
+			$('.clipboard').on('click', function(){
+				$(this).attr('data-original-title', "Copied!").tooltip('show')
+			});
+			$('.clipboard').on('mouseover', function(){
+				$(this).attr('data-original-title', "Click to copy and share the post").tooltip('show')
+			});
 
 mixin sidebar(sections, tutorials, id)
 	.sidebar

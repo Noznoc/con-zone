@@ -5,11 +5,13 @@ block content
 		| !
 	.post-map-container
 		#post-map.map
-		.post-map-legend
-			i#backward.fa.fa-arrow-circle-o-left.icon.map-button(aria-hidden='true')
-			i#forward.fa.fa-arrow-circle-o-right.icon.map-button(aria-hidden='true')
-			p From October 6-7, 2017, I traveled from Ayacucho to Cusco where I met my friend to trek the Salkantay Trail to Machu Picchu! Check out the story map below to see our Cusco region adventure from October 7-15!
-			video.image-round.image(src='/images/day0_0.mp4' autoplay)
+		.post-map-legend.text-center
+			i#backward.fa.fa-arrow-circle-o-left.icon.map-button.txt-lrg.m-3(aria-hidden='true')
+			i#forward.fa.fa-arrow-circle-o-right.icon.map-button.txt-lrg.m-3(aria-hidden='true')
+			p.text-left From October 6-7, 2017, I traveled from Ayacucho to Cusco where I met my friend to trek the Salkantay Trail to Machu Picchu! Check out the story map below to see our Cusco region adventure from October 7-15!
+			video.img(src='/images/day0_0.mp4' autoplay style="width: 100%")
+	script(type='text/javascript' src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js')
+	link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet')
 	script(type='text/javascript' src='../javascripts/salkantay.js')
 	script.
 		salkantay();

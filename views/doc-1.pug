@@ -1,13 +1,11 @@
 extends docs.pug
 block content
-	br
-	p#buttons
-		button.button.button-xsmall(name='doc-collect') collect
-		button.button.button-xsmall(name='doc-manage') manage
-		button.button.button-xsmall(name='doc-analyze') analyze
-		button.button.button-xsmall(name='doc-visualize') visualize
-		button.button.button-xsmall(name='doc-tools') tools
-	+sidebar(['collect', 'manage', 'analyze', 'visualize', 'tools'], ['crimecouver'], 'doc-2')
+	.row.d-flex.justify-content-center.pt-2.pb-2
+		button.button.m-2(name='doc-collect') collect
+		button.button.m-2(name='doc-manage') manage
+		button.button.m-2(name='doc-analyze') analyze
+		button.button.m-2(name='doc-visualize') visualize
+		button.button.m-2(name='doc-tools') tools
 	.paragraph
 		p Over the past year and a half I have been educating myself on the various open sourced tools / libraries / software that exist for collecting, managing/cleaning, analyzing, and visualizing geospatial data. I have learned through various resources: blog tutorials, YouTube videos, conferences, academic papers, and work. In this post I will share with you the main tools I use for my work. This guide is aimed for beginners in the GIS field. 
 
@@ -19,19 +17,15 @@ block content
 			a.link(href='./guides/tutorials') tutorial
 			|  that shows how to build  an interactive Mapbox GL JS React map.
 
-		ul.image-row
-			li
-				img.image.image-round.xsmall(src='/images/doc1-0.png')
-			li
-				img.image.image-round.xsmall(src='/images/doc1-3.png')
-			li
-				img.image.image-round.xsmall(src='/images/doc1-1.png')
-			li
-				img.image.image-round.xsmall(src='/images/doc1-6.png')
+		.row.pt-2.pb-2.d-flex.justify-content-around
+			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-0.png')
+			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-3.png')
+			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-1.png')
+			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-6.png')
 		
-		h2.header-1#doc-collect Data Collection
+		h2#doc-collect Data Collection
 
-		p.header-2 Data
+		h3 Data
 
 		p The data I handle is either implicitly or explicitly georeferenced, or both. By implicit, I mean the geographic reference (i.e., the reference to place or space) is implied through text, such as text in a tweet or the tweeter's profile location. By explicit, I mean the geographic reference is implied through geographic coordinates, which assigns it to a specific place on Earth's surface. 
 
@@ -51,7 +45,7 @@ block content
 			a.link(href='https://en.wikipedia.org/wiki/Comma-separated_values' target='_blank') csv
 			| .
 
-		p.header-2 Data Sources
+		h3 Data Sources
 
 		p I collect the data through various sources. If I am working for a client, they usually provide me with the data; but, for my own projects, I search for data from the following sources:
 
@@ -61,7 +55,7 @@ block content
 			li OpenStreetMap (OSM)
 			li Text mining / scraping (e.g., Twitter, Kijiji ads)
 
-		p.header-2 Data Extraction / Clean
+		h3 Data Extraction / Clean
 
 		p There are various ways to extract the data from the sources listed above. Some methods require more technical experience, such as using the command line, while others offer a user-friendly graphical interface to extract data.
 
@@ -109,15 +103,15 @@ block content
 			a.link(href='http://adilmoujahid.com/posts/2014/07/twitter-analytics/' target='_blank') this tutorial
 			| . Tweets and other social media platforms have become sources for both implicit and explicit georeferenced user-generated content. That said, there are some holes in these mined datasets, even if you can collect millions of objects. For instance, most social media posts are not explicitly georeferenced (i.e., not geotagged). To get enough georeferenced tweets, one should then assess other ways to extract the geographic informations, but these other mechanisms can enforce assumptions. For example, I assumed a user's profile location is where the tweet was located, but that may not necessarily be the case. Even my own Twitter profile's location is not where I am currently residing!
 
-		h2.header-1#doc-manage Data Management
+		h2#doc-manage Data Management
 
-		p.header-2 Data Storage
+		h3 Data Storage
 
 		p I decide what method to store my data in based off the size and type. 
 
 		p If I am working with a small dataset (< 1,000 objects with few attributes), I usually handle the data through JavaScript on the browser. I will store the data in a Google Sheet or GeoJSON. I then use AJAX's get function to pull the data from a url: 
 
-		textarea(readonly = 'readonly', disabled='disabled').
+		textarea(readonly = 'readonly').
 			var url = "http://www.earthquakescanada.nrcan.gc.ca/api/earthquakes/latest/30d.json";
 
 			$.getJSON(url, function(data) {
@@ -136,16 +130,16 @@ block content
 			a.link(name='doc-visualize') Data Visualization
 			|  section.
 
-		p.header-2 Data Cleaning
+		h3 Data Cleaning
 
-		ul.image-row
-			li.iconography
+		.row.d-flex.justify-content-center.pt-2.pb-2.text-center.m-2
+			.col-12.iconography.p-2.m-2
 				h4 UNIFORM PROJECTION
-			i.fa.fa-arrow-right.icon(aria-hidden='true')
-			li.iconography
+			i.fa.fa-arrow-down.txt-xlrg(aria-hidden='true')
+			.col-12.iconography.p-2.m-2
 				h4 UNIFORM FILE FORMAT
-			i.fa.fa-arrow-right.icon(aria-hidden='true')
-			li.iconography
+			i.fa.fa-arrow-down.txt-xlrg(aria-hidden='true')
+			.col-12.iconography.p-2.m-2
 				h4 MERGE / JOIN DATA
 
 		p Since I usually get my data from various sources I have to first make sure the data is uniform before I merge them for analysis. This will reduce any data inconsistencies that can skew the data. In general, the following are the mains steps I complete:
@@ -159,7 +153,7 @@ block content
 
 		p After the data is all cleaned and formatted accordingly, I can analyze the data!
 
-		h2.header-1#doc-analyze Data Analysis
+		h2#doc-analyze Data Analysis
 		
 		p The following are tools I use to spatially analyze data: 
 
@@ -186,51 +180,51 @@ block content
 
 		p Esri offers propreitary software to store, manage, analyze, and visualize geospatial data. Since it is not open sourced, I do not have the opprotunity to use this tool very often.
 
-		h2.header-1#doc-visualize Data Visualization
+		h2#doc-visualize Data Visualization
 
-		p In this section I will focus on how to visualize geospatial data as an interactive map; but, keep in mind, spatial data doesn't always need to be visualized as a map. For inspiration, I recommend checking out the following sources:
-		
-		ul
-			li
-				a.link(href='https://www.reddit.com/r/dataisbeautiful/' target='_blank') D3.js examples 
-			li 
-				a.link(href='https://www.reddit.com/r/dataisbeautiful/' target='_blank') Reddit 
-
-		.image-column
-			img.image.image-round.xsmall(src='/images/doc1-1.png')
-			img.image.image-round.xsmall(src='/images/doc1-5.png')
-			img.image.image-round.xsmall(src='/images/doc1-4.png')
-			img.image.image-round.xsmall(src='/images/doc1-2.png')
-
-		p Initially I visualized spatial data as static maps using Esri's ArcMap software, but through my education I learned how to develop interactive web maps that can enhance a user's experience viewing and interpreting geographic data represented as a map.
-		
-		p I started developing interactive web maps using the 
-			a.link(href='http://leafletjs.com/' target='_blank') Leaflet
-			|  library. I avoided familiarizing myself with Google Maps API because Google deprecates their APIs frequently. Now I use 
-			a.link(href='https://www.mapbox.com/mapbox-gl-js/api/' target='_blank') Mapbox GL JS
-			| .
-
-		p How I manage my spatial data depends on the volume, velocity, and variety of data. If the data is low volume, velocity, and variety, I will pull the data to the browser using AJAX (as shown 
-			a.link(name='doc-manage') above
-			| ). An example of this can be seen 
-			a.link(href='https://github.com/Noznoc/i-vop' target='_blank') here
+		p In this section I will focus on how to visualize geospatial data as an interactive map; but, keep in mind, spatial data doesn't always need to be visualized as a map. For inspiration, I recommend checking out the following sources: 
+			a.link(href='https://www.reddit.com/r/dataisbeautiful/' target='_blank') D3.js examples 
+			| and 
+			a.link(href='https://www.reddit.com/r/dataisbeautiful/' target='_blank') Reddit
 			| . 
 
-		p If the data is high volume and variety, but there is no velocity (i.e., the data is static), I will use MBTiles. I design the MBTiles as a style in Mapbox Studio and then interact with the style's layers using Mapbox GL JS. An example of this can be seen 
-			a.link(href='https://github.com/Noznoc/mexico-earthquake-mapping' target='_blank') here
-			| . Also, I wrote a 
-			a.link(href='./docs/doc-2') tutorial (crimecouver)
-			|  on how I created a custom map style with Mapbox Studio and used React and Mapbox GL JS to interact and visualize the style's layers.  
-
-		p If my data has high volume, variety, and velocity, I store the data in PostGIS and then create a Node.js app with a RESTful API to visualize the data. An example of this can be seen 
-			a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') here
-			| .
-
-		p I will also use 
-			a.link(href='http://earth.google.es/' target='_blank') Google Earth
-			|  to visualize low/medium volume, zero velocity, and low/medium variety KML / KMZ data that I want to be visualized in 3D. I tend to avoid Google products, but Mapbox GL JS does not support a 3D Earth surface yet. Mapbox GL JS supports extrusions, which is great for visualizing 3D buildings but poor for visualizing elevation. For example, if I wanted to show elevation I could develop an elevation profile as an extruded line with Mapbox GL JS; but, visualizing a trek on a 3D surface really tells a story about the distance and height one walked and it can be easily done on Google Earth's graphical interface. 
+		.row.mt-4
 		
-		h2.header-1#doc-tools Tools
+			.col-xs-5.col-3
+				img.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-1.png')
+				img.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-5.png')
+				img.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-2.png')
+		
+			.col-xs-7.col-9
+				p Initially I visualized spatial data as static maps using Esri's ArcMap software, but through my education I learned how to develop interactive web maps that can enhance a user's experience viewing and interpreting geographic data represented as a map.
+				
+				p I started developing interactive web maps using the 
+					a.link(href='http://leafletjs.com/' target='_blank') Leaflet
+					|  library. I avoided familiarizing myself with Google Maps API because Google deprecates their APIs frequently. Now I use 
+					a.link(href='https://www.mapbox.com/mapbox-gl-js/api/' target='_blank') Mapbox GL JS
+					| .
+
+				p How I manage my spatial data depends on the volume, velocity, and variety of data. If the data is low volume, velocity, and variety, I will pull the data to the browser using AJAX (as shown 
+					a.link(name='doc-manage') above
+					| ). An example of this can be seen 
+					a.link(href='https://github.com/Noznoc/i-vop' target='_blank') here
+					| . 
+
+				p If the data is high volume and variety, but there is no velocity (i.e., the data is static), I will use MBTiles. I design the MBTiles as a style in Mapbox Studio and then interact with the style's layers using Mapbox GL JS. An example of this can be seen 
+					a.link(href='https://github.com/Noznoc/mexico-earthquake-mapping' target='_blank') here
+					| . Also, I wrote a 
+					a.link(href='./docs/doc-2') tutorial (crimecouver)
+					|  on how I created a custom map style with Mapbox Studio and used React and Mapbox GL JS to interact and visualize the style's layers.  
+
+				p If my data has high volume, variety, and velocity, I store the data in PostGIS and then create a Node.js app with a RESTful API to visualize the data. An example of this can be seen 
+					a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') here
+					| .
+
+				p I will also use 
+					a.link(href='http://earth.google.es/' target='_blank') Google Earth
+					|  to visualize low/medium volume, zero velocity, and low/medium variety KML / KMZ data that I want to be visualized in 3D. I tend to avoid Google products, but Mapbox GL JS does not support a 3D Earth surface yet. Mapbox GL JS supports extrusions, which is great for visualizing 3D buildings but poor for visualizing elevation. For example, if I wanted to show elevation I could develop an elevation profile as an extruded line with Mapbox GL JS; but, visualizing a trek on a 3D surface really tells a story about the distance and height one walked and it can be easily done on Google Earth's graphical interface. 
+		
+		h2#doc-tools Tools
 
 		p Here is a list of most of the tools I use. Feel free to 
 			a.link(href='/contact', target='_blank') contact
@@ -290,3 +284,11 @@ block content
 			li 
 				a.link(href='http://qgis.org/en/site/', target='_blank') QGIS
 				|  is an open-source graphical software that is similar to ArcMap. It is used to manage, analyze, and visualize spatial data. QGIS uses GDAL and you can use various extensions to conduct specific analyses or visualizations
+		
+		script.	
+				$('.button').on('click', function () {
+					var name = $(this).attr('name');
+				    $('html, body').animate({
+				        scrollTop: $('#' + name).offset().top
+				    }, 1000);
+				})

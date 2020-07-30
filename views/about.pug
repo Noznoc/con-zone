@@ -1,78 +1,98 @@
 extends layout.pug
-block content		
-	h2.title For a detailed resume, check out 
-		strong
-			a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn
-			|  or 
-			a.link(href='/contact', target='_blank') contact
-			|  me!
-	p#buttons
-		button.button(name='about-skills') technical skills
-		button.button(name='about-work') work
-		button.button(name='about-education') education
+block content
+	.container(style='border:none;')
+		h1.title To learn more about my experiences, check out 
+			strong
+				a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn!
+		p#buttons
+			button.button.m-2(name='about-skills') technical skills
+			button.button.m-2(name='about-work') work
+			button.button.m-2(name='about-education') education
 	.container
-		h2#about-skills Technical Skills
-		.column-small
-			p.bin Design
-				p CSS, SASS, frameworks (Bootstrap, Materialize)
-		.column-small
-			p.bin Front-end Dev
-				p JavaScript, jQuery, HTML, pug, ~React
-		.column-small
-			p.bin Back-end Dev
-				p Node.js + Express, Python + Flask
-		.column-small
-			p.bin GIS
-				p Vector and raster data
-				p 
-					strong Tools for Engineering + Analyses/Analytics:
-					|  QGIS, OpenStreetMap (iD, JOSM), GDAL, PostGIS, Esri products (e.g., ArcMap, ArcPro, ArcOnline), other open-source geospatial libraries/software (e.g., R and Python packages like rgdal and geopandas)
-				p 
-					strong Tools for Mapping Services: 
-					|  Mapbox GL JS, Leaflet (R or JS), Google Maps API
-		.column-small
-			p.bin Data Science
-				p
-					strong  Data: 
-					| json, geojson, shp, (satellite) imagery, tiff, csv, kml, osm xml/pbf, R/Python data frames, sas7bdat, unstructured text (tweets, free text)
-				p 
-					strong Data Mgmt: 
-					| SQLite, PostgreSQL(+PostGIS), Oracle, Microsoft SQL Server, MongoDB
-				p
-					strong Data Analytics: 
-					| R, Python, Stata, GeoDa, SAS
-				p
-					strong Data Visualizations: 
-					|  D3.js, R Shiny Apps + Plotly + Leaflet, Tableau, PowerBI
-		.column-small
-			p.bin Development
-				p 	
-					strong Architecture: 
-					| Client-server (RESTful API), Pipline, Database-centric, Event-driven
-				p 	
-					strong Environment: 
-					| package/library mgmt (pip, conda, R), version control (git, GitHub, Bitbucket, GitLab) 
+		h2.title About Me
+		.row.justify-content-center
+			img.col-md-6.col-xs-12(src='../images/noznoc.jpg' alt='Image of Julia Conzon')
+			.col-md-6.col-xs-12.pt-2 
+				p Hi, my name is Julia Conzon. I am from North Vancouver. I grew up close to nature, learning to recognize the complex connection we have to each other and the Earth. I am continuously striving to unlearn and learn other perspectives to better conceptualize place and space. I work closely with partners to develop technological solutions (e.g., web app, map services) that aim to better understand and support our diverse social and environmental landscape, such as identifying how to better offer social services or monitoring a certain environmental phenomena.
+				p Though technology can offer opprotunities to better serve people and protect the environment, it needs to be designed and built critically. This is what I hope to achieve through my work.
 	.container
-		h2#about-work Work
+		h2.title#about-skills Technical Skills
+		.row
+			.col-md-4.col-xs-12
+				p.bin Design
+					p CSS, SASS, and frameworks (Bootstrap, Materialize, Materialize Design Boostrap)
+			.col-md-4.col-xs-12
+				p.bin Front-end Dev
+					p JavaScript, jQuery, HTML, React, and templating (Pug, Jinja)
+					p 
+			.col-md-4.col-xs-12
+				p.bin Back-end Dev
+					p Node.js + Express, Python + Flask
+		.row
+			.col-md-4.col-xs-12
+				p.bin GIS
+					p 
+						strong.highlight Data
+						| : shp, osm xml/pbf, geojson, wkt, wkb, images (tiff, jpg, png), imagery (Landsat), kml
+					p 
+						strong.highlight Geospatial processing and analysis
+						| : QGIS, OpenStreetMap (iD, JOSM), GDAL, PostGIS, Esri products (e.g., ArcMap, ArcPro, ArcOnline), other open-source geospatial libraries/software (e.g., R and Python packages like rgdal and geopandas)
+					p 
+						strong.highlight Web mapping services
+						| : Mapbox GL JS, Leaflet (R or JS), Google Maps API
+			.col-md-4.col-xs-12
+				p.bin Data Science
+					p
+						strong.highlight  Data
+						| : json, geojson, shp, (satellite) imagery, tiff, csv, kml, osm xml/pbf, R/Python data frames, sas7bdat, unstructured text (tweets, free text)
+					p 
+						strong.highlight Mgmt
+						| : SQLite, PostgreSQL(+PostGIS), Oracle, Microsoft SQL Server, MongoDB
+					p
+						strong.highlight Analytics
+						| : R, Python, Stata, GeoDa, SAS
+					p
+						strong.highlight Visualizations
+						| : D3.js, R Shiny Apps + Plotly + Leaflet, Tableau, PowerBI
+			.col-md-4.col-xs-12
+				p.bin Development
+					p 	
+						strong.highlight Architecture
+						| : client-server (RESTful API), pipline, database-centric, event-driven
+					p 	
+						strong.highlight Environment
+						| : package/library mgmt (npm, pip, conda, R), version control (git, GitHub, Bitbucket, GitLab) 
+	.container
+		h2.title#about-work Work
 		ul.list-simple
 			li 
-				p January 2018 - Present
-				i.highlight Senior Geographic Data Scientist
-				|  at 
-				a.link(href='https://www.canada.ca/en/employment-social-development.html' target='_blank') Employment and Social Development Canada
-				ul
-					li Clean, analyze, and visualize spatially-referenced survey, crowdsourced and administrative big data in R and Python (e.g., spatial accessibility index calculations for services/programs)
-					li Design and develop web apps (full stack) with Node.js or Python for pushing machine learning models into production
-					li Database (PostgreSQL/PostGIS, MongoDB) setup and management
-					li Develop interactive visualizations with D3.js or R for sharing research results to inform policymakers
-					li Support data-driven decision-making by educating internal and external stakeholders (e.g., analysts, policymakers, local communities) on open source tools to leverage large heterogeneous data. This includes educating on Tableau, R, Python, git
-					li Manage product development
-					li Prepare, write and present presentation decks, briefing notes, and reports to upper management, with a twist (e.g., generate GIFs to demo apps, simple HTML web page as PowerPoint alternative)
+				strong.mb-1 August 2020 - Present
+				p.mt-1
+					i.highlight Senior Geographic Data Scientist
+					|  at 
+					a.link(href='http://www.statcan.gc.ca/' target='_blank') Statistics Canada
 			li 
-				p July - December 2017
-				i.highlight Data Intern
-				|  at 
-				a.link(href='https://www.mapbox.com/' target='_blank') Mapbox
+				strong.mb-1 January 2018 - August 2020
+				p.mt-1
+					i.highlight Senior Geographic Data Scientist
+					|  at 
+					a.link(href='https://www.canada.ca/en/employment-social-development.html' target='_blank') Employment and Social Development Canada
+				p Supported evidence-based decision making through the following: researched and devised advanced geospatial techniques (e.g., calculating spatial accessibility for identifying underserved areas); designed and developed software and web apps to host statistical, analytical, and machine learning models; and, educated internally and externally on how to leverage geographic data with open source tools (FOSS4G).
+				ul
+					li Cleaned, analyzed, and visualized spatially-referenced survey, crowdsourced and administrative big data in R and Python (e.g., spatial accessibility index calculations for services/programs).
+					li Designed and developed web apps (full stack) with Node.js or Python for pushing machine learning models into production.
+					li Initialized and managed databases (PostgreSQL/PostGIS, MongoDB).
+					li Developed interactive visualizations with D3.js or R for sharing research results to inform policymakers.
+					li Managed product development. For example, led the design, development and implementation of an open source technology, 
+						a.link(href='https://github.com/DSD-ESDC-EDSC/pass') PASS
+						| .
+					li Prepared, wrote and presented presentation decks, briefing notes, and reports to upper management, with a twist (e.g., generate GIFs to demo apps, simple HTML web page as PowerPoint alternative)
+			li 
+				strong.mb-1 July - December 2017
+				p.mt-1
+					i.highlight Data Intern
+					|  at 
+					a.link(href='https://www.mapbox.com/' target='_blank') Mapbox
 				ul
 					li Remote mapped on OpenStreetMap (OSM) with JOSM and iD Editor.
 					li Developed Node.js based validators to assess the quality of OSM data.
@@ -81,50 +101,54 @@ block content
 						|  and 
 						a.link(href='https://noznoc.github.io/bc2020-osmgeoweek2017/#4/54.32/-99.93' target='_blank') BC2020 Mapathons
 						| ).
-					li Organized nation-wide multi-stakeholder workshops (e.g., Building Canad 2020) as well as local community events. Check out my 
+					li Organized nation-wide multi-stakeholder workshops (e.g., Building Canada 2020) as well as local community events. Check out my 
 						a.link(href='https://blog.mapbox.com/osmgeoweek-mapathons-support-building-canada-2020-eb0ca4edf8fe' target='_blank') post
 						|  on Mapbox's "Points of Interest" blog.
 					li Taught English through running daily lessons to learn reading and writing, as well as immersive activities to improve listening and speaking.
 			li 
-				p February - June 2017
-				i.highlight Geographic Data Scientist
-				|  at 
-				a.link(href='http://www.statcan.gc.ca/' target='_blank') Statistics Canada
+				strong.mb-1 February - June 2017
+				p.mt-1
+					i.highlight Geographic Data Scientist
+					|  at 
+					a.link(href='http://www.statcan.gc.ca/' target='_blank') Statistics Canada
 				ul
 					li Communicated and maintained engagement with stakeholders for 
 						a.link(href='https://www.statcan.gc.ca/eng/open-building-data/crowdsourcing-osm' target='_blank') Statistics Canada first crowdsourcing project.
 					li Collected, managed, monitored, analyzed and visualized large administative and crowdsourced spatial datasets with R and Python.
 					li Researched and designed a mobiled crowdsourcing web app as well as a method to quality assure crowdsourced building footprint data.
-					li Developed a spatial server with PostGIS and Node.js for quality assurance adn web mapping services. Code can be seen 
-						a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') here.
+					li Developed a spatial server with PostGIS and Node.js for quality assurance adn web mapping services. Code can be seen on the 
+						a.link(href='https://github.com/Noznoc/geojson-api' target='_blank') GitHub repo
+						| .
 					li Advised internal stakeholders on open data licensing and open source software. 
 			li 
-				p August 2016 - June 2017
-				i.highlight Open Data Consultant & Full-Stack Web Developer
-				p To increase transparency on where and what different resource extraction companies are paying organizations across Canada, I was tasked to develop a real-time interactive map dashboard for Open North and Publish What You Pay Canada. To accomplish this, I collected and managed a database of payments to government organizations from extraction companies; and, with the data, designed and developed an interactive Mapbox.js map and D3.js dashboard web app. Check out the visualization 
-					a.link(href='http://geomapp.ca/jconzon/pwyp_visualization_v1/index.html' target='_blank') here
+				strong.mb-1 August 2016 - June 2017
+				p.mt-1
+					i.highlight Open Data Consultant & Full-Stack Web Developer
+				p To increase transparency on where and what different resource extraction companies are paying organizations across Canada, I was tasked to develop a real-time interactive map dashboard for Open North and Publish What You Pay Canada. To accomplish this, I collected and managed a database of payments to government organizations from extraction companies; and, with the data, designed and developed an interactive Mapbox.js map and D3.js dashboard web app. Check out the code on the 
+					a.link(href='http://github.com/Noznoc/i-vop' target='_blank') GitHub repo
 					| .
-				p To increase the adoption of open data standards and to ultimately improve interoperabiltiy across different civic datasets, I was tasked to develop a website for Johns Hopkins University’s Center for Government Excellence. I designed and developed the user interface, managed data with a PostgreSQL database, and developed a Node.js web app hosted on Heroku. Check out the site 
-					a.link(href='http://datastandards.directory/' target='_blank') here
+				p To increase the adoption of open data standards and to ultimately improve interoperabiltiy across different civic datasets, I was tasked to develop a website for Johns Hopkins University’s Center for Government Excellence. I designed and developed the user interface, managed data with a PostgreSQL database, and developed a Node.js web app hosted on Heroku. Check out the  
+					a.link(href='http://datastandards.directory/' target='_blank') website
 					| .
 			li 
-				p May - August 2016
-				i.highlight Research Assistant
-				|  at 
-				a.link(href='http://geothink.ca/' target='_blank') Geothink			
-				p Research assistant for Geothink’s Civic Open Data Standards project. I (1) assessed Canadian municipal datasets and open data portals; (2) designed and developed a web app to host a catalog of open data standards; and (3) designed, conducted, and transcribed semi-structured telephone surveys. Code can be seen 
-					a.link(href='https://github.com/Noznoc/open-data-standards' target='_blank') here
+				strong.mb-1 May - August 2016
+				p.mt-1
+					i.highlight Research Assistant
+					|  at 
+					a.link(href='http://geothink.ca/' target='_blank') Geothink			
+				p Research assistant for Geothink’s Civic Open Data Standards project. I (1) assessed Canadian municipal datasets and open data portals; (2) designed and developed a web app to host a catalog of open data standards; and (3) designed, conducted, and transcribed semi-structured telephone surveys. Code can be seen on the 
+					a.link(href='https://github.com/Noznoc/open-data-standards' target='_blank') GitHub repo
 					| .
 	.container
-		h2#about-education Education
+		h2.title#about-education Education
 		ul.list-simple
 			li
-				p 2020 - 2022
+				p.mb-1 2020 - 2022
 				i.highlight Masters of Science
 				|  at Carleton University
 				p Department of Geography, with a specialization in Data Science
 			li
-				p 2012 - 2016
+				p.mb-1 2012 - 2016
 				i.highlight Bachelor of Arts
 				|  at McGill University (Graduated with Distinction)
 				
@@ -149,9 +173,6 @@ block content
 					li Ran a cost distance analysis that identified a new hiking path in North Vancouver
 
 	script.
-		var coordinates = [[[-123.112920, 49.250319], "Vancouver"], [[-73.585429, 45.510820], "Montreal"], [[-75.698078, 45.417133], "Ottawa"], [[-74.2198126, -13.1556384], "Ayacucho"]];
-		addMap([-98.0046126,46.4760507], 0, 3, 8, coordinates, true, false, 'projects');
-		$('#legend').find('h4').html('PLACES I HAVE WORKED <br><br> Pan to view or click play <br> <i id="play-circle" class="fa fa-play-circle icon" aria-hidden="true"></i>');
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');
 		    $('html, body').animate({

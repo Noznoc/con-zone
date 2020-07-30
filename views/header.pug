@@ -1,25 +1,23 @@
-.site-header
-	.map-container
-		#header-map.map
-		#legend.legend
-			h4
+header.site-header
+	//- .map-container
+	//- 	#header-map.map
+	//- 	#legend.legend
+	//- 		h4
 	ul.navigation.navigation-content
 		li 
-			a.icon(href='https://github.com/Noznoc', target='_blank', title='GitHub')
+			a.icon(href='https://github.com/Noznoc', target='_blank', aria-label='GitHub')
 				i.fa.fa-github-square(aria-hidden='true')
 		li
-			a.icon(href='https://t.co/jMpBYPZXG0', target='_blank', title='LinkedIn')
+			a.icon(href='https://t.co/jMpBYPZXG0', target='_blank', aria-label='LinkedIn')
 				i.fa.fa-linkedin-square(aria-hidden='true')
 		li
-			a.icon(href='https://twitter.com/julconz?lang=en', target='_blank', title='Twitter')
+			a.icon(href='https://twitter.com/julconz?lang=en', target='_blank', aria-label='Twitter')
 				i.fa.fa-twitter-square(aria-hidden='true')
 		li
-			a.icon(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', title='OpenStreetMap')
+			a.icon(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', aria-label='OpenStreetMap')
 				i.fa.fa-globe(aria-hidden='true')
-		li#contact
-			a.link-text(href='/contact') contact
 		li.navigation-mobile
-			a.link.icon
+			a.icon
 				i.fa.fa-bars(aria-hidden='true')
 			.page-content
 				a(href='/') home
@@ -27,7 +25,6 @@
 				a(href='/projects') projects
 				a(href='/blog') blog
 				a(href='/docs') docs
-				a(href='/contact') contact
 	ul.navigation.navigation-site
 		li#home 
 			a(href='/') home
@@ -61,8 +58,6 @@
 			$('#docs').addClass('active');
 		} else if ('#{id}' == 'home') {
 			$('#home').addClass('active');
-		} else if ('#{id}' == 'contact') {
-			$('#contact').addClass('active-underline');
 		}
 
 		(function($) {
@@ -74,7 +69,6 @@
 		        if ($window.width() < 750) {
 		        	
 		        	function all() {
-		        		$('#contact').hide();
 		        		$('.navigation-site').hide();
 		            	$('.navigation-mobile').show();
 		            }
@@ -84,7 +78,6 @@
 		        }
 		        $nav.show();
 		        $nav_mobile.hide();
-		        $('#contact').show();
 		    }
 
 		    $window
