@@ -7,10 +7,11 @@ html
 
 		.site-content
 			.container(style="border:none;")
-				h1.title= title
-				p= subtitle
+				- if (id !== 'blog-post')
+					h1.title= title
+					p= subtitle
 				- if (id == 'blog')
-					p#buttons
+					p.pt-4.pb-4.text-center
 						a(href='/blog/travel')
 							button.button.m-2 travel
 						a(href='/blog/geo')

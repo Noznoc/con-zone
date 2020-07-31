@@ -18,10 +18,10 @@ block content
 			|  that shows how to build  an interactive Mapbox GL JS React map.
 
 		.row.pt-2.pb-2.d-flex.justify-content-around
-			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-0.png')
-			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-3.png')
-			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-1.png')
-			img.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-6.png')
+			img.img-fluid.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-0.png')
+			img.img-fluid.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-3.png')
+			img.img-fluid.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-1.png')
+			img.img-fluid.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-6.png')
 		
 		h2#doc-collect Data Collection
 
@@ -191,9 +191,9 @@ block content
 		.row.mt-4
 		
 			.col-xs-5.col-3
-				img.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-1.png')
-				img.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-5.png')
-				img.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-2.png')
+				img.img-fluid.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-1.png')
+				img.img-fluid.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-5.png')
+				img.img-fluid.rounded-circle.img-thumbnail.col-12.p-1.m-1(src='/images/doc1-2.png')
 		
 			.col-xs-7.col-9
 				p Initially I visualized spatial data as static maps using Esri's ArcMap software, but through my education I learned how to develop interactive web maps that can enhance a user's experience viewing and interpreting geographic data represented as a map.
@@ -285,10 +285,10 @@ block content
 				a.link(href='http://qgis.org/en/site/', target='_blank') QGIS
 				|  is an open-source graphical software that is similar to ArcMap. It is used to manage, analyze, and visualize spatial data. QGIS uses GDAL and you can use various extensions to conduct specific analyses or visualizations
 		
-		script.	
-				$('.button').on('click', function () {
-					var name = $(this).attr('name');
-				    $('html, body').animate({
-				        scrollTop: $('#' + name).offset().top
-				    }, 1000);
-				})
+		script.
+			$('.button').on('click', function () {
+				var name = $(this).attr('name');
+				$('html, body').animate({
+				    scrollTop: $('#' + name).parent('.container').offset().top - $('#navbar').height()
+				}, 1000);
+			})

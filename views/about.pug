@@ -1,69 +1,75 @@
 extends layout.pug
 block content
 	.container(style='border:none;')
-		h1.title To learn more about my experiences, check out 
-			strong
-				a.link(href='https://t.co/jMpBYPZXG0', target='_blank') my LinkedIn!
-		p#buttons
-			button.button.m-2(name='about-skills') technical skills
-			button.button.m-2(name='about-work') work
-			button.button.m-2(name='about-education') education
-	.container
-		h2.title About Me
+		h1.title Hello, my name is Julia Conzon
 		.row.justify-content-center
-			img.col-md-6.col-xs-12(src='../images/noznoc.jpg' alt='Image of Julia Conzon')
-			.col-md-6.col-xs-12.pt-2 
-				p Hi, my name is Julia Conzon. I am from North Vancouver. I grew up close to nature, learning to recognize the complex connection we have to each other and the Earth. I am continuously striving to unlearn and learn other perspectives to better conceptualize place and space. I work closely with partners to develop technological solutions (e.g., web app, map services) that aim to better understand and support our diverse social and environmental landscape, such as identifying how to better offer social services or monitoring a certain environmental phenomena.
-				p Though technology can offer opprotunities to better serve people and protect the environment, it needs to be designed and built critically. This is what I hope to achieve through my work.
-	.container
-		h2.title#about-skills Technical Skills
+			img.view.img-fluid.col-md-6.col-xs-12(src='../images/noznoc.jpg' alt='Image of Julia Conzon')
+			.col-md-6.col-xs-12
+				p.pt-0.mt-0 I am from North Vancouver. I was taught at a young age about observing my surroundings, learning to recognize the complex connection we have to each other and the Earth. I am continuously striving to unlearn and learn other perspectives to better conceptualize place and space. I work closely with partners to develop technological solutions that aim to better understand and support our diverse social and environmental landscape, such as identifying how to better offer social services or monitoring a certain environmental phenomena. Though technology can offer opprotunities to better serve people and protect the environment, it needs to be designed and built critically. This is what I hope to achieve through my work.
+			p.pt-4.pb-4.text-center
+				button.button.m-2(name='skills') technical skills
+				button.button.m-2(name='work') work
+				button.button.m-2(name='education') education
+	.container#skills
+		h2.mt-5.mb-5.p-1 Technical Skills
+		.row.mb-1
+			.col-md-4.col-xs-12
+				.bin.m-0.p-0.h-100
+					.bin-header Design
+					.bin-body
+						p CSS, SASS, and frameworks (Bootstrap, Materialize, Materialize Design Boostrap)
+			.col-md-4.col-xs-12
+				.bin.m-0.p-0.h-100
+					.bin-header Front-end Dev
+					.bin-body
+						p JavaScript, jQuery, HTML, React, and templating (Pug, Jinja)
+			.col-md-4.col-xs-12
+				.bin.m-0.p-0.h-100
+					.bin-header Back-end Dev
+					.bin-body
+						p Node.js + Express, Python + Flask
 		.row
 			.col-md-4.col-xs-12
-				p.bin Design
-					p CSS, SASS, and frameworks (Bootstrap, Materialize, Materialize Design Boostrap)
+				.bin.m-0.p-0.h-100
+					.bin-header GIS
+					.bin-body
+						p 
+							strong.highlight Data
+							| : shp, osm xml/pbf, geojson, wkt, wkb, images (tiff, jpg, png), imagery (Landsat), kml
+						p 
+							strong.highlight Geospatial processing and analysis
+							| : QGIS, OpenStreetMap (iD, JOSM), GDAL, PostGIS, Esri products (e.g., ArcMap, ArcPro, ArcOnline), other open-source geospatial libraries/software (e.g., R and Python packages like rgdal and geopandas)
+						p 
+							strong.highlight Web mapping services
+							| : Mapbox GL JS, Leaflet (R or JS), Google Maps API
 			.col-md-4.col-xs-12
-				p.bin Front-end Dev
-					p JavaScript, jQuery, HTML, React, and templating (Pug, Jinja)
-					p 
+				.bin.m-0.p-0.h-100
+					.bin-header Data Science
+					.bin-body
+						p
+							strong.highlight  Data
+							| : json, geojson, shp, (satellite) imagery, tiff, csv, kml, osm xml/pbf, R/Python data frames, sas7bdat, unstructured text (tweets, free text)
+						p 
+							strong.highlight Mgmt
+							| : SQLite, PostgreSQL(+PostGIS), Oracle, Microsoft SQL Server, MongoDB
+						p
+							strong.highlight Analytics
+							| : R, Python, Stata, GeoDa, SAS
+						p
+							strong.highlight Visualizations
+							| : D3.js, R Shiny Apps + Plotly + Leaflet, Tableau, PowerBI
 			.col-md-4.col-xs-12
-				p.bin Back-end Dev
-					p Node.js + Express, Python + Flask
-		.row
-			.col-md-4.col-xs-12
-				p.bin GIS
-					p 
-						strong.highlight Data
-						| : shp, osm xml/pbf, geojson, wkt, wkb, images (tiff, jpg, png), imagery (Landsat), kml
-					p 
-						strong.highlight Geospatial processing and analysis
-						| : QGIS, OpenStreetMap (iD, JOSM), GDAL, PostGIS, Esri products (e.g., ArcMap, ArcPro, ArcOnline), other open-source geospatial libraries/software (e.g., R and Python packages like rgdal and geopandas)
-					p 
-						strong.highlight Web mapping services
-						| : Mapbox GL JS, Leaflet (R or JS), Google Maps API
-			.col-md-4.col-xs-12
-				p.bin Data Science
-					p
-						strong.highlight  Data
-						| : json, geojson, shp, (satellite) imagery, tiff, csv, kml, osm xml/pbf, R/Python data frames, sas7bdat, unstructured text (tweets, free text)
-					p 
-						strong.highlight Mgmt
-						| : SQLite, PostgreSQL(+PostGIS), Oracle, Microsoft SQL Server, MongoDB
-					p
-						strong.highlight Analytics
-						| : R, Python, Stata, GeoDa, SAS
-					p
-						strong.highlight Visualizations
-						| : D3.js, R Shiny Apps + Plotly + Leaflet, Tableau, PowerBI
-			.col-md-4.col-xs-12
-				p.bin Development
-					p 	
-						strong.highlight Architecture
-						| : client-server (RESTful API), pipline, database-centric, event-driven
-					p 	
-						strong.highlight Environment
-						| : package/library mgmt (npm, pip, conda, R), version control (git, GitHub, Bitbucket, GitLab) 
-	.container
-		h2.title#about-work Work
+				.bin.m-0.p-0.h-100
+					.bin-header Development
+					.bin-body
+						p 	
+							strong.highlight Architecture
+							| : client-server (RESTful API), pipline, database-centric, event-driven
+						p 	
+							strong.highlight Environment
+							| : package/library mgmt (npm, pip, conda, R), version control (git, GitHub, Bitbucket, GitLab) 
+	.container#work
+		h2.mt-5.mb-5.p-1 Work
 		ul.list-simple
 			li 
 				strong.mb-1 August 2020 - Present
@@ -139,8 +145,8 @@ block content
 				p Research assistant for Geothink’s Civic Open Data Standards project. I (1) assessed Canadian municipal datasets and open data portals; (2) designed and developed a web app to host a catalog of open data standards; and (3) designed, conducted, and transcribed semi-structured telephone surveys. Code can be seen on the 
 					a.link(href='https://github.com/Noznoc/open-data-standards' target='_blank') GitHub repo
 					| .
-	.container
-		h2.title#about-education Education
+	.container#education
+		h2.mt-5.mb-5.p-1 Education
 		ul.list-simple
 			li
 				p.mb-1 2020 - 2022
@@ -175,7 +181,7 @@ block content
 	script.
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');
-		    $('html, body').animate({
-		        scrollTop: $('#' + name).offset().top
-		    }, 1000);
+			$('html, body').animate({
+			    scrollTop: $('#' + name).offset().top - $('#navbar').height()
+			}, 1000);
 		})

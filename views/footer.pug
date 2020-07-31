@@ -1,24 +1,26 @@
 footer.site-footer
   .row.d-flex.justify-content-center
-    a(href='https://www.juliaconzon.com')
+    a(href='/')
       img.logo(src='/images/logo_dark.svg' alt="Logo")
-  //- .row.justify-content-center.mb-2
-  //-   a(href='../about', aria-label='About page') about 
-  //-   a(href='../projects', aria-label='Projects page') projects 
-  //-   a(href='../blogs', aria-label='Blogs page') blog 
-  //-   a(href='../docs', aria-label='Docs page') docs
-  .row.justify-content-center.mt-2
-    a(href='https://github.com/Noznoc', target='_blank', aria-label='GitHub')
-      i.fa.fa-github-square.txt-mdm(aria-hidden='true')
-    |   |
-    a(href='https://t.co/jMpBYPZXG0', target='_blank', aria-label='LinkedIn')
-      i.fa.fa-linkedin-square.txt-mdm(aria-hidden='true')
-    |   |
-    a(href='https://twitter.com/julconz?lang=en', target='_blank', aria-label='Twitter')
-      i.fa.fa-twitter-square.txt-mdm(aria-hidden='true')
-    |   |
-    a(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', title='OpenStreetMap', aria-label='OpenStreetMap')
-      i.fa.fa-globe.txt-mdm(aria-hidden='true')
+  //- - if (id !== 'home') 
+  //-   .row.justify-content-center.mb-2
+  //-     a(href='../about', aria-label='About page') about 
+  //-     a(href='../projects', aria-label='Projects page') projects 
+  //-     a(href='../blogs', aria-label='Blogs page') blog 
+  //-     a(href='../docs', aria-label='Docs page') docs
+  - if (id == 'home') 
+    .row.justify-content-center.mt-2
+      a(href='https://github.com/Noznoc', target='_blank', aria-label='GitHub')
+        i.fa.fa-github-square.txt-mdm(aria-hidden='true')
+      |   |
+      a(href='https://t.co/jMpBYPZXG0', target='_blank', aria-label='LinkedIn')
+        i.fa.fa-linkedin-square.txt-mdm(aria-hidden='true')
+      |   |
+      a(href='https://twitter.com/julconz', target='_blank', aria-label='Twitter')
+        i.fa.fa-twitter-square.txt-mdm(aria-hidden='true')
+      |   |
+      a(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', title='OpenStreetMap', aria-label='OpenStreetMap')
+        i.fa.fa-globe.txt-mdm(aria-hidden='true')
   p.mt-1
     | Designed and developed by Julia Conzon 
     i.fa.fa-copyright(aria-hidden='true')

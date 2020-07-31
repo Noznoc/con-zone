@@ -19,13 +19,13 @@ block content
 	p The unit-based comparison generally compares total features between an OSM dataset and a reference dataset. This dimension can assess both geometric (e.g., area) and attribute (e.g., address tags) features, but Hechet et al. focused their research on just the geometric features because there is not enough OSM attributes to assess. The attribute completeness is measured through calculating the total number of tags of a specific attribute (e.g., address) for each dataset and then measuring the proportion of the OSM total to the reference total. Similarly, to assess the geometric completeness, the total building count and total building area is calculated for each dataset and then the proportions are measured for both sets of totals (view Figure 2). Measurements are expressed as a ratio or percentage.
 	
 	.row.justify-content-center.mb-2
-		img.img-thumbnail(src='/images/doc3-0.png')
+		img.img-fluid.img-thumbnail(src='/images/doc3-0.png')
 		.img-subtitle Methods to measure completeness (Hechet et al. 2013, 1076).
 
 	p Fan and Zipf (2014) calculated the total building area between ATKIS data (their reference dataset) and OSM data. Then, following a widely adopted approach, they also applied a grid layer of cells over top of each dataset layer to calculate the total area of all buildings within each cell (view Figure 3; Haklay et al. 2011; Ciepluch et al.; Fan and Zipf 2014). This method can visualize the coverage to identify which regions within a given area are more complete over other regions. In Figure 3, for example, the city center is more complete than the rural areas.
 	
 	.justify-content-center.mb-2
-		img.img-thumbnail(src='/images/doc3-1.png')
+		img.img-fluid.img-thumbnail(src='/images/doc3-1.png')
 		.img-subtitle Figure 3. Fan and Zipf (2014) completeness results visualized.
 
 	p  The unit-based comparison is simple to apply, but it only provides a rough estimate of completeness because the level of detail is limited. This can result in over- or under-estimations of completeness (Hechet et al. 2013). 
@@ -60,7 +60,7 @@ block content
 	p Once the turning functions are calculated for all the polygons in each dataset, the distance is calculated from the two polygons’ turning functions to identify how dissimilar the polygons’ shapes are. This is accomplished through the following formula (Fan and Zipf 2014):
 	
 	.row.justify-content-center.mb-2
-		img.img-thumbnail(src='/images/doc3-2.png')
+		img.img-fluid.img-thumbnail(src='/images/doc3-2.png')
 		.img-subtitle 
 			i *A and B are matched polygons from different datasets, i.e., polygon A from OSM dataset and polygon B from reference dataset have a 1:1 relation.
 
@@ -69,7 +69,7 @@ block content
 	p Lastly, size accuracy measures the size of an OSM building relative to the size of the on the ground building. This can be accomplished through comparing the normalized area and perimeter between an OSM polygon and reference polygon (Fan and Zipf 2014):
 	
 	.row.justify-content-center.mb-2
-		img.img-thumbnail(src='/images/doc3-3.png')
+		img.img-fluid.img-thumbnail(src='/images/doc3-3.png')
 
 	p The area and perimeter are normalized rather than compared directly because building areas and perimeters tend to vary a lot. 
 	h2.header-1#doc-method General Steps for QA of OSM Building Data
@@ -88,7 +88,7 @@ block content
 	p If a building polygon from the OSM dataset (footosm_i) and a building polygon from the reference dataset (footref_j) intersect, then apply the following formula and threshold:
 	
 	.row.justify-content-center.mb-2
-		img.img-thumbnail(src='/images/doc3-4.png')
+		img.img-fluid.img-thumbnail(src='/images/doc3-4.png')
 
 	p If the statement above is true, then the two building objects match, if not then they do not match. 
 	p On the other hand, the OSM community on the Talk-us mailing list, which included academics, discussed a slightly different equation. Instead of dividing by the smallest area (either footosm_i or footref_j), they used the PostGIS function ST_Area(ST_Union(footosm_i, footref_j)).
