@@ -6,7 +6,7 @@ block content
 		| .
 	
 	.justify-content-center.mb-2
-		img.img-thumbnail#gif(src='/images/doc2-0.gif')
+		img.img-fluid.img-thumbnail#gif(src='/images/doc2-0.gif')
 
 	p In 2017, the City of Vancouver released new crime data on their 
 		a.link(href='http://vancouver.ca/your-government/open-data-catalogue.aspx', target='blank') open data catalogue
@@ -80,7 +80,7 @@ block content
 	p In Mapbox Studio, I imported vancouver_crime.mbtiles as a new layer on my custom map style and then I created new layers from the vancouver_crime layer by filtering the data by year. Basically, I create a layer of crime data by each year between 2003 and 2016.
 	
 	.justify-content-center.mb-2
-		img.img-thumbnail#gif(src='/images/doc2-1.png')
+		img.img-fluid.img-thumbnail#gif(src='/images/doc2-1.png')
 
 	p After creating and designing all the layers, the next step was to import my custom map style into React, so I published the Mapbox style and copied the token and then I reviewed examples in the 
 		a.link(href='', target='_blank') Mapbox react-examples repo

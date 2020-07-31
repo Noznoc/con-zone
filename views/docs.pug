@@ -7,10 +7,11 @@ html
 
 		.site-content
 			.container(style="border:none;")
-				h1.title= title
-				p= subtitle
+				- if (id !== 'doc-post')
+					h1.title= title
+					p= subtitle
 				- if (id == 'docs')
-					p#buttons
+					p.pt-4.pb-4.text-center
 						a(href='/docs/guide', title='test', data-toggle='test')
 							button.button.m-2 guides
 						a(href='/docs/tutorial')

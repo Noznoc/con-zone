@@ -1,52 +1,44 @@
-header.site-header
-	//- .map-container
-	//- 	#header-map.map
-	//- 	#legend.legend
-	//- 		h4
-	ul.navigation.navigation-content
-		li 
-			a.icon(href='https://github.com/Noznoc', target='_blank', aria-label='GitHub')
-				i.fa.fa-github-square(aria-hidden='true')
-		li
-			a.icon(href='https://t.co/jMpBYPZXG0', target='_blank', aria-label='LinkedIn')
-				i.fa.fa-linkedin-square(aria-hidden='true')
-		li
-			a.icon(href='https://twitter.com/julconz?lang=en', target='_blank', aria-label='Twitter')
-				i.fa.fa-twitter-square(aria-hidden='true')
-		li
-			a.icon(href='https://www.openstreetmap.org/user/Noznoc', target='_blank', aria-label='OpenStreetMap')
-				i.fa.fa-globe(aria-hidden='true')
-		li.navigation-mobile
-			a.icon
-				i.fa.fa-bars(aria-hidden='true')
-			.page-content
-				a(href='/') home
-				a(href='/about') about
-				a(href='/projects') projects
-				a(href='/blog') blog
-				a(href='/docs') docs
-	ul.navigation.navigation-site
-		li#home 
-			a(href='/') home
-		li#about
-			a(href='/about') about
-			.page-content
-				a(href='/about/#about-skills') skills
-				a(href='/about/#about-work') work
-				a(href='/about/#about-education') education
-		li#projects 
-			a(href='/projects') projects
-		li#blog 	
-			a(href='/blog') blog
-			.page-content
-				a(href='/blog/geo') geo
-				a(href='/blog/travel') travel
-		li#docs 
-			a(href='/docs') docs
-			.page-content
-				a(href='/docs/guide') guides
-				a(href='/docs/tutorial') tutorials
-			
+nav.mb-1.navbar-noznoc.navbar.navbar-expand-lg.position-fixed.col-lg-12.pl-lg-5.pr-lg-5
+	a.navbar-brand(href='/').ml-4 Julia Conzon
+	button.navbar-toggler.first-button(type='button' data-toggle='collapse' data-target='#navbar' aria-controls='navbar' aria-expanded='false' aria-label='Toggle navigation')
+		.animated-icon1
+			span
+			span
+			span
+		
+	#navbar.collapse.navbar-collapse
+		ul.navbar-nav.mr-auto
+			li#about.nav-item.dropdown
+				a.nav-link(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+					| about
+				.dropdown-menu.dropdown-default(aria-labelledby='about')
+					a.dropdown-item.col-xs-1(href='/about#skills') skills
+					a.dropdown-item.col-xs-1(href='/about#work') work
+					a.dropdown-item.col-xs-1(href='/about#education') education
+			li#projects.nav-item
+				a.nav-link(href='/projects') projects
+			li#blog.nav-item
+				a.nav-link(href='/blog') blog
+			li#docs.nav-item.dropdown
+				a.nav-link(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='/docs')
+					| docs
+				.dropdown-menu.dropdown-default(aria-labelledby='docs')
+					a.dropdown-item(href='/docs/guide') guides
+					a.dropdown-item(href='/docs/tutorial') tutorials
+		ul.navbar-nav.ml-auto.nav-flex-icons
+			li.nav-item.mr-lg-3.ml-lg-3
+				a.nav-link.waves-effect.waves-light(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='https://github.com/Noznoc' target='_blank', aria-label='GitHub')
+					i.icon.fa.fa-github-square.txt-mdm
+			li.nav-item.mr-lg-3.ml-lg-3
+				a.nav-link.waves-effect.waves-light(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='https://t.co/jMpBYPZXG0' target='_blank', aria-label='LinkedIn')
+					i.icon.fa.fa-linkedin-square.txt-mdm
+			li.nav-item.mr-lg-3.ml-lg-3
+				a.nav-link.waves-effect.waves-light(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='https://twitter.com/julconz?lang=en' target='_blank', aria-label='Twitter')
+					i.icon.fa.fa-twitter-square.txt-mdm
+			li.nav-item.mr-lg-3.ml-lg-3
+				a.nav-link.waves-effect.waves-light(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='https://www.openstreetmap.org/user/Noznoc' target='_blank', aria-label='OpenStreetMap')
+					i.icon.fa.fa-globe.txt-mdm
+
 	script.
 		if ('#{id}' == 'about') {
 			$('#about').addClass('active');
@@ -59,6 +51,39 @@ header.site-header
 		} else if ('#{id}' == 'home') {
 			$('#home').addClass('active');
 		}
+		
+		$('#about .nav-link').on('click', function(){
+			window.location.replace('/about')
+		})
+		
+		$('#docs .nav-link').on('click', function(){
+			window.location.replace('/docs')
+		})
+		
+		$('.dropdown').on('mouseover', function(){
+			$(this).find('.dropdown-menu').show()
+		})
+		
+		$('.dropdown').on('mouseleave', function(){
+			$(this).find('.dropdown-menu').hide()
+		})
+		
+		$(document).ready(function () {
+
+		  $('.first-button').on('click', function () {
+
+		    $('.animated-icon1').toggleClass('open');
+		  });
+		  $('.second-button').on('click', function () {
+
+		    $('.animated-icon2').toggleClass('open');
+		  });
+		  $('.third-button').on('click', function () {
+
+		    $('.animated-icon3').toggleClass('open');
+		  });
+		});
+		
 
 		(function($) {
 		    var $window = $(window),

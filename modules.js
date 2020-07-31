@@ -15,7 +15,7 @@ function blog(req, res, next){
 }
 
 function docs(req, res, next){
-    res.render('docs', {layout: 'docs', data: docData, id: 'docs', title: 'Documentation on my projects. Check out below!'});
+    res.render('docs', {layout: 'docs', data: docData, id: 'docs', title: 'Project documentation'});
 }
 
 function getData(req, res, next){
