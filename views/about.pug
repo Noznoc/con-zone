@@ -11,6 +11,7 @@ block content
 				button.button.m-2(name='skills') technical skills
 				button.button.m-2(name='work') work
 				button.button.m-2(name='education') education
+				button.button.m-2(name='awards') awards
 	.container#skills
 		h2.mt-5.mb-5.p-1 Technical Skills
 		.row.mb-1
@@ -73,11 +74,21 @@ block content
 		h2.mt-5.mb-5.p-1 Work
 		ul.list-simple
 			li 
+				strong.mb-1 June 2021 - Present
+				p.mt-1
+					i.highlight Casual / On-Call GIS Developer
+					|  for 
+					a.link Nauttiqsuqtiit Research and Monitoring Map
+					p Developed a participatory mapping platform with open source software (Nunaliit SDK) to collect geographic information for conservation priorities in parts of the Canadian Arctic. Currently facilitating collection with participating communities. Also developing static maps in QGIS for reports.
+			li 
 				strong.mb-1 August 2020 - Present
 				p.mt-1
 					i.highlight Senior GIScientist
 					|  at 
 					a.link(href='http://www.statcan.gc.ca/' target='_blank') Statistics Canada
+				p Lead GIScientist at Statistics Canada's Data Exploration and Integration Lab. Supporting projects that apply alternative methods for passive and active data collection (e.g., computer vision, image processing, crowdsourcing) and dissemination of geographic information and services. For example, I am leading the 
+							a.link(href='https://www150.statcan.gc.ca/n1/pub/71-607-x/71-607-x2020014-eng.htm' target='_blank') Linkable Open Data Environment (LODE) Viewer
+							| .
 			li 
 				strong.mb-1 January 2018 - August 2020
 				p.mt-1
@@ -161,6 +172,12 @@ block content
 				|  at Carleton University
 				p Department of Geography and Environment Studies, with a specialization in Data Science
 				p Community-based Geomatics 
+				p
+					strong Course Projects
+					| :
+				ul
+					li Developed Convolutional Neural Network binary classifier to predict if images of building exterior pathways are "accessible" or "inaccessible" for those dependent on wheeled mobility devices. Used class activation mapping to better interpret model predictions. The scripts and model architecture are available on 
+						a.link(hreg='https://github.com/Noznoc/access-classifier', target='_blank') GitHub.
 			li
 				p.mb-1 2012 - 2016
 				i.highlight Bachelor of Arts
@@ -177,15 +194,39 @@ block content
 					a.link(href='https://publications.mcgill.ca/reporter/2012/09/conzon-to-the-rescue-as-no-5-ranked-soccer-martlets-knocks-no-1-carabins-off-lofty-perch/', target='_blank') McGill Varsity Soccer Team (2012-2013)
 					| ; Maptime MTL (2015-2016)
 				p 
-					strong Projects
+					strong Course Projects
 					| :
 				ul 
-					li With Python, mined thousands of georeferenced tweets and then managed, analyzed, and visualized the spatial and temporal 
-					li Developed a front-end JavaScript web app that automatically crowdsourced, geocoded, and visualized spatially-referenced data
-					li Developed a web app that automatically scraped, standardized, and mapped Kijiji real-estate postings
-					li Designed an online survey, coded the data, and then spatially predicted where new dumpsters should be located in Montreal
-					li Ran a cost distance analysis that identified a new hiking path in North Vancouver
-
+					li With Python, mined thousands of georeferenced tweets and then managed, analyzed, and visualized the spatial and temporal.
+					li Developed a front-end JavaScript web app that automatically crowdsourced, geocoded, and visualized spatially-referenced data.
+					li Developed a web app that automatically scraped, standardized, and mapped Kijiji real-estate postings.
+					li Designed an online survey, coded the data, and then spatially predicted where new dumpsters should be located in Montreal.
+					li Ran a cost distance analysis that identified a new hiking path in North Vancouver.
+	.container#awards
+		h2.mt-5.mb-5.p-1 Awards
+		ul.list-simple
+			li
+				p.mb-1 October 2021
+				i.highlight Canadian Cartographic Association Best Student Presentation
+			li
+				p.mb-1 March 2021
+				i.highlight Carleton University Data Day Poster Fair Winner
+			li
+				p.mb-1 2020-2021
+				i.highlight Dean of Graduate Studies Entrance Scholarship for Domestic Students				
+			li
+				p.mb-1 2020-2021
+				i.highlight Duncan M. Anderson Graduate Scholarships in Geography & Environmental Studies
+			li
+				p.mb-1 2020-2021
+				i.highlight Carleton Graduate Scholarship
+			li
+				p.mb-1 December 2019
+				i.highlight Employment and Social Development Canada Assistant Deputy Minister Award for Excellence in Innovation
+			li
+				p.mb-1 2019
+				i.highlight Employment and Social Development Canada Deputy Minister Award for Excellence in Innovation
+				
 	script.
 		$('.button').on('click', function () {
 			var name = $(this).attr('name');
