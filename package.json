@@ -2,7 +2,7 @@
   "name": "con-zone",
   "version": "1.0.0",
   "engines": {
-    "node": "6.11.1"
+    "node": "^17.1"
   },
   "description": "Julia Conzon's website",
   "scripts": {
