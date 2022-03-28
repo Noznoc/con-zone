@@ -1,11 +1,9 @@
 extends layout.pug
 block content
 	.container(style='border:none;')
-		h1.title All code is accessible in my 
-			a.link(href='https://github.com/Noznoc', target='_blank') GitHub repos
-			| . Also, check out my 
-			a.link(href='/docs/tutorial', target='_blank') tutorials
-			| !
+		h1.title Projects
+		h4.title All code is available on 
+			a.link(href='https://github.com/Noznoc', target='_blank') GitHub
 		//- .row.pt-2.pb-2.d-flex.justify-content-around.m-2.p-1.col-md-12
 		//- 	img.img-fluid.col-2.rounded-circle.img-thumbnail.p-1(src='/images/pass_v0.1_round.PNG')
 		//- 	img.img-fluid.col-2.rounded-circle.img-thumbnail.p-1(src='/images/doc1-1.png')
@@ -19,9 +17,18 @@ block content
 		//- 	button.button.m-2(name='projects-3') StatCan
 		//- 	button.button.m-2(name='projects-2') GovEx
 		//- 	button.button.m-2(name='projects-1') PWYP
+		.container#projects-7
+			h2.mt-5.mb-5.p-1 Community Monitoring Programs
+			p Since 2020, I have been contributing to Arctic community-led and -based monitoring programs as a researcher for the 
+				a.link(href='https://gcrc.carleton.ca/index.html', target='_blank') Carleton University Geomatics and Cartographic Research Centre (GCRC)
+				| , primarily in collaboration with 
+				a.link(href='https://www.ittaq.ca/', target='_blank') Ittaq Heritage and Research Centre in Clyde River
+				| . Work is currently in progress!
+			.img-bin.pt-2.justify-content-around.row.d-flex
+				img.img-fluid.mt-2.mb-4.col-12(src='/images/clyde.JPG' alt='Clyde River')
 		.container#projects-6
 			h2.mt-5.mb-5.p-1 Towards Evaluating the Built Environment: A Hybridized Approach for Identifying Building Entrance Accessibility
-			.img-bin.pt-2.justify-content-around.row
+			.img-bin.pt-2.justify-content-around.row.d-flex
 				img.img-fluid.mt-2.mb-4.col-6(src='/images/access_0.png' alt='Example of an inaccessible building enterance')
 				img.img-fluid.mt-2.mb-4.col-6(src='/images/access_1.png' alt='Example of an accessible building enterance')
 			p In 2019, the Accessible Canada Act was legislated to ensure a barrier-free Canada by 2040. A priority of this act is to evaluate the built environment to determine if it is accessible and inclusive for all, thus ensuring there are no infrastructure barriers that impede those with mobility restrictions. However, currently there are data gaps on the infrastructure that make the built environment inaccessible for those with mobility disabilities. To mitigate these data disparities, I co-led a course project that leveraged open-source crowdsourced street-level images from Mapillary and convolutional neural networks (CNNs) to develop and test a binary image classifier that predicts whether building entrances are accessible or inaccessible. The "building entrance" images trained for the model, and later tested to assess the accuracy of the model, show the exterior facade of buildings with doors that are connected to an exterior pathway. Broadly defined, these images were classified as either “Accessible” or “Inaccessible.” The following objectives were completed: (1) compile a dataset of relevant street-level images; (2) develop, train, and test a sequential CNN binary image classifier. The CNN model, using a dataset of 823 images, demonstrated 81.97% training accuracy, and scored 85% accuracy when tested on 20 new images. Although the model could be further improved, through the refinement and expansion of the training dataset, results offer a promising direction towards evaluating the built environment for policymakers, city planners, and more. A Jupyter Notebook that details the workflow and model architecture is available on 
