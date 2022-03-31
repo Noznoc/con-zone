@@ -11,7 +11,7 @@ function projects(req, res, next){
 }
 
 function blog(req, res, next){
-    res.render('blog', {layout: 'blog', data: blogData, id: 'blog', title: 'Blog on my thoughts and experiences. Check out my blogs!'});
+    res.render('blog', {layout: 'blog', data: blogData, id: 'blog', title: 'Blog to share my thoughts'});
 }
 
 function docs(req, res, next){
